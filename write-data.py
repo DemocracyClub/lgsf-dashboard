@@ -5,7 +5,7 @@ from pathlib import Path
 
 import boto3
 
-client = boto3.client("codecommit")
+client = boto3.client("codecommit", region_name="eu-west-2")
 
 folders = client.get_folder(folderPath="/", repositoryName="CouncillorsRepo")[
     "subFolders"
