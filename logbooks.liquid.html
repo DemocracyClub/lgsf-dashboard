@@ -16,7 +16,7 @@ permalink: "logbooks/{{ logbook.council_id | slug | upcase }}/"
     }
 </style>
 
-{% assign log_runs = logbook.log_runs | sort: "start" %}
+{% assign log_runs = logbook.log_runs | sort: "start" | reverse %}
 
 {% for run in log_runs %}
   <h2 id="{{ run.start | date:"%Y-%m-%d-%H-%M" }}">{{ run.start | date:"%Y-%m-%d" }}</h2>
