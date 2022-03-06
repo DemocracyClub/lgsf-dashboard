@@ -1,0 +1,51 @@
+@mixin table {
+  .ds-table {
+    overflow-x: auto;
+  }
+
+  .ds-table table {
+    position: relative;
+    border-top: 0;
+    border-collapse: collapse;
+    min-width: 100%;
+    text-align: left;
+  }
+
+  .ds-table th, .ds-table td, .ds-table caption {
+    padding: $s1;
+  }
+
+  .ds-table caption {
+    padding-left: 0;
+  }
+
+  .ds-table td {
+    font-family: $familyBody;
+  }
+
+  .ds-table tr:nth-child(even) {
+    background-color: $blueLight;
+  }
+
+  .ds-table caption {
+    font-size: $s3;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid;
+  }
+
+  .ds-table caption > * {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  .ds-table td + td,
+  .ds-table th + th,
+  .ds-table th + td {
+    border-left: 1px solid;
+  }
+
+  .ds-table th:not([scope="row"]) {
+    border-bottom: 1px solid;
+  }
+}

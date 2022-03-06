@@ -1,0 +1,52 @@
+---
+layout: base.liquid
+pagination:
+  data: logbooks
+  size: 1
+  alias: logbook
+permalink: "logbooks/{{ logbook.council_id | slug | upcase }}/"
+---
+
+<style>
+
+    pre {
+        height:400px;
+        overflow-x: scroll;
+        width:100%
+    }
+</style>
+
+{% assign log_runs = logbook.log_runs | sort: "start" %}
+
+{% for run in log_runs %}
+  <h2 id="{{ run.start | date:"%Y-%m-%d-%H-%M" }}">{{ run.start | date:"%Y-%m-%d" }}</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>{{ run.duration }} seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>{{ run.start }}</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>{{ run.end }}</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>{{ run.status_code }}</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>{{ run.errors }}</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>{{ run.log_text }}</pre>
+{% endfor %}

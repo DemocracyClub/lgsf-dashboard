@@ -1,0 +1,126 @@
+@mixin type {
+  input,
+  button,
+  select {
+    font: inherit;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  *:focus {
+    outline: $ss2 solid $amber;
+  }
+
+  header, main, footer, nav, aside, section, details, summary {
+    display: block;
+  }
+
+  img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  code {
+    color: $black;
+    background-color: $blackOpacity;
+    word-break: break-word;
+    padding: 0 $ss3;
+  }
+
+  div:focus,
+  [tabindex="-1"]:focus,
+  body:focus {
+    outline: none;
+  }
+
+  .ds-skip-link {
+    position: absolute;
+    top: -5rem;
+    display: inline-block;
+    padding: $s1;
+    background-color: $white;
+  }
+
+  .ds-skip-link:focus {
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+
+  p, blockquote {
+    @include fontBody;
+  }
+
+  // successive paragraphs are immune to Stack
+  p + p {
+    margin-top: $s1 !important;
+  }
+
+  blockquote {
+    font-size: $s3;
+    font-style: italic;
+    border-left: $ss4 solid $amber;
+    padding-left: $s1;
+  }
+
+  p, li, dt, dd, blockquote,
+  h1, h2, h3, h4, h5, h6 {
+    max-width: $measure;
+  }
+
+  small {
+    font-size: $ss7;
+  }
+
+  h1, .ds-h1,
+  h2, .ds-h2,
+  h3, .ds-h3
+  h4, .ds-h4 {
+    word-break: break-word;
+
+  }
+
+  h1, .ds-h1 { font-size: $s7; font-size: clamp(#{$s4}, 7vw, #{$s7}); }
+  h2, .ds-h2 { font-size: $s6; font-size: clamp(#{$s4}, 6vw, #{$s6}); }
+  h3, .ds-h3 { font-size: $s5; font-size: clamp(#{$s3}, 5vw, #{$s5}); }
+  h4, .ds-h4 { font-size: $s4; font-size: clamp(#{$s2}, 4vw, #{$s4}); }
+  h5, .ds-h5 { font-size: $s3; font-size: clamp(#{$s1}, 3vw, #{$s3}); }
+  h6, .ds-h6 { font-size: $s2; font-size: clamp(#{$ss6}, 2vw, #{$s2}); }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    word-break: break-word;
+  }
+
+  h1, h2 {
+    font-weight: 300;
+  }
+
+  a {
+    color: $pinkForWhite;
+    text-decoration: underline;
+  }
+
+  ul, ol {
+    @include fontBody;
+    padding-left: $s4;
+  }
+
+  ul[class], ol[class],
+  [class] > ul:first-child,
+  [class] > ol:first-child {
+    @include fontMain;
+    padding-left: 0;
+  }
+
+  dd {
+    @include fontBody;
+    margin-left: $s3;
+  }
+
+  dl > * + * {
+    margin-top: $ss6;
+  }
+}

@@ -1,0 +1,72 @@
+---
+layout: base.liquid
+title: All logbooks
+---
+<h1>All log runs</h1>
+<form>
+  <label class="ds-field-checkbox">
+    <input type="checkbox" name="filter-failing" id="filter_failing">
+    <span>Filing only</span>
+  </label>
+</form>
+<table class="ds-table" id="logbooks">
+  <thead>
+    <tr>
+      <th>Council ID</th>
+      <th>Status</th>
+      <th>Run times</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for logbook in logbooks %}
+      {% assign last_run = logbook.log_runs|last %}
+      <tr class="status-{{ logbook.log_runs.0.status_code }}">
+        <td><a href="logbooks/{{ logbook.council_id }}">{{ logbook.council_id }}</a></td>
+        <td>{{ last_run.status_code }}</td>
+        <td>
+          <div class="run-graph">
+            {% for run in logbook.log_runs %}
+              <a href="/logbooks/{{ logbook.council_id }}#{{ run.start | date:"%Y-%m-%d-%H-%M" }}" class="status-{{ run.status_code }}">
+                <div class="duration" style="height:{{ run.duration | divided_by: 600 | times: 100 }}%"></div>
+              </a>
+            {% endfor %}
+          </div>
+        </td>
+        {% comment %}<td>{{ last_run.errors }}</td>{% endcomment %}
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+<script>
+    function filter_table(filter_checkbox) {
+
+      // var input, filter, table, tr, td, i, txtValue;
+      table = document.getElementById("logbooks");
+      tr = table.getElementsByTagName("tr");
+
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+
+          txtValue = td.textContent || td.innerText;
+
+          if (txtValue == "200" && filter_checkbox.checked) {
+            tr[i].style.display = "none";
+          } else {
+            tr[i].style.display = "";
+          }
+        }
+      }
+    }
+
+
+    failing_checkbox = document.getElementById("filter_failing");
+
+    failing_checkbox.addEventListener('change', function() {
+      filter_table(this);
+    });
+    filter_table(failing_checkbox)
+
+</script>
