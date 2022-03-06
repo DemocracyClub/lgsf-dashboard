@@ -21,12 +21,12 @@ title: All logbooks
     {% for logbook in logbooks %}
       {% assign last_run = logbook.log_runs|last %}
       <tr class="status-{{ logbook.log_runs.0.status_code }}">
-        <td><a href="logbooks/{{ logbook.council_id }}">{{ logbook.council_id }}</a></td>
+        <td><a href="{{ '/logbooks/' | url }}{{ logbook.council_id }}">{{ logbook.council_id }}</a></td>
         <td>{{ last_run.status_code }}</td>
         <td>
           <div class="run-graph">
             {% for run in logbook.log_runs %}
-              <a href="/logbooks/{{ logbook.council_id }}#{{ run.start | date:"%Y-%m-%d-%H-%M" }}" class="status-{{ run.status_code }}">
+              <a href="{{ '/logbooks/' | url }}{{ logbook.council_id }}#{{ run.start | date:"%Y-%m-%d-%H-%M" }}" class="status-{{ run.status_code }}">
                 <div class="duration" style="height:{{ run.duration | divided_by: 600 | times: 100 }}%"></div>
               </a>
             {% endfor %}
