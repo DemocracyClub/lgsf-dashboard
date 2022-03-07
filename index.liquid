@@ -20,7 +20,7 @@ title: All logbooks
   <tbody>
     {% for logbook in logbooks %}
       {% assign last_run = logbook.log_runs|last %}
-      <tr class="status-{{ logbook.log_runs.0.status_code }}">
+      <tr class="status-{{ last_run.status_code }}">
         <td><a href="{{ '/logbooks/' | url }}{{ logbook.council_id }}">{{ logbook.council_id }}</a></td>
         <td>{{ last_run.status_code }}</td>
         <td>
