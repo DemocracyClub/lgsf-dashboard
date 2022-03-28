@@ -42,6 +42,51 @@
 
 
 
+  <h2 id="2022-03-27-12-05">2022-03-27</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>13 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-03-27 12:05:52.398707</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-03-27 12:06:05.726050</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>200</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>An error occurred (ThrottlingException) when calling the CreateCommit operation (reached max retries: 4): Rate exceeded</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:05:52] Fetching Scraper for: IPS                              handlers.py:22
+           Begin attempting to scrape: IPS                        handlers.py:25
+           Deleting existing data...                                 base.py:234
+           Getting all files in IPS...                               base.py:186
+           IPS Does not exist                                        base.py:206
+           ...no data to delete.                                     base.py:238
+           Scraping from https://democracy.ipswich.gov.uk/mgWebServic base.py:40
+           e.asmx/GetCouncillorsByWard                                          
+[12:05:56] Committing batch 1 consisting of 92 files                 base.py:269
+[12:06:02] An error occurred (ThrottlingException) when calling   handlers.py:34
+           the CreateCommit operation (reached max retries: 4):                 
+           Rate exceeded                                                        
+           Committing batch 1 consisting of 92 files                 base.py:269
+[12:06:05] Finished attempting to scrape: IPS                        base.py:319
+</pre>
+
   <h2 id="2022-03-26-11-44">2022-03-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -941,46 +986,6 @@
            e.asmx/GetCouncillorsByWard                                          
 [12:05:16] Committing batch 1 consisting of 92 files                 base.py:269
 [12:05:17] Finished attempting to scrape: IPS                        base.py:319
-</pre>
-
-  <h2 id="2022-03-06-18-22">2022-03-06</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>14 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-06 18:22:05.397209</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-06 18:22:19.763439</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>200</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>An error occurred (InvalidTargetBranchException) when calling the MergeBranchesBySquash operation: Target branch parameter must point to either source or destination tip commit. Verify your target branch value is valid and then try again</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[18:22:16] Created log commit                                        base.py:376
-           3689e0de111168f0b237437362ecbe518eac0077                             
-           Attempting to create merge commit...                      base.py:281
-[18:22:19] An error occurred (InvalidTargetBranchException) when  handlers.py:34
-           calling the MergeBranchesBySquash operation: Target                  
-           branch parameter must point to either source or                      
-           destination tip commit. Verify your target branch                    
-           value is valid and then try again                                    
-           Finished attempting to scrape: IPS                        base.py:319
 </pre>
 
 
