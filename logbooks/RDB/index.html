@@ -42,6 +42,47 @@
 
 
 
+  <h2 id="2022-04-01-11-28">2022-04-01</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>22 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-01 11:28:44.176164</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-01 11:29:06.794054</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>200</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>An error occurred (ConcurrentReferenceUpdateException) when calling the MergeBranchesBySquash operation: The merge cannot be completed because the following branch has been modified: refs/heads/main. Another user might have modified this branch while the merge was in progress. Wait a few minutes, and then try again.</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:28:58] Created log commit                                        base.py:376
+           00547239561414d7b85efc680cc60b2b6b84455d                             
+           Attempting to create merge commit...                      base.py:281
+[11:29:06] An error occurred (ConcurrentReferenceUpdateException) handlers.py:34
+           when calling the MergeBranchesBySquash operation: The                
+           merge cannot be completed because the following branch               
+           has been modified: refs/heads/main. Another user might               
+           have modified this branch while the merge was in                     
+           progress. Wait a few minutes, and then try again.                    
+           Finished attempting to scrape: RDB                        base.py:319
+</pre>
+
   <h2 id="2022-03-31-12-05">2022-03-31</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -959,58 +1000,6 @@
            Rate exceeded                                                        
 [00:03:51] No new councillor data found.                             base.py:317
            Finished attempting to scrape: RDB                        base.py:319
-</pre>
-
-  <h2 id="2022-03-11-11-42">2022-03-11</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>27 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-11 11:42:53.330598</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-11 11:43:20.850688</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>200</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>An error occurred (ThrottlingException) when calling the CreateCommit operation (reached max retries: 4): Rate exceeded</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:42:53] Fetching Scraper for: RDB                              handlers.py:22
-           Begin attempting to scrape: RDB                        handlers.py:25
-           Deleting existing data...                                 base.py:234
-[11:42:54] Getting all files in RDB...                               base.py:186
-           Getting all files in RDB/json...                          base.py:186
-           ...found 63 files in RDB/json                             base.py:202
-           Getting all files in RDB/raw...                           base.py:186
-           ...found 63 files in RDB/raw                              base.py:202
-           ...found 127 files in RDB                                 base.py:202
-           Deleting batch no. 1 consisting of 100 files              base.py:211
-[11:42:58] Deleting batch no. 2 consisting of 27 files               base.py:211
-[11:43:03] ...data deleted.                                          base.py:241
-           Scraping from http://moderngov.redbridge.gov.uk/mgWebServi base.py:40
-           ce.asmx/GetCouncillorsByWard                                         
-[11:43:05] Committing batch 1 consisting of 92 files                 base.py:269
-[11:43:07] Committing batch 2 consisting of 34 files                 base.py:269
-[11:43:19] An error occurred (ThrottlingException) when calling   handlers.py:34
-           the CreateCommit operation (reached max retries: 4):                 
-           Rate exceeded                                                        
-           Committing batch 2 consisting of 34 files                 base.py:269
-[11:43:20] Finished attempting to scrape: RDB                        base.py:319
 </pre>
 
 

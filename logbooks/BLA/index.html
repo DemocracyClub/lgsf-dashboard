@@ -42,6 +42,56 @@
 
 
 
+  <h2 id="2022-04-01-11-42">2022-04-01</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>14 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-01 11:42:48.598204</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-01 11:43:02.671942</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>200</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>An error occurred (ThrottlingException) when calling the CreateCommit operation (reached max retries: 4): Rate exceeded</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:42:48] Fetching Scraper for: BLA                              handlers.py:22
+           Begin attempting to scrape: BLA                        handlers.py:25
+           Deleting existing data...                                 base.py:234
+[11:42:49] Getting all files in BLA...                               base.py:186
+           Getting all files in BLA/json...                          base.py:186
+           ...found 39 files in BLA/json                             base.py:202
+           Getting all files in BLA/raw...                           base.py:186
+[11:42:50] ...found 39 files in BLA/raw                              base.py:202
+           ...found 79 files in BLA                                  base.py:202
+           Deleting batch no. 1 consisting of 79 files               base.py:211
+[11:42:52] ...data deleted.                                          base.py:241
+           Scraping from https://w3.blaby.gov.uk/decision-making/mgWe base.py:40
+           bService.asmx/GetCouncillorsByWard                                   
+[11:42:55] Committing batch 1 consisting of 78 files                 base.py:269
+[11:42:58] An error occurred (ThrottlingException) when calling   handlers.py:34
+           the CreateCommit operation (reached max retries: 4):                 
+           Rate exceeded                                                        
+           Committing batch 1 consisting of 78 files                 base.py:269
+[11:43:02] Finished attempting to scrape: BLA                        base.py:319
+</pre>
+
   <h2 id="2022-03-31-11-35">2022-03-31</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -906,46 +956,6 @@
            3bc663f66d8463c6c9c9287c70e672d1e724a2c0                             
            Attempting to create merge commit...                      base.py:281
 [11:15:54] An error occurred (InvalidTargetBranchException) when  handlers.py:34
-           calling the MergeBranchesBySquash operation: Target                  
-           branch parameter must point to either source or                      
-           destination tip commit. Verify your target branch                    
-           value is valid and then try again                                    
-           Finished attempting to scrape: BLA                        base.py:319
-</pre>
-
-  <h2 id="2022-03-13-00-16">2022-03-13</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>18 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-13 00:16:33.578210</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-13 00:16:52.359469</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>200</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>An error occurred (InvalidTargetBranchException) when calling the MergeBranchesBySquash operation: Target branch parameter must point to either source or destination tip commit. Verify your target branch value is valid and then try again</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[00:16:47] Created log commit                                        base.py:376
-           c63f47db883beba367513c75a157a0537cf1ba59                             
-           Attempting to create merge commit...                      base.py:281
-[00:16:52] An error occurred (InvalidTargetBranchException) when  handlers.py:34
            calling the MergeBranchesBySquash operation: Target                  
            branch parameter must point to either source or                      
            destination tip commit. Verify your target branch                    
