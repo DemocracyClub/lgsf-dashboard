@@ -42,6 +42,56 @@
 
 
 
+  <h2 id="2022-04-02-11-40">2022-04-02</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>27 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-02 11:40:11.584253</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-02 11:40:38.938745</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>200</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>An error occurred (ThrottlingException) when calling the CreateCommit operation (reached max retries: 4): Rate exceeded</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:40:11] Fetching Scraper for: BRD                              handlers.py:22
+           Begin attempting to scrape: BRD                        handlers.py:25
+           Deleting existing data...                                 base.py:234
+           Getting all files in BRD...                               base.py:186
+[11:40:12] Getting all files in BRD/json...                          base.py:186
+           ...found 46 files in BRD/json                             base.py:202
+           Getting all files in BRD/raw...                           base.py:186
+           ...found 46 files in BRD/raw                              base.py:202
+           ...found 93 files in BRD                                  base.py:202
+           Deleting batch no. 1 consisting of 93 files               base.py:211
+[11:40:15] ...data deleted.                                          base.py:241
+           Scraping from https://bradford.moderngov.co.uk/mgWebServic base.py:40
+           e.asmx/GetCouncillorsByWard                                          
+[11:40:21] Committing batch 1 consisting of 92 files                 base.py:269
+[11:40:32] An error occurred (ThrottlingException) when calling   handlers.py:34
+           the CreateCommit operation (reached max retries: 4):                 
+           Rate exceeded                                                        
+           Committing batch 1 consisting of 92 files                 base.py:269
+[11:40:38] Finished attempting to scrape: BRD                        base.py:319
+</pre>
+
   <h2 id="2022-04-01-11-36">2022-04-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -972,46 +1022,6 @@
 [00:05:45] Committing batch 1 consisting of 92 files                 base.py:269
 [00:05:47] Committing batch 2 consisting of 88 files                 base.py:269
 [00:05:48] Finished attempting to scrape: BRD                        base.py:319
-</pre>
-
-  <h2 id="2022-03-13-12-05">2022-03-13</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>22 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-13 12:05:19.609456</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-13 12:05:41.787261</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>200</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>An error occurred (InvalidTargetBranchException) when calling the MergeBranchesBySquash operation: Target branch parameter must point to either source or destination tip commit. Verify your target branch value is valid and then try again</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:05:33] Created log commit                                        base.py:376
-           e8904ac230121d471f433ce964af4d2772137be9                             
-           Attempting to create merge commit...                      base.py:281
-[12:05:41] An error occurred (InvalidTargetBranchException) when  handlers.py:34
-           calling the MergeBranchesBySquash operation: Target                  
-           branch parameter must point to either source or                      
-           destination tip commit. Verify your target branch                    
-           value is valid and then try again                                    
-           Finished attempting to scrape: BRD                        base.py:319
 </pre>
 
 

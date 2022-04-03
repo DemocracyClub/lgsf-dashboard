@@ -42,6 +42,56 @@
 
 
 
+  <h2 id="2022-04-02-11-33">2022-04-02</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>24 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-02 11:33:29.640522</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-02 11:33:53.832505</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>200</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>An error occurred (ThrottlingException) when calling the CreateCommit operation (reached max retries: 4): Rate exceeded</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:33:29] Fetching Scraper for: STH                              handlers.py:22
+           Begin attempting to scrape: STH                        handlers.py:25
+           Deleting existing data...                                 base.py:234
+[11:33:30] Getting all files in STH...                               base.py:186
+           Getting all files in STH/json...                          base.py:186
+           ...found 47 files in STH/json                             base.py:202
+           Getting all files in STH/raw...                           base.py:186
+[11:33:31] ...found 47 files in STH/raw                              base.py:202
+           ...found 95 files in STH                                  base.py:202
+           Deleting batch no. 1 consisting of 95 files               base.py:211
+[11:33:35] ...data deleted.                                          base.py:241
+           Scraping from https://www.southampton.gov.uk/modernGov//mg base.py:40
+           WebService.asmx/GetCouncillorsByWard                                 
+[11:33:37] Committing batch 1 consisting of 92 files                 base.py:269
+[11:33:52] An error occurred (ThrottlingException) when calling   handlers.py:34
+           the CreateCommit operation (reached max retries: 4):                 
+           Rate exceeded                                                        
+           Committing batch 1 consisting of 92 files                 base.py:269
+[11:33:53] Finished attempting to scrape: STH                        base.py:319
+</pre>
+
   <h2 id="2022-04-01-11-40">2022-04-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -936,46 +986,6 @@
 [11:58:53] Committing batch 1 consisting of 92 files                 base.py:269
 [11:59:01] Committing batch 2 consisting of 4 files                  base.py:269
 [11:59:06] Finished attempting to scrape: STH                        base.py:319
-</pre>
-
-  <h2 id="2022-03-13-00-00">2022-03-13</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>19 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-13 00:00:11.799149</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-13 00:00:31.176391</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>200</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>An error occurred (InvalidTargetBranchException) when calling the MergeBranchesBySquash operation: Target branch parameter must point to either source or destination tip commit. Verify your target branch value is valid and then try again</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[00:00:26] Created log commit                                        base.py:376
-           ba2c0bb1a2d2c606178e316e5cc28630bee8edc3                             
-           Attempting to create merge commit...                      base.py:281
-[00:00:30] An error occurred (InvalidTargetBranchException) when  handlers.py:34
-           calling the MergeBranchesBySquash operation: Target                  
-           branch parameter must point to either source or                      
-           destination tip commit. Verify your target branch                    
-           value is valid and then try again                                    
-[00:00:31] Finished attempting to scrape: STH                        base.py:319
 </pre>
 
 
