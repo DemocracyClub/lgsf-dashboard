@@ -42,6 +42,56 @@
 
 
 
+  <h2 id="2022-04-03-11-24">2022-04-03</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>22 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-03 11:24:58.919212</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-03 11:25:21.702081</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>200</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>An error occurred (ThrottlingException) when calling the CreateCommit operation (reached max retries: 4): Rate exceeded</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:24:58] Fetching Scraper for: WIL                              handlers.py:22
+           Begin attempting to scrape: WIL                        handlers.py:25
+[11:24:59] Deleting existing data...                                 base.py:234
+           Getting all files in WIL...                               base.py:186
+           Getting all files in WIL/raw...                           base.py:186
+[11:25:00] ...found 85 files in WIL/raw                              base.py:202
+           ...found 86 files in WIL                                  base.py:202
+           Deleting batch no. 1 consisting of 86 files               base.py:211
+[11:25:01] ...data deleted.                                          base.py:241
+           Scraping from http://cms.wiltshire.gov.uk/mgWebService.asm base.py:40
+           x/GetCouncillorsByWard                                               
+[11:25:07] Committing batch 1 consisting of 92 files                 base.py:269
+[11:25:12] Committing batch 2 consisting of 92 files                 base.py:269
+[11:25:14] Committing batch 3 consisting of 12 files                 base.py:269
+[11:25:20] An error occurred (ThrottlingException) when calling   handlers.py:34
+           the CreateCommit operation (reached max retries: 4):                 
+           Rate exceeded                                                        
+           Committing batch 3 consisting of 12 files                 base.py:269
+[11:25:21] Finished attempting to scrape: WIL                        base.py:319
+</pre>
+
   <h2 id="2022-04-02-12-10">2022-04-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -931,46 +981,6 @@
            have modified this branch while the merge was in                     
            progress. Wait a few minutes, and then try again.                    
            Finished attempting to scrape: WIL                        base.py:319
-</pre>
-
-  <h2 id="2022-03-14-11-54">2022-03-14</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>26 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-14 11:54:02.889809</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-14 11:54:29.308788</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>200</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>An error occurred (InvalidTargetBranchException) when calling the MergeBranchesBySquash operation: Target branch parameter must point to either source or destination tip commit. Verify your target branch value is valid and then try again</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:54:23] Created log commit                                        base.py:376
-           73d8163a25f793fb1906d8147d04d8308f74a428                             
-           Attempting to create merge commit...                      base.py:281
-[11:54:28] An error occurred (InvalidTargetBranchException) when  handlers.py:34
-           calling the MergeBranchesBySquash operation: Target                  
-           branch parameter must point to either source or                      
-           destination tip commit. Verify your target branch                    
-           value is valid and then try again                                    
-[11:54:29] Finished attempting to scrape: WIL                        base.py:319
 </pre>
 
 

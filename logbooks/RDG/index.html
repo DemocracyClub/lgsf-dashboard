@@ -42,6 +42,56 @@
 
 
 
+  <h2 id="2022-04-04-00-03">2022-04-04</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>21 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-04 00:03:03.817667</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-04 00:03:25.635077</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>200</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>An error occurred (ThrottlingException) when calling the CreateCommit operation (reached max retries: 4): Rate exceeded</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[00:03:03] Fetching Scraper for: RDG                              handlers.py:22
+           Begin attempting to scrape: RDG                        handlers.py:25
+           Deleting existing data...                                 base.py:234
+[00:03:04] Getting all files in RDG...                               base.py:186
+           Getting all files in RDG/json...                          base.py:186
+[00:03:05] ...found 46 files in RDG/json                             base.py:202
+           Getting all files in RDG/raw...                           base.py:186
+           ...found 46 files in RDG/raw                              base.py:202
+           ...found 93 files in RDG                                  base.py:202
+           Deleting batch no. 1 consisting of 93 files               base.py:211
+[00:03:10] ...data deleted.                                          base.py:241
+           Scraping from http://democracy.reading.gov.uk/mgWebService base.py:40
+           .asmx/GetCouncillorsByWard                                           
+[00:03:13] Committing batch 1 consisting of 92 files                 base.py:269
+[00:03:23] An error occurred (ThrottlingException) when calling   handlers.py:34
+           the CreateCommit operation (reached max retries: 4):                 
+           Rate exceeded                                                        
+           Committing batch 1 consisting of 92 files                 base.py:269
+[00:03:25] Finished attempting to scrape: RDG                        base.py:319
+</pre>
+
   <h2 id="2022-04-02-11-15">2022-04-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -938,52 +988,6 @@
            .asmx/GetCouncillorsByWard                                           
 [11:24:24] Committing batch 1 consisting of 92 files                 base.py:269
 [11:24:30] Finished attempting to scrape: RDG                        base.py:319
-</pre>
-
-  <h2 id="2022-03-14-11-26">2022-03-14</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>10 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-14 11:26:00.901261</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-14 11:26:11.285259</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd></dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>An error occurred (ThrottlingException) when calling the CreateCommit operation (reached max retries: 4): Rate exceeded</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:26:00] Fetching Scraper for: RDG                              handlers.py:22
-           Begin attempting to scrape: RDG                        handlers.py:25
-[11:26:01] Deleting existing data...                                 base.py:234
-[11:26:02] Getting all files in RDG...                               base.py:186
-           Getting all files in RDG/json...                          base.py:186
-           ...found 46 files in RDG/json                             base.py:202
-           Getting all files in RDG/raw...                           base.py:186
-           ...found 46 files in RDG/raw                              base.py:202
-           ...found 93 files in RDG                                  base.py:202
-           Deleting batch no. 1 consisting of 93 files               base.py:211
-[11:26:10] An error occurred (ThrottlingException) when calling   handlers.py:34
-           the CreateCommit operation (reached max retries: 4):                 
-           Rate exceeded                                                        
-[11:26:11] No new councillor data found.                             base.py:317
-           Finished attempting to scrape: RDG                        base.py:319
 </pre>
 
 
