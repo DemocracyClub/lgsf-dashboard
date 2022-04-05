@@ -42,6 +42,51 @@
 
 
 
+  <h2 id="2022-04-05-00-06">2022-04-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>13 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-05 00:06:33.169455</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-05 00:06:47.052972</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd></dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>An error occurred (ThrottlingException) when calling the CreateCommit operation (reached max retries: 4): Rate exceeded</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[00:06:33] Fetching Scraper for: BAR                              handlers.py:22
+           Begin attempting to scrape: BAR                        handlers.py:25
+           Deleting existing data...                                 base.py:234
+           Getting all files in BAR...                               base.py:186
+           Getting all files in BAR/json...                          base.py:186
+           ...found 35 files in BAR/json                             base.py:202
+           Getting all files in BAR/raw...                           base.py:186
+           ...found 35 files in BAR/raw                              base.py:202
+           ...found 71 files in BAR                                  base.py:202
+           Deleting batch no. 1 consisting of 71 files               base.py:211
+[00:06:46] An error occurred (ThrottlingException) when calling   handlers.py:34
+           the CreateCommit operation (reached max retries: 4):                 
+           Rate exceeded                                                        
+[00:06:47] Finished attempting to scrape: BAR                        base.py:319
+</pre>
+
   <h2 id="2022-04-03-11-37">2022-04-03</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -918,47 +963,6 @@
            branch parameter must point to either source or                      
            destination tip commit. Verify your target branch                    
            value is valid and then try again                                    
-           Finished attempting to scrape: BAR                        base.py:319
-</pre>
-
-  <h2 id="2022-03-14-11-28">2022-03-14</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>23 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-14 11:28:40.488913</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-14 11:29:04.443021</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>200</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>An error occurred (ConcurrentReferenceUpdateException) when calling the MergeBranchesBySquash operation: The merge cannot be completed because the following branch has been modified: refs/heads/main. Another user might have modified this branch while the merge was in progress. Wait a few minutes, and then try again.</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:28:58] Created log commit                                        base.py:376
-           dfc11c669b7449e4c16f0c1d35ffe4067c6c9e4d                             
-           Attempting to create merge commit...                      base.py:281
-[11:29:04] An error occurred (ConcurrentReferenceUpdateException) handlers.py:34
-           when calling the MergeBranchesBySquash operation: The                
-           merge cannot be completed because the following branch               
-           has been modified: refs/heads/main. Another user might               
-           have modified this branch while the merge was in                     
-           progress. Wait a few minutes, and then try again.                    
            Finished attempting to scrape: BAR                        base.py:319
 </pre>
 

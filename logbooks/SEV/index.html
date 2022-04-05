@@ -42,6 +42,92 @@
 
 
 
+  <h2 id="2022-04-04-11-42">2022-04-04</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>6 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-04 11:42:42.205825</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-04 11:42:48.727577</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd></dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>An error occurred (ThrottlingException) when calling the CreateCommit operation (reached max retries: 4): Rate exceeded</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:42:42] Fetching Scraper for: SEV                              handlers.py:22
+           Begin attempting to scrape: SEV                        handlers.py:25
+           Deleting existing data...                                 base.py:234
+           Getting all files in SEV...                               base.py:186
+           Getting all files in SEV/json...                          base.py:186
+           ...found 52 files in SEV/json                             base.py:202
+           Getting all files in SEV/raw...                           base.py:186
+           ...found 52 files in SEV/raw                              base.py:202
+           ...found 105 files in SEV                                 base.py:202
+           Deleting batch no. 1 consisting of 100 files              base.py:211
+[11:42:44] Deleting batch no. 2 consisting of 5 files                base.py:211
+[11:42:48] An error occurred (ThrottlingException) when calling   handlers.py:34
+           the CreateCommit operation (reached max retries: 4):                 
+           Rate exceeded                                                        
+           Finished attempting to scrape: SEV                        base.py:319
+</pre>
+
+  <h2 id="2022-04-04-11-24">2022-04-04</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>26 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-04 11:24:31.898858</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-04 11:24:58.251170</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>200</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>An error occurred (InvalidTargetBranchException) when calling the MergeBranchesBySquash operation: Target branch parameter must point to either source or destination tip commit. Verify your target branch value is valid and then try again</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:24:53] Created log commit                                        base.py:376
+           a599d1087c13e33b2b3db67e6ec8026ac6bb1780                             
+           Attempting to create merge commit...                      base.py:281
+[11:24:57] An error occurred (InvalidTargetBranchException) when  handlers.py:34
+           calling the MergeBranchesBySquash operation: Target                  
+           branch parameter must point to either source or                      
+           destination tip commit. Verify your target branch                    
+           value is valid and then try again                                    
+[11:24:58] Finished attempting to scrape: SEV                        base.py:319
+</pre>
+
   <h2 id="2022-04-03-11-28">2022-04-03</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -916,100 +1002,6 @@
 [00:01:43] Committing batch 1 consisting of 92 files                 base.py:269
 [00:01:45] Committing batch 2 consisting of 14 files                 base.py:269
 [00:01:47] Finished attempting to scrape: SEV                        base.py:319
-</pre>
-
-  <h2 id="2022-03-15-11-18">2022-03-15</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>26 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-15 11:18:16.427391</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-15 11:18:42.824321</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>200</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>An error occurred (ThrottlingException) when calling the CreateCommit operation (reached max retries: 4): Rate exceeded</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:18:16] Fetching Scraper for: SEV                              handlers.py:22
-           Begin attempting to scrape: SEV                        handlers.py:25
-           Deleting existing data...                                 base.py:234
-[11:18:17] Getting all files in SEV...                               base.py:186
-           Getting all files in SEV/raw...                           base.py:186
-           ...found 7 files in SEV/raw                               base.py:202
-           ...found 8 files in SEV                                   base.py:202
-           Deleting batch no. 1 consisting of 8 files                base.py:211
-[11:18:19] ...data deleted.                                          base.py:241
-           Scraping from http://cds.sevenoaks.gov.uk/mgWebService.asm base.py:40
-           x/GetCouncillorsByWard                                               
-[11:18:26] Committing batch 1 consisting of 92 files                 base.py:269
-[11:18:35] An error occurred (ThrottlingException) when calling   handlers.py:34
-           the CreateCommit operation (reached max retries: 4):                 
-           Rate exceeded                                                        
-           Committing batch 1 consisting of 92 files                 base.py:269
-[11:18:42] Finished attempting to scrape: SEV                        base.py:319
-</pre>
-
-  <h2 id="2022-03-14-11-15">2022-03-14</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-14 11:15:50.538687</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-14 11:15:56.223926</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd></dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>An error occurred (ThrottlingException) when calling the CreateCommit operation (reached max retries: 4): Rate exceeded</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:15:50] Fetching Scraper for: SEV                              handlers.py:22
-           Begin attempting to scrape: SEV                        handlers.py:25
-           Deleting existing data...                                 base.py:234
-[11:15:51] Getting all files in SEV...                               base.py:186
-           Getting all files in SEV/json...                          base.py:186
-           ...found 53 files in SEV/json                             base.py:202
-           Getting all files in SEV/raw...                           base.py:186
-[11:15:52] ...found 53 files in SEV/raw                              base.py:202
-           ...found 107 files in SEV                                 base.py:202
-           Deleting batch no. 1 consisting of 100 files              base.py:211
-[11:15:53] Deleting batch no. 2 consisting of 7 files                base.py:211
-[11:15:55] An error occurred (ThrottlingException) when calling   handlers.py:34
-           the CreateCommit operation (reached max retries: 4):                 
-           Rate exceeded                                                        
-[11:15:56] Finished attempting to scrape: SEV                        base.py:319
 </pre>
 
 

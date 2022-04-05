@@ -42,6 +42,52 @@
 
 
 
+  <h2 id="2022-04-04-11-29">2022-04-04</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-04 11:29:59.493278</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-04 11:30:07.824012</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd></dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>An error occurred (ThrottlingException) when calling the CreateCommit operation (reached max retries: 4): Rate exceeded</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:29:59] Fetching Scraper for: SGC                              handlers.py:22
+           Begin attempting to scrape: SGC                        handlers.py:25
+           Deleting existing data...                                 base.py:234
+           Getting all files in SGC...                               base.py:186
+           Getting all files in SGC/json...                          base.py:186
+[11:30:00] ...found 61 files in SGC/json                             base.py:202
+           Getting all files in SGC/raw...                           base.py:186
+           ...found 61 files in SGC/raw                              base.py:202
+           ...found 123 files in SGC                                 base.py:202
+           Deleting batch no. 1 consisting of 100 files              base.py:211
+[11:30:07] An error occurred (ThrottlingException) when calling   handlers.py:34
+           the CreateCommit operation (reached max retries: 4):                 
+           Rate exceeded                                                        
+           No new councillor data found.                             base.py:317
+           Finished attempting to scrape: SGC                        base.py:319
+</pre>
+
   <h2 id="2022-04-04-00-04">2022-04-04</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -943,47 +989,6 @@
 [11:51:37] Committing batch 1 consisting of 92 files                 base.py:269
 [11:51:41] Committing batch 2 consisting of 30 files                 base.py:269
 [11:51:43] Finished attempting to scrape: SGC                        base.py:319
-</pre>
-
-  <h2 id="2022-03-15-00-01">2022-03-15</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>25 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-15 00:01:55.333658</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-15 00:02:20.729748</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>200</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>An error occurred (ConcurrentReferenceUpdateException) when calling the MergeBranchesBySquash operation: The merge cannot be completed because the following branch has been modified: refs/heads/main. Another user might have modified this branch while the merge was in progress. Wait a few minutes, and then try again.</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[00:02:14] Created log commit                                        base.py:376
-           21ca71d37ee2b2d1b03aa1f3ca1033751efc5513                             
-           Attempting to create merge commit...                      base.py:281
-[00:02:20] An error occurred (ConcurrentReferenceUpdateException) handlers.py:34
-           when calling the MergeBranchesBySquash operation: The                
-           merge cannot be completed because the following branch               
-           has been modified: refs/heads/main. Another user might               
-           have modified this branch while the merge was in                     
-           progress. Wait a few minutes, and then try again.                    
-           Finished attempting to scrape: SGC                        base.py:319
 </pre>
 
 
