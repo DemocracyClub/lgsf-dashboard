@@ -53,8 +53,8 @@ class LogRun:
     def from_code_commit(cls: "LogRun", json_data):
         data = json.loads(json_data)
         status_code = None
-        if data["status_codes"]:
-            status_code = list(data["status_codes"].keys())[0]
+        if "status_code" in  data:
+            status_code = data["status_code"]
         return cls(
             status_code=status_code,
             log_text=data["log"],
