@@ -1,0 +1,1504 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Page title</title>
+    <link rel="stylesheet"  href="/lgsf-dashboard/assets/css/styles.css">
+    <style>
+
+
+
+    </style>
+
+  </head>
+  <body>
+
+
+
+    <div class="ds-page">
+      <a class="ds-skip-link" href="#main">skip to content</a>
+
+      <header class="ds-header">
+        <a class="ds-skip-link" href="#main">skip to content</a>
+        <a class="ds-logo" href="/lgsf-dashboard/">
+          <img src="https://DemocracyClub.github.io/design-system/images/logo_icon.svg" alt="" />
+          <span>LGSF Logbooks</span>
+        </a>
+
+      </header>
+
+
+      <main id="main" tabindex="-1" class="ds-stack">
+
+        
+<style>
+
+    pre {
+        height:400px;
+        overflow-x: scroll;
+        width:100%
+    }
+</style>
+
+
+
+
+  <h2 id="2022-04-21-16-14">2022-04-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>4 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-21 16:14:04.910136</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-21 16:14:09.090632</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fbad158b730>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fbad158b730>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/KEC-kensington-and-chelsea/councillors.py", line 16, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 115, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fbad158b730>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[16:14:04] Fetching Scraper for: KEC                              handlers.py:23
+           Begin attempting to scrape: KEC                        handlers.py:27
+[16:14:05] Deleting existing data...                                 base.py:228
+           Getting all files in KEC...                               base.py:180
+           ...found 1 files in KEC                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[16:14:06] ...data deleted.                                          base.py:235
+           Scraping from https://www.rbkc.gov.uk/council-and-democrac base.py:40
+           y/councillors-and-committees/councillors/cllrs-ward/counci           
+           llors-and-their-wards                                                
+[16:14:08] Scraping from https://www.rbkc.gov.ukhttps://www.rbkc.gov. base.py:40
+           uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid           
+           /384/id/421/ScreenMode/Alphabetical/Default.aspx                     
+           HTTPSConnectionPool(host='www.rbkc.gov.ukhttps',       handlers.py:36
+           port=443): Max retries exceeded with url: //www.rbkc.g               
+           ov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Per               
+           son/mid/384/id/421/ScreenMode/Alphabetical/Default.asp               
+           x (Caused by NewConnectionError('<urllib3.connection.H               
+           TTPSConnection object at 0x7fbad158b730>: Failed to                  
+           establish a new connection: [Errno -2] Name or service               
+           not known'))                                                         
+[16:14:09] Finished attempting to scrape: KEC                        base.py:313
+</pre>
+
+  <h2 id="2022-04-20-13-10">2022-04-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>21 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-20 13:10:21.762657</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-20 13:10:43.147104</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fd6f05f65b0>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fd6f05f65b0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/KEC-kensington-and-chelsea/councillors.py", line 16, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 115, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fd6f05f65b0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:10:21] Fetching Scraper for: KEC                              handlers.py:23
+           Begin attempting to scrape: KEC                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[13:10:22] Getting all files in KEC...                               base.py:180
+           ...found 1 files in KEC                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[13:10:23] ...data deleted.                                          base.py:235
+           Scraping from https://www.rbkc.gov.uk/council-and-democrac base.py:40
+           y/councillors-and-committees/councillors/cllrs-ward/counci           
+           llors-and-their-wards                                                
+[13:10:42] Scraping from https://www.rbkc.gov.ukhttps://www.rbkc.gov. base.py:40
+           uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid           
+           /384/id/421/ScreenMode/Alphabetical/Default.aspx                     
+           HTTPSConnectionPool(host='www.rbkc.gov.ukhttps',       handlers.py:36
+           port=443): Max retries exceeded with url: //www.rbkc.g               
+           ov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Per               
+           son/mid/384/id/421/ScreenMode/Alphabetical/Default.asp               
+           x (Caused by NewConnectionError('<urllib3.connection.H               
+           TTPSConnection object at 0x7fd6f05f65b0>: Failed to                  
+           establish a new connection: [Errno -2] Name or service               
+           not known'))                                                         
+[13:10:43] Finished attempting to scrape: KEC                        base.py:313
+</pre>
+
+  <h2 id="2022-04-19-11-32">2022-04-19</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>39 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-19 11:32:33.471070</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-19 11:33:13.222811</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f05b2e59eb0>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f05b2e59eb0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/KEC-kensington-and-chelsea/councillors.py", line 16, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 115, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f05b2e59eb0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:32:33] Fetching Scraper for: KEC                              handlers.py:23
+           Begin attempting to scrape: KEC                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[11:32:34] Getting all files in KEC...                               base.py:180
+           ...found 1 files in KEC                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[11:32:35] ...data deleted.                                          base.py:235
+           Scraping from https://www.rbkc.gov.uk/council-and-democrac base.py:40
+           y/councillors-and-committees/councillors/cllrs-ward/counci           
+           llors-and-their-wards                                                
+[11:33:12] Scraping from https://www.rbkc.gov.ukhttps://www.rbkc.gov. base.py:40
+           uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid           
+           /384/id/421/ScreenMode/Alphabetical/Default.aspx                     
+           HTTPSConnectionPool(host='www.rbkc.gov.ukhttps',       handlers.py:36
+           port=443): Max retries exceeded with url: //www.rbkc.g               
+           ov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Per               
+           son/mid/384/id/421/ScreenMode/Alphabetical/Default.asp               
+           x (Caused by NewConnectionError('<urllib3.connection.H               
+           TTPSConnection object at 0x7f05b2e59eb0>: Failed to                  
+           establish a new connection: [Errno -2] Name or service               
+           not known'))                                                         
+[11:33:13] Finished attempting to scrape: KEC                        base.py:313
+</pre>
+
+  <h2 id="2022-04-18-16-03">2022-04-18</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>6 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-18 16:03:02.293511</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-18 16:03:08.924978</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7ff3837eb700>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7ff3837eb700>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/KEC-kensington-and-chelsea/councillors.py", line 16, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 115, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7ff3837eb700>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[16:03:02] Fetching Scraper for: KEC                              handlers.py:23
+           Begin attempting to scrape: KEC                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[16:03:03] Getting all files in KEC...                               base.py:180
+           ...found 1 files in KEC                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[16:03:04] ...data deleted.                                          base.py:235
+           Scraping from https://www.rbkc.gov.uk/council-and-democrac base.py:40
+           y/councillors-and-committees/councillors/cllrs-ward/counci           
+           llors-and-their-wards                                                
+[16:03:08] Scraping from https://www.rbkc.gov.ukhttps://www.rbkc.gov. base.py:40
+           uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid           
+           /384/id/421/ScreenMode/Alphabetical/Default.aspx                     
+           HTTPSConnectionPool(host='www.rbkc.gov.ukhttps',       handlers.py:36
+           port=443): Max retries exceeded with url: //www.rbkc.g               
+           ov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Per               
+           son/mid/384/id/421/ScreenMode/Alphabetical/Default.asp               
+           x (Caused by NewConnectionError('<urllib3.connection.H               
+           TTPSConnection object at 0x7ff3837eb700>: Failed to                  
+           establish a new connection: [Errno -2] Name or service               
+           not known'))                                                         
+           Finished attempting to scrape: KEC                        base.py:313
+</pre>
+
+  <h2 id="2022-04-17-15-14">2022-04-17</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-17 15:14:48.746069</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-17 15:14:54.682852</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f464e697b50>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f464e697b50>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/KEC-kensington-and-chelsea/councillors.py", line 16, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 115, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f464e697b50>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:14:48] Fetching Scraper for: KEC                              handlers.py:23
+           Begin attempting to scrape: KEC                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[15:14:49] Getting all files in KEC...                               base.py:180
+           ...found 1 files in KEC                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[15:14:50] ...data deleted.                                          base.py:235
+           Scraping from https://www.rbkc.gov.uk/council-and-democrac base.py:40
+           y/councillors-and-committees/councillors/cllrs-ward/counci           
+           llors-and-their-wards                                                
+[15:14:54] Scraping from https://www.rbkc.gov.ukhttps://www.rbkc.gov. base.py:40
+           uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid           
+           /384/id/421/ScreenMode/Alphabetical/Default.aspx                     
+           HTTPSConnectionPool(host='www.rbkc.gov.ukhttps',       handlers.py:36
+           port=443): Max retries exceeded with url: //www.rbkc.g               
+           ov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Per               
+           son/mid/384/id/421/ScreenMode/Alphabetical/Default.asp               
+           x (Caused by NewConnectionError('<urllib3.connection.H               
+           TTPSConnection object at 0x7f464e697b50>: Failed to                  
+           establish a new connection: [Errno -2] Name or service               
+           not known'))                                                         
+           Finished attempting to scrape: KEC                        base.py:313
+</pre>
+
+  <h2 id="2022-04-16-13-01">2022-04-16</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>4 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-16 13:01:18.285301</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-16 13:01:22.982049</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fb9dfc4cf70>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fb9dfc4cf70>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/KEC-kensington-and-chelsea/councillors.py", line 16, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 115, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fb9dfc4cf70>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:01:18] Fetching Scraper for: KEC                              handlers.py:23
+           Begin attempting to scrape: KEC                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+           Getting all files in KEC...                               base.py:180
+[13:01:19] ...found 1 files in KEC                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[13:01:20] ...data deleted.                                          base.py:235
+           Scraping from https://www.rbkc.gov.uk/council-and-democrac base.py:40
+           y/councillors-and-committees/councillors/cllrs-ward/counci           
+           llors-and-their-wards                                                
+[13:01:22] Scraping from https://www.rbkc.gov.ukhttps://www.rbkc.gov. base.py:40
+           uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid           
+           /384/id/421/ScreenMode/Alphabetical/Default.aspx                     
+           HTTPSConnectionPool(host='www.rbkc.gov.ukhttps',       handlers.py:36
+           port=443): Max retries exceeded with url: //www.rbkc.g               
+           ov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Per               
+           son/mid/384/id/421/ScreenMode/Alphabetical/Default.asp               
+           x (Caused by NewConnectionError('<urllib3.connection.H               
+           TTPSConnection object at 0x7fb9dfc4cf70>: Failed to                  
+           establish a new connection: [Errno -2] Name or service               
+           not known'))                                                         
+           Finished attempting to scrape: KEC                        base.py:313
+</pre>
+
+  <h2 id="2022-04-15-13-49">2022-04-15</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>6 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-15 13:49:29.412264</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-15 13:49:36.076964</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fa5932ad910>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa5932ad910>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/KEC-kensington-and-chelsea/councillors.py", line 16, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 115, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa5932ad910>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:49:29] Fetching Scraper for: KEC                              handlers.py:23
+           Begin attempting to scrape: KEC                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[13:49:30] Getting all files in KEC...                               base.py:180
+           ...found 1 files in KEC                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[13:49:31] ...data deleted.                                          base.py:235
+           Scraping from https://www.rbkc.gov.uk/council-and-democrac base.py:40
+           y/councillors-and-committees/councillors/cllrs-ward/counci           
+           llors-and-their-wards                                                
+[13:49:35] Scraping from https://www.rbkc.gov.ukhttps://www.rbkc.gov. base.py:40
+           uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid           
+           /384/id/421/ScreenMode/Alphabetical/Default.aspx                     
+           HTTPSConnectionPool(host='www.rbkc.gov.ukhttps',       handlers.py:36
+           port=443): Max retries exceeded with url: //www.rbkc.g               
+           ov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Per               
+           son/mid/384/id/421/ScreenMode/Alphabetical/Default.asp               
+           x (Caused by NewConnectionError('<urllib3.connection.H               
+           TTPSConnection object at 0x7fa5932ad910>: Failed to                  
+           establish a new connection: [Errno -2] Name or service               
+           not known'))                                                         
+[13:49:36] Finished attempting to scrape: KEC                        base.py:313
+</pre>
+
+  <h2 id="2022-04-14-14-45">2022-04-14</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>6 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-14 14:45:57.941014</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-14 14:46:03.945771</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7ff1cbe35910>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7ff1cbe35910>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/KEC-kensington-and-chelsea/councillors.py", line 16, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 115, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7ff1cbe35910>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:45:57] Fetching Scraper for: KEC                              handlers.py:23
+           Begin attempting to scrape: KEC                        handlers.py:27
+[14:45:58] Deleting existing data...                                 base.py:228
+           Getting all files in KEC...                               base.py:180
+           ...found 1 files in KEC                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[14:45:59] ...data deleted.                                          base.py:235
+           Scraping from https://www.rbkc.gov.uk/council-and-democrac base.py:40
+           y/councillors-and-committees/councillors/cllrs-ward/counci           
+           llors-and-their-wards                                                
+[14:46:03] Scraping from https://www.rbkc.gov.ukhttps://www.rbkc.gov. base.py:40
+           uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid           
+           /384/id/421/ScreenMode/Alphabetical/Default.aspx                     
+           HTTPSConnectionPool(host='www.rbkc.gov.ukhttps',       handlers.py:36
+           port=443): Max retries exceeded with url: //www.rbkc.g               
+           ov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Per               
+           son/mid/384/id/421/ScreenMode/Alphabetical/Default.asp               
+           x (Caused by NewConnectionError('<urllib3.connection.H               
+           TTPSConnection object at 0x7ff1cbe35910>: Failed to                  
+           establish a new connection: [Errno -2] Name or service               
+           not known'))                                                         
+           Finished attempting to scrape: KEC                        base.py:313
+</pre>
+
+  <h2 id="2022-04-14-14-03">2022-04-14</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>62 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-14 14:03:50.793569</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-14 14:04:53.689853</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f97e588ab20>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f97e588ab20>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/KEC-kensington-and-chelsea/councillors.py", line 16, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 115, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f97e588ab20>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:03:50] Fetching Scraper for: KEC                              handlers.py:23
+           Begin attempting to scrape: KEC                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[14:03:51] Getting all files in KEC...                               base.py:180
+           ...found 1 files in KEC                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[14:03:52] ...data deleted.                                          base.py:235
+           Scraping from https://www.rbkc.gov.uk/council-and-democrac base.py:40
+           y/councillors-and-committees/councillors/cllrs-ward/counci           
+           llors-and-their-wards                                                
+[14:04:53] Scraping from https://www.rbkc.gov.ukhttps://www.rbkc.gov. base.py:40
+           uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid           
+           /384/id/421/ScreenMode/Alphabetical/Default.aspx                     
+           HTTPSConnectionPool(host='www.rbkc.gov.ukhttps',       handlers.py:36
+           port=443): Max retries exceeded with url: //www.rbkc.g               
+           ov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Per               
+           son/mid/384/id/421/ScreenMode/Alphabetical/Default.asp               
+           x (Caused by NewConnectionError('<urllib3.connection.H               
+           TTPSConnection object at 0x7f97e588ab20>: Failed to                  
+           establish a new connection: [Errno -2] Name or service               
+           not known'))                                                         
+           Finished attempting to scrape: KEC                        base.py:313
+</pre>
+
+  <h2 id="2022-04-13-12-09">2022-04-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>21 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-13 12:09:13.685155</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-13 12:09:35.088318</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f1e3cd926d0>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f1e3cd926d0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/KEC-kensington-and-chelsea/councillors.py", line 16, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 115, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f1e3cd926d0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:09:13] Fetching Scraper for: KEC                              handlers.py:23
+           Begin attempting to scrape: KEC                        handlers.py:26
+           Deleting existing data...                                 base.py:228
+[12:09:14] Getting all files in KEC...                               base.py:180
+           ...found 1 files in KEC                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[12:09:15] ...data deleted.                                          base.py:235
+           Scraping from https://www.rbkc.gov.uk/council-and-democrac base.py:40
+           y/councillors-and-committees/councillors/cllrs-ward/counci           
+           llors-and-their-wards                                                
+[12:09:34] Scraping from https://www.rbkc.gov.ukhttps://www.rbkc.gov. base.py:40
+           uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid           
+           /384/id/421/ScreenMode/Alphabetical/Default.aspx                     
+           HTTPSConnectionPool(host='www.rbkc.gov.ukhttps',       handlers.py:35
+           port=443): Max retries exceeded with url: //www.rbkc.g               
+           ov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Per               
+           son/mid/384/id/421/ScreenMode/Alphabetical/Default.asp               
+           x (Caused by NewConnectionError('<urllib3.connection.H               
+           TTPSConnection object at 0x7f1e3cd926d0>: Failed to                  
+           establish a new connection: [Errno -2] Name or service               
+           not known'))                                                         
+[12:09:35] Finished attempting to scrape: KEC                        base.py:313
+</pre>
+
+  <h2 id="2022-04-12-13-24">2022-04-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>14 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-12 13:24:32.805912</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-12 13:24:47.100126</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f46a5c10d30>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f46a5c10d30>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/KEC-kensington-and-chelsea/councillors.py", line 16, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 115, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f46a5c10d30>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:24:32] Fetching Scraper for: KEC                              handlers.py:23
+           Begin attempting to scrape: KEC                        handlers.py:26
+           Deleting existing data...                                 base.py:228
+[13:24:33] Getting all files in KEC...                               base.py:180
+           ...found 1 files in KEC                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[13:24:34] ...data deleted.                                          base.py:235
+           Scraping from https://www.rbkc.gov.uk/council-and-democrac base.py:40
+           y/councillors-and-committees/councillors/cllrs-ward/counci           
+           llors-and-their-wards                                                
+[13:24:46] Scraping from https://www.rbkc.gov.ukhttps://www.rbkc.gov. base.py:40
+           uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid           
+           /384/id/421/ScreenMode/Alphabetical/Default.aspx                     
+           HTTPSConnectionPool(host='www.rbkc.gov.ukhttps',       handlers.py:35
+           port=443): Max retries exceeded with url: //www.rbkc.g               
+           ov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Per               
+           son/mid/384/id/421/ScreenMode/Alphabetical/Default.asp               
+           x (Caused by NewConnectionError('<urllib3.connection.H               
+           TTPSConnection object at 0x7f46a5c10d30>: Failed to                  
+           establish a new connection: [Errno -2] Name or service               
+           not known'))                                                         
+[13:24:47] Finished attempting to scrape: KEC                        base.py:313
+</pre>
+
+  <h2 id="2022-04-11-13-23">2022-04-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-11 13:23:18.199765</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-11 13:23:26.472961</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fd9aa5b1790>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fd9aa5b1790>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/KEC-kensington-and-chelsea/councillors.py", line 16, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 115, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fd9aa5b1790>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:23:18] Fetching Scraper for: KEC                              handlers.py:23
+           Begin attempting to scrape: KEC                        handlers.py:26
+           Deleting existing data...                                 base.py:228
+           Getting all files in KEC...                               base.py:180
+[13:23:19] ...found 1 files in KEC                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[13:23:20] ...data deleted.                                          base.py:235
+           Scraping from https://www.rbkc.gov.uk/council-and-democrac base.py:40
+           y/councillors-and-committees/councillors/cllrs-ward/counci           
+           llors-and-their-wards                                                
+[13:23:26] Scraping from https://www.rbkc.gov.ukhttps://www.rbkc.gov. base.py:40
+           uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid           
+           /384/id/421/ScreenMode/Alphabetical/Default.aspx                     
+           HTTPSConnectionPool(host='www.rbkc.gov.ukhttps',       handlers.py:35
+           port=443): Max retries exceeded with url: //www.rbkc.g               
+           ov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Per               
+           son/mid/384/id/421/ScreenMode/Alphabetical/Default.asp               
+           x (Caused by NewConnectionError('<urllib3.connection.H               
+           TTPSConnection object at 0x7fd9aa5b1790>: Failed to                  
+           establish a new connection: [Errno -2] Name or service               
+           not known'))                                                         
+           Finished attempting to scrape: KEC                        base.py:313
+</pre>
+
+  <h2 id="2022-04-11-12-11">2022-04-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>7 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-11 12:11:34.354870</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-11 12:11:41.757432</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f2e25558a60>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2e25558a60>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/KEC-kensington-and-chelsea/councillors.py", line 16, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 115, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.rbkc.gov.ukhttps', port=443): Max retries exceeded with url: //www.rbkc.gov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid/384/id/421/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2e25558a60>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:11:34] Fetching Scraper for: KEC                              handlers.py:23
+           Begin attempting to scrape: KEC                        handlers.py:26
+           Deleting existing data...                                 base.py:228
+[12:11:35] Getting all files in KEC...                               base.py:180
+           KEC Does not exist                                        base.py:200
+           ...no data to delete.                                     base.py:232
+           Scraping from https://www.rbkc.gov.uk/council-and-democrac base.py:40
+           y/councillors-and-committees/councillors/cllrs-ward/counci           
+           llors-and-their-wards                                                
+[12:11:41] Scraping from https://www.rbkc.gov.ukhttps://www.rbkc.gov. base.py:40
+           uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Person/mid           
+           /384/id/421/ScreenMode/Alphabetical/Default.aspx                     
+           HTTPSConnectionPool(host='www.rbkc.gov.ukhttps',       handlers.py:35
+           port=443): Max retries exceeded with url: //www.rbkc.g               
+           ov.uk/committees/Councillors/tabid/62/ctl/ViewCMIS_Per               
+           son/mid/384/id/421/ScreenMode/Alphabetical/Default.asp               
+           x (Caused by NewConnectionError('<urllib3.connection.H               
+           TTPSConnection object at 0x7f2e25558a60>: Failed to                  
+           establish a new connection: [Errno -2] Name or service               
+           not known'))                                                         
+           Finished attempting to scrape: KEC                        base.py:313
+</pre>
+
+
+      </main>
+      <footer class="ds-footer">...</footer>
+    </div>
+  </body>

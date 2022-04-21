@@ -1,0 +1,2254 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Page title</title>
+    <link rel="stylesheet"  href="/lgsf-dashboard/assets/css/styles.css">
+    <style>
+
+
+
+    </style>
+
+  </head>
+  <body>
+
+
+
+    <div class="ds-page">
+      <a class="ds-skip-link" href="#main">skip to content</a>
+
+      <header class="ds-header">
+        <a class="ds-skip-link" href="#main">skip to content</a>
+        <a class="ds-logo" href="/lgsf-dashboard/">
+          <img src="https://DemocracyClub.github.io/design-system/images/logo_icon.svg" alt="" />
+          <span>LGSF Logbooks</span>
+        </a>
+
+      </header>
+
+
+      <main id="main" tabindex="-1" class="ds-stack">
+
+        
+<style>
+
+    pre {
+        height:400px;
+        overflow-x: scroll;
+        width:100%
+    }
+</style>
+
+
+
+
+  <h2 id="2022-04-21-19-11">2022-04-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>131 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-21 19:11:30.683134</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-21 19:13:42.682437</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fb18df85fa0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fb18df85fa0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fb18df85fa0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[19:11:30] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[19:11:31] Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[19:11:32] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[19:13:42] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7fb18df85fa0>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+           Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-21-18-36">2022-04-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-21 18:36:31.228182</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-21 18:38:43.493847</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fb18d3d6220>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fb18d3d6220>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fb18d3d6220>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[18:36:31] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+           Getting all files in SAW...                               base.py:180
+[18:36:32] ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[18:36:33] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[18:38:43] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7fb18d3d6220>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+           Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-21-15-55">2022-04-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>133 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-21 15:55:45.014299</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-21 15:57:58.455434</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fbad237aa60>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fbad237aa60>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fbad237aa60>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:55:45] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+           Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[15:55:46] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[15:57:58] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7fbad237aa60>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+           Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-21-15-30">2022-04-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-21 15:30:25.908047</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-21 15:32:38.851168</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fbad1e98460>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fbad1e98460>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fbad1e98460>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:30:25] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+[15:30:26] Deleting existing data...                                 base.py:228
+           Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[15:30:27] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[15:32:38] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7fbad1e98460>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+           Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-21-13-48">2022-04-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-21 13:48:21.223456</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-21 13:50:33.743612</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fea713df5e0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fea713df5e0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fea713df5e0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:48:21] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+           Getting all files in SAW...                               base.py:180
+[13:48:22] ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[13:48:23] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[13:50:33] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7fea713df5e0>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+           Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-21-13-04">2022-04-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-21 13:04:22.943578</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-21 13:06:35.882349</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fea72382100>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fea72382100>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fea72382100>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:04:22] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+[13:04:23] Deleting existing data...                                 base.py:228
+           Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[13:04:24] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[13:06:35] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7fea72382100>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+           Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-21-10-41">2022-04-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-21 10:41:09.250891</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-21 10:43:21.708409</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f623d7c0580>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f623d7c0580>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f623d7c0580>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:41:09] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[10:41:10] Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[10:41:11] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[10:43:21] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7f623d7c0580>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+           Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-21-09-36">2022-04-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-21 09:36:36.643571</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-21 09:38:48.714985</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5e1e392fd0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5e1e392fd0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5e1e392fd0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:36:36] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[09:36:37] Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[09:36:38] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[09:38:48] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7f5e1e392fd0>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+           Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-21-08-24">2022-04-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-21 08:24:06.516202</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-21 08:26:18.877760</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5e1e8db310>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5e1e8db310>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5e1e8db310>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:24:06] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[08:24:07] Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[08:24:08] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[08:26:18] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7f5e1e8db310>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+           Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-21-04-48">2022-04-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>133 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-21 04:48:27.807131</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-21 04:50:41.393047</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f53a6b59760>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f53a6b59760>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f53a6b59760>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[04:48:27] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[04:48:28] Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[04:48:29] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[04:50:40] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7f53a6b59760>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+[04:50:41] Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-21-01-59">2022-04-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>133 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-21 01:59:35.653741</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-21 02:01:48.670225</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f4677367cd0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f4677367cd0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f4677367cd0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[01:59:35] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[01:59:36] Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[01:59:37] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[02:01:48] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7f4677367cd0>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+           Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-21-01-01">2022-04-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-21 01:01:05.684411</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-21 01:03:18.392300</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f46771c66a0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f46771c66a0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f46771c66a0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[01:01:05] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[01:01:06] Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[01:01:07] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[01:03:17] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7f46771c66a0>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+[01:03:18] Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-20-22-07">2022-04-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-20 22:07:05.421625</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-20 22:09:18.055796</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f6c88a41310>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f6c88a41310>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f6c88a41310>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[22:07:05] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[22:07:06] Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[22:07:07] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[22:09:17] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7f6c88a41310>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+[22:09:18] Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-20-20-19">2022-04-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-20 20:19:33.543658</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-20 20:21:45.578172</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5877eb2940>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5877eb2940>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5877eb2940>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[20:19:33] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[20:19:34] Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[20:19:35] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[20:21:45] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7f5877eb2940>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+           Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-20-19-12">2022-04-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-20 19:12:40.191024</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-20 19:14:52.946848</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fd448f32e50>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fd448f32e50>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fd448f32e50>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[19:12:40] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+           Getting all files in SAW...                               base.py:180
+[19:12:41] ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[19:12:42] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[19:14:52] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7fd448f32e50>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+           Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-20-17-28">2022-04-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>133 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-20 17:28:35.420341</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-20 17:30:49.065795</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5f9718c400>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5f9718c400>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5f9718c400>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[17:28:35] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[17:28:36] Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[17:28:37] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[17:30:48] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7f5f9718c400>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+[17:30:49] Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-20-17-09">2022-04-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-20 17:09:35.364152</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-20 17:11:48.314497</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5f973cb280>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5f973cb280>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5f973cb280>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[17:09:35] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[17:09:36] Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[17:09:37] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[17:11:47] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7f5f973cb280>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+[17:11:48] Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-20-16-53">2022-04-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>133 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-20 16:53:34.689569</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-20 16:55:47.743329</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5f972131f0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5f972131f0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5f972131f0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[16:53:34] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[16:53:35] Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[16:53:36] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[16:55:47] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7f5f972131f0>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+           Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-20-16-33">2022-04-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>131 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-20 16:33:35.747055</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-20 16:35:47.645897</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5f9708ac10>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5f9708ac10>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5f9708ac10>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[16:33:35] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[16:33:36] Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[16:33:37] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[16:35:47] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7f5f9708ac10>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+           Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-20-16-27">2022-04-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-20 16:27:03.685242</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-20 16:29:16.471329</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f5f96a05820>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5f96a05820>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5f96a05820>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[16:27:03] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[16:27:04] Getting all files in SAW...                               base.py:180
+           ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[16:27:05] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[16:29:16] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7f5f96a05820>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+           Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+  <h2 id="2022-04-20-07-56">2022-04-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>131 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-20 07:56:10.159812</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-20 07:58:21.821178</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f9aca7e0c10>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f9aca7e0c10>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.sandwell.gov.uk', port=443): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f9aca7e0c10>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[07:56:10] Fetching Scraper for: SAW                              handlers.py:23
+           Begin attempting to scrape: SAW                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+           Getting all files in SAW...                               base.py:180
+[07:56:11] ...found 1 files in SAW                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[07:56:12] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.sandwell.gov.uk/cmis5/People/ta base.py:40
+           bid/62/ScreenMode/Alphabetical/Default.aspx                          
+[07:58:21] HTTPSConnectionPool(host='cmis.sandwell.gov.uk',       handlers.py:36
+           port=443): Max retries exceeded with url: /cmis5/Peopl               
+           e/tabid/62/ScreenMode/Alphabetical/Default.aspx                      
+           (Caused by NewConnectionError('<urllib3.connection.HTT               
+           PSConnection object at 0x7f9aca7e0c10>: Failed to                    
+           establish a new connection: [Errno 110] Connection                   
+           timed out'))                                                         
+           Finished attempting to scrape: SAW                        base.py:313
+</pre>
+
+
+      </main>
+      <footer class="ds-footer">...</footer>
+    </div>
+  </body>

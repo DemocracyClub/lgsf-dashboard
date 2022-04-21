@@ -42,6 +42,1150 @@
 
 
 
+  <h2 id="2022-04-12-09-22">2022-04-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-12 09:22:13.901067</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-12 09:24:26.492647</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fa2582c6100>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa2582c6100>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa2582c6100>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:22:13] Fetching Scraper for: NTH                              handlers.py:23
+           Begin attempting to scrape: NTH                        handlers.py:26
+[09:22:14] Deleting existing data...                                 base.py:228
+           Getting all files in NTH...                               base.py:180
+           ...found 1 files in NTH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[09:22:15] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
+           ve/Councillors.aspx                                                  
+[09:24:26] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:35
+           ', port=443): Max retries exceeded with url:                         
+           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
+           ror('<urllib3.connection.HTTPSConnection object at                   
+           0x7fa2582c6100>: Failed to establish a new connection:               
+           [Errno 110] Connection timed out'))                                  
+           Finished attempting to scrape: NTH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-12-08-45">2022-04-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>133 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-12 08:45:02.766789</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-12 08:47:16.144661</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fa258adad00>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa258adad00>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa258adad00>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:45:02] Fetching Scraper for: NTH                              handlers.py:23
+           Begin attempting to scrape: NTH                        handlers.py:26
+           Deleting existing data...                                 base.py:228
+[08:45:03] Getting all files in NTH...                               base.py:180
+           ...found 1 files in NTH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[08:45:04] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
+           ve/Councillors.aspx                                                  
+[08:47:15] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:35
+           ', port=443): Max retries exceeded with url:                         
+           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
+           ror('<urllib3.connection.HTTPSConnection object at                   
+           0x7fa258adad00>: Failed to establish a new connection:               
+           [Errno 110] Connection timed out'))                                  
+[08:47:16] Finished attempting to scrape: NTH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-12-06-37">2022-04-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-12 06:37:57.912696</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-12 06:40:10.263294</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fa1f6452580>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa1f6452580>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa1f6452580>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[06:37:57] Fetching Scraper for: NTH                              handlers.py:23
+           Begin attempting to scrape: NTH                        handlers.py:26
+[06:37:58] Deleting existing data...                                 base.py:228
+           Getting all files in NTH...                               base.py:180
+           ...found 1 files in NTH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[06:37:59] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
+           ve/Councillors.aspx                                                  
+[06:40:09] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:35
+           ', port=443): Max retries exceeded with url:                         
+           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
+           ror('<urllib3.connection.HTTPSConnection object at                   
+           0x7fa1f6452580>: Failed to establish a new connection:               
+           [Errno 110] Connection timed out'))                                  
+[06:40:10] Finished attempting to scrape: NTH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-12-05-58">2022-04-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-12 05:58:34.206920</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-12 06:00:46.914383</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fa1f6ad79a0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa1f6ad79a0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa1f6ad79a0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[05:58:34] Fetching Scraper for: NTH                              handlers.py:23
+           Begin attempting to scrape: NTH                        handlers.py:26
+           Deleting existing data...                                 base.py:228
+           Getting all files in NTH...                               base.py:180
+[05:58:35] ...found 1 files in NTH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+           ...data deleted.                                          base.py:235
+           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
+           ve/Councillors.aspx                                                  
+[06:00:46] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:35
+           ', port=443): Max retries exceeded with url:                         
+           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
+           ror('<urllib3.connection.HTTPSConnection object at                   
+           0x7fa1f6ad79a0>: Failed to establish a new connection:               
+           [Errno 110] Connection timed out'))                                  
+           Finished attempting to scrape: NTH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-12-01-27">2022-04-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-12 01:27:22.583423</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-12 01:29:34.589383</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f807e945fa0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f807e945fa0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f807e945fa0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[01:27:22] Fetching Scraper for: NTH                              handlers.py:23
+           Begin attempting to scrape: NTH                        handlers.py:26
+           Deleting existing data...                                 base.py:228
+[01:27:23] Getting all files in NTH...                               base.py:180
+           ...found 1 files in NTH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[01:27:24] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
+           ve/Councillors.aspx                                                  
+[01:29:34] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:35
+           ', port=443): Max retries exceeded with url:                         
+           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
+           ror('<urllib3.connection.HTTPSConnection object at                   
+           0x7f807e945fa0>: Failed to establish a new connection:               
+           [Errno 110] Connection timed out'))                                  
+           Finished attempting to scrape: NTH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-11-21-04">2022-04-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>131 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-11 21:04:14.963196</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-11 21:06:26.883694</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f501cbaa5b0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f501cbaa5b0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f501cbaa5b0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[21:04:14] Fetching Scraper for: NTH                              handlers.py:23
+[21:04:15] Begin attempting to scrape: NTH                        handlers.py:26
+           Deleting existing data...                                 base.py:228
+           Getting all files in NTH...                               base.py:180
+[21:04:16] ...found 1 files in NTH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+           ...data deleted.                                          base.py:235
+           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
+           ve/Councillors.aspx                                                  
+[21:06:26] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:35
+           ', port=443): Max retries exceeded with url:                         
+           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
+           ror('<urllib3.connection.HTTPSConnection object at                   
+           0x7f501cbaa5b0>: Failed to establish a new connection:               
+           [Errno 110] Connection timed out'))                                  
+           Finished attempting to scrape: NTH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-11-19-55">2022-04-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>131 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-11 19:55:45.409351</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-11 19:57:57.218643</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f02fe4a1df0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f02fe4a1df0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f02fe4a1df0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[19:55:45] Fetching Scraper for: NTH                              handlers.py:23
+           Begin attempting to scrape: NTH                        handlers.py:26
+           Deleting existing data...                                 base.py:228
+[19:55:46] Getting all files in NTH...                               base.py:180
+           ...found 1 files in NTH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[19:55:47] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
+           ve/Councillors.aspx                                                  
+[19:57:56] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:35
+           ', port=443): Max retries exceeded with url:                         
+           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
+           ror('<urllib3.connection.HTTPSConnection object at                   
+           0x7f02fe4a1df0>: Failed to establish a new connection:               
+           [Errno 110] Connection timed out'))                                  
+[19:57:57] Finished attempting to scrape: NTH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-11-16-26">2022-04-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>131 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-11 16:26:26.339405</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-11 16:28:37.556325</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f1821326880>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f1821326880>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f1821326880>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[16:26:26] Fetching Scraper for: NTH                              handlers.py:23
+           Begin attempting to scrape: NTH                        handlers.py:26
+           Deleting existing data...                                 base.py:228
+           Getting all files in NTH...                               base.py:180
+           ...found 1 files in NTH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[16:26:27] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
+           ve/Councillors.aspx                                                  
+[16:28:37] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:35
+           ', port=443): Max retries exceeded with url:                         
+           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
+           ror('<urllib3.connection.HTTPSConnection object at                   
+           0x7f1821326880>: Failed to establish a new connection:               
+           [Errno 110] Connection timed out'))                                  
+           Finished attempting to scrape: NTH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-11-16-04">2022-04-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-11 16:04:27.831724</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-11 16:06:40.637013</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f1820e52400>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f1820e52400>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f1820e52400>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[16:04:27] Fetching Scraper for: NTH                              handlers.py:23
+           Begin attempting to scrape: NTH                        handlers.py:26
+           Deleting existing data...                                 base.py:228
+[16:04:28] Getting all files in NTH...                               base.py:180
+           ...found 1 files in NTH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[16:04:29] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
+           ve/Councillors.aspx                                                  
+[16:06:40] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:35
+           ', port=443): Max retries exceeded with url:                         
+           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
+           ror('<urllib3.connection.HTTPSConnection object at                   
+           0x7f1820e52400>: Failed to establish a new connection:               
+           [Errno 110] Connection timed out'))                                  
+           Finished attempting to scrape: NTH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-11-15-53">2022-04-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>133 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-11 15:53:18.289104</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-11 15:55:31.614848</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f6d78b37910>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f6d78b37910>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f6d78b37910>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:53:18] Fetching Scraper for: NTH                              handlers.py:23
+           Begin attempting to scrape: NTH                        handlers.py:26
+           Deleting existing data...                                 base.py:228
+[15:53:19] Getting all files in NTH...                               base.py:180
+           ...found 1 files in NTH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[15:53:20] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
+           ve/Councillors.aspx                                                  
+[15:55:31] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:35
+           ', port=443): Max retries exceeded with url:                         
+           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
+           ror('<urllib3.connection.HTTPSConnection object at                   
+           0x7f6d78b37910>: Failed to establish a new connection:               
+           [Errno 110] Connection timed out'))                                  
+           Finished attempting to scrape: NTH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-11-11-21">2022-04-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-11 11:21:21.008647</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-11 11:23:33.031038</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f2e255c20a0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2e255c20a0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 235, in get_councillors
+    req = self.get(self.base_url)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk', port=443): Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2e255c20a0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:21:21] Fetching Scraper for: NTH                              handlers.py:23
+           Begin attempting to scrape: NTH                        handlers.py:26
+           Deleting existing data...                                 base.py:228
+           Getting all files in NTH...                               base.py:180
+[11:21:22] ...found 1 files in NTH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[11:21:23] ...data deleted.                                          base.py:235
+           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
+           ve/Councillors.aspx                                                  
+[11:23:32] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:35
+           ', port=443): Max retries exceeded with url:                         
+           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
+           ror('<urllib3.connection.HTTPSConnection object at                   
+           0x7f2e255c20a0>: Failed to establish a new connection:               
+           [Errno 110] Connection timed out'))                                  
+           Finished attempting to scrape: NTH                        base.py:313
+</pre>
+
   <h2 id="2022-04-05-00-09">2022-04-05</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -502,502 +1646,6 @@
            /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
            ror('<urllib3.connection.HTTPSConnection object at                   
            0x7ff9dfc0aaf0>: Failed to establish a new connection:               
-           [Errno 110] Connection timed out'))                                  
-           Finished attempting to scrape: NTH                        base.py:319
-</pre>
-
-  <h2 id="2022-03-30-11-16">2022-03-30</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>132 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-30 11:16:33.387676</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-30 11:18:45.744833</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd></dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>None: Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by None)</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:16:33] Fetching Scraper for: NTH                              handlers.py:22
-           Begin attempting to scrape: NTH                        handlers.py:25
-           Deleting existing data...                                 base.py:234
-[11:16:34] Getting all files in NTH...                               base.py:186
-           ...found 1 files in NTH                                   base.py:202
-           Deleting batch no. 1 consisting of 1 files                base.py:211
-[11:16:35] ...data deleted.                                          base.py:241
-           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
-           ve/Councillors.aspx                                                  
-[11:18:45] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:34
-           ', port=443): Max retries exceeded with url:                         
-           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
-           ror('<urllib3.connection.HTTPSConnection object at                   
-           0x7f875e78a250>: Failed to establish a new connection:               
-           [Errno 110] Connection timed out'))                                  
-           Finished attempting to scrape: NTH                        base.py:319
-</pre>
-
-  <h2 id="2022-03-30-11-14">2022-03-30</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>138 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-30 11:14:05.278569</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-30 11:16:23.502990</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd></dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>None: Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by None)</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:14:05] Fetching Scraper for: NTH                              handlers.py:22
-[11:14:10] Begin attempting to scrape: NTH                        handlers.py:25
-[11:14:11] Deleting existing data...                                 base.py:234
-[11:14:12] Getting all files in NTH...                               base.py:186
-           NTH Does not exist                                        base.py:206
-           ...no data to delete.                                     base.py:238
-           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
-           ve/Councillors.aspx                                                  
-[11:16:23] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:34
-           ', port=443): Max retries exceeded with url:                         
-           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
-           ror('<urllib3.connection.HTTPSConnection object at                   
-           0x7fae08a7a220>: Failed to establish a new connection:               
-           [Errno 110] Connection timed out'))                                  
-           Finished attempting to scrape: NTH                        base.py:319
-</pre>
-
-  <h2 id="2022-03-29-11-56">2022-03-29</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>131 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-29 11:56:53.482467</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-29 11:59:04.920096</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd></dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>None: Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by None)</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:56:53] Fetching Scraper for: NTH                              handlers.py:22
-           Begin attempting to scrape: NTH                        handlers.py:25
-           Deleting existing data...                                 base.py:234
-           Getting all files in NTH...                               base.py:186
-           NTH Does not exist                                        base.py:206
-           ...no data to delete.                                     base.py:238
-           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
-           ve/Councillors.aspx                                                  
-[11:59:04] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:34
-           ', port=443): Max retries exceeded with url:                         
-           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
-           ror('<urllib3.connection.HTTPSConnection object at                   
-           0x7ff530e0b970>: Failed to establish a new connection:               
-           [Errno 110] Connection timed out'))                                  
-           Finished attempting to scrape: NTH                        base.py:319
-</pre>
-
-  <h2 id="2022-03-29-00-00">2022-03-29</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>10 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-29 00:00:07.368964</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-29 00:00:18.359696</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd></dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>An error occurred (ThrottlingException) when calling the CreateCommit operation (reached max retries: 4): Rate exceeded</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[00:00:07] Fetching Scraper for: NTH                              handlers.py:22
-           Begin attempting to scrape: NTH                        handlers.py:25
-           Deleting existing data...                                 base.py:234
-[00:00:08] Getting all files in NTH...                               base.py:186
-           ...found 1 files in NTH                                   base.py:202
-           Deleting batch no. 1 consisting of 1 files                base.py:211
-[00:00:18] An error occurred (ThrottlingException) when calling   handlers.py:34
-           the CreateCommit operation (reached max retries: 4):                 
-           Rate exceeded                                                        
-           No new councillor data found.                             base.py:317
-           Finished attempting to scrape: NTH                        base.py:319
-</pre>
-
-  <h2 id="2022-03-27-11-32">2022-03-27</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>9 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-27 11:32:00.271009</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-27 11:32:09.531777</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd></dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>An error occurred (ThrottlingException) when calling the CreateCommit operation (reached max retries: 4): Rate exceeded</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:32:00] Fetching Scraper for: NTH                              handlers.py:22
-           Begin attempting to scrape: NTH                        handlers.py:25
-           Deleting existing data...                                 base.py:234
-           Getting all files in NTH...                               base.py:186
-           ...found 1 files in NTH                                   base.py:202
-           Deleting batch no. 1 consisting of 1 files                base.py:211
-[11:32:09] An error occurred (ThrottlingException) when calling   handlers.py:34
-           the CreateCommit operation (reached max retries: 4):                 
-           Rate exceeded                                                        
-           Finished attempting to scrape: NTH                        base.py:319
-</pre>
-
-  <h2 id="2022-03-26-11-15">2022-03-26</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>136 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-26 11:15:57.503897</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-26 11:18:13.657617</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd></dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>None: Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by None)</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:15:57] Fetching Scraper for: NTH                              handlers.py:22
-           Begin attempting to scrape: NTH                        handlers.py:25
-           Deleting existing data...                                 base.py:234
-[11:15:58] Getting all files in NTH...                               base.py:186
-           ...found 1 files in NTH                                   base.py:202
-           Deleting batch no. 1 consisting of 1 files                base.py:211
-[11:16:02] ...data deleted.                                          base.py:241
-           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
-           ve/Councillors.aspx                                                  
-[11:18:13] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:34
-           ', port=443): Max retries exceeded with url:                         
-           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
-           ror('<urllib3.connection.HTTPSConnection object at                   
-           0x7f00ffb288b0>: Failed to establish a new connection:               
-           [Errno 110] Connection timed out'))                                  
-           Finished attempting to scrape: NTH                        base.py:319
-</pre>
-
-  <h2 id="2022-03-25-12-05">2022-03-25</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>7 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-25 12:05:53.722175</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-25 12:06:00.892683</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd></dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>An error occurred (ThrottlingException) when calling the CreateCommit operation (reached max retries: 4): Rate exceeded</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:05:53] Fetching Scraper for: NTH                              handlers.py:22
-           Begin attempting to scrape: NTH                        handlers.py:25
-           Deleting existing data...                                 base.py:234
-[12:05:54] Getting all files in NTH...                               base.py:186
-           ...found 1 files in NTH                                   base.py:202
-           Deleting batch no. 1 consisting of 1 files                base.py:211
-[12:06:00] An error occurred (ThrottlingException) when calling   handlers.py:34
-           the CreateCommit operation (reached max retries: 4):                 
-           Rate exceeded                                                        
-           No new councillor data found.                             base.py:317
-           Finished attempting to scrape: NTH                        base.py:319
-</pre>
-
-  <h2 id="2022-03-25-11-44">2022-03-25</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>131 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-25 11:44:53.652138</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-25 11:47:05.166328</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd></dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>None: Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by None)</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:44:53] Fetching Scraper for: NTH                              handlers.py:22
-           Begin attempting to scrape: NTH                        handlers.py:25
-           Deleting existing data...                                 base.py:234
-           Getting all files in NTH...                               base.py:186
-[11:44:54] ...found 1 files in NTH                                   base.py:202
-           Deleting batch no. 1 consisting of 1 files                base.py:211
-[11:44:55] ...data deleted.                                          base.py:241
-           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
-           ve/Councillors.aspx                                                  
-[11:47:04] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:34
-           ', port=443): Max retries exceeded with url:                         
-           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
-           ror('<urllib3.connection.HTTPSConnection object at                   
-           0x7f8457962610>: Failed to establish a new connection:               
-           [Errno 110] Connection timed out'))                                  
-[11:47:05] Finished attempting to scrape: NTH                        base.py:319
-</pre>
-
-  <h2 id="2022-03-25-00-12">2022-03-25</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>132 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-25 00:12:42.390478</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-25 00:14:54.658984</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd></dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>None: Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by None)</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[00:12:42] Fetching Scraper for: NTH                              handlers.py:22
-           Begin attempting to scrape: NTH                        handlers.py:25
-           Deleting existing data...                                 base.py:234
-           Getting all files in NTH...                               base.py:186
-           NTH Does not exist                                        base.py:206
-[00:12:43] ...no data to delete.                                     base.py:238
-           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
-           ve/Councillors.aspx                                                  
-[00:14:54] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:34
-           ', port=443): Max retries exceeded with url:                         
-           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
-           ror('<urllib3.connection.HTTPSConnection object at                   
-           0x7f359f09c100>: Failed to establish a new connection:               
-           [Errno 110] Connection timed out'))                                  
-           Finished attempting to scrape: NTH                        base.py:319
-</pre>
-
-  <h2 id="2022-03-25-00-11">2022-03-25</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>131 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-25 00:11:21.590706</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-25 00:13:32.654768</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd></dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>None: Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by None)</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[00:11:21] Fetching Scraper for: NTH                              handlers.py:22
-           Begin attempting to scrape: NTH                        handlers.py:25
-           Deleting existing data...                                 base.py:234
-           Getting all files in NTH...                               base.py:186
-[00:11:22] NTH Does not exist                                        base.py:206
-           ...no data to delete.                                     base.py:238
-           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
-           ve/Councillors.aspx                                                  
-[00:13:32] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:34
-           ', port=443): Max retries exceeded with url:                         
-           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
-           ror('<urllib3.connection.HTTPSConnection object at                   
-           0x7f16d3ad37f0>: Failed to establish a new connection:               
-           [Errno 110] Connection timed out'))                                  
-           Finished attempting to scrape: NTH                        base.py:319
-</pre>
-
-  <h2 id="2022-03-25-00-05">2022-03-25</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>131 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-03-25 00:05:11.379262</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-03-25 00:07:22.718308</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd></dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>None: Max retries exceeded with url: /cmis5live/Councillors.aspx (Caused by None)</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[00:05:11] Fetching Scraper for: NTH                              handlers.py:22
-           Begin attempting to scrape: NTH                        handlers.py:25
-           Deleting existing data...                                 base.py:234
-           Getting all files in NTH...                               base.py:186
-           NTH Does not exist                                        base.py:206
-           ...no data to delete.                                     base.py:238
-           Scraping from https://cmis.northamptonshire.gov.uk/cmis5li base.py:40
-           ve/Councillors.aspx                                                  
-[00:07:22] HTTPSConnectionPool(host='cmis.northamptonshire.gov.uk handlers.py:34
-           ', port=443): Max retries exceeded with url:                         
-           /cmis5live/Councillors.aspx (Caused by NewConnectionEr               
-           ror('<urllib3.connection.HTTPSConnection object at                   
-           0x7f1325c81d00>: Failed to establish a new connection:               
            [Errno 110] Connection timed out'))                                  
            Finished attempting to scrape: NTH                        base.py:319
 </pre>

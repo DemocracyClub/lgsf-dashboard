@@ -1,0 +1,1296 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Page title</title>
+    <link rel="stylesheet"  href="/lgsf-dashboard/assets/css/styles.css">
+    <style>
+
+
+
+    </style>
+
+  </head>
+  <body>
+
+
+
+    <div class="ds-page">
+      <a class="ds-skip-link" href="#main">skip to content</a>
+
+      <header class="ds-header">
+        <a class="ds-skip-link" href="#main">skip to content</a>
+        <a class="ds-logo" href="/lgsf-dashboard/">
+          <img src="https://DemocracyClub.github.io/design-system/images/logo_icon.svg" alt="" />
+          <span>LGSF Logbooks</span>
+        </a>
+
+      </header>
+
+
+      <main id="main" tabindex="-1" class="ds-stack">
+
+        
+<style>
+
+    pre {
+        height:400px;
+        overflow-x: scroll;
+        width:100%
+    }
+</style>
+
+
+
+
+  <h2 id="2022-04-21-13-11">2022-04-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-21 13:11:04.636075</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-21 13:11:09.970918</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fea7201fdc0>: Failed to establish a new connection: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fea7201fdc0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 166, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 183, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fea7201fdc0>: Failed to establish a new connection: [Errno 113] No route to host'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:11:04] Fetching Scraper for: ASH                              handlers.py:23
+           Begin attempting to scrape: ASH                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[13:11:05] Getting all files in ASH...                               base.py:180
+           ...found 1 files in ASH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[13:11:06] ...data deleted.                                          base.py:235
+           Scraping from https://democracy.ashfield-dc.gov.uk/mgWebSe base.py:40
+           rvice.asmx/GetCouncillorsByWard                                      
+[13:11:09] HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk handlers.py:36
+           ', port=443): Max retries exceeded with url:                         
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by New               
+           ConnectionError('<urllib3.connection.HTTPSConnection                 
+           object at 0x7fea7201fdc0>: Failed to establish a new                 
+           connection: [Errno 113] No route to host'))                          
+           Finished attempting to scrape: ASH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-20-14-58">2022-04-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-20 14:58:43.780955</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-20 14:58:48.998370</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f526893ecd0>: Failed to establish a new connection: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f526893ecd0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 166, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 183, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f526893ecd0>: Failed to establish a new connection: [Errno 113] No route to host'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:58:43] Fetching Scraper for: ASH                              handlers.py:23
+           Begin attempting to scrape: ASH                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[14:58:44] Getting all files in ASH...                               base.py:180
+           ...found 1 files in ASH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[14:58:45] ...data deleted.                                          base.py:235
+           Scraping from https://democracy.ashfield-dc.gov.uk/mgWebSe base.py:40
+           rvice.asmx/GetCouncillorsByWard                                      
+[14:58:48] HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk handlers.py:36
+           ', port=443): Max retries exceeded with url:                         
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by New               
+           ConnectionError('<urllib3.connection.HTTPSConnection                 
+           object at 0x7f526893ecd0>: Failed to establish a new                 
+           connection: [Errno 113] No route to host'))                          
+           Finished attempting to scrape: ASH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-19-15-01">2022-04-19</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-19 15:01:04.653567</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-19 15:01:09.960261</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f0932c81cd0>: Failed to establish a new connection: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f0932c81cd0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 166, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 183, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f0932c81cd0>: Failed to establish a new connection: [Errno 113] No route to host'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:01:04] Fetching Scraper for: ASH                              handlers.py:23
+           Begin attempting to scrape: ASH                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[15:01:05] Getting all files in ASH...                               base.py:180
+           ...found 1 files in ASH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[15:01:06] ...data deleted.                                          base.py:235
+           Scraping from https://democracy.ashfield-dc.gov.uk/mgWebSe base.py:40
+           rvice.asmx/GetCouncillorsByWard                                      
+[15:01:09] HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk handlers.py:36
+           ', port=443): Max retries exceeded with url:                         
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by New               
+           ConnectionError('<urllib3.connection.HTTPSConnection                 
+           object at 0x7f0932c81cd0>: Failed to establish a new                 
+           connection: [Errno 113] No route to host'))                          
+           Finished attempting to scrape: ASH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-18-12-35">2022-04-18</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-18 12:35:49.000822</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-18 12:35:54.668738</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f4e29479340>: Failed to establish a new connection: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f4e29479340>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 166, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 183, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f4e29479340>: Failed to establish a new connection: [Errno 113] No route to host'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:35:49] Fetching Scraper for: ASH                              handlers.py:23
+           Begin attempting to scrape: ASH                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+           Getting all files in ASH...                               base.py:180
+[12:35:50] ...found 1 files in ASH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[12:35:51] ...data deleted.                                          base.py:235
+           Scraping from https://democracy.ashfield-dc.gov.uk/mgWebSe base.py:40
+           rvice.asmx/GetCouncillorsByWard                                      
+[12:35:54] HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk handlers.py:36
+           ', port=443): Max retries exceeded with url:                         
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by New               
+           ConnectionError('<urllib3.connection.HTTPSConnection                 
+           object at 0x7f4e29479340>: Failed to establish a new                 
+           connection: [Errno 113] No route to host'))                          
+           Finished attempting to scrape: ASH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-17-12-54">2022-04-17</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-17 12:54:57.768828</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-17 12:55:03.043365</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fc48faadb50>: Failed to establish a new connection: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fc48faadb50>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 166, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 183, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fc48faadb50>: Failed to establish a new connection: [Errno 113] No route to host'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:54:57] Fetching Scraper for: ASH                              handlers.py:23
+           Begin attempting to scrape: ASH                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[12:54:58] Getting all files in ASH...                               base.py:180
+           ...found 1 files in ASH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[12:54:59] ...data deleted.                                          base.py:235
+           Scraping from https://democracy.ashfield-dc.gov.uk/mgWebSe base.py:40
+           rvice.asmx/GetCouncillorsByWard                                      
+[12:55:02] HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk handlers.py:36
+           ', port=443): Max retries exceeded with url:                         
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by New               
+           ConnectionError('<urllib3.connection.HTTPSConnection                 
+           object at 0x7fc48faadb50>: Failed to establish a new                 
+           connection: [Errno 113] No route to host'))                          
+[12:55:03] Finished attempting to scrape: ASH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-16-11-24">2022-04-16</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-16 11:24:25.114842</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-16 11:24:30.669228</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fdcff27fac0>: Failed to establish a new connection: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fdcff27fac0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 166, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 183, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fdcff27fac0>: Failed to establish a new connection: [Errno 113] No route to host'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:24:25] Fetching Scraper for: ASH                              handlers.py:23
+           Begin attempting to scrape: ASH                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+           Getting all files in ASH...                               base.py:180
+[11:24:26] ...found 1 files in ASH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[11:24:27] ...data deleted.                                          base.py:235
+           Scraping from https://democracy.ashfield-dc.gov.uk/mgWebSe base.py:40
+           rvice.asmx/GetCouncillorsByWard                                      
+[11:24:30] HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk handlers.py:36
+           ', port=443): Max retries exceeded with url:                         
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by New               
+           ConnectionError('<urllib3.connection.HTTPSConnection                 
+           object at 0x7fdcff27fac0>: Failed to establish a new                 
+           connection: [Errno 113] No route to host'))                          
+           Finished attempting to scrape: ASH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-15-14-08">2022-04-15</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-15 14:08:54.200112</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-15 14:08:59.445704</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fa593aaf0d0>: Failed to establish a new connection: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa593aaf0d0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 166, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 183, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa593aaf0d0>: Failed to establish a new connection: [Errno 113] No route to host'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:08:54] Fetching Scraper for: ASH                              handlers.py:23
+           Begin attempting to scrape: ASH                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+           Getting all files in ASH...                               base.py:180
+[14:08:55] ...found 1 files in ASH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[14:08:56] ...data deleted.                                          base.py:235
+           Scraping from https://democracy.ashfield-dc.gov.uk/mgWebSe base.py:40
+           rvice.asmx/GetCouncillorsByWard                                      
+[14:08:59] HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk handlers.py:36
+           ', port=443): Max retries exceeded with url:                         
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by New               
+           ConnectionError('<urllib3.connection.HTTPSConnection                 
+           object at 0x7fa593aaf0d0>: Failed to establish a new                 
+           connection: [Errno 113] No route to host'))                          
+           Finished attempting to scrape: ASH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-14-14-27">2022-04-14</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-14 14:27:23.873380</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-14 14:27:29.354905</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f97e4ee0f70>: Failed to establish a new connection: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f97e4ee0f70>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 166, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 183, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f97e4ee0f70>: Failed to establish a new connection: [Errno 113] No route to host'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:27:23] Fetching Scraper for: ASH                              handlers.py:23
+           Begin attempting to scrape: ASH                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[14:27:24] Getting all files in ASH...                               base.py:180
+           ...found 1 files in ASH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[14:27:25] ...data deleted.                                          base.py:235
+           Scraping from https://democracy.ashfield-dc.gov.uk/mgWebSe base.py:40
+           rvice.asmx/GetCouncillorsByWard                                      
+[14:27:29] HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk handlers.py:36
+           ', port=443): Max retries exceeded with url:                         
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by New               
+           ConnectionError('<urllib3.connection.HTTPSConnection                 
+           object at 0x7f97e4ee0f70>: Failed to establish a new                 
+           connection: [Errno 113] No route to host'))                          
+           Finished attempting to scrape: ASH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-13-13-29">2022-04-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-13 13:29:00.715499</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-13 13:29:06.054281</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fd693ca4220>: Failed to establish a new connection: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fd693ca4220>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 166, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 183, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fd693ca4220>: Failed to establish a new connection: [Errno 113] No route to host'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:29:00] Fetching Scraper for: ASH                              handlers.py:23
+           Begin attempting to scrape: ASH                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[13:29:01] Getting all files in ASH...                               base.py:180
+           ...found 1 files in ASH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[13:29:02] ...data deleted.                                          base.py:235
+           Scraping from https://democracy.ashfield-dc.gov.uk/mgWebSe base.py:40
+           rvice.asmx/GetCouncillorsByWard                                      
+[13:29:05] HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk handlers.py:36
+           ', port=443): Max retries exceeded with url:                         
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by New               
+           ConnectionError('<urllib3.connection.HTTPSConnection                 
+           object at 0x7fd693ca4220>: Failed to establish a new                 
+           connection: [Errno 113] No route to host'))                          
+[13:29:06] Finished attempting to scrape: ASH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-12-12-48">2022-04-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-12 12:48:58.478995</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-12 12:49:03.864570</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f46a66a90d0>: Failed to establish a new connection: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f46a66a90d0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 166, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 183, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f46a66a90d0>: Failed to establish a new connection: [Errno 113] No route to host'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:48:58] Fetching Scraper for: ASH                              handlers.py:23
+           Begin attempting to scrape: ASH                        handlers.py:26
+           Deleting existing data...                                 base.py:228
+[12:48:59] Getting all files in ASH...                               base.py:180
+           ...found 1 files in ASH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[12:49:00] ...data deleted.                                          base.py:235
+           Scraping from https://democracy.ashfield-dc.gov.uk/mgWebSe base.py:40
+           rvice.asmx/GetCouncillorsByWard                                      
+[12:49:03] HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk handlers.py:35
+           ', port=443): Max retries exceeded with url:                         
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by New               
+           ConnectionError('<urllib3.connection.HTTPSConnection                 
+           object at 0x7f46a66a90d0>: Failed to establish a new                 
+           connection: [Errno 113] No route to host'))                          
+           Finished attempting to scrape: ASH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-11-13-03">2022-04-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-11 13:03:44.373864</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-11 13:03:49.759033</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fd9aa1399d0>: Failed to establish a new connection: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fd9aa1399d0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 166, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 183, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fd9aa1399d0>: Failed to establish a new connection: [Errno 113] No route to host'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:03:44] Fetching Scraper for: ASH                              handlers.py:23
+           Begin attempting to scrape: ASH                        handlers.py:26
+           Deleting existing data...                                 base.py:228
+[13:03:45] Getting all files in ASH...                               base.py:180
+           ...found 1 files in ASH                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[13:03:46] ...data deleted.                                          base.py:235
+           Scraping from https://democracy.ashfield-dc.gov.uk/mgWebSe base.py:40
+           rvice.asmx/GetCouncillorsByWard                                      
+[13:03:49] HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk handlers.py:35
+           ', port=443): Max retries exceeded with url:                         
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by New               
+           ConnectionError('<urllib3.connection.HTTPSConnection                 
+           object at 0x7fd9aa1399d0>: Failed to establish a new                 
+           connection: [Errno 113] No route to host'))                          
+           Finished attempting to scrape: ASH                        base.py:313
+</pre>
+
+  <h2 id="2022-04-11-10-48">2022-04-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>4 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-11 10:48:46.939474</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-11 10:48:51.266419</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f2e25bf8430>: Failed to establish a new connection: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2e25bf8430>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 166, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 183, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 46, in get
+    response = requests.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/opt/python/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2e25bf8430>: Failed to establish a new connection: [Errno 113] No route to host'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:48:46] Fetching Scraper for: ASH                              handlers.py:23
+           Begin attempting to scrape: ASH                        handlers.py:26
+[10:48:47] Deleting existing data...                                 base.py:228
+           Getting all files in ASH...                               base.py:180
+           ASH Does not exist                                        base.py:200
+           ...no data to delete.                                     base.py:232
+           Scraping from https://democracy.ashfield-dc.gov.uk/mgWebSe base.py:40
+           rvice.asmx/GetCouncillorsByWard                                      
+[10:48:50] HTTPSConnectionPool(host='democracy.ashfield-dc.gov.uk handlers.py:35
+           ', port=443): Max retries exceeded with url:                         
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by New               
+           ConnectionError('<urllib3.connection.HTTPSConnection                 
+           object at 0x7f2e25bf8430>: Failed to establish a new                 
+           connection: [Errno 113] No route to host'))                          
+[10:48:51] Finished attempting to scrape: ASH                        base.py:313
+</pre>
+
+
+      </main>
+      <footer class="ds-footer">...</footer>
+    </div>
+  </body>
