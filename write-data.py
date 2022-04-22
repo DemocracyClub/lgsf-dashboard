@@ -11,6 +11,10 @@ folders = client.get_folder(folderPath="/", repositoryName="CouncillorsRepo")[
     "subFolders"
 ]
 
+LAST_N_DAYS = []
+for i in range(20, 0, -1):
+    LAST_N_DAYS.append(datetime.now().date() - timedelta(days=i))
+
 
 @dataclass
 class LogBook:
@@ -25,8 +29,15 @@ class LogBook:
         if missing:
             return log_book
         content = json.loads(log_file["fileContent"])
+        log_books_by_date = {}
         for run in content["runs"]:
-            log_book.log_runs.append(LogRun.from_code_commit(run))
+            log_run = LogRun.from_code_commit(run)
+            log_books_by_date[log_run.run_date] = log_run
+        for date in LAST_N_DAYS:
+            if date in log_books_by_date:
+                log_book.log_runs.append(log_books_by_date[date])
+            else:
+                log_book.log_runs.append(None)
         return log_book
 
     def as_dict(self):
@@ -48,6 +59,10 @@ class LogRun:
         return timedelta(
             minutes=parsed_datetime.minute, seconds=parsed_datetime.second
         ).total_seconds()
+
+    @property
+    def run_date(self):
+        return datetime.fromisoformat(self.start).date()
 
     @classmethod
     def from_code_commit(cls: "LogRun", json_data):
@@ -77,7 +92,9 @@ for folder in folders:
     except client.exceptions.FileDoesNotExistException:
         log_file = {}
 
-    logs.append(LogBook.from_codecommit(folder["absolutePath"], log_file))
+    log_data = LogBook.from_codecommit(folder["absolutePath"], log_file)
+    if log_data.log_runs:
+        logs.append(log_data)
 
 data_location = Path("_data/logbooks.json")
 data_location.parent.mkdir(exist_ok=True)

@@ -19,6 +19,9 @@ permalink: "logbooks/{{ logbook.council_id | slug | upcase }}/"
 {% assign log_runs = logbook.log_runs | sort: "start" | reverse %}
 
 {% for run in log_runs %}
+  {% if run %}
+
+
   <h2 id="{{ run.start | date:"%Y-%m-%d-%H-%M" }}">{{ run.start | date:"%Y-%m-%d" }}</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -49,4 +52,5 @@ permalink: "logbooks/{{ logbook.council_id | slug | upcase }}/"
 
   <h3>Run log</h3>
   <pre>{{ run.log_text }}</pre>
+  {% endif %}
 {% endfor %}
