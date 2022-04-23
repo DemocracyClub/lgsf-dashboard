@@ -37,6 +37,65 @@
   
 
 
+  <h2 id="2022-04-22-13-21">2022-04-22</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>6 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-22 13:21:24.282780</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-22 13:21:30.825724</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 174, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 191, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://democracy.sholland.gov.uk/mgError.aspx
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:21:24] Fetching Scraper for: SHO                              handlers.py:23
+           Begin attempting to scrape: SHO                        handlers.py:27
+           Deleting existing data...                                 base.py:228
+[13:21:25] Getting all files in SHO...                               base.py:180
+           ...found 1 files in SHO                                   base.py:196
+           Deleting batch no. 1 consisting of 1 files                base.py:205
+[13:21:26] ...data deleted.                                          base.py:235
+           Scraping from https://democracy.sholland.gov.uk/mgWebServi base.py:40
+           ce.asmx/GetCouncillorsByWard                                         
+[13:21:30] 404 Client Error: Not Found for url:                   handlers.py:36
+           https://democracy.sholland.gov.uk/mgError.aspx                       
+           Finished attempting to scrape: SHO                        base.py:313
+</pre>
+  
+
+  
+
+
   <h2 id="2022-04-21-16-58">2022-04-21</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -681,8 +740,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://demo
            https://democracy.sholland.gov.uk/mgError.aspx                       
            Finished attempting to scrape: SHO                        base.py:313
 </pre>
-  
-
   
 
   
