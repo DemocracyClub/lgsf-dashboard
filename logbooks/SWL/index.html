@@ -37,6 +37,70 @@
   
 
 
+  <h2 id="2022-04-25-13-38">2022-04-25</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-04-25 13:38:21.183554</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-04-25 13:38:23.950573</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: https://ws.swale.gov.uk/meetings/mgWebService.asmx/GetCouncillorsByWard
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:38:21] Fetching Scraper for: SWL                              handlers.py:23
+           Begin attempting to scrape: SWL                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in SWL...                               base.py:182
+[13:38:22] Getting all files in SWL/json...                          base.py:182
+           ...found 47 files in SWL/json                             base.py:198
+           Getting all files in SWL/raw...                           base.py:182
+           ...found 47 files in SWL/raw                              base.py:198
+           ...found 95 files in SWL                                  base.py:198
+           Deleting batch no. 1 consisting of 95 files               base.py:207
+[13:38:23] ...data deleted.                                          base.py:237
+           Scraping from http://services.swale.gov.uk/mgWebService.as base.py:42
+           mx/GetCouncillorsByWard                                              
+           503 Server Error: Service Unavailable for url: https:/ handlers.py:36
+           /ws.swale.gov.uk/meetings/mgWebService.asmx/GetCouncil               
+           lorsByWard                                                           
+           Finished attempting to scrape: SWL                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-04-24-17-53">2022-04-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -754,8 +818,6 @@ botocore.errorfactory.ConcurrentReferenceUpdateException: An error occurred (Con
            progress. Wait a few minutes, and then try again.                    
            Finished attempting to scrape: SWL                        base.py:313
 </pre>
-  
-
   
 
   
