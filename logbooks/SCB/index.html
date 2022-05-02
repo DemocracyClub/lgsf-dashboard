@@ -37,6 +37,56 @@
   
 
 
+  <h2 id="2022-05-01-13-13">2022-05-01</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>7 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-01 13:13:00.149026</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-01 13:13:07.579833</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:13:00] Fetching Scraper for: SCB                              handlers.py:23
+           Begin attempting to scrape: SCB                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in SCB...                               base.py:182
+[13:13:01] Getting all files in SCB/json...                          base.py:182
+           ...found 35 files in SCB/json                             base.py:198
+           Getting all files in SCB/raw...                           base.py:182
+           ...found 35 files in SCB/raw                              base.py:198
+           ...found 71 files in SCB                                  base.py:198
+           Deleting batch no. 1 consisting of 71 files               base.py:207
+[13:13:02] ...data deleted.                                          base.py:237
+           Scraping from http://scottishborders.moderngov.co.uk/mgWeb base.py:42
+           Service.asmx/GetCouncillorsByWard                                    
+[13:13:06] Committing batch 1 consisting of 70 files                 base.py:265
+[13:13:07] Finished attempting to scrape: SCB                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-04-30-13-27">2022-04-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -981,64 +1031,6 @@
            Service.asmx/GetCouncillorsByWard                                    
 [12:40:55] Committing batch 1 consisting of 70 files                 base.py:263
 [12:40:56] Finished attempting to scrape: SCB                        base.py:313
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-04-11-15-09">2022-04-11</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>22 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-04-11 15:09:27.964294</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-04-11 15:09:50.524721</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 175, in run
-    self.aws_tidy_up(run_log)
-  File "/var/task/lgsf/scrapers/base.py", line 319, in aws_tidy_up
-    self.attempt_merge()
-  File "/var/task/lgsf/scrapers/base.py", line 276, in attempt_merge
-    merge_info = self.codecommit_client.merge_branches_by_squash(
-  File "/opt/python/botocore/client.py", line 395, in _api_call
-    return self._make_api_call(operation_name, kwargs)
-  File "/opt/python/botocore/client.py", line 725, in _make_api_call
-    raise error_class(parsed_response, operation_name)
-botocore.errorfactory.InvalidTargetBranchException: An error occurred (InvalidTargetBranchException) when calling the MergeBranchesBySquash operation: Target branch parameter must point to either source or destination tip commit. Verify your target branch value is valid and then try again
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[15:09:38] Created log commit                                        base.py:371
-           87ad2e2e70318fcd9d6d0fb2d4d172f4661359ba                             
-           Attempting to create merge commit...                      base.py:275
-[15:09:50] An error occurred (InvalidTargetBranchException) when  handlers.py:35
-           calling the MergeBranchesBySquash operation: Target                  
-           branch parameter must point to either source or                      
-           destination tip commit. Verify your target branch                    
-           value is valid and then try again                                    
-           Finished attempting to scrape: SCB                        base.py:313
 </pre>
   
 

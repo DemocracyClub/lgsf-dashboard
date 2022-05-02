@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2022-05-01-12-50">2022-05-01</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-01 12:50:43.444202</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-01 12:50:51.820091</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:50:43] Fetching Scraper for: SWL                              handlers.py:23
+           Begin attempting to scrape: SWL                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[12:50:44] Getting all files in SWL...                               base.py:182
+           Getting all files in SWL/json...                          base.py:182
+           ...found 47 files in SWL/json                             base.py:198
+           Getting all files in SWL/raw...                           base.py:182
+           ...found 47 files in SWL/raw                              base.py:198
+           ...found 95 files in SWL                                  base.py:198
+           Deleting batch no. 1 consisting of 95 files               base.py:207
+[12:50:45] ...data deleted.                                          base.py:237
+           Scraping from http://services.swale.gov.uk/mgWebService.as base.py:42
+           mx/GetCouncillorsByWard                                              
+[12:50:48] Committing batch 1 consisting of 92 files                 base.py:265
+[12:50:50] Committing batch 2 consisting of 2 files                  base.py:265
+[12:50:51] Finished attempting to scrape: SWL                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-04-30-13-33">2022-04-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1009,65 +1060,6 @@ requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: ht
 [13:55:30] Committing batch 1 consisting of 92 files                 base.py:263
 [13:55:31] Committing batch 2 consisting of 2 files                  base.py:263
 [13:55:32] Finished attempting to scrape: SWL                        base.py:313
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-04-11-15-33">2022-04-11</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>15 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-04-11 15:33:57.321693</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-04-11 15:34:12.854818</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 175, in run
-    self.aws_tidy_up(run_log)
-  File "/var/task/lgsf/scrapers/base.py", line 319, in aws_tidy_up
-    self.attempt_merge()
-  File "/var/task/lgsf/scrapers/base.py", line 276, in attempt_merge
-    merge_info = self.codecommit_client.merge_branches_by_squash(
-  File "/opt/python/botocore/client.py", line 395, in _api_call
-    return self._make_api_call(operation_name, kwargs)
-  File "/opt/python/botocore/client.py", line 725, in _make_api_call
-    raise error_class(parsed_response, operation_name)
-botocore.errorfactory.ConcurrentReferenceUpdateException: An error occurred (ConcurrentReferenceUpdateException) when calling the MergeBranchesBySquash operation: The merge cannot be completed because the following branch has been modified: refs/heads/main. Another user might have modified this branch while the merge was in progress. Wait a few minutes, and then try again.
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[15:34:07] Created log commit                                        base.py:371
-           d98191f37032fae7fa0f25af2fbaef7a8e924a48                             
-           Attempting to create merge commit...                      base.py:275
-[15:34:12] An error occurred (ConcurrentReferenceUpdateException) handlers.py:35
-           when calling the MergeBranchesBySquash operation: The                
-           merge cannot be completed because the following branch               
-           has been modified: refs/heads/main. Another user might               
-           have modified this branch while the merge was in                     
-           progress. Wait a few minutes, and then try again.                    
-           Finished attempting to scrape: SWL                        base.py:313
 </pre>
   
 

@@ -37,6 +37,63 @@
   
 
 
+  <h2 id="2022-05-01-12-49">2022-05-01</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>18 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-01 12:49:00.863328</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-01 12:49:19.762854</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 137, in get_list_container
+    raise ValueError("More than one element selected")
+ValueError: More than one element selected
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:49:00] Fetching Scraper for: NEL                              handlers.py:23
+           Begin attempting to scrape: NEL                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[12:49:01] Getting all files in NEL...                               base.py:182
+           ...found 1 files in NEL                                   base.py:198
+           Deleting batch no. 1 consisting of 1 files                base.py:207
+[12:49:02] ...data deleted.                                          base.py:237
+           Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:42
+           cillors-mps-and-meps/find-your-councillor/councillors-by-p           
+           arty/                                                                
+[12:49:19] More than one element selected                         handlers.py:36
+           Finished attempting to scrape: NEL                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-04-30-11-15">2022-04-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -863,8 +920,6 @@ AssertionError
            Committing batch 1 consisting of 44 files                 base.py:263
 [11:58:27] Finished attempting to scrape: NEL                        base.py:313
 </pre>
-  
-
   
 
   

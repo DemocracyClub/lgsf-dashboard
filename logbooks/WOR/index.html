@@ -37,6 +37,58 @@
   
 
 
+  <h2 id="2022-05-01-12-54">2022-05-01</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-01 12:54:45.491552</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-01 12:54:55.612982</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:54:45] Fetching Scraper for: WOR                              handlers.py:23
+           Begin attempting to scrape: WOR                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[12:54:46] Getting all files in WOR...                               base.py:182
+           Getting all files in WOR/json...                          base.py:182
+           ...found 57 files in WOR/json                             base.py:198
+           Getting all files in WOR/raw...                           base.py:182
+           ...found 57 files in WOR/raw                              base.py:198
+           ...found 115 files in WOR                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[12:54:47] Deleting batch no. 2 consisting of 15 files               base.py:207
+[12:54:48] ...data deleted.                                          base.py:237
+           Scraping from http://worcestershire.moderngov.co.uk/mgWebS base.py:42
+           ervice.asmx/GetCouncillorsByWard                                     
+[12:54:53] Committing batch 1 consisting of 92 files                 base.py:265
+[12:54:54] Committing batch 2 consisting of 22 files                 base.py:265
+[12:54:55] Finished attempting to scrape: WOR                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-04-30-12-24">2022-04-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1019,64 +1071,6 @@
 [12:32:51] Committing batch 1 consisting of 92 files                 base.py:263
 [12:32:53] Committing batch 2 consisting of 22 files                 base.py:263
 [12:32:54] Finished attempting to scrape: WOR                        base.py:313
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-04-11-16-28">2022-04-11</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>26 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-04-11 16:28:36.429867</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-04-11 16:29:02.693610</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 31, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 175, in run
-    self.aws_tidy_up(run_log)
-  File "/var/task/lgsf/scrapers/base.py", line 319, in aws_tidy_up
-    self.attempt_merge()
-  File "/var/task/lgsf/scrapers/base.py", line 276, in attempt_merge
-    merge_info = self.codecommit_client.merge_branches_by_squash(
-  File "/opt/python/botocore/client.py", line 395, in _api_call
-    return self._make_api_call(operation_name, kwargs)
-  File "/opt/python/botocore/client.py", line 725, in _make_api_call
-    raise error_class(parsed_response, operation_name)
-botocore.errorfactory.InvalidTargetBranchException: An error occurred (InvalidTargetBranchException) when calling the MergeBranchesBySquash operation: Target branch parameter must point to either source or destination tip commit. Verify your target branch value is valid and then try again
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[16:28:51] Created log commit                                        base.py:371
-           4442227f61f47e82258b826798bab879976799dc                             
-           Attempting to create merge commit...                      base.py:275
-[16:29:02] An error occurred (InvalidTargetBranchException) when  handlers.py:35
-           calling the MergeBranchesBySquash operation: Target                  
-           branch parameter must point to either source or                      
-           destination tip commit. Verify your target branch                    
-           value is valid and then try again                                    
-           Finished attempting to scrape: WOR                        base.py:313
 </pre>
   
 
