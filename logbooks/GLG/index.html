@@ -37,6 +37,67 @@
   
 
 
+  <h2 id="2022-05-04-13-42">2022-05-04</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>4 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-04 13:42:18.750631</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-04 13:42:23.247207</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 138, in get_list_container
+    return selected[0]
+IndexError: list index out of range
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:42:18] Fetching Scraper for: GLG                              handlers.py:23
+           Begin attempting to scrape: GLG                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[13:42:19] Getting all files in GLG...                               base.py:182
+           Getting all files in GLG/json...                          base.py:182
+[13:42:20] ...found 84 files in GLG/json                             base.py:198
+           Getting all files in GLG/raw...                           base.py:182
+           ...found 84 files in GLG/raw                              base.py:198
+           ...found 169 files in GLG                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[13:42:21] Deleting batch no. 2 consisting of 69 files               base.py:207
+[13:42:22] ...data deleted.                                          base.py:237
+           Scraping from https://www.glasgow.gov.uk/councillorsandcom base.py:42
+           mittees/allMembers.asp?sort=0&page=0&rec=100                         
+           list index out of range                                handlers.py:36
+[13:42:23] Finished attempting to scrape: GLG                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-03-12-33">2022-05-03</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -3552,8 +3613,6 @@
            Committing batch 2 consisting of 76 files                 base.py:263
 [21:37:20] Finished attempting to scrape: GLG                        base.py:313
 </pre>
-  
-
   
 
   
