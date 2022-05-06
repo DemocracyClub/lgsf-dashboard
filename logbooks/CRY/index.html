@@ -37,6 +37,58 @@
   
 
 
+  <h2 id="2022-05-05-12-36">2022-05-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-05 12:36:11.418488</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-05 12:36:21.219828</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:36:11] Fetching Scraper for: CRY                              handlers.py:23
+           Begin attempting to scrape: CRY                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[12:36:12] Getting all files in CRY...                               base.py:182
+           Getting all files in CRY/json...                          base.py:182
+           ...found 71 files in CRY/json                             base.py:198
+           Getting all files in CRY/raw...                           base.py:182
+           ...found 71 files in CRY/raw                              base.py:198
+           ...found 143 files in CRY                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[12:36:13] Deleting batch no. 2 consisting of 43 files               base.py:207
+[12:36:14] ...data deleted.                                          base.py:237
+           Scraping from https://democracy.croydon.gov.uk/mgWebServic base.py:42
+           e.asmx/GetCouncillorsByWard                                          
+[12:36:18] Committing batch 1 consisting of 92 files                 base.py:265
+[12:36:19] Committing batch 2 consisting of 48 files                 base.py:265
+[12:36:21] Finished attempting to scrape: CRY                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-04-13-46">2022-05-04</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1014,71 +1066,6 @@
 [12:30:28] Committing batch 1 consisting of 92 files                 base.py:263
 [12:30:29] Committing batch 2 consisting of 48 files                 base.py:263
 [12:30:31] Finished attempting to scrape: CRY                        base.py:313
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-04-15-12-19">2022-04-15</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>4 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-04-15 12:19:10.931325</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-04-15 12:19:14.982368</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 166, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 183, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 47, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 960, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: https://democracy.croydon.gov.uk/mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:19:10] Fetching Scraper for: CRY                              handlers.py:23
-           Begin attempting to scrape: CRY                        handlers.py:27
-[12:19:11] Deleting existing data...                                 base.py:228
-           Getting all files in CRY...                               base.py:180
-           Getting all files in CRY/json...                          base.py:180
-[12:19:12] ...found 70 files in CRY/json                             base.py:196
-           Getting all files in CRY/raw...                           base.py:180
-           ...found 70 files in CRY/raw                              base.py:196
-           ...found 141 files in CRY                                 base.py:196
-           Deleting batch no. 1 consisting of 100 files              base.py:205
-[12:19:13] Deleting batch no. 2 consisting of 41 files               base.py:205
-[12:19:14] ...data deleted.                                          base.py:235
-           Scraping from https://democracy.croydon.gov.uk/mgWebServic base.py:40
-           e.asmx/GetCouncillorsByWard                                          
-           500 Server Error: Internal Server Error for url: https handlers.py:36
-           ://democracy.croydon.gov.uk/mgWebService.asmx/GetCounc               
-           illorsByWard                                                         
-           Finished attempting to scrape: CRY                        base.py:313
 </pre>
   
 

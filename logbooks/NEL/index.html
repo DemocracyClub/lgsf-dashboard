@@ -37,6 +37,63 @@
   
 
 
+  <h2 id="2022-05-05-13-33">2022-05-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>6 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-05 13:33:19.949660</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-05 13:33:26.485185</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 137, in get_list_container
+    raise ValueError("More than one element selected")
+ValueError: More than one element selected
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:33:19] Fetching Scraper for: NEL                              handlers.py:23
+           Begin attempting to scrape: NEL                        handlers.py:27
+[13:33:20] Deleting existing data...                                 base.py:230
+           Getting all files in NEL...                               base.py:182
+           ...found 1 files in NEL                                   base.py:198
+           Deleting batch no. 1 consisting of 1 files                base.py:207
+[13:33:22] ...data deleted.                                          base.py:237
+           Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:42
+           cillors-mps-and-meps/find-your-councillor/councillors-by-p           
+           arty/                                                                
+[13:33:26] More than one element selected                         handlers.py:36
+           Finished attempting to scrape: NEL                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-04-11-20">2022-05-04</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -983,113 +1040,6 @@ AssertionError
 [19:55:53]                                                        handlers.py:36
            Committing batch 1 consisting of 44 files                 base.py:263
 [19:55:55] Finished attempting to scrape: NEL                        base.py:313
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-04-20-11-56">2022-04-20</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>105 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-04-20 11:56:42.027479</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-04-20 11:58:27.197367</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/NEL-north-east-lincolnshire/councillors.py", line 20, in get_single_councillor
-    assert title.startswith(party_guess)
-AssertionError
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:56:42] Fetching Scraper for: NEL                              handlers.py:23
-           Begin attempting to scrape: NEL                        handlers.py:27
-           Deleting existing data...                                 base.py:228
-           Getting all files in NEL...                               base.py:180
-           Getting all files in NEL/json...                          base.py:180
-[11:56:43] ...found 22 files in NEL/json                             base.py:196
-           Getting all files in NEL/raw...                           base.py:180
-           ...found 22 files in NEL/raw                              base.py:196
-           ...found 45 files in NEL                                  base.py:196
-           Deleting batch no. 1 consisting of 45 files               base.py:205
-[11:56:44] ...data deleted.                                          base.py:235
-           Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/find-your-councillor/councillors-by-p           
-           arty/                                                                
-[11:56:48] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-freeston-oliver-conservative/              
-[11:56:59] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-callison-bob-conservative/                 
-[11:57:05] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-reynolds-graham/                           
-[11:57:11] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-beasant-stephen-liberal-democrat           
-           /                                                                    
-[11:57:15] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-aisthorpe-nicola/                          
-[11:57:19] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-procter-callum-conservative/               
-[11:57:22] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-furneaux-tom-conservative/                 
-[11:57:26] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-brasted-tanya/                             
-[11:57:29] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-parkinson-bill-conservative/               
-[11:57:33] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-cracknell-margaret-conservative/           
-[11:57:36] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-brookes-keith-conservative/                
-[11:57:40] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-patrick-matthew-labour/                    
-[11:57:44] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-smith-mark/                                
-[11:57:47] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-hogan-catherine/                           
-[11:57:50] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-shreeve-stan-conservative/                 
-[11:57:54] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-harness-stephen/                           
-[11:57:59] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-dawkins-hayden/                            
-[11:58:03] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-swinburn-stewart-conservative/             
-[11:58:07] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-swinburn-karen-conservative/               
-[11:58:10] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-astbury-georgia/                           
-[11:58:14] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-silvester-paul-conservative/               
-[11:58:18] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-westcott-daniel/                           
-[11:58:21] Scraping from https://www.nelincs.gov.uk/your-council/coun base.py:40
-           cillors-mps-and-meps/cllr-marian-boyd/                               
-[11:58:25]                                                        handlers.py:36
-           Committing batch 1 consisting of 44 files                 base.py:263
-[11:58:27] Finished attempting to scrape: NEL                        base.py:313
 </pre>
   
 

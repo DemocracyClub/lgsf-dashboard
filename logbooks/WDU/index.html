@@ -37,6 +37,68 @@
   
 
 
+  <h2 id="2022-05-05-14-40">2022-05-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>4 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-05 14:40:00.566614</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-05 14:40:04.795711</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "/var/task/lgsf/councillors/scrapers.py", line 259, in get_single_councillor
+    party = self.get_party_name(list_page_html)
+  File "/var/task/lgsf/councillors/scrapers.py", line 247, in get_party_name
+    return list_page_html.find_all("img")[-1]["title"].replace("(logo)", "").strip()
+  File "/opt/python/bs4/element.py", line 1486, in __getitem__
+    return self.attrs[key]
+KeyError: 'title'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:40:00] Fetching Scraper for: WDU                              handlers.py:23
+           Begin attempting to scrape: WDU                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[14:40:01] Getting all files in WDU...                               base.py:182
+           Getting all files in WDU/json...                          base.py:182
+[14:40:02] ...found 22 files in WDU/json                             base.py:198
+           Getting all files in WDU/raw...                           base.py:182
+           ...found 22 files in WDU/raw                              base.py:198
+           ...found 45 files in WDU                                  base.py:198
+           Deleting batch no. 1 consisting of 45 files               base.py:207
+[14:40:03] ...data deleted.                                          base.py:237
+           Scraping from https://wdccmis.west-dunbarton.gov.uk/cmis5/ base.py:42
+           Councillors.aspx                                                     
+[14:40:04] 'title'                                                handlers.py:36
+           Finished attempting to scrape: WDU                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-04-14-41">2022-05-04</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1655,122 +1717,6 @@
            eenMode/Ward/Default.aspx                                            
 [21:25:57] Committing batch 1 consisting of 44 files                 base.py:263
 [21:25:58] Finished attempting to scrape: WDU                        base.py:313
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-04-20-15-13">2022-04-20</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>80 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-04-20 15:13:21.094562</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-04-20 15:14:41.602697</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[15:13:21] Fetching Scraper for: WDU                              handlers.py:23
-           Begin attempting to scrape: WDU                        handlers.py:27
-[15:13:22] Deleting existing data...                                 base.py:228
-[15:13:23] Getting all files in WDU...                               base.py:180
-           Getting all files in WDU/json...                          base.py:180
-           ...found 22 files in WDU/json                             base.py:196
-           Getting all files in WDU/raw...                           base.py:180
-           ...found 22 files in WDU/raw                              base.py:196
-           ...found 45 files in WDU                                  base.py:196
-           Deleting batch no. 1 consisting of 45 files               base.py:205
-[15:13:24] ...data deleted.                                          base.py:235
-           Scraping from https://wdccmis.west-dunbarton.gov.uk/cmis5/ base.py:40
-           Councillors.aspx                                                     
-[15:13:25] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/564/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:13:31] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/911/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:13:33] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/493/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:13:36] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/484/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:13:39] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/912/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:13:43] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/913/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:13:45] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/565/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:13:49] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/914/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:13:52] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/566/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:13:55] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/916/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:13:59] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/915/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:14:02] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/524/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:14:06] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/490/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:14:09] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/578/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:14:13] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/497/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:14:16] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/567/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:14:19] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/917/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:14:23] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/634/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:14:26] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/486/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:14:30] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/569/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:14:34] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/918/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:14:37] Scraping from http://wdccmis.west-dunbarton.gov.uk/cmis5/C base.py:40
-           ouncillors/tabid/62/ctl/ViewCMIS_Person/mid/480/id/495/Scr           
-           eenMode/Ward/Default.aspx                                            
-[15:14:40] Committing batch 1 consisting of 44 files                 base.py:263
-[15:14:41] Finished attempting to scrape: WDU                        base.py:313
 </pre>
   
 

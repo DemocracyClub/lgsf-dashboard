@@ -37,6 +37,73 @@
   
 
 
+  <h2 id="2022-05-05-12-56">2022-05-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-05 12:56:41.666257</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-05 12:56:45.115024</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 134, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 123, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.eastrenfrewshire.gov.uk/Find-my-councillor
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:56:41] Fetching Scraper for: ERW                              handlers.py:23
+           Begin attempting to scrape: ERW                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[12:56:42] Getting all files in ERW...                               base.py:182
+           Getting all files in ERW/json...                          base.py:182
+           ...found 18 files in ERW/json                             base.py:198
+           Getting all files in ERW/raw...                           base.py:182
+[12:56:43] ...found 18 files in ERW/raw                              base.py:198
+           ...found 37 files in ERW                                  base.py:198
+           Deleting batch no. 1 consisting of 37 files               base.py:207
+[12:56:44] ...data deleted.                                          base.py:237
+           Scraping from                                              base.py:42
+           https://www.eastrenfrewshire.gov.uk/Find-my-councillor               
+           404 Client Error: Not Found for url:                   handlers.py:36
+           https://www.eastrenfrewshire.gov.uk/Find-my-councillor               
+[12:56:45] Finished attempting to scrape: ERW                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-04-12-27">2022-05-04</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1369,8 +1436,6 @@
 [20:38:17] Committing batch 1 consisting of 36 files                 base.py:265
 [20:38:18] Finished attempting to scrape: ERW                        base.py:315
 </pre>
-  
-
   
 
   

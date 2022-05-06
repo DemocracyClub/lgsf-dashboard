@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2022-05-05-11-30">2022-05-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>6 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-05 11:30:39.947510</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-05 11:30:46.509924</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:30:39] Fetching Scraper for: RCC                              handlers.py:23
+           Begin attempting to scrape: RCC                        handlers.py:27
+[11:30:40] Deleting existing data...                                 base.py:230
+           Getting all files in RCC...                               base.py:182
+           Getting all files in RCC/json...                          base.py:182
+[11:30:41] ...found 59 files in RCC/json                             base.py:198
+           Getting all files in RCC/raw...                           base.py:182
+           ...found 59 files in RCC/raw                              base.py:198
+           ...found 119 files in RCC                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[11:30:42] Deleting batch no. 2 consisting of 19 files               base.py:207
+[11:30:43] ...data deleted.                                          base.py:237
+           Scraping from https://www.redcar-cleveland.gov.uk/about-th base.py:42
+           e-council/councillors/_api/web/lists/getbytitle('Councillo           
+           rs%20List')/items?$orderby=Title                                     
+           Committing batch 1 consisting of 92 files                 base.py:265
+[11:30:45] Committing batch 2 consisting of 26 files                 base.py:265
+[11:30:46] Finished attempting to scrape: RCC                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-04-13-19">2022-05-04</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1057,63 +1110,6 @@ AttributeError: 'dict' object has no attribute 'prettify'
            rs%20List')/items?$orderby=Title                                     
            'dict' object has no attribute 'prettify'              handlers.py:36
 [15:48:16] Finished attempting to scrape: RCC                        base.py:313
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-04-15-14-33">2022-04-15</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-04-15 14:33:29.399425</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-04-15 14:33:31.921009</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 49, in run
-    self.process_councillor(councillor, councillor_html)
-  File "/var/task/lgsf/councillors/scrapers.py", line 60, in process_councillor
-    self.stage_councillor(councillor_raw_str, councillor)
-  File "/var/task/lgsf/councillors/scrapers.py", line 82, in stage_councillor
-    "fileContent": bytes(councillor_html.prettify(), "utf-8"),
-AttributeError: 'dict' object has no attribute 'prettify'
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:33:29] Fetching Scraper for: RCC                              handlers.py:23
-           Begin attempting to scrape: RCC                        handlers.py:27
-           Deleting existing data...                                 base.py:228
-[14:33:30] Getting all files in RCC...                               base.py:180
-           ...found 1 files in RCC                                   base.py:196
-           Deleting batch no. 1 consisting of 1 files                base.py:205
-[14:33:31] ...data deleted.                                          base.py:235
-           Scraping from https://www.redcar-cleveland.gov.uk/about-th base.py:40
-           e-council/councillors/_api/web/lists/getbytitle('Councillo           
-           rs%20List')/items?$orderby=Title                                     
-           'dict' object has no attribute 'prettify'              handlers.py:36
-           Finished attempting to scrape: RCC                        base.py:313
 </pre>
   
 
