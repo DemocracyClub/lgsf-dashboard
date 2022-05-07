@@ -37,6 +37,66 @@
   
 
 
+  <h2 id="2022-05-06-11-50">2022-05-06</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-06 11:50:42.872714</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-06 11:50:46.729068</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 138, in get_list_container
+    return selected[0]
+IndexError: list index out of range
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:50:42] Fetching Scraper for: HLD                              handlers.py:23
+           Begin attempting to scrape: HLD                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[11:50:43] Getting all files in HLD...                               base.py:182
+           Getting all files in HLD/json...                          base.py:182
+[11:50:44] ...found 73 files in HLD/json                             base.py:198
+           Getting all files in HLD/raw...                           base.py:182
+           ...found 73 files in HLD/raw                              base.py:198
+           ...found 147 files in HLD                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[11:50:45] Deleting batch no. 2 consisting of 47 files               base.py:207
+[11:50:46] ...data deleted.                                          base.py:237
+           Scraping from https://www.highland.gov.uk/councillors/name base.py:42
+           list index out of range                                handlers.py:36
+           Finished attempting to scrape: HLD                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-05-13-31">2022-05-05</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2390,8 +2450,6 @@
 [18:19:24] Committing batch 2 consisting of 54 files                 base.py:265
 [18:19:25] Finished attempting to scrape: HLD                        base.py:315
 </pre>
-  
-
   
 
   
