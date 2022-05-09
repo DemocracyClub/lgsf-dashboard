@@ -37,6 +37,82 @@
   
 
 
+  <h2 id="2022-05-08-13-19">2022-05-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>15 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-08 13:19:15.538510</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-08 13:19:31.187683</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "/var/task/lgsf/councillors/scrapers.py", line 259, in get_single_councillor
+    party = self.get_party_name(list_page_html)
+  File "/var/task/lgsf/councillors/scrapers.py", line 247, in get_party_name
+    return list_page_html.find_all("img")[-1]["title"].replace("(logo)", "").strip()
+  File "/opt/python/bs4/element.py", line 1486, in __getitem__
+    return self.attrs[key]
+KeyError: 'title'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:19:15] Fetching Scraper for: KHL                              handlers.py:23
+           Begin attempting to scrape: KHL                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[13:19:16] Getting all files in KHL...                               base.py:182
+           Getting all files in KHL/json...                          base.py:182
+           ...found 57 files in KHL/json                             base.py:198
+           Getting all files in KHL/raw...                           base.py:182
+[13:19:17] ...found 57 files in KHL/raw                              base.py:198
+           ...found 115 files in KHL                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[13:19:18] Deleting batch no. 2 consisting of 15 files               base.py:207
+[13:19:19] ...data deleted.                                          base.py:237
+           Scraping from https://cmis.hullcc.gov.uk/cmis/Councillorsa base.py:42
+           ndSeniorOfficers/CouncillorsandSeniorOfficers.aspx                   
+[13:19:22] Scraping from https://cmis.hullcc.gov.uk/cmis/Councillorsa base.py:42
+           ndSeniorOfficers/CouncillorsandSeniorOfficers/tabid/63/ctl           
+           /ViewCMIS_Person/mid/383/id/794/ScreenMode/Alphabetical/De           
+           fault.aspx                                                           
+[13:19:24] Scraping from https://cmis.hullcc.gov.uk/cmis/Councillorsa base.py:42
+           ndSeniorOfficers/CouncillorsandSeniorOfficers/tabid/63/ctl           
+           /ViewCMIS_Person/mid/383/id/590/ScreenMode/Alphabetical/De           
+           fault.aspx                                                           
+[13:19:27] Scraping from https://cmis.hullcc.gov.uk/cmis/Councillorsa base.py:42
+           ndSeniorOfficers/CouncillorsandSeniorOfficers/tabid/63/ctl           
+           /ViewCMIS_Person/mid/383/id/798/ScreenMode/Alphabetical/De           
+           fault.aspx                                                           
+[13:19:29] 'title'                                                handlers.py:36
+           Committing batch 1 consisting of 6 files                  base.py:265
+[13:19:31] Finished attempting to scrape: KHL                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-07-13-52">2022-05-07</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -4792,8 +4868,6 @@
 [21:30:07] Committing batch 2 consisting of 22 files                 base.py:263
 [21:30:09] Finished attempting to scrape: KHL                        base.py:313
 </pre>
-  
-
   
 
   
