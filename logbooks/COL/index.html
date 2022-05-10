@@ -37,6 +37,79 @@
   
 
 
+  <h2 id="2022-05-09-12-20">2022-05-09</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>13 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-09 12:20:13.850408</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-09 12:20:26.936024</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "/var/task/lgsf/councillors/scrapers.py", line 259, in get_single_councillor
+    party = self.get_party_name(list_page_html)
+  File "/var/task/lgsf/councillors/scrapers.py", line 247, in get_party_name
+    return list_page_html.find_all("img")[-1]["title"].replace("(logo)", "").strip()
+  File "/opt/python/bs4/element.py", line 1486, in __getitem__
+    return self.attrs[key]
+KeyError: 'title'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:20:13] Fetching Scraper for: COL                              handlers.py:23
+           Begin attempting to scrape: COL                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[12:20:14] Getting all files in COL...                               base.py:182
+           Getting all files in COL/json...                          base.py:182
+[12:20:15] ...found 50 files in COL/json                             base.py:198
+           Getting all files in COL/raw...                           base.py:182
+           ...found 50 files in COL/raw                              base.py:198
+           ...found 101 files in COL                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[12:20:16] Deleting batch no. 2 consisting of 1 files                base.py:207
+[12:20:17] ...data deleted.                                          base.py:237
+           Scraping from                                              base.py:42
+           http://colchester.cmis.uk.com/colchester/Councillors.aspx            
+[12:20:19] Scraping from http://colchester.cmis.uk.com/colchester/Cou base.py:42
+           ncillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/111/Scree           
+           nMode/Alphabetical/Default.aspx                                      
+[12:20:20] Scraping from http://colchester.cmis.uk.com/colchester/Cou base.py:42
+           ncillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/43/Screen           
+           Mode/Alphabetical/Default.aspx                                       
+[12:20:22] Scraping from http://colchester.cmis.uk.com/colchester/Cou base.py:42
+           ncillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/18/Screen           
+           Mode/Alphabetical/Default.aspx                                       
+[12:20:25] 'title'                                                handlers.py:36
+           Committing batch 1 consisting of 6 files                  base.py:265
+[12:20:26] Finished attempting to scrape: COL                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-08-11-56">2022-05-08</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -3668,8 +3741,6 @@
 [20:43:09] Committing batch 2 consisting of 8 files                  base.py:263
 [20:43:10] Finished attempting to scrape: COL                        base.py:313
 </pre>
-  
-
   
 
   

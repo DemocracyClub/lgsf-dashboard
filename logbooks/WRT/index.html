@@ -37,6 +37,69 @@
   
 
 
+  <h2 id="2022-05-09-14-30">2022-05-09</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-09 14:30:38.808654</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-09 14:30:41.889926</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 134, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 123, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.warrington.gov.uk/councillors/name
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:30:38] Fetching Scraper for: WRT                              handlers.py:23
+           Begin attempting to scrape: WRT                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[14:30:39] Getting all files in WRT...                               base.py:182
+           ...found 1 files in WRT                                   base.py:198
+           Deleting batch no. 1 consisting of 1 files                base.py:207
+[14:30:40] ...data deleted.                                          base.py:237
+           Scraping from                                              base.py:42
+           https://www.warrington.gov.uk/councillors/name                       
+[14:30:41] 404 Client Error: Not Found for url:                   handlers.py:36
+           https://www.warrington.gov.uk/councillors/name                       
+           Finished attempting to scrape: WRT                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-08-13-18">2022-05-08</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1163,69 +1226,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.
            Scraping from                                              base.py:40
            https://www.warrington.gov.uk/councillors/name                       
 [16:46:52] 404 Client Error: Not Found for url:                   handlers.py:36
-           https://www.warrington.gov.uk/councillors/name                       
-           Finished attempting to scrape: WRT                        base.py:313
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-04-20-12-59">2022-04-20</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>3 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-04-20 12:59:54.430279</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-04-20 12:59:57.480380</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 134, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 130, in get_list_container
-    soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 115, in get_page
-    page = self.get(url).text
-  File "/var/task/lgsf/scrapers/base.py", line 47, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 960, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.warrington.gov.uk/councillors/name
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:59:54] Fetching Scraper for: WRT                              handlers.py:23
-           Begin attempting to scrape: WRT                        handlers.py:27
-           Deleting existing data...                                 base.py:228
-[12:59:55] Getting all files in WRT...                               base.py:180
-           ...found 1 files in WRT                                   base.py:196
-           Deleting batch no. 1 consisting of 1 files                base.py:205
-[12:59:56] ...data deleted.                                          base.py:235
-           Scraping from                                              base.py:40
-           https://www.warrington.gov.uk/councillors/name                       
-[12:59:57] 404 Client Error: Not Found for url:                   handlers.py:36
            https://www.warrington.gov.uk/councillors/name                       
            Finished attempting to scrape: WRT                        base.py:313
 </pre>

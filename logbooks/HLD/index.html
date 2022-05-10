@@ -37,6 +37,68 @@
   
 
 
+  <h2 id="2022-05-09-13-52">2022-05-09</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>7 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-09 13:52:04.303122</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-09 13:52:11.755535</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/HLD-highland/councillors.py", line 47, in get_single_councillor
+    councillor.email = soup.select_one("li a[href^=mailto]").get_text(strip=True)
+AttributeError: 'NoneType' object has no attribute 'get_text'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:52:04] Fetching Scraper for: HLD                              handlers.py:23
+           Begin attempting to scrape: HLD                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[13:52:05] Getting all files in HLD...                               base.py:182
+           ...found 1 files in HLD                                   base.py:198
+           Deleting batch no. 1 consisting of 1 files                base.py:207
+[13:52:06] ...data deleted.                                          base.py:237
+           Scraping from https://www.highland.gov.uk/councillors/name base.py:42
+[13:52:08] Scraping from                                              base.py:42
+           https://www.highland.gov.uk/councillors/81/colin_aitken              
+           Scraping from                                              base.py:42
+           https://www.highland.gov.uk/councillors/102/sarah_atkin              
+[13:52:09] Scraping from                                              base.py:42
+           https://www.highland.gov.uk/councillors/110/michael_baird            
+           Scraping from                                              base.py:42
+           https://www.highland.gov.uk/councillors/94/andrew_baldrey            
+[13:52:10] 'NoneType' object has no attribute 'get_text'          handlers.py:36
+           Committing batch 1 consisting of 6 files                  base.py:265
+[13:52:11] Finished attempting to scrape: HLD                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-08-13-51">2022-05-08</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2560,8 +2622,6 @@ IndexError: list index out of range
 [18:19:24] Committing batch 2 consisting of 54 files                 base.py:265
 [18:19:25] Finished attempting to scrape: HLD                        base.py:315
 </pre>
-  
-
   
 
   
