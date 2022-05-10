@@ -2,6 +2,7 @@ import json
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timedelta
 from pathlib import Path
+from typing import List
 
 import boto3
 
@@ -80,7 +81,7 @@ class LogRun:
         )
 
 
-logs = []
+logs: List[LogBook] = []
 
 
 for folder in folders:
@@ -99,3 +100,18 @@ for folder in folders:
 data_location = Path("_data/logbooks.json")
 data_location.parent.mkdir(exist_ok=True)
 data_location.write_text(json.dumps([lb.as_dict() for lb in logs], indent=4))
+
+failing_location = Path("_data/failing.json")
+failing_location.parent.mkdir(exist_ok=True)
+failing = []
+for logbook in logs:
+    if logbook.missing:
+        continue
+    last_run = logbook.log_runs[-1]
+    if last_run and last_run.status_code != 0:
+        # Remove all but the latest error
+        failed = logbook.as_dict()
+        failed["latest_run"] = failed["log_runs"][-1]
+        del failed["log_runs"]
+        failing.append(failed)
+failing_location.write_text(json.dumps([lb for lb in failing], indent=4))
