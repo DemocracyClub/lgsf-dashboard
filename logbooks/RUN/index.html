@@ -1022,68 +1022,23 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.
   
 
 
-  <h2 id="2022-04-20-11-21">2022-04-20</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-04-20 11:21:11.397205</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-04-20 11:21:14.275719</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 134, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 130, in get_list_container
-    soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 115, in get_page
-    page = self.get(url).text
-  File "/var/task/lgsf/scrapers/base.py", line 47, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 960, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.runnymede.gov.uk/article/15001/Councillors
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:21:11] Fetching Scraper for: RUN                              handlers.py:23
-           Begin attempting to scrape: RUN                        handlers.py:27
-           Deleting existing data...                                 base.py:228
-[11:21:12] Getting all files in RUN...                               base.py:180
-           ...found 1 files in RUN                                   base.py:196
-           Deleting batch no. 1 consisting of 1 files                base.py:205
-[11:21:13] ...data deleted.                                          base.py:235
-           Scraping from                                              base.py:40
-           https://www.runnymede.gov.uk/article/15001/Councillors               
-[11:21:14] 404 Client Error: Not Found for url:                   handlers.py:36
-           https://www.runnymede.gov.uk/article/15001/Councillors               
-           Finished attempting to scrape: RUN                        base.py:313
-</pre>
-  
-
-
       </main>
-      <footer class="ds-footer">...</footer>
+      <footer class="ds-footer">
+        <div class="ds-block-centered ds-text-centered ds-stack">
+          <div class="ds-cluster-center">
+            <ul>
+              <li><a href="/lgsf-dashboard/api/failing.json">Failing JSON</a></li>
+            </ul>
+          </div>
+          <div class="ds-copyright">
+            <a href="https://democracyclub.org.uk/">
+              <img src="https://DemocracyClub.github.io/design-system/images/logo_white_text.svg" alt="Democracy Club Home" />
+            </a>
+            <p>Copyright © 2021 Democracy Club</p>
+            <p>Community Interest Company</p>
+            <p>Company No: <a href="https://beta.companieshouse.gov.uk/company/09461226">09461226</a></p>
+          </div>
+        </div>
+      </footer>
     </div>
   </body>

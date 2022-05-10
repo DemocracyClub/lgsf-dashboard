@@ -1177,65 +1177,23 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www5
   
 
 
-  <h2 id="2022-04-20-12-48">2022-04-20</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-04-20 12:48:14.680167</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-04-20 12:48:16.810892</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 166, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 183, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 47, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 960, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www5.hertsmere.gov.uk/democracy//mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:48:14] Fetching Scraper for: HER                              handlers.py:23
-           Begin attempting to scrape: HER                        handlers.py:27
-           Deleting existing data...                                 base.py:228
-[12:48:15] Getting all files in HER...                               base.py:180
-           ...found 1 files in HER                                   base.py:196
-           Deleting batch no. 1 consisting of 1 files                base.py:205
-[12:48:16] ...data deleted.                                          base.py:235
-           Scraping from https://www5.hertsmere.gov.uk/democracy//mgW base.py:40
-           ebService.asmx/GetCouncillorsByWard                                  
-           404 Client Error: Not Found for url: https://www5.hert handlers.py:36
-           smere.gov.uk/democracy//mgWebService.asmx/GetCouncillo               
-           rsByWard                                                             
-           Finished attempting to scrape: HER                        base.py:313
-</pre>
-  
-
-
       </main>
-      <footer class="ds-footer">...</footer>
+      <footer class="ds-footer">
+        <div class="ds-block-centered ds-text-centered ds-stack">
+          <div class="ds-cluster-center">
+            <ul>
+              <li><a href="/lgsf-dashboard/api/failing.json">Failing JSON</a></li>
+            </ul>
+          </div>
+          <div class="ds-copyright">
+            <a href="https://democracyclub.org.uk/">
+              <img src="https://DemocracyClub.github.io/design-system/images/logo_white_text.svg" alt="Democracy Club Home" />
+            </a>
+            <p>Copyright © 2021 Democracy Club</p>
+            <p>Community Interest Company</p>
+            <p>Company No: <a href="https://beta.companieshouse.gov.uk/company/09461226">09461226</a></p>
+          </div>
+        </div>
+      </footer>
     </div>
   </body>
