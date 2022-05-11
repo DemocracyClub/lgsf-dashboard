@@ -37,6 +37,67 @@
   
 
 
+  <h2 id="2022-05-10-14-13">2022-05-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-10 14:13:23.177295</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-10 14:13:33.297445</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/CAN-cannock-chase/councillors.py", line 19, in get_single_councillor
+    url = urljoin(self.base_url, link["href"])
+TypeError: 'NoneType' object is not subscriptable
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:13:23] Fetching Scraper for: CAN                              handlers.py:23
+           Begin attempting to scrape: CAN                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in CAN...                               base.py:182
+[14:13:24] Getting all files in CAN/json...                          base.py:182
+           ...found 33 files in CAN/json                             base.py:198
+           Getting all files in CAN/raw...                           base.py:182
+           ...found 33 files in CAN/raw                              base.py:198
+           ...found 67 files in CAN                                  base.py:198
+           Deleting batch no. 1 consisting of 67 files               base.py:207
+[14:13:25] ...data deleted.                                          base.py:237
+           Scraping from https://www.cannockchasedc.gov.uk/council/ab base.py:42
+           out-council/your-councillors                                         
+[14:13:29] Scraping from https://www.cannockchasedc.gov.uk/council/ab base.py:42
+           out-council/councillors/louis-arduino                                
+[14:13:31] 'NoneType' object is not subscriptable                 handlers.py:36
+           Committing batch 1 consisting of 2 files                  base.py:265
+[14:13:33] Finished attempting to scrape: CAN                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-09-11-52">2022-05-09</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2123,8 +2184,6 @@
 [18:18:21] Committing batch 1 consisting of 82 files                 base.py:265
 [18:18:23] Finished attempting to scrape: CAN                        base.py:315
 </pre>
-  
-
   
 
   

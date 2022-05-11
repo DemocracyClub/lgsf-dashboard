@@ -37,6 +37,69 @@
   
 
 
+  <h2 id="2022-05-10-13-19">2022-05-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>7 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-10 13:19:46.760671</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-10 13:19:54.402009</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/AGB-argyll-and-bute/councillors.py", line 33, in get_single_councillor
+    councillor.email = soup.select("a[href^=mailto]")[0].get_text(strip=True)
+IndexError: list index out of range
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:19:46] Fetching Scraper for: AGB                              handlers.py:23
+           Begin attempting to scrape: AGB                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[13:19:47] Getting all files in AGB...                               base.py:182
+           Getting all files in AGB/json...                          base.py:182
+           ...found 2 files in AGB/json                              base.py:198
+           Getting all files in AGB/raw...                           base.py:182
+[13:19:48] ...found 2 files in AGB/raw                               base.py:198
+           ...found 5 files in AGB                                   base.py:198
+           Deleting batch no. 1 consisting of 5 files                base.py:207
+[13:19:49] ...data deleted.                                          base.py:237
+           Scraping from                                              base.py:42
+           https://www.argyll-bute.gov.uk/councillor_list                       
+[13:19:51] Scraping from                                              base.py:42
+           https://www.argyll-bute.gov.uk/councillors/yvonne-mcneilly           
+[13:19:52] Scraping from https://www.argyll-bute.gov.uk/councillors/w base.py:42
+           illiam-sinclair                                                      
+           list index out of range                                handlers.py:36
+[13:19:53] Committing batch 1 consisting of 2 files                  base.py:265
+[13:19:54] Finished attempting to scrape: AGB                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-09-11-38">2022-05-09</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2118,8 +2181,6 @@ IndexError: list index out of range
            Committing batch 1 consisting of 72 files                 base.py:263
 [12:10:57] Finished attempting to scrape: AGB                        base.py:313
 </pre>
-  
-
   
 
 

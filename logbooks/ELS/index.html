@@ -37,6 +37,62 @@
   
 
 
+  <h2 id="2022-05-10-13-57">2022-05-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>6 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-10 13:57:03.520247</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-10 13:57:09.627688</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/ELS-na-h-eileanan-an-iar/councillors.py", line 42, in get_single_councillor
+    councillor.email = soup.select_one("article a[href^=mailto]").getText(
+AttributeError: 'NoneType' object has no attribute 'getText'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:57:03] Fetching Scraper for: ELS                              handlers.py:23
+           Begin attempting to scrape: ELS                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[13:57:04] Getting all files in ELS...                               base.py:182
+           ...found 1 files in ELS                                   base.py:198
+           Deleting batch no. 1 consisting of 1 files                base.py:207
+[13:57:05] ...data deleted.                                          base.py:237
+           Scraping from https://www.cne-siar.gov.uk/your-council/war base.py:42
+           ds-and-councillors/council-members/                                  
+[13:57:07] Scraping from https://www.cne-siar.gov.uk/your-council/war base.py:42
+           ds-and-councillors/council-members/kenneth-j-maclean/                
+[13:57:09] 'NoneType' object has no attribute 'getText'           handlers.py:36
+           Finished attempting to scrape: ELS                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-09-12-53">2022-05-09</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -256,8 +312,6 @@ AttributeError: 'NoneType' object has no attribute 'getText'
 [14:53:15] 'NoneType' object has no attribute 'getText'           handlers.py:36
            Finished attempting to scrape: ELS                        base.py:315
 </pre>
-  
-
   
 
   

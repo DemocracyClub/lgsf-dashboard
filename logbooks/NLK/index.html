@@ -37,6 +37,70 @@
   
 
 
+  <h2 id="2022-05-10-11-19">2022-05-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-10 11:19:32.658737</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-10 11:19:42.467065</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/NLK-north-lanarkshire/councillors.py", line 52, in get_single_councillor
+    councillor.email = soup.select("a[href^=mailto]")[0].get_text(strip=True)
+IndexError: list index out of range
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:19:32] Fetching Scraper for: NLK                              handlers.py:23
+           Begin attempting to scrape: NLK                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[11:19:33] Getting all files in NLK...                               base.py:182
+           Getting all files in NLK/json...                          base.py:182
+           ...found 77 files in NLK/json                             base.py:198
+           Getting all files in NLK/raw...                           base.py:182
+[11:19:34] ...found 77 files in NLK/raw                              base.py:198
+           ...found 155 files in NLK                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[11:19:35] Deleting batch no. 2 consisting of 55 files               base.py:207
+[11:19:36] ...data deleted.                                          base.py:237
+           Scraping from https://mars.northlanarkshire.gov.uk/egenda/ base.py:42
+           public/main.pl?op=ListCurrentMembers                                 
+[11:19:38] Scraping from https://mars.northlanarkshire.gov.uk/egenda/ base.py:42
+           public/main.pl?op=MemberDetails&keyid=74                             
+[11:19:39] Scraping from https://mars.northlanarkshire.gov.uk/egenda/ base.py:42
+           public/main.pl?op=MemberDetails&keyid=137                            
+[11:19:40] list index out of range                                handlers.py:36
+           Committing batch 1 consisting of 2 files                  base.py:265
+[11:19:42] Finished attempting to scrape: NLK                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-09-12-31">2022-05-09</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -3946,8 +4010,6 @@
 [20:39:32] Committing batch 2 consisting of 62 files                 base.py:263
 [20:39:33] Finished attempting to scrape: NLK                        base.py:313
 </pre>
-  
-
   
 
 
