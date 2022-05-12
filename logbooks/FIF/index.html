@@ -37,6 +37,85 @@
   
 
 
+  <h2 id="2022-05-11-13-50">2022-05-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-11 13:50:36.092165</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-11 13:50:44.228665</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/FIF-fife/councillors.py", line 55, in get_single_councillor
+    councillor.email = soup.select_one(".councillor-social a[href^=mailto]")[
+TypeError: 'NoneType' object is not subscriptable
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:50:36] Fetching Scraper for: FIF                              handlers.py:23
+           Begin attempting to scrape: FIF                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in FIF...                               base.py:182
+[13:50:37] Getting all files in FIF/json...                          base.py:182
+           ...found 9 files in FIF/json                              base.py:198
+           Getting all files in FIF/raw...                           base.py:182
+           ...found 9 files in FIF/raw                               base.py:198
+           ...found 19 files in FIF                                  base.py:198
+           Deleting batch no. 1 consisting of 19 files               base.py:207
+[13:50:38] ...data deleted.                                          base.py:237
+           Scraping from https://www.fife.gov.uk/kb/docs/articles/abo base.py:42
+           ut-your-council2/politicians-and-committees/your-local-cou           
+           ncillors/councillor/                                                 
+[13:50:39] Scraping from https://www.fife.gov.uk/kb/docs/articles/abo base.py:42
+           ut-your-council2/politicians-and-committees/your-local-cou           
+           ncillors/councillor/buckhaven,-methil-and-wemyss-villages            
+[13:50:40] Scraping from https://www.fife.gov.uk/kb/docs/articles/abo base.py:42
+           ut-your-council2/politicians-and-committees/your-local-cou           
+           ncillors/councillor/buckhaven,-methil-and-wemyss-villages/           
+           cllr-ken-caldwell                                                    
+           Scraping from https://www.fife.gov.uk/kb/docs/articles/abo base.py:42
+           ut-your-council2/politicians-and-committees/your-local-cou           
+           ncillors/councillor/buckhaven,-methil-and-wemyss-villages/           
+           cllr-david-graham                                                    
+[13:50:41] Scraping from https://www.fife.gov.uk/kb/docs/articles/abo base.py:42
+           ut-your-council2/politicians-and-committees/your-local-cou           
+           ncillors/councillor/buckhaven,-methil-and-wemyss-villages/           
+           cllr-john-obrien                                                     
+[13:50:42] Scraping from https://www.fife.gov.uk/kb/docs/articles/abo base.py:42
+           ut-your-council2/politicians-and-committees/your-local-cou           
+           ncillors/councillor/buckhaven,-methil-and-wemyss-villages/           
+           cllr.-tom-adams                                                      
+           'NoneType' object is not subscriptable                 handlers.py:36
+           Committing batch 1 consisting of 6 files                  base.py:265
+[13:50:44] Finished attempting to scrape: FIF                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-10-13-24">2022-05-10</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -5690,8 +5769,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.
 [17:41:52] Committing batch 2 consisting of 54 files                 base.py:265
 [17:41:53] Finished attempting to scrape: FIF                        base.py:315
 </pre>
-  
-
   
 
   
