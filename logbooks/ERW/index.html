@@ -37,6 +37,71 @@
   
 
 
+  <h2 id="2022-05-12-14-29">2022-05-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>7 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-12 14:29:00.655394</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-12 14:29:08.444247</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/ERW-east-renfrewshire/councillors.py", line 38, in get_single_councillor
+    soup.find("h2", text=re.compile("Party"))
+AttributeError: 'NoneType' object has no attribute 'find_next'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:29:00] Fetching Scraper for: ERW                              handlers.py:23
+           Begin attempting to scrape: ERW                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[14:29:01] Getting all files in ERW...                               base.py:182
+           Getting all files in ERW/json...                          base.py:182
+           ...found 10 files in ERW/json                             base.py:198
+           Getting all files in ERW/raw...                           base.py:182
+[14:29:02] ...found 10 files in ERW/raw                              base.py:198
+           ...found 21 files in ERW                                  base.py:198
+           Deleting batch no. 1 consisting of 21 files               base.py:207
+           ...data deleted.                                          base.py:237
+           Scraping from                                              base.py:42
+           https://www.eastrenfrewshire.gov.uk/Find-my-councillor               
+[14:29:04] Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
+           or-angela-convery                                                    
+[14:29:05] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
+           3343/Contact-Councillor-Angela-Convery                               
+           Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
+           or-betty-cunningham                                                  
+[14:29:06] 'NoneType' object has no attribute 'find_next'         handlers.py:36
+           Committing batch 1 consisting of 2 files                  base.py:265
+[14:29:08] Finished attempting to scrape: ERW                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-11-14-08">2022-05-11</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1837,8 +1902,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.
 [20:38:17] Committing batch 1 consisting of 36 files                 base.py:265
 [20:38:18] Finished attempting to scrape: ERW                        base.py:315
 </pre>
-  
-
   
 
   

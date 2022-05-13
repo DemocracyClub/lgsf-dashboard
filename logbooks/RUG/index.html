@@ -37,6 +37,82 @@
   
 
 
+  <h2 id="2022-05-12-12-15">2022-05-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-12 12:15:56.378821</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-12 12:16:06.717488</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/RUG-rugby/councillors.py", line 48, in get_single_councillor
+    councillor.email = soup.select_one(".callout a[href^=mailto]")["href"].replace(
+TypeError: 'NoneType' object is not subscriptable
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:15:56] Fetching Scraper for: RUG                              handlers.py:23
+           Begin attempting to scrape: RUG                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[12:15:57] Getting all files in RUG...                               base.py:182
+           Getting all files in RUG/json...                          base.py:182
+           ...found 8 files in RUG/json                              base.py:198
+           Getting all files in RUG/raw...                           base.py:182
+           ...found 8 files in RUG/raw                               base.py:198
+           ...found 17 files in RUG                                  base.py:198
+           Deleting batch no. 1 consisting of 17 files               base.py:207
+[12:15:58] ...data deleted.                                          base.py:237
+           Scraping from https://www.rugby.gov.uk/councillors/name    base.py:42
+[12:16:00] Scraping from                                              base.py:42
+           https://www.rugby.gov.uk/councillors/85/julie_abarrow                
+           Scraping from                                              base.py:42
+           https://www.rugby.gov.uk/councillors/104/glenda_allanach             
+[12:16:01] Scraping from                                              base.py:42
+           https://www.rugby.gov.uk/councillors/100/barbara_brown               
+[12:16:02] Scraping from                                              base.py:42
+           https://www.rugby.gov.uk/councillors/89/emma_crane                   
+           Scraping from                                              base.py:42
+           https://www.rugby.gov.uk/councillors/90/adam_daly                    
+[12:16:03] Scraping from                                              base.py:42
+           https://www.rugby.gov.uk/councillors/92/tim_douglas                  
+           Scraping from https://www.rugby.gov.uk/councillors/93/cari base.py:42
+           e-anne_dumbleton                                                     
+[12:16:04] Scraping from                                              base.py:42
+           https://www.rugby.gov.uk/councillors/103/peter_eccleson              
+           Scraping from                                              base.py:42
+           https://www.rugby.gov.uk/councillors/107/sam_edwards                 
+[12:16:05] 'NoneType' object is not subscriptable                 handlers.py:36
+           Committing batch 1 consisting of 16 files                 base.py:265
+[12:16:06] Finished attempting to scrape: RUG                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-11-13-22">2022-05-11</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2263,8 +2339,6 @@ TypeError: 'NoneType' object is not subscriptable
            Committing batch 1 consisting of 82 files                 base.py:265
 [17:31:41] Finished attempting to scrape: RUG                        base.py:315
 </pre>
-  
-
   
 
   
