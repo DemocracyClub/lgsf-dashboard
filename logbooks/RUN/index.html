@@ -37,6 +37,56 @@
   
 
 
+  <h2 id="2022-05-13-13-39">2022-05-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-13 13:39:08.927872</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-13 13:39:17.372644</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:39:08] Fetching Scraper for: RUN                              handlers.py:23
+           Begin attempting to scrape: RUN                        handlers.py:27
+[13:39:09] Deleting existing data...                                 base.py:230
+           Getting all files in RUN...                               base.py:182
+           Getting all files in RUN/json...                          base.py:182
+[13:39:10] ...found 41 files in RUN/json                             base.py:198
+           Getting all files in RUN/raw...                           base.py:182
+           ...found 41 files in RUN/raw                              base.py:198
+           ...found 83 files in RUN                                  base.py:198
+           Deleting batch no. 1 consisting of 83 files               base.py:207
+[13:39:11] ...data deleted.                                          base.py:237
+           Scraping from https://democracy.runnymede.gov.uk/mgWebServ base.py:42
+           ice.asmx/GetCouncillorsByWard                                        
+[13:39:15] Committing batch 1 consisting of 82 files                 base.py:265
+[13:39:17] Finished attempting to scrape: RUN                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-12-13-55">2022-05-12</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -977,69 +1027,6 @@
            ice.asmx/GetCouncillorsByWard                                        
 [18:16:26] Committing batch 1 consisting of 82 files                 base.py:265
 [18:16:27] Finished attempting to scrape: RUN                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-04-23-13-38">2022-04-23</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-04-23 13:38:15.125207</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-04-23 13:38:17.479151</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 142, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 138, in get_list_container
-    soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 123, in get_page
-    page = self.get(url).text
-  File "/var/task/lgsf/scrapers/base.py", line 47, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 960, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.runnymede.gov.uk/article/15001/Councillors
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:38:15] Fetching Scraper for: RUN                              handlers.py:23
-           Begin attempting to scrape: RUN                        handlers.py:27
-           Deleting existing data...                                 base.py:228
-           Getting all files in RUN...                               base.py:180
-           ...found 1 files in RUN                                   base.py:196
-[13:38:16] Deleting batch no. 1 consisting of 1 files                base.py:205
-           ...data deleted.                                          base.py:235
-[13:38:17] Scraping from                                              base.py:40
-           https://www.runnymede.gov.uk/article/15001/Councillors               
-           404 Client Error: Not Found for url:                   handlers.py:36
-           https://www.runnymede.gov.uk/article/15001/Councillors               
-           Finished attempting to scrape: RUN                        base.py:313
 </pre>
   
 

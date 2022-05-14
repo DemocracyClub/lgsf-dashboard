@@ -37,6 +37,72 @@
   
 
 
+  <h2 id="2022-05-13-12-57">2022-05-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>7 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-13 12:57:20.363436</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-13 12:57:27.658085</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
+    councillor.email = soup.select_one("li a[href^=mailto]")["href"].replace(
+TypeError: 'NoneType' object is not subscriptable
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:57:20] Fetching Scraper for: PEN                              handlers.py:23
+           Begin attempting to scrape: PEN                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[12:57:21] Getting all files in PEN...                               base.py:182
+           Getting all files in PEN/json...                          base.py:182
+           ...found 3 files in PEN/json                              base.py:198
+           Getting all files in PEN/raw...                           base.py:182
+           ...found 3 files in PEN/raw                               base.py:198
+           ...found 7 files in PEN                                   base.py:198
+           Deleting batch no. 1 consisting of 7 files                base.py:207
+[12:57:22] ...data deleted.                                          base.py:237
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:42
+[12:57:24] Scraping from                                              base.py:42
+           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
+           Scraping from                                              base.py:42
+           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
+[12:57:25] Scraping from                                              base.py:42
+           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
+           Scraping from                                              base.py:42
+           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
+[12:57:26] 'NoneType' object is not subscriptable                 handlers.py:36
+           Committing batch 1 consisting of 6 files                  base.py:265
+[12:57:27] Finished attempting to scrape: PEN                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-12-13-46">2022-05-12</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1866,8 +1932,6 @@ TypeError: 'NoneType' object is not subscriptable
            Committing batch 1 consisting of 62 files                 base.py:265
 [18:25:41] Finished attempting to scrape: PEN                        base.py:315
 </pre>
-  
-
   
 
 
