@@ -37,6 +37,58 @@
   
 
 
+  <h2 id="2022-05-14-11-58">2022-05-14</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-14 11:58:33.350487</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-14 11:58:41.439547</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:58:33] Fetching Scraper for: BGE                              handlers.py:23
+           Begin attempting to scrape: BGE                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[11:58:34] Getting all files in BGE...                               base.py:182
+           Getting all files in BGE/json...                          base.py:182
+           ...found 50 files in BGE/json                             base.py:198
+           Getting all files in BGE/raw...                           base.py:182
+           ...found 50 files in BGE/raw                              base.py:198
+           ...found 101 files in BGE                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[11:58:35] Deleting batch no. 2 consisting of 1 files                base.py:207
+[11:58:36] ...data deleted.                                          base.py:237
+           Scraping from https://democratic.bridgend.gov.uk/mgWebServ base.py:42
+           ice.asmx/GetCouncillorsByWard                                        
+[11:58:38] Committing batch 1 consisting of 92 files                 base.py:265
+[11:58:40] Committing batch 2 consisting of 8 files                  base.py:265
+[11:58:41] Finished attempting to scrape: BGE                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-13-12-35">2022-05-13</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1014,71 +1066,6 @@
 [11:42:03] Committing batch 1 consisting of 92 files                 base.py:265
 [11:42:04] Committing batch 2 consisting of 16 files                 base.py:265
 [11:42:06] Finished attempting to scrape: BGE                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-04-24-19-34">2022-04-24</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>3 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-04-24 19:34:52.614789</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-04-24 19:34:56.476260</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 960, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: https://democratic.bridgend.gov.uk/mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[19:34:52] Fetching Scraper for: BGE                              handlers.py:23
-           Begin attempting to scrape: BGE                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-[19:34:53] Getting all files in BGE...                               base.py:182
-           Getting all files in BGE/json...                          base.py:182
-           ...found 54 files in BGE/json                             base.py:198
-           Getting all files in BGE/raw...                           base.py:182
-[19:34:54] ...found 54 files in BGE/raw                              base.py:198
-           ...found 109 files in BGE                                 base.py:198
-           Deleting batch no. 1 consisting of 100 files              base.py:207
-[19:34:55] Deleting batch no. 2 consisting of 9 files                base.py:207
-[19:34:56] ...data deleted.                                          base.py:237
-           Scraping from https://democratic.bridgend.gov.uk/mgWebServ base.py:42
-           ice.asmx/GetCouncillorsByWard                                        
-           503 Server Error: Service Unavailable for url: https:/ handlers.py:36
-           /democratic.bridgend.gov.uk/mgWebService.asmx/GetCounc               
-           illorsByWard                                                         
-           Finished attempting to scrape: BGE                        base.py:315
 </pre>
   
 

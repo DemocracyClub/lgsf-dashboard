@@ -37,6 +37,65 @@
   
 
 
+  <h2 id="2022-05-14-11-22">2022-05-14</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-14 11:22:20.434687</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-14 11:22:29.484521</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 177, in run
+    councillor = self.get_single_councillor(ward, councillor_xml)
+  File "scrapers/EAS-eastbourne/councillors.py", line 14, in get_single_councillor
+    if "eastbourne.gov.uk" in email:
+TypeError: argument of type 'NoneType' is not iterable
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:22:20] Fetching Scraper for: EAS                              handlers.py:23
+           Begin attempting to scrape: EAS                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[11:22:21] Getting all files in EAS...                               base.py:182
+           Getting all files in EAS/json...                          base.py:182
+           ...found 15 files in EAS/json                             base.py:198
+           Getting all files in EAS/raw...                           base.py:182
+           ...found 15 files in EAS/raw                              base.py:198
+           ...found 31 files in EAS                                  base.py:198
+           Deleting batch no. 1 consisting of 31 files               base.py:207
+[11:22:22] ...data deleted.                                          base.py:237
+           Scraping from https://democracy.lewes-eastbourne.gov.uk/mg base.py:42
+           WebService.asmx/GetCouncillorsByWard                                 
+[11:22:28] argument of type 'NoneType' is not iterable            handlers.py:36
+           Committing batch 1 consisting of 30 files                 base.py:265
+[11:22:29] Finished attempting to scrape: EAS                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-13-12-28">2022-05-13</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -990,51 +1049,6 @@ TypeError: argument of type 'NoneType' is not iterable
            WebService.asmx/GetCouncillorsByWard                                 
 [11:41:03] Committing batch 1 consisting of 54 files                 base.py:265
 [11:41:05] Finished attempting to scrape: EAS                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-04-24-20-03">2022-04-24</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>7 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-04-24 20:03:54.807403</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-04-24 20:04:02.185331</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[20:03:54] Fetching Scraper for: EAS                              handlers.py:23
-           Begin attempting to scrape: EAS                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-[20:03:55] Getting all files in EAS...                               base.py:182
-           EAS Does not exist                                        base.py:202
-           ...no data to delete.                                     base.py:234
-           Scraping from https://democracy.lewes-eastbourne.gov.uk/mg base.py:42
-           WebService.asmx/GetCouncillorsByWard                                 
-[20:04:00] Committing batch 1 consisting of 54 files                 base.py:265
-[20:04:02] Finished attempting to scrape: EAS                        base.py:315
 </pre>
   
 
