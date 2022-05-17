@@ -37,6 +37,71 @@
   
 
 
+  <h2 id="2022-05-16-13-53">2022-05-16</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-16 13:53:07.440100</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-16 13:53:15.865607</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/ERW-east-renfrewshire/councillors.py", line 38, in get_single_councillor
+    soup.find("h2", text=re.compile("Party"))
+AttributeError: 'NoneType' object has no attribute 'find_next'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:53:07] Fetching Scraper for: ERW                              handlers.py:23
+           Begin attempting to scrape: ERW                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[13:53:08] Getting all files in ERW...                               base.py:182
+           Getting all files in ERW/json...                          base.py:182
+           ...found 1 files in ERW/json                              base.py:198
+           Getting all files in ERW/raw...                           base.py:182
+           ...found 1 files in ERW/raw                               base.py:198
+           ...found 3 files in ERW                                   base.py:198
+           Deleting batch no. 1 consisting of 3 files                base.py:207
+[13:53:09] ...data deleted.                                          base.py:237
+           Scraping from                                              base.py:42
+           https://www.eastrenfrewshire.gov.uk/Find-my-councillor               
+[13:53:10] Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
+           or-angela-convery                                                    
+[13:53:12] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
+           3343/Contact-Councillor-Angela-Convery                               
+[13:53:13] Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
+           or-betty-cunningham                                                  
+[13:53:14] 'NoneType' object has no attribute 'find_next'         handlers.py:36
+           Committing batch 1 consisting of 2 files                  base.py:265
+[13:53:15] Finished attempting to scrape: ERW                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-15-13-51">2022-05-15</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1735,128 +1800,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.
            3356/Contact-Councillor-Jim-Swift                                    
            Committing batch 1 consisting of 36 files                 base.py:265
 [13:02:41] Finished attempting to scrape: ERW                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-04-26-12-56">2022-04-26</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>37 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-04-26 12:56:05.952032</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-04-26 12:56:43.806765</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:56:05] Fetching Scraper for: ERW                              handlers.py:23
-           Begin attempting to scrape: ERW                        handlers.py:27
-[12:56:06] Deleting existing data...                                 base.py:230
-           Getting all files in ERW...                               base.py:182
-           Getting all files in ERW/json...                          base.py:182
-[12:56:07] ...found 18 files in ERW/json                             base.py:198
-           Getting all files in ERW/raw...                           base.py:182
-           ...found 18 files in ERW/raw                              base.py:198
-           ...found 37 files in ERW                                  base.py:198
-           Deleting batch no. 1 consisting of 37 files               base.py:207
-[12:56:08] ...data deleted.                                          base.py:237
-           Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/Find-my-councillor               
-[12:56:10] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/councillor-paul-aitken           
-[12:56:11] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3340/Contact-Councillor-Paul-Aitken                                  
-[12:56:12] Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
-           or-angela-convery                                                    
-[12:56:13] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3343/Contact-Councillor-Angela-Convery                               
-[12:56:14] Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
-           or-betty-cunningham                                                  
-[12:56:16] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3344/Contact-Councillor-Betty-Cunningham                             
-           Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
-           or-danny-devlin                                                      
-[12:56:17] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3345/Contact-Councillor-Danny-Devlin                                 
-[12:56:18] Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
-           or-tony-buchanan                                                     
-[12:56:19] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3342/Contact-Councillor-Tony-Buchanan                                
-           Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
-           or-charlie-gilbert                                                   
-[12:56:20] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3347/Contact-Councillor-Charlie-Gilbert                              
-[12:56:21] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/councillor-paul-okane            
-[12:56:22] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3355/Contact-Councillor-Paul-O-Kane                                  
-[12:56:23] Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
-           or-jim-fletcher                                                      
-[12:56:24] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3346/Contact-Provost-Jim-Fletcher                                    
-           Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
-           or-colm-merrick                                                      
-[12:56:25] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3353/Contact-Councillor-Colm-Merrick                                 
-[12:56:26] Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
-           or-gordon-wallace                                                    
-[12:56:27] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3357/Contact-Councillor-Gordon-Wallace                               
-[12:56:28] Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
-           or-annette-ireland                                                   
-[12:56:29] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3349/Contact-Councillor-Annette-Ireland                              
-           Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
-           or-alan-lafferty                                                     
-[12:56:30] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3350/Contact-Councillor-Alan-Lafferty                                
-[12:56:31] Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
-           or-david-macdonald                                                   
-[12:56:32] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3351/Contact-Councillor-David-Macdonald                              
-[12:56:33] Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
-           or-stewart-miller                                                    
-[12:56:34] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3354/Contact-Councillor-Stewart-Miller                               
-           Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
-           or-caroline-bamforth                                                 
-[12:56:35] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3341/Contact-Councillor-Caroline-Bamforth                            
-[12:56:36] Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
-           or-barbara-grant                                                     
-[12:56:37] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3348/Contact-Councillor-Barbara-Grant                                
-[12:56:38] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/councillor-jim-mclean            
-[12:56:39] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3352/Contact-Councillor-Jim-McLean                                   
-[12:56:40] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/councillor-jim-swift             
-[12:56:41] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3356/Contact-Councillor-Jim-Swift                                    
-[12:56:42] Committing batch 1 consisting of 36 files                 base.py:265
-[12:56:43] Finished attempting to scrape: ERW                        base.py:315
 </pre>
   
 
