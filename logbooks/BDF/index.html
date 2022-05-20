@@ -37,6 +37,73 @@
   
 
 
+  <h2 id="2022-05-19-11-56">2022-05-19</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>22 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-19 11:56:07.070627</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-19 11:56:29.096672</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 408 Client Error: ( The operation timed out. The remote server did not respond within the set time allowed. The server might be unavailable at this time. Try again later or contact the server administrator.  ) for url: https://councillorsupport.bedford.gov.uk/mgWebService.asmx/GetCouncillorsByWard
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:56:07] Fetching Scraper for: BDF                              handlers.py:23
+           Begin attempting to scrape: BDF                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in BDF...                               base.py:182
+[11:56:08] Getting all files in BDF/json...                          base.py:182
+           ...found 41 files in BDF/json                             base.py:198
+           Getting all files in BDF/raw...                           base.py:182
+           ...found 41 files in BDF/raw                              base.py:198
+           ...found 83 files in BDF                                  base.py:198
+           Deleting batch no. 1 consisting of 83 files               base.py:207
+[11:56:09] ...data deleted.                                          base.py:237
+           Scraping from http://www.councillorsupport.bedford.gov.uk/ base.py:42
+           mgWebService.asmx/GetCouncillorsByWard                               
+[11:56:28] 408 Client Error: ( The operation timed out. The       handlers.py:36
+           remote server did not respond within the set time                    
+           allowed. The server might be unavailable at this time.               
+           Try again later or contact the server administrator.                 
+           ) for url: https://councillorsupport.bedford.gov.uk/mg               
+           WebService.asmx/GetCouncillorsByWard                                 
+[11:56:29] Finished attempting to scrape: BDF                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-18-13-19">2022-05-18</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -981,56 +1048,6 @@
            mgWebService.asmx/GetCouncillorsByWard                               
 [13:16:58] Committing batch 1 consisting of 82 files                 base.py:265
 [13:17:00] Finished attempting to scrape: BDF                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-04-29-12-57">2022-04-29</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>6 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-04-29 12:57:06.276545</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-04-29 12:57:12.594300</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:57:06] Fetching Scraper for: BDF                              handlers.py:23
-           Begin attempting to scrape: BDF                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-[12:57:07] Getting all files in BDF...                               base.py:182
-           Getting all files in BDF/json...                          base.py:182
-           ...found 41 files in BDF/json                             base.py:198
-           Getting all files in BDF/raw...                           base.py:182
-           ...found 41 files in BDF/raw                              base.py:198
-           ...found 83 files in BDF                                  base.py:198
-           Deleting batch no. 1 consisting of 83 files               base.py:207
-[12:57:08] ...data deleted.                                          base.py:237
-           Scraping from http://www.councillorsupport.bedford.gov.uk/ base.py:42
-           mgWebService.asmx/GetCouncillorsByWard                               
-[12:57:10] Committing batch 1 consisting of 82 files                 base.py:265
-[12:57:12] Finished attempting to scrape: BDF                        base.py:315
 </pre>
   
 
