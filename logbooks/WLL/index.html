@@ -37,6 +37,117 @@
   
 
 
+  <h2 id="2022-05-24-14-04">2022-05-24</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>133 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-24 14:04:12.725402</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-24 14:06:26.171673</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f326269a0a0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmispublic.walsall.gov.uk', port=443): Max retries exceeded with url: /cmis/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f326269a0a0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 242, in get_councillors
+    req = self.get(self.base_url, extra_headers=self.extra_headers)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 542, in get
+    return self.request('GET', url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmispublic.walsall.gov.uk', port=443): Max retries exceeded with url: /cmis/Councillors.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f326269a0a0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:04:12] Fetching Scraper for: WLL                              handlers.py:23
+           Begin attempting to scrape: WLL                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[14:04:13] Getting all files in WLL...                               base.py:182
+           Getting all files in WLL/json...                          base.py:182
+           ...found 60 files in WLL/json                             base.py:198
+[14:04:14] Getting all files in WLL/raw...                           base.py:182
+           ...found 60 files in WLL/raw                              base.py:198
+           ...found 121 files in WLL                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[14:04:15] Deleting batch no. 2 consisting of 21 files               base.py:207
+[14:04:16] ...data deleted.                                          base.py:237
+           Scraping from                                              base.py:42
+           https://cmispublic.walsall.gov.uk/cmis/Councillors.aspx              
+[14:06:25] HTTPSConnectionPool(host='cmispublic.walsall.gov.uk',  handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /cmis/Councillors.aspx (Caused by NewConnectionError('               
+           <urllib3.connection.HTTPSConnection object at                        
+           0x7f326269a0a0>: Failed to establish a new connection:               
+           [Errno 110] Connection timed out'))                                  
+[14:06:26] Finished attempting to scrape: WLL                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-23-13-44">2022-05-23</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2789,232 +2900,6 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='cmispublic.walsal
            0x7fefd5ca3070>: Failed to establish a new connection:               
            [Errno 110] Connection timed out'))                                  
            Finished attempting to scrape: WLL                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-05-04-14-08">2022-05-04</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>302 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-05-04 14:08:45.897546</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-05-04 14:13:48.552087</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:08:45] Fetching Scraper for: WLL                              handlers.py:23
-           Begin attempting to scrape: WLL                        handlers.py:27
-[14:08:46] Deleting existing data...                                 base.py:230
-           Getting all files in WLL...                               base.py:182
-[14:08:47] Getting all files in WLL/json...                          base.py:182
-           ...found 58 files in WLL/json                             base.py:198
-           Getting all files in WLL/raw...                           base.py:182
-           ...found 58 files in WLL/raw                              base.py:198
-           ...found 117 files in WLL                                 base.py:198
-           Deleting batch no. 1 consisting of 100 files              base.py:207
-[14:08:48] Deleting batch no. 2 consisting of 17 files               base.py:207
-[14:08:49] ...data deleted.                                          base.py:237
-           Scraping from                                              base.py:42
-           https://cmispublic.walsall.gov.uk/cmis/Councillors.aspx              
-[14:08:52] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/520/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:08:56] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/470/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:09:00] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/36/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[14:09:06] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/522/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:09:09] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/41/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[14:09:21] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/334/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:09:26] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/31/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[14:09:32] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/30/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[14:09:37] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/506/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:09:40] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/503/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:09:43] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/57/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[14:09:48] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/457/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:09:54] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/362/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:09:59] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/256/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:10:06] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/229/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:10:12] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/472/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:10:16] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/559/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:10:20] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/455/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:10:25] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/561/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:10:28] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/454/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:10:32] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/563/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:10:36] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/473/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:10:39] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/9/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[14:10:46] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/64/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[14:10:53] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/459/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:11:02] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/557/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:11:05] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/368/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:11:12] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/68/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[14:11:15] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/355/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:11:23] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/524/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:11:27] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/519/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:11:32] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/558/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:11:35] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/32/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[14:11:42] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/523/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:11:46] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/560/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:11:51] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/29/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[14:11:58] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/518/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:12:02] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/397/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:12:09] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/474/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:12:12] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/290/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:12:18] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/556/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:12:21] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/38/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[14:12:28] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/501/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:12:33] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/367/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:12:38] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/16/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[14:12:45] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/504/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:12:51] Committing batch 1 consisting of 92 files                 base.py:265
-[14:12:53] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/5/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[14:12:59] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/382/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:13:03] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/564/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:13:07] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/521/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:13:10] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/500/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:13:14] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/42/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[14:13:19] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/63/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[14:13:24] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/505/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:13:30] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/562/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:13:33] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/379/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:13:37] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/384/ScreenMo           
-           de/Alphabetical/Default.aspx                                         
-[14:13:42] Scraping from http://cmispublic.walsall.gov.uk/cmis/Counci base.py:42
-           llors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/18/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[14:13:46] Committing batch 2 consisting of 24 files                 base.py:265
-[14:13:48] Finished attempting to scrape: WLL                        base.py:315
 </pre>
   
 
