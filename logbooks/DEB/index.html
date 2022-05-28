@@ -37,6 +37,69 @@
   
 
 
+  <h2 id="2022-05-27-13-06">2022-05-27</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-27 13:06:13.840349</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-27 13:06:16.018713</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 134, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 123, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://derbyshiredales.gov.uk/your-council/councillors
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:06:13] Fetching Scraper for: DEB                              handlers.py:23
+           Begin attempting to scrape: DEB                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[13:06:14] Getting all files in DEB...                               base.py:182
+           ...found 1 files in DEB                                   base.py:198
+           Deleting batch no. 1 consisting of 1 files                base.py:207
+[13:06:15] ...data deleted.                                          base.py:237
+           Scraping from                                              base.py:42
+           https://derbyshiredales.gov.uk/your-council/councillors              
+           404 Client Error: Not Found for url: https://derbyshir handlers.py:36
+           edales.gov.uk/your-council/councillors                               
+           Finished attempting to scrape: DEB                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-26-13-58">2022-05-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1691,132 +1754,6 @@ AttributeError: 'NoneType' object has no attribute 'getText'
            councillors/458-tony-morley                                          
 [14:05:54] Committing batch 1 consisting of 76 files                 base.py:265
 [14:05:56] Finished attempting to scrape: DEB                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-05-07-11-25">2022-05-07</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>93 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-05-07 11:25:27.065245</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-05-07 11:27:01.022283</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:25:27] Fetching Scraper for: DEB                              handlers.py:23
-           Begin attempting to scrape: DEB                        handlers.py:27
-[11:25:28] Deleting existing data...                                 base.py:230
-[11:25:29] Getting all files in DEB...                               base.py:182
-           Getting all files in DEB/json...                          base.py:182
-           ...found 38 files in DEB/json                             base.py:198
-           Getting all files in DEB/raw...                           base.py:182
-           ...found 38 files in DEB/raw                              base.py:198
-           ...found 77 files in DEB                                  base.py:198
-           Deleting batch no. 1 consisting of 77 files               base.py:207
-[11:25:30] ...data deleted.                                          base.py:237
-           Scraping from                                              base.py:42
-           https://derbyshiredales.gov.uk/your-council/councillors              
-[11:25:34] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/503-alasdair-sutton                                      
-[11:25:36] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/502-alyson-hill                                          
-[11:25:38] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/491-andrew-shirley                                       
-[11:25:40] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/493-andrew-statham                                       
-[11:25:42] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/499-chris-furness                                        
-[11:25:45] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/484-claire-raw                                           
-[11:25:47] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/476-clare-gamble                                         
-[11:25:49] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/497-colin-swindell                                       
-[11:25:51] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/467-david-chapman                                        
-[11:25:53] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/496-david-hughes                                         
-[11:25:55] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/486-dawn-greatorex                                       
-[11:25:58] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/463-dermot-murphy                                        
-[11:26:00] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/485-garry-purdy                                          
-[11:26:02] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/475-graham-elliott                                       
-[11:26:05] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/477-helen-froggatt                                       
-[11:26:07] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/466-jacqueline-allison                                   
-[11:26:10] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/461-jason-atkin                                          
-[11:26:12] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/471-mark-salt                                            
-[11:26:14] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/498-mark-wakeman                                         
-[11:26:16] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/494-martin-burfoot                                       
-[11:26:18] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/505-matthew-buckler                                      
-[11:26:20] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/488-michael-ratcliffe                                    
-[11:26:23] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/478-michele-morley                                       
-[11:26:25] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/456-neil-buttle                                          
-[11:26:27] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/501-paul-cruise                                          
-[11:26:29] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/454-peter-o-brien                                        
-[11:26:31] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/492-peter-slack                                          
-[11:26:33] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/457-richard-bright                                       
-[11:26:36] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/472-richard-fitzherbert                                  
-[11:26:38] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/479-robert-archer                                        
-[11:26:41] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/473-steve-flitter                                        
-[11:26:43] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/470-steve-wain                                           
-[11:26:45] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/483-stuart-lees                                          
-[11:26:48] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/459-sue-bull                                             
-[11:26:50] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/460-sue-burfoot                                          
-[11:26:52] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/481-susan-hobson                                         
-[11:26:54] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/469-thomas-donnelly                                      
-[11:26:56] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/458-tony-morley                                          
-[11:26:58] Committing batch 1 consisting of 76 files                 base.py:265
-[11:27:01] Finished attempting to scrape: DEB                        base.py:315
 </pre>
   
 
