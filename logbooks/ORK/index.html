@@ -37,6 +37,69 @@
   
 
 
+  <h2 id="2022-05-31-13-52">2022-05-31</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-05-31 13:52:03.539845</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-05-31 13:52:06.220680</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 134, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 123, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.orkney.gov.uk/Council/Councillors/councillor-profiles.htm
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:52:03] Fetching Scraper for: ORK                              handlers.py:23
+           Begin attempting to scrape: ORK                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[13:52:04] Getting all files in ORK...                               base.py:182
+           ...found 1 files in ORK                                   base.py:198
+           Deleting batch no. 1 consisting of 1 files                base.py:207
+[13:52:05] ...data deleted.                                          base.py:237
+           Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
+           s/councillor-profiles.htm                                            
+           404 Client Error: Not Found for url: https://www.orkne handlers.py:36
+           y.gov.uk/Council/Councillors/councillor-profiles.htm                 
+[13:52:06] Finished attempting to scrape: ORK                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-30-12-00">2022-05-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1249,98 +1312,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.
            s/Steven-Heddle.htm                                                  
 [12:33:21] Committing batch 1 consisting of 30 files                 base.py:265
 [12:33:22] Finished attempting to scrape: ORK                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-05-11-13-22">2022-05-11</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>22 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-05-11 13:22:10.532179</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-05-11 13:22:33.022951</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:22:10] Fetching Scraper for: ORK                              handlers.py:23
-           Begin attempting to scrape: ORK                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-[13:22:11] Getting all files in ORK...                               base.py:182
-           Getting all files in ORK/json...                          base.py:182
-           ...found 21 files in ORK/json                             base.py:198
-           Getting all files in ORK/raw...                           base.py:182
-[13:22:12] ...found 21 files in ORK/raw                              base.py:198
-           ...found 43 files in ORK                                  base.py:198
-           Deleting batch no. 1 consisting of 43 files               base.py:207
-[13:22:13] ...data deleted.                                          base.py:237
-           Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/councillor-profiles.htm                                            
-[13:22:14] Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/Andrew-Drever.htm                                                  
-[13:22:15] Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/barbara-foulkes.htm                                                
-           Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/david-dawson.htm                                                   
-[13:22:16] Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/duncan-tullock.htm                                                 
-[13:22:17] Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/Graham-Sinclair_2.htm                                              
-[13:22:18] Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/gwenda-shearer.htm                                                 
-[13:22:19] Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/harvey-jonston.htm                                                 
-           Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/heather-woodbridge.htm                                             
-[13:22:20] Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/James-Stockan.htm                                                  
-[13:22:21] Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/john-richards.htm                                                  
-[13:22:22] Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/john-ross-scott.htm                                                
-[13:22:23] Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/leslie-manson.htm                                                  
-           Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/magnus-thomson.htm                                                 
-[13:22:25] Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/norman-craigie.htm                                                 
-           Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/owen-tierney.htm                                                   
-[13:22:26] Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/rachael-king.htm                                                   
-[13:22:27] Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/Rob-Crichton.htm                                                   
-[13:22:28] Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/sandy-cowie.htm                                                    
-[13:22:29] Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/stephen-clackson.htm                                               
-           Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/steve-sankey.htm                                                   
-[13:22:30] Scraping from https://www.orkney.gov.uk/Council/Councillor base.py:42
-           s/Steven-Heddle.htm                                                  
-[13:22:31] Committing batch 1 consisting of 42 files                 base.py:265
-[13:22:33] Finished attempting to scrape: ORK                        base.py:315
 </pre>
   
 
