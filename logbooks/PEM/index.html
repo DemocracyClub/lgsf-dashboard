@@ -37,6 +37,58 @@
   
 
 
+  <h2 id="2022-06-01-12-41">2022-06-01</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-01 12:41:29.737255</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-01 12:41:39.515506</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:41:29] Fetching Scraper for: PEM                              handlers.py:23
+           Begin attempting to scrape: PEM                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[12:41:30] Getting all files in PEM...                               base.py:182
+           Getting all files in PEM/json...                          base.py:182
+           ...found 60 files in PEM/json                             base.py:198
+           Getting all files in PEM/raw...                           base.py:182
+[12:41:31] ...found 60 files in PEM/raw                              base.py:198
+           ...found 121 files in PEM                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[12:41:32] Deleting batch no. 2 consisting of 21 files               base.py:207
+[12:41:33] ...data deleted.                                          base.py:237
+           Scraping from http://mgenglish.pembrokeshire.gov.uk/mgWebS base.py:42
+           ervice.asmx/GetCouncillorsByWard                                     
+[12:41:36] Committing batch 1 consisting of 92 files                 base.py:265
+[12:41:38] Committing batch 2 consisting of 28 files                 base.py:265
+[12:41:39] Finished attempting to scrape: PEM                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-05-31-13-18">2022-05-31</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1014,66 +1066,6 @@
 [12:58:21] Committing batch 1 consisting of 92 files                 base.py:265
 [12:58:23] Committing batch 2 consisting of 28 files                 base.py:265
 [12:58:24] Finished attempting to scrape: PEM                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-05-12-13-49">2022-05-12</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-05-12 13:49:45.041501</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-05-12 13:49:47.900561</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 960, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://mgenglish.pembrokeshire.gov.uk/mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:49:45] Fetching Scraper for: PEM                              handlers.py:23
-           Begin attempting to scrape: PEM                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-           Getting all files in PEM...                               base.py:182
-[13:49:46] ...found 1 files in PEM                                   base.py:198
-           Deleting batch no. 1 consisting of 1 files                base.py:207
-[13:49:47] ...data deleted.                                          base.py:237
-           Scraping from http://mgenglish.pembrokeshire.gov.uk/mgWebS base.py:42
-           ervice.asmx/GetCouncillorsByWard                                     
-           404 Client Error: Not Found for url: https://mgenglish handlers.py:36
-           .pembrokeshire.gov.uk/mgWebService.asmx/GetCouncillors               
-           ByWard                                                               
-           Finished attempting to scrape: PEM                        base.py:315
 </pre>
   
 
