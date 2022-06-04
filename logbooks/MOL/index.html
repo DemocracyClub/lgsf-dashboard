@@ -37,6 +37,105 @@
   
 
 
+  <h2 id="2022-06-03-13-29">2022-06-03</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>18 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-03 13:29:10.178629</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-03 13:29:29.141731</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/MOL-mole-valley/councillors.py", line 30, in get_single_councillor
+    soup.select_one(".field--name-field-political-party")
+AttributeError: 'NoneType' object has no attribute 'get_text'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:29:10] Fetching Scraper for: MOL                              handlers.py:23
+           Begin attempting to scrape: MOL                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in MOL...                               base.py:182
+[13:29:11] Getting all files in MOL/json...                          base.py:182
+           ...found 19 files in MOL/json                             base.py:198
+           Getting all files in MOL/raw...                           base.py:182
+           ...found 19 files in MOL/raw                              base.py:198
+           ...found 39 files in MOL                                  base.py:198
+           Deleting batch no. 1 consisting of 39 files               base.py:207
+[13:29:12] ...data deleted.                                          base.py:237
+           Scraping from https://www.molevalley.gov.uk/home/council/c base.py:42
+           ouncillors/who-are-your-councillors                                  
+[13:29:14] Scraping from https://www.molevalley.gov.uk/councillor/cll base.py:42
+           r-david-hawksworth-cbe                                               
+           Scraping from https://www.molevalley.gov.uk/councillor/cll base.py:42
+           r-patricia-wiltshire                                                 
+[13:29:15] Scraping from                                              base.py:42
+           https://www.molevalley.gov.uk/councillor/cllr-david-harper           
+[13:29:16] Scraping from https://www.molevalley.gov.uk/councillor/cll base.py:42
+           r-garry-stansfield                                                   
+           Scraping from                                              base.py:42
+           https://www.molevalley.gov.uk/councillor/cllr-mary-cooper            
+[13:29:17] Scraping from                                              base.py:42
+           https://www.molevalley.gov.uk/councillor/cllr-chris-hunt             
+           Scraping from                                              base.py:42
+           https://www.molevalley.gov.uk/councillor/cllr-alan-reilly            
+[13:29:18] Scraping from https://www.molevalley.gov.uk/councillor/cll base.py:42
+           r-caroline-salmon                                                    
+[13:29:19] Scraping from https://www.molevalley.gov.uk/councillor/cll base.py:42
+           r-sarah-chambers                                                     
+           Scraping from https://www.molevalley.gov.uk/councillor/cll base.py:42
+           r-monica-weller                                                      
+[13:29:20] Scraping from                                              base.py:42
+           https://www.molevalley.gov.uk/councillor/cllr-roger-adams            
+[13:29:21] Scraping from https://www.molevalley.gov.uk/councillor/cll base.py:42
+           r-james-chambers                                                     
+[13:29:22] Scraping from https://www.molevalley.gov.uk/councillor/cll base.py:42
+           r-elizabeth-daly                                                     
+[13:29:23] Scraping from https://www.molevalley.gov.uk/councillor/cll base.py:42
+           r-nancy-goodacre                                                     
+           Scraping from                                              base.py:42
+           https://www.molevalley.gov.uk/councillor/cllr-david-preedy           
+[13:29:24] Scraping from                                              base.py:42
+           https://www.molevalley.gov.uk/councillor/cllr-paul-potter            
+[13:29:25] Scraping from                                              base.py:42
+           https://www.molevalley.gov.uk/councillor/cllr-simon-budd             
+           Scraping from https://www.molevalley.gov.uk/councillor/cll base.py:42
+           r-charles-engel                                                      
+[13:29:26] Scraping from https://www.molevalley.gov.uk/councillor/cll base.py:42
+           r-lesley-bushnell                                                    
+           Scraping from                                              base.py:42
+           https://www.molevalley.gov.uk/councillor/vacancy                     
+[13:29:27] 'NoneType' object has no attribute 'get_text'          handlers.py:36
+           Committing batch 1 consisting of 38 files                 base.py:265
+[13:29:29] Finished attempting to scrape: MOL                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-06-02-12-45">2022-06-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2018,114 +2117,6 @@ requests.exceptions.SSLError: HTTPSConnectionPool(host='www.molevalley.gov.uk', 
            Scraping from https://www.molevalley.gov.uk/home/council/c base.py:42
            ouncillors/who-are-your-councillors                                  
            HTTPSConnectionPool(host='www.molevalley.gov.uk',      handlers.py:36
-           port=443): Max retries exceeded with url:                            
-           /home/council/councillors/who-are-your-councillors                   
-           (Caused by SSLError(SSLCertVerificationError(1, '[SSL:               
-           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
-           unable to get local issuer certificate                               
-           (_ssl.c:1131)')))                                                    
-           Finished attempting to scrape: MOL                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-05-14-14-28">2022-05-14</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-05-14 14:28:29.084204</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-05-14 14:28:31.262453</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
-    httplib_response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
-    self._validate_conn(conn)
-  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
-    conn.connect()
-  File "/opt/python/urllib3/connection.py", line 416, in connect
-    self.sock = ssl_wrap_socket(
-  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(
-  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
-    return self.sslsocket_class._create(
-  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
-    self.do_handshake()
-  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
-    self._sslobj.do_handshake()
-ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 440, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 592, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.molevalley.gov.uk', port=443): Max retries exceeded with url: /home/council/councillors/who-are-your-councillors (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 134, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 123, in get_page
-    page = self.get(url).text
-  File "/var/task/lgsf/scrapers/base.py", line 48, in get
-    response = self.requests_session.get(url, headers=headers, verify=verify)
-  File "/opt/python/requests/sessions.py", line 542, in get
-    return self.request('GET', url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 529, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 645, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 517, in send
-    raise SSLError(e, request=request)
-requests.exceptions.SSLError: HTTPSConnectionPool(host='www.molevalley.gov.uk', port=443): Max retries exceeded with url: /home/council/councillors/who-are-your-councillors (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:28:29] Fetching Scraper for: MOL                              handlers.py:23
-           Begin attempting to scrape: MOL                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-           Getting all files in MOL...                               base.py:182
-[14:28:30] ...found 1 files in MOL                                   base.py:198
-           Deleting batch no. 1 consisting of 1 files                base.py:207
-           ...data deleted.                                          base.py:237
-           Scraping from https://www.molevalley.gov.uk/home/council/c base.py:42
-           ouncillors/who-are-your-councillors                                  
-[14:28:31] HTTPSConnectionPool(host='www.molevalley.gov.uk',      handlers.py:36
            port=443): Max retries exceeded with url:                            
            /home/council/councillors/who-are-your-councillors                   
            (Caused by SSLError(SSLCertVerificationError(1, '[SSL:               

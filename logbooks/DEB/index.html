@@ -37,6 +37,69 @@
   
 
 
+  <h2 id="2022-06-03-13-47">2022-06-03</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-03 13:47:20.479167</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-03 13:47:22.838342</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 134, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 123, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://derbyshiredales.gov.uk/your-council/councillors
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:47:20] Fetching Scraper for: DEB                              handlers.py:23
+           Begin attempting to scrape: DEB                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[13:47:21] Getting all files in DEB...                               base.py:182
+           ...found 1 files in DEB                                   base.py:198
+           Deleting batch no. 1 consisting of 1 files                base.py:207
+[13:47:22] ...data deleted.                                          base.py:237
+           Scraping from                                              base.py:42
+           https://derbyshiredales.gov.uk/your-council/councillors              
+           404 Client Error: Not Found for url: https://derbyshir handlers.py:36
+           edales.gov.uk/your-council/councillors                               
+           Finished attempting to scrape: DEB                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-06-02-12-44">2022-06-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1382,99 +1445,6 @@ AttributeError: 'NoneType' object has no attribute 'getText'
 [12:08:31] 'NoneType' object has no attribute 'getText'           handlers.py:36
            Committing batch 1 consisting of 32 files                 base.py:265
 [12:08:33] Finished attempting to scrape: DEB                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-05-14-12-30">2022-05-14</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>44 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-05-14 12:30:40.664428</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-05-14 12:31:25.050253</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/DEB-derbyshire-dales/councillors.py", line 46, in get_single_councillor
-    councillor.email = soup.select_one("a[href^=mailto]").getText(strip=True)
-AttributeError: 'NoneType' object has no attribute 'getText'
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:30:40] Fetching Scraper for: DEB                              handlers.py:23
-           Begin attempting to scrape: DEB                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-[12:30:41] Getting all files in DEB...                               base.py:182
-           Getting all files in DEB/json...                          base.py:182
-           ...found 16 files in DEB/json                             base.py:198
-           Getting all files in DEB/raw...                           base.py:182
-[12:30:42] ...found 16 files in DEB/raw                              base.py:198
-           ...found 33 files in DEB                                  base.py:198
-           Deleting batch no. 1 consisting of 33 files               base.py:207
-[12:30:43] ...data deleted.                                          base.py:237
-           Scraping from                                              base.py:42
-           https://derbyshiredales.gov.uk/your-council/councillors              
-[12:30:46] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/503-alasdair-sutton                                      
-[12:30:48] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/502-alyson-hill                                          
-[12:30:50] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/491-andrew-shirley                                       
-[12:30:52] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/493-andrew-statham                                       
-[12:30:54] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/499-chris-furness                                        
-[12:30:57] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/484-claire-raw                                           
-[12:30:59] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/476-clare-gamble                                         
-[12:31:01] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/497-colin-swindell                                       
-[12:31:03] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/467-david-chapman                                        
-[12:31:05] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/496-david-hughes                                         
-[12:31:07] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/486-dawn-greatorex                                       
-[12:31:09] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/463-dermot-murphy                                        
-[12:31:11] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/485-garry-purdy                                          
-[12:31:14] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/475-graham-elliott                                       
-[12:31:17] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/477-helen-froggatt                                       
-[12:31:19] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/466-jacqueline-allison                                   
-[12:31:21] Scraping from https://derbyshiredales.gov.uk/your-council/ base.py:42
-           councillors/490-janet-rose                                           
-[12:31:23] 'NoneType' object has no attribute 'getText'           handlers.py:36
-           Committing batch 1 consisting of 32 files                 base.py:265
-[12:31:25] Finished attempting to scrape: DEB                        base.py:315
 </pre>
   
 
