@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2022-06-05-13-27">2022-06-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>6 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-05 13:27:08.692523</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-05 13:27:15.564251</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:27:08] Fetching Scraper for: MDB                              handlers.py:23
+           Begin attempting to scrape: MDB                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[13:27:09] Getting all files in MDB...                               base.py:182
+           Getting all files in MDB/json...                          base.py:182
+           ...found 47 files in MDB/json                             base.py:198
+           Getting all files in MDB/raw...                           base.py:182
+[13:27:10] ...found 47 files in MDB/raw                              base.py:198
+           ...found 95 files in MDB                                  base.py:198
+           Deleting batch no. 1 consisting of 95 files               base.py:207
+[13:27:11] ...data deleted.                                          base.py:237
+           Scraping from https://moderngov.middlesbrough.gov.uk/mgWeb base.py:42
+           Service.asmx/GetCouncillorsByWard                                    
+[13:27:13] Committing batch 1 consisting of 92 files                 base.py:265
+[13:27:14] Committing batch 2 consisting of 2 files                  base.py:265
+[13:27:15] Finished attempting to scrape: MDB                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-06-04-13-19">2022-06-04</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -990,112 +1041,6 @@
 [14:05:40] Committing batch 1 consisting of 92 files                 base.py:265
 [14:05:41] Committing batch 2 consisting of 2 files                  base.py:265
 [14:05:43] Finished attempting to scrape: MDB                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-05-16-11-49">2022-05-16</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-05-16 11:49:30.152296</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-05-16 11:49:32.308664</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
-    conn = connection.create_connection(
-  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
-    raise err
-  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [Errno 111] Connection refused
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
-    httplib_response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
-    self._validate_conn(conn)
-  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
-    conn.connect()
-  File "/opt/python/urllib3/connection.py", line 358, in connect
-    conn = self._new_conn()
-  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
-    raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f9d312fe6d0>: Failed to establish a new connection: [Errno 111] Connection refused
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 440, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 592, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='moderngov.middlesbrough.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f9d312fe6d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 48, in get
-    response = self.requests_session.get(url, headers=headers, verify=verify)
-  File "/opt/python/requests/sessions.py", line 542, in get
-    return self.request('GET', url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 529, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 645, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 519, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPSConnectionPool(host='moderngov.middlesbrough.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f9d312fe6d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:49:30] Fetching Scraper for: MDB                              handlers.py:23
-           Begin attempting to scrape: MDB                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-           Getting all files in MDB...                               base.py:182
-[11:49:31] ...found 1 files in MDB                                   base.py:198
-           Deleting batch no. 1 consisting of 1 files                base.py:207
-[11:49:32] ...data deleted.                                          base.py:237
-           Scraping from https://moderngov.middlesbrough.gov.uk/mgWeb base.py:42
-           Service.asmx/GetCouncillorsByWard                                    
-           HTTPSConnectionPool(host='moderngov.middlesbrough.gov. handlers.py:36
-           uk', port=443): Max retries exceeded with url:                       
-           /mgWebService.asmx/GetCouncillorsByWard (Caused by New               
-           ConnectionError('<urllib3.connection.HTTPSConnection                 
-           object at 0x7f9d312fe6d0>: Failed to establish a new                 
-           connection: [Errno 111] Connection refused'))                        
-           Finished attempting to scrape: MDB                        base.py:315
 </pre>
   
 
