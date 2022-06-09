@@ -37,6 +37,62 @@
   
 
 
+  <h2 id="2022-06-08-11-46">2022-06-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>4 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-08 11:46:40.400977</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-08 11:46:44.793285</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/ERW-east-renfrewshire/councillors.py", line 51, in get_single_councillor
+    contact_url = soup.select_one(".panel__list--relarticles a.panel__link")["href"]
+TypeError: 'NoneType' object is not subscriptable
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:46:40] Fetching Scraper for: ERW                              handlers.py:23
+           Begin attempting to scrape: ERW                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[11:46:41] Getting all files in ERW...                               base.py:182
+           ...found 1 files in ERW                                   base.py:198
+           Deleting batch no. 1 consisting of 1 files                base.py:207
+[11:46:42] ...data deleted.                                          base.py:237
+           Scraping from                                              base.py:42
+           https://www.eastrenfrewshire.gov.uk/Find-my-councillor               
+[11:46:43] Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
+           or-angela-convery                                                    
+[11:46:44] 'NoneType' object is not subscriptable                 handlers.py:36
+           Finished attempting to scrape: ERW                        base.py:315
+</pre>
+  
+
+  
+
+
   <h2 id="2022-06-07-11-32">2022-06-07</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1144,71 +1200,6 @@ AttributeError: 'NoneType' object has no attribute 'find_next'
 [14:21:29] 'NoneType' object has no attribute 'find_next'         handlers.py:36
            Committing batch 1 consisting of 2 files                  base.py:265
 [14:21:30] Finished attempting to scrape: ERW                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-05-19-14-16">2022-05-19</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>7 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-05-19 14:16:44.927755</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-05-19 14:16:52.069667</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/ERW-east-renfrewshire/councillors.py", line 38, in get_single_councillor
-    soup.find("h2", text=re.compile("Party"))
-AttributeError: 'NoneType' object has no attribute 'find_next'
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:16:44] Fetching Scraper for: ERW                              handlers.py:23
-           Begin attempting to scrape: ERW                        handlers.py:27
-[14:16:45] Deleting existing data...                                 base.py:230
-           Getting all files in ERW...                               base.py:182
-           Getting all files in ERW/json...                          base.py:182
-[14:16:46] ...found 1 files in ERW/json                              base.py:198
-           Getting all files in ERW/raw...                           base.py:182
-           ...found 1 files in ERW/raw                               base.py:198
-           ...found 3 files in ERW                                   base.py:198
-           Deleting batch no. 1 consisting of 3 files                base.py:207
-[14:16:47] ...data deleted.                                          base.py:237
-           Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/Find-my-councillor               
-[14:16:48] Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
-           or-angela-convery                                                    
-[14:16:49] Scraping from https://www.eastrenfrewshire.gov.uk/article/ base.py:42
-           3343/Contact-Councillor-Angela-Convery                               
-           Scraping from https://www.eastrenfrewshire.gov.uk/councill base.py:42
-           or-betty-cunningham                                                  
-[14:16:50] 'NoneType' object has no attribute 'find_next'         handlers.py:36
-           Committing batch 1 consisting of 2 files                  base.py:265
-[14:16:52] Finished attempting to scrape: ERW                        base.py:315
 </pre>
   
 
