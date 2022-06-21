@@ -36,6 +36,68 @@
 
   
 
+
+  <h2 id="2022-06-20-14-56">2022-06-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-20 14:56:01.923427</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-20 14:56:04.330731</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "scrapers/RCC-redcar-and-cleveland/councillors.py", line 10, in get_councillors
+    councillor_list = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.redcar-cleveland.gov.uk/about-the-council/councillors/_api/web/lists/getbytitle('Councillors%20List')/items?$orderby=Title
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:56:01] Fetching Scraper for: RCC                              handlers.py:23
+           Begin attempting to scrape: RCC                        handlers.py:27
+[14:56:02] Deleting existing data...                                 base.py:230
+           Getting all files in RCC...                               base.py:182
+           ...found 1 files in RCC                                   base.py:198
+           Deleting batch no. 1 consisting of 1 files                base.py:207
+[14:56:03] ...data deleted.                                          base.py:237
+           Scraping from https://www.redcar-cleveland.gov.uk/about-th base.py:42
+           e-council/councillors/_api/web/lists/getbytitle('Councillo           
+           rs%20List')/items?$orderby=Title                                     
+[14:56:04] 404 Client Error: Not Found for url: https://www.redca handlers.py:36
+           r-cleveland.gov.uk/about-the-council/councillors/_api/               
+           web/lists/getbytitle('Councillors%20List')/items?$orde               
+           rby=Title                                                            
+           Finished attempting to scrape: RCC                        base.py:315
+</pre>
+  
+
+  
+
   
 
   
@@ -791,59 +853,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.
            Committing batch 1 consisting of 92 files                 base.py:265
 [14:17:22] Committing batch 2 consisting of 26 files                 base.py:265
 [14:17:24] Finished attempting to scrape: RCC                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-05-31-12-07">2022-05-31</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>6 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-05-31 12:07:43.951492</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-05-31 12:07:50.287924</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:07:43] Fetching Scraper for: RCC                              handlers.py:23
-           Begin attempting to scrape: RCC                        handlers.py:27
-[12:07:44] Deleting existing data...                                 base.py:230
-           Getting all files in RCC...                               base.py:182
-           Getting all files in RCC/json...                          base.py:182
-[12:07:45] ...found 59 files in RCC/json                             base.py:198
-           Getting all files in RCC/raw...                           base.py:182
-           ...found 59 files in RCC/raw                              base.py:198
-           ...found 119 files in RCC                                 base.py:198
-           Deleting batch no. 1 consisting of 100 files              base.py:207
-[12:07:46] Deleting batch no. 2 consisting of 19 files               base.py:207
-[12:07:47] ...data deleted.                                          base.py:237
-           Scraping from https://www.redcar-cleveland.gov.uk/about-th base.py:42
-           e-council/councillors/_api/web/lists/getbytitle('Councillo           
-           rs%20List')/items?$orderby=Title                                     
-           Committing batch 1 consisting of 92 files                 base.py:265
-[12:07:49] Committing batch 2 consisting of 26 files                 base.py:265
-[12:07:50] Finished attempting to scrape: RCC                        base.py:315
 </pre>
   
 
