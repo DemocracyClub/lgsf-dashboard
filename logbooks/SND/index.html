@@ -38,6 +38,8 @@
 
   
 
+  
+
 
   <h2 id="2022-06-20-15-45">2022-06-20</h2>
   <div class="ds-card">
@@ -3212,145 +3214,6 @@ requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: 
            1909/ScreenMode/Ward/Default.aspx                                    
 [14:18:38] Committing batch 2 consisting of 56 files                 base.py:265
 [14:18:40] Finished attempting to scrape: SND                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-06-02-13-45">2022-06-02</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>637 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-06-02 13:45:57.289034</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-06-02 13:56:34.533396</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
-    httplib_response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 449, in _make_request
-    six.raise_from(e, None)
-  File "<string>", line 3, in raise_from
-  File "/opt/python/urllib3/connectionpool.py", line 444, in _make_request
-    httplib_response = conn.getresponse()
-  File "/var/lang/lib/python3.8/http/client.py", line 1348, in getresponse
-    response.begin()
-  File "/var/lang/lib/python3.8/http/client.py", line 316, in begin
-    version, status, reason = self._read_status()
-  File "/var/lang/lib/python3.8/http/client.py", line 277, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/var/lang/lib/python3.8/socket.py", line 669, in readinto
-    return self._sock.recv_into(b)
-  File "/var/lang/lib/python3.8/ssl.py", line 1241, in recv_into
-    return self.read(nbytes, buffer)
-  File "/var/lang/lib/python3.8/ssl.py", line 1099, in read
-    return self._sslobj.read(len, buffer)
-ConnectionResetError: [Errno 104] Connection reset by peer
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 440, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 550, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-  File "/opt/python/urllib3/packages/six.py", line 769, in reraise
-    raise value.with_traceback(tb)
-  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
-    httplib_response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 449, in _make_request
-    six.raise_from(e, None)
-  File "<string>", line 3, in raise_from
-  File "/opt/python/urllib3/connectionpool.py", line 444, in _make_request
-    httplib_response = conn.getresponse()
-  File "/var/lang/lib/python3.8/http/client.py", line 1348, in getresponse
-    response.begin()
-  File "/var/lang/lib/python3.8/http/client.py", line 316, in begin
-    version, status, reason = self._read_status()
-  File "/var/lang/lib/python3.8/http/client.py", line 277, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/var/lang/lib/python3.8/socket.py", line 669, in readinto
-    return self._sock.recv_into(b)
-  File "/var/lang/lib/python3.8/ssl.py", line 1241, in recv_into
-    return self.read(nbytes, buffer)
-  File "/var/lang/lib/python3.8/ssl.py", line 1099, in read
-    return self._sslobj.read(len, buffer)
-urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "/var/task/lgsf/councillors/scrapers.py", line 269, in get_single_councillor
-    req = self.get(url)
-  File "/var/task/lgsf/scrapers/base.py", line 48, in get
-    response = self.requests_session.get(url, headers=headers, verify=verify)
-  File "/opt/python/requests/sessions.py", line 542, in get
-    return self.request('GET', url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 529, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 645, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:45:57] Fetching Scraper for: SND                              handlers.py:23
-           Begin attempting to scrape: SND                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-           Getting all files in SND...                               base.py:182
-           SND Does not exist                                        base.py:202
-           ...no data to delete.                                     base.py:234
-           Scraping from https://committees.sunderland.gov.uk/committ base.py:42
-           ees/cmis5/Members.aspx                                               
-[13:46:39] Scraping from https://committees.sunderland.gov.uk/committ base.py:42
-           ees/cmis5/Members/tabid/62/ctl/ViewCMIS_Person/mid/600/id/           
-           1911/ScreenMode/Ward/Default.aspx                                    
-[13:47:34] Scraping from https://committees.sunderland.gov.uk/committ base.py:42
-           ees/cmis5/Members/tabid/62/ctl/ViewCMIS_Person/mid/600/id/           
-           1855/ScreenMode/Ward/Default.aspx                                    
-[13:49:02] Scraping from https://committees.sunderland.gov.uk/committ base.py:42
-           ees/cmis5/Members/tabid/62/ctl/ViewCMIS_Person/mid/600/id/           
-           1816/ScreenMode/Ward/Default.aspx                                    
-[13:49:50] Scraping from https://committees.sunderland.gov.uk/committ base.py:42
-           ees/cmis5/Members/tabid/62/ctl/ViewCMIS_Person/mid/600/id/           
-           1961/ScreenMode/Ward/Default.aspx                                    
-[13:51:37] Scraping from https://committees.sunderland.gov.uk/committ base.py:42
-           ees/cmis5/Members/tabid/62/ctl/ViewCMIS_Person/mid/600/id/           
-           1586/ScreenMode/Ward/Default.aspx                                    
-[13:52:32] Scraping from https://committees.sunderland.gov.uk/committ base.py:42
-           ees/cmis5/Members/tabid/62/ctl/ViewCMIS_Person/mid/600/id/           
-           1228/ScreenMode/Ward/Default.aspx                                    
-[13:56:32] ('Connection aborted.', ConnectionResetError(104,      handlers.py:36
-           'Connection reset by peer'))                                         
-           Committing batch 1 consisting of 10 files                 base.py:265
-[13:56:34] Finished attempting to scrape: SND                        base.py:315
 </pre>
   
 
