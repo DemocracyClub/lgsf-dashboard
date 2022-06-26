@@ -44,6 +44,8 @@
 
   
 
+  
+
 
   <h2 id="2022-06-20-13-42">2022-06-20</h2>
   <div class="ds-card">
@@ -1095,122 +1097,6 @@ requests.exceptions.SSLError: HTTPSConnectionPool(host='modgov.north-norfolk.gov
            unable to get local issuer certificate                               
            (_ssl.c:1131)')))                                                    
            Finished attempting to scrape: NNO                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-06-05-12-40">2022-06-05</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-06-05 12:40:09.349523</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-06-05 12:40:12.190998</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
-    httplib_response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
-    self._validate_conn(conn)
-  File "/opt/python/urllib3/connectionpool.py", line 1040, in _validate_conn
-    conn.connect()
-  File "/opt/python/urllib3/connection.py", line 416, in connect
-    self.sock = ssl_wrap_socket(
-  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(
-  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
-    return self.sslsocket_class._create(
-  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
-    self.do_handshake()
-  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
-    self._sslobj.do_handshake()
-ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 440, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 785, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 592, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='modgov.north-norfolk.gov.uk', port=443): Max retries exceeded with url: /mgMemberIndex.aspx?bcr=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
-    for councillor_html in self.get_councillors():
-  File "scrapers/NNO-north-norfolk/councillors.py", line 15, in get_councillors
-    return super().get_councillors()[1:]
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 134, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 123, in get_page
-    page = self.get(url).text
-  File "/var/task/lgsf/scrapers/base.py", line 48, in get
-    response = self.requests_session.get(url, headers=headers, verify=verify)
-  File "/opt/python/requests/sessions.py", line 542, in get
-    return self.request('GET', url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 529, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 667, in send
-    history = [resp for resp in gen]
-  File "/opt/python/requests/sessions.py", line 667, in <listcomp>
-    history = [resp for resp in gen]
-  File "/opt/python/requests/sessions.py", line 237, in resolve_redirects
-    resp = self.send(
-  File "/opt/python/requests/sessions.py", line 645, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 517, in send
-    raise SSLError(e, request=request)
-requests.exceptions.SSLError: HTTPSConnectionPool(host='modgov.north-norfolk.gov.uk', port=443): Max retries exceeded with url: /mgMemberIndex.aspx?bcr=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:40:09] Fetching Scraper for: NNO                              handlers.py:23
-           Begin attempting to scrape: NNO                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-[12:40:10] Getting all files in NNO...                               base.py:182
-           ...found 1 files in NNO                                   base.py:198
-           Deleting batch no. 1 consisting of 1 files                base.py:207
-[12:40:11] ...data deleted.                                          base.py:237
-           Scraping from                                              base.py:42
-           https://www.north-norfolk.gov.uk/members/#filter-form                
-           HTTPSConnectionPool(host='modgov.north-norfolk.gov.uk' handlers.py:36
-           , port=443): Max retries exceeded with url:                          
-           /mgMemberIndex.aspx?bcr=1 (Caused by                                 
-           SSLError(SSLCertVerificationError(1, '[SSL:                          
-           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
-           unable to get local issuer certificate                               
-           (_ssl.c:1131)')))                                                    
-[12:40:12] Finished attempting to scrape: NNO                        base.py:315
 </pre>
   
 
