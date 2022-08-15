@@ -75,66 +75,6 @@
   
 
 
-  <h2 id="2022-07-25-13-23">2022-07-25</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-07-25 13:23:31.479714</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-07-25 13:23:36.716700</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "/var/task/lgsf/councillors/scrapers.py", line 259, in get_single_councillor
-    party = self.get_party_name(list_page_html)
-  File "/var/task/lgsf/councillors/scrapers.py", line 247, in get_party_name
-    return list_page_html.find_all("img")[-1]["title"].replace("(logo)", "").strip()
-  File "/opt/python/bs4/element.py", line 1486, in __getitem__
-    return self.attrs[key]
-KeyError: 'title'
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:23:31] Fetching Scraper for: SST                              handlers.py:23
-           Begin attempting to scrape: SST                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-[13:23:32] Getting all files in SST...                               base.py:182
-           Getting all files in SST/json...                          base.py:182
-           ...found 48 files in SST/json                             base.py:198
-           Getting all files in SST/raw...                           base.py:182
-[13:23:33] ...found 48 files in SST/raw                              base.py:198
-           ...found 97 files in SST                                  base.py:198
-           Deleting batch no. 1 consisting of 97 files               base.py:207
-[13:23:34] ...data deleted.                                          base.py:237
-           Scraping from                                              base.py:42
-           https://services.sstaffs.gov.uk/cmis/Councillors.aspx                
-[13:23:35] 'title'                                                handlers.py:36
-           Finished attempting to scrape: SST                        base.py:315
-</pre>
-  
-
-
       </main>
       <footer class="ds-footer">
         <div class="ds-block-centered ds-text-centered ds-stack">
