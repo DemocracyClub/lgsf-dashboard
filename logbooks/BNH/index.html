@@ -36,42 +36,1119 @@
 
   
 
+
+  <h2 id="2022-09-05-14-41">2022-09-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-09-05 14:41:01.487482</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-09-05 14:41:04.657552</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -5] No address associated with hostname
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/opt/python/urllib3/connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/var/lang/lib/python3.8/http/client.py", line 1256, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/var/lang/lib/python3.8/http/client.py", line 1302, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/var/lang/lib/python3.8/http/client.py", line 1251, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/var/lang/lib/python3.8/http/client.py", line 1011, in _send_output
+    self.send(msg)
+  File "/var/lang/lib/python3.8/http/client.py", line 951, in send
+    self.connect()
+  File "/opt/python/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7fb9d1966a30>: Failed to establish a new connection: [Errno -5] No address associated with hostname
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='present.brighton-hove.gov.uk', port=80): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fb9d1966a30>: Failed to establish a new connection: [Errno -5] No address associated with hostname'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='present.brighton-hove.gov.uk', port=80): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fb9d1966a30>: Failed to establish a new connection: [Errno -5] No address associated with hostname'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:41:01] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[14:41:02] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 54 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 54 files in Councillors/raw                      base.py:207
+           ...found 109 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[14:41:03] Deleting batch no. 2 consisting of 9 files                base.py:216
+[14:41:04] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://present.brighton-hove.gov.uk/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+           HTTPConnectionPool(host='present.brighton-hove.gov.uk' handlers.py:36
+           , port=80): Max retries exceeded with url:                           
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
+           NewConnectionError('<urllib3.connection.HTTPConnection               
+           object at 0x7fb9d1966a30>: Failed to establish a new                 
+           connection: [Errno -5] No address associated with                    
+           hostname'))                                                          
+           Finished attempting to scrape: BNH                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-29-14-43">2022-08-29</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>11 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-29 14:43:58.337199</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-29 14:44:09.537087</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:43:58] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[14:43:59] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 54 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 54 files in Councillors/raw                      base.py:207
+           ...found 109 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[14:44:00] Deleting batch no. 2 consisting of 9 files                base.py:216
+[14:44:01] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://present.brighton-hove.gov.uk/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+[14:44:07] Committing batch 1 consisting of 92 files                 base.py:274
+[14:44:08] Committing batch 2 consisting of 16 files                 base.py:274
+[14:44:09] Finished attempting to scrape: BNH                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-22-14-32">2022-08-22</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-22 14:32:41.407346</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-22 14:32:51.589057</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:32:41] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[14:32:42] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 54 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+[14:32:43] ...found 54 files in Councillors/raw                      base.py:207
+           ...found 109 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[14:32:44] Deleting batch no. 2 consisting of 9 files                base.py:216
+           ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://present.brighton-hove.gov.uk/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+[14:32:48] Committing batch 1 consisting of 92 files                 base.py:274
+[14:32:50] Committing batch 2 consisting of 16 files                 base.py:274
+[14:32:51] Finished attempting to scrape: BNH                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-15-15-15">2022-08-15</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-15 15:15:20.609289</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-15 15:15:29.990829</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:15:20] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[15:15:21] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 54 files in Councillors/json                     base.py:207
+[15:15:22] Getting all files in Councillors/raw...                   base.py:191
+           ...found 54 files in Councillors/raw                      base.py:207
+           ...found 109 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[15:15:23] Deleting batch no. 2 consisting of 9 files                base.py:216
+[15:15:24] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://present.brighton-hove.gov.uk/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+[15:15:27] Committing batch 1 consisting of 92 files                 base.py:274
+[15:15:28] Committing batch 2 consisting of 16 files                 base.py:274
+[15:15:29] Finished attempting to scrape: BNH                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-08-13-31">2022-08-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>18 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-08 13:31:04.757956</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-08 13:31:22.772690</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:31:04] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+[13:31:05] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+[13:31:06] ...found 54 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 54 files in Councillors/raw                      base.py:207
+           ...found 109 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[13:31:07] Deleting batch no. 2 consisting of 9 files                base.py:216
+[13:31:08] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://present.brighton-hove.gov.uk/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+[13:31:19] Committing batch 1 consisting of 92 files                 base.py:274
+[13:31:21] Committing batch 2 consisting of 16 files                 base.py:274
+[13:31:22] Finished attempting to scrape: BNH                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-01-13-35">2022-08-01</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-01 13:35:02.560076</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-01 13:35:12.334362</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:35:02] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[13:35:03] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 54 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+[13:35:04] ...found 54 files in Councillors/raw                      base.py:207
+           ...found 109 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[13:35:05] Deleting batch no. 2 consisting of 9 files                base.py:216
+[13:35:06] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://present.brighton-hove.gov.uk/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+[13:35:09] Committing batch 1 consisting of 92 files                 base.py:274
+[13:35:11] Committing batch 2 consisting of 16 files                 base.py:274
+[13:35:12] Finished attempting to scrape: BNH                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-07-28-15-42">2022-07-28</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-28 15:42:14.452404</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-28 15:42:24.446561</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:42:14] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[15:42:15] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 54 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 54 files in Councillors/raw                      base.py:207
+           ...found 109 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[15:42:17] Deleting batch no. 2 consisting of 9 files                base.py:216
+[15:42:18] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://present.brighton-hove.gov.uk/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+[15:42:21] Committing batch 1 consisting of 92 files                 base.py:274
+[15:42:23] Committing batch 2 consisting of 16 files                 base.py:274
+[15:42:24] Finished attempting to scrape: BNH                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-07-18-16-40">2022-07-18</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-18 16:40:06.800139</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-18 16:40:15.692355</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[16:40:06] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[16:40:07] Getting all files in BNH...                               base.py:182
+           Getting all files in BNH/json...                          base.py:182
+[16:40:08] ...found 54 files in BNH/json                             base.py:198
+           Getting all files in BNH/raw...                           base.py:182
+           ...found 54 files in BNH/raw                              base.py:198
+           ...found 109 files in BNH                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[16:40:09] Deleting batch no. 2 consisting of 9 files                base.py:207
+           ...data deleted.                                          base.py:237
+           Scraping from http://present.brighton-hove.gov.uk/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[16:40:12] Committing batch 1 consisting of 92 files                 base.py:265
+[16:40:14] Committing batch 2 consisting of 16 files                 base.py:265
+[16:40:15] Finished attempting to scrape: BNH                        base.py:315
+</pre>
   
 
   
 
+
+  <h2 id="2022-07-11-14-30">2022-07-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-11 14:30:13.222688</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-11 14:30:23.534015</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:30:13] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[14:30:14] Getting all files in BNH...                               base.py:182
+           Getting all files in BNH/json...                          base.py:182
+           ...found 54 files in BNH/json                             base.py:198
+           Getting all files in BNH/raw...                           base.py:182
+           ...found 54 files in BNH/raw                              base.py:198
+           ...found 109 files in BNH                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[14:30:15] Deleting batch no. 2 consisting of 9 files                base.py:207
+[14:30:16] ...data deleted.                                          base.py:237
+           Scraping from http://present.brighton-hove.gov.uk/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[14:30:20] Committing batch 1 consisting of 92 files                 base.py:265
+[14:30:22] Committing batch 2 consisting of 16 files                 base.py:265
+[14:30:23] Finished attempting to scrape: BNH                        base.py:315
+</pre>
   
 
   
 
+
+  <h2 id="2022-07-04-14-06">2022-07-04</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-04 14:06:07.472494</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-04 14:06:16.957476</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:06:07] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[14:06:08] Getting all files in BNH...                               base.py:182
+           Getting all files in BNH/json...                          base.py:182
+           ...found 54 files in BNH/json                             base.py:198
+           Getting all files in BNH/raw...                           base.py:182
+           ...found 54 files in BNH/raw                              base.py:198
+           ...found 109 files in BNH                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[14:06:10] Deleting batch no. 2 consisting of 9 files                base.py:207
+[14:06:11] ...data deleted.                                          base.py:237
+           Scraping from http://present.brighton-hove.gov.uk/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[14:06:14] Committing batch 1 consisting of 92 files                 base.py:265
+[14:06:15] Committing batch 2 consisting of 16 files                 base.py:265
+[14:06:16] Finished attempting to scrape: BNH                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-27-15-13">2022-06-27</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-27 15:13:26.724518</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-27 15:13:35.952443</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:13:26] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[15:13:27] Getting all files in BNH...                               base.py:182
+           Getting all files in BNH/json...                          base.py:182
+[15:13:28] ...found 54 files in BNH/json                             base.py:198
+           Getting all files in BNH/raw...                           base.py:182
+           ...found 54 files in BNH/raw                              base.py:198
+           ...found 109 files in BNH                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[15:13:29] Deleting batch no. 2 consisting of 9 files                base.py:207
+[15:13:30] ...data deleted.                                          base.py:237
+           Scraping from http://present.brighton-hove.gov.uk/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[15:13:33] Committing batch 1 consisting of 92 files                 base.py:265
+[15:13:34] Committing batch 2 consisting of 16 files                 base.py:265
+[15:13:35] Finished attempting to scrape: BNH                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-20-14-06">2022-06-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-20 14:06:13.299204</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-20 14:06:23.689601</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:06:13] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[14:06:14] Getting all files in BNH...                               base.py:182
+           Getting all files in BNH/json...                          base.py:182
+           ...found 54 files in BNH/json                             base.py:198
+           Getting all files in BNH/raw...                           base.py:182
+           ...found 54 files in BNH/raw                              base.py:198
+           ...found 109 files in BNH                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[14:06:15] Deleting batch no. 2 consisting of 9 files                base.py:207
+[14:06:16] ...data deleted.                                          base.py:237
+           Scraping from http://present.brighton-hove.gov.uk/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[14:06:20] Committing batch 1 consisting of 92 files                 base.py:265
+[14:06:22] Committing batch 2 consisting of 16 files                 base.py:265
+[14:06:23] Finished attempting to scrape: BNH                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-13-16-56">2022-06-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-13 16:56:42.736670</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-13 16:56:52.893882</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[16:56:42] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[16:56:43] Getting all files in BNH...                               base.py:182
+           Getting all files in BNH/json...                          base.py:182
+           ...found 54 files in BNH/json                             base.py:198
+           Getting all files in BNH/raw...                           base.py:182
+[16:56:44] ...found 54 files in BNH/raw                              base.py:198
+           ...found 109 files in BNH                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[16:56:45] Deleting batch no. 2 consisting of 9 files                base.py:207
+           ...data deleted.                                          base.py:237
+           Scraping from http://present.brighton-hove.gov.uk/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[16:56:49] Committing batch 1 consisting of 92 files                 base.py:265
+[16:56:51] Committing batch 2 consisting of 16 files                 base.py:265
+[16:56:52] Finished attempting to scrape: BNH                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-13-14-07">2022-06-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-13 14:07:11.306411</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-13 14:07:21.581353</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:07:11] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[14:07:12] Getting all files in BNH...                               base.py:182
+           Getting all files in BNH/json...                          base.py:182
+           ...found 54 files in BNH/json                             base.py:198
+           Getting all files in BNH/raw...                           base.py:182
+           ...found 54 files in BNH/raw                              base.py:198
+           ...found 109 files in BNH                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[14:07:13] Deleting batch no. 2 consisting of 9 files                base.py:207
+[14:07:14] ...data deleted.                                          base.py:237
+           Scraping from http://present.brighton-hove.gov.uk/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[14:07:18] Committing batch 1 consisting of 92 files                 base.py:265
+[14:07:20] Committing batch 2 consisting of 16 files                 base.py:265
+[14:07:21] Finished attempting to scrape: BNH                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-12-12-38">2022-06-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>11 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-12 12:38:27.737097</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-12 12:38:39.085839</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:38:27] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[12:38:28] Getting all files in BNH...                               base.py:182
+           Getting all files in BNH/json...                          base.py:182
+           ...found 54 files in BNH/json                             base.py:198
+           Getting all files in BNH/raw...                           base.py:182
+[12:38:29] ...found 54 files in BNH/raw                              base.py:198
+           ...found 109 files in BNH                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[12:38:30] Deleting batch no. 2 consisting of 9 files                base.py:207
+[12:38:31] ...data deleted.                                          base.py:237
+           Scraping from http://present.brighton-hove.gov.uk/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[12:38:36] Committing batch 1 consisting of 92 files                 base.py:265
+[12:38:37] Committing batch 2 consisting of 16 files                 base.py:265
+[12:38:39] Finished attempting to scrape: BNH                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-11-13-13">2022-06-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-11 13:13:04.829294</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-11 13:13:14.942275</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:13:04] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+[13:13:05] Deleting existing data...                                 base.py:230
+[13:13:06] Getting all files in BNH...                               base.py:182
+           Getting all files in BNH/json...                          base.py:182
+           ...found 54 files in BNH/json                             base.py:198
+           Getting all files in BNH/raw...                           base.py:182
+[13:13:07] ...found 54 files in BNH/raw                              base.py:198
+           ...found 109 files in BNH                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[13:13:08] Deleting batch no. 2 consisting of 9 files                base.py:207
+[13:13:09] ...data deleted.                                          base.py:237
+           Scraping from http://present.brighton-hove.gov.uk/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[13:13:12] Committing batch 1 consisting of 92 files                 base.py:265
+[13:13:13] Committing batch 2 consisting of 16 files                 base.py:265
+[13:13:14] Finished attempting to scrape: BNH                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-10-11-26">2022-06-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-10 11:26:23.859206</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-10 11:26:33.269790</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:26:23] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[11:26:24] Getting all files in BNH...                               base.py:182
+           Getting all files in BNH/json...                          base.py:182
+           ...found 54 files in BNH/json                             base.py:198
+           Getting all files in BNH/raw...                           base.py:182
+[11:26:25] ...found 54 files in BNH/raw                              base.py:198
+           ...found 109 files in BNH                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[11:26:26] Deleting batch no. 2 consisting of 9 files                base.py:207
+           ...data deleted.                                          base.py:237
+           Scraping from http://present.brighton-hove.gov.uk/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[11:26:30] Committing batch 1 consisting of 92 files                 base.py:265
+[11:26:31] Committing batch 2 consisting of 16 files                 base.py:265
+[11:26:33] Finished attempting to scrape: BNH                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-09-14-06">2022-06-09</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>11 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-09 14:06:16.541823</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-09 14:06:27.847741</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:06:16] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[14:06:17] Getting all files in BNH...                               base.py:182
+           Getting all files in BNH/json...                          base.py:182
+           ...found 54 files in BNH/json                             base.py:198
+           Getting all files in BNH/raw...                           base.py:182
+[14:06:18] ...found 54 files in BNH/raw                              base.py:198
+           ...found 109 files in BNH                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[14:06:19] Deleting batch no. 2 consisting of 9 files                base.py:207
+           ...data deleted.                                          base.py:237
+           Scraping from http://present.brighton-hove.gov.uk/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[14:06:24] Committing batch 1 consisting of 92 files                 base.py:265
+[14:06:26] Committing batch 2 consisting of 16 files                 base.py:265
+[14:06:27] Finished attempting to scrape: BNH                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-08-14-04">2022-06-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>13 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-08 14:04:35.447928</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-08 14:04:48.477663</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:04:35] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[14:04:36] Getting all files in BNH...                               base.py:182
+           Getting all files in BNH/json...                          base.py:182
+           ...found 54 files in BNH/json                             base.py:198
+           Getting all files in BNH/raw...                           base.py:182
+           ...found 54 files in BNH/raw                              base.py:198
+           ...found 109 files in BNH                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[14:04:37] Deleting batch no. 2 consisting of 9 files                base.py:207
+[14:04:38] ...data deleted.                                          base.py:237
+           Scraping from http://present.brighton-hove.gov.uk/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[14:04:45] Committing batch 1 consisting of 92 files                 base.py:265
+[14:04:46] Committing batch 2 consisting of 16 files                 base.py:265
+[14:04:48] Finished attempting to scrape: BNH                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-07-13-56">2022-06-07</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-07 13:56:15.562651</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-07 13:56:24.981158</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:56:15] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[13:56:16] Getting all files in BNH...                               base.py:182
+           Getting all files in BNH/json...                          base.py:182
+           ...found 54 files in BNH/json                             base.py:198
+           Getting all files in BNH/raw...                           base.py:182
+[13:56:17] ...found 54 files in BNH/raw                              base.py:198
+           ...found 109 files in BNH                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[13:56:18] Deleting batch no. 2 consisting of 9 files                base.py:207
+[13:56:19] ...data deleted.                                          base.py:237
+           Scraping from http://present.brighton-hove.gov.uk/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[13:56:22] Committing batch 1 consisting of 92 files                 base.py:265
+[13:56:23] Committing batch 2 consisting of 16 files                 base.py:265
+[13:56:24] Finished attempting to scrape: BNH                        base.py:315
+</pre>
   
 
 

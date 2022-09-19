@@ -36,42 +36,1418 @@
 
   
 
+
+  <h2 id="2022-09-05-14-17">2022-09-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-09-05 14:17:15.221214</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-09-05 14:17:18.782457</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='modgov.lbbd.gov.uk', port=443): Max retries exceeded with url: /internet/mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='modgov.lbbd.gov.uk', port=443): Max retries exceeded with url: /internet/mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:17:15] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+[14:17:16] Deleting existing data...                                 base.py:239
+[14:17:17] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[14:17:18] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://modgov.lbbd.gov.uk/internet/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+           HTTPSConnectionPool(host='modgov.lbbd.gov.uk',         handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /internet/mgWebService.asmx/GetCouncillorsByWard                     
+           (Caused by SSLError(SSLCertVerificationError(1, '[SSL:               
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+           Finished attempting to scrape: BDG                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-29-13-51">2022-08-29</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-29 13:51:40.990994</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-29 13:51:43.264791</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='modgov.lbbd.gov.uk', port=443): Max retries exceeded with url: /internet/mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='modgov.lbbd.gov.uk', port=443): Max retries exceeded with url: /internet/mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:51:40] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+[13:51:41] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+[13:51:42] Deleting batch no. 1 consisting of 1 files                base.py:216
+           ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://modgov.lbbd.gov.uk/internet/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+           HTTPSConnectionPool(host='modgov.lbbd.gov.uk',         handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /internet/mgWebService.asmx/GetCouncillorsByWard                     
+           (Caused by SSLError(SSLCertVerificationError(1, '[SSL:               
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+[13:51:43] Finished attempting to scrape: BDG                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-22-14-28">2022-08-22</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-22 14:28:51.845293</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-22 14:28:54.033610</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='modgov.lbbd.gov.uk', port=443): Max retries exceeded with url: /internet/mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='modgov.lbbd.gov.uk', port=443): Max retries exceeded with url: /internet/mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:28:51] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+[14:28:52] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[14:28:53] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://modgov.lbbd.gov.uk/internet/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+           HTTPSConnectionPool(host='modgov.lbbd.gov.uk',         handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /internet/mgWebService.asmx/GetCouncillorsByWard                     
+           (Caused by SSLError(SSLCertVerificationError(1, '[SSL:               
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+[14:28:54] Finished attempting to scrape: BDG                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-15-14-23">2022-08-15</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-15 14:23:20.283914</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-15 14:23:22.745980</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='modgov.lbbd.gov.uk', port=443): Max retries exceeded with url: /internet/mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='modgov.lbbd.gov.uk', port=443): Max retries exceeded with url: /internet/mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:23:20] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[14:23:21] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[14:23:22] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://modgov.lbbd.gov.uk/internet/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+           HTTPSConnectionPool(host='modgov.lbbd.gov.uk',         handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /internet/mgWebService.asmx/GetCouncillorsByWard                     
+           (Caused by SSLError(SSLCertVerificationError(1, '[SSL:               
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+           Finished attempting to scrape: BDG                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-08-13-27">2022-08-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-08 13:27:04.152026</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-08 13:27:06.469966</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='modgov.lbbd.gov.uk', port=443): Max retries exceeded with url: /internet/mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='modgov.lbbd.gov.uk', port=443): Max retries exceeded with url: /internet/mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:27:04] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+[13:27:05] ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+           ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://modgov.lbbd.gov.uk/internet/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+[13:27:06] HTTPSConnectionPool(host='modgov.lbbd.gov.uk',         handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /internet/mgWebService.asmx/GetCouncillorsByWard                     
+           (Caused by SSLError(SSLCertVerificationError(1, '[SSL:               
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+           Finished attempting to scrape: BDG                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-01-15-37">2022-08-01</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-01 15:37:08.296475</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-01 15:37:10.807700</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='modgov.lbbd.gov.uk', port=443): Max retries exceeded with url: /internet/mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='modgov.lbbd.gov.uk', port=443): Max retries exceeded with url: /internet/mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:37:08] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[15:37:09] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[15:37:10] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://modgov.lbbd.gov.uk/internet/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+           HTTPSConnectionPool(host='modgov.lbbd.gov.uk',         handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /internet/mgWebService.asmx/GetCouncillorsByWard                     
+           (Caused by SSLError(SSLCertVerificationError(1, '[SSL:               
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+           Finished attempting to scrape: BDG                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-07-28-15-37">2022-07-28</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>4 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-28 15:37:41.488506</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-28 15:37:45.561200</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='modgov.lbbd.gov.uk', port=443): Max retries exceeded with url: /internet/mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='modgov.lbbd.gov.uk', port=443): Max retries exceeded with url: /internet/mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:37:41] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[15:37:42] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+[15:37:43] ...found 51 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 51 files in Councillors/raw                      base.py:207
+           ...found 103 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[15:37:44] Deleting batch no. 2 consisting of 3 files                base.py:216
+[15:37:45] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://modgov.lbbd.gov.uk/internet/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+           HTTPSConnectionPool(host='modgov.lbbd.gov.uk',         handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /internet/mgWebService.asmx/GetCouncillorsByWard                     
+           (Caused by SSLError(SSLCertVerificationError(1, '[SSL:               
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+           Finished attempting to scrape: BDG                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-07-18-14-58">2022-07-18</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-18 14:58:41.871572</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-18 14:58:50.978672</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:58:41] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[14:58:42] Getting all files in BDG...                               base.py:182
+           Getting all files in BDG/json...                          base.py:182
+[14:58:43] ...found 51 files in BDG/json                             base.py:198
+           Getting all files in BDG/raw...                           base.py:182
+           ...found 51 files in BDG/raw                              base.py:198
+           ...found 103 files in BDG                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[14:58:44] Deleting batch no. 2 consisting of 3 files                base.py:207
+[14:58:45] ...data deleted.                                          base.py:237
+           Scraping from https://modgov.lbbd.gov.uk/internet/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[14:58:48] Committing batch 1 consisting of 92 files                 base.py:265
+[14:58:49] Committing batch 2 consisting of 10 files                 base.py:265
+[14:58:50] Finished attempting to scrape: BDG                        base.py:315
+</pre>
   
 
   
 
+
+  <h2 id="2022-07-11-16-06">2022-07-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-11 16:06:50.808450</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-11 16:07:00.101534</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[16:06:50] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[16:06:51] Getting all files in BDG...                               base.py:182
+           Getting all files in BDG/json...                          base.py:182
+           ...found 51 files in BDG/json                             base.py:198
+           Getting all files in BDG/raw...                           base.py:182
+[16:06:52] ...found 51 files in BDG/raw                              base.py:198
+           ...found 103 files in BDG                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[16:06:53] Deleting batch no. 2 consisting of 3 files                base.py:207
+[16:06:54] ...data deleted.                                          base.py:237
+           Scraping from https://modgov.lbbd.gov.uk/internet/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[16:06:57] Committing batch 1 consisting of 92 files                 base.py:265
+[16:06:58] Committing batch 2 consisting of 10 files                 base.py:265
+[16:07:00] Finished attempting to scrape: BDG                        base.py:315
+</pre>
   
 
   
 
+
+  <h2 id="2022-07-04-15-15">2022-07-04</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>11 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-04 15:15:20.948314</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-04 15:15:31.961680</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:15:20] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+[15:15:21] Deleting existing data...                                 base.py:230
+           Getting all files in BDG...                               base.py:182
+           Getting all files in BDG/json...                          base.py:182
+[15:15:22] ...found 51 files in BDG/json                             base.py:198
+           Getting all files in BDG/raw...                           base.py:182
+           ...found 51 files in BDG/raw                              base.py:198
+           ...found 103 files in BDG                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[15:15:23] Deleting batch no. 2 consisting of 3 files                base.py:207
+[15:15:24] ...data deleted.                                          base.py:237
+           Scraping from https://modgov.lbbd.gov.uk/internet/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[15:15:29] Committing batch 1 consisting of 92 files                 base.py:265
+[15:15:30] Committing batch 2 consisting of 10 files                 base.py:265
+[15:15:31] Finished attempting to scrape: BDG                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-27-13-54">2022-06-27</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-27 13:54:47.487621</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-27 13:54:56.719794</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:54:47] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[13:54:48] Getting all files in BDG...                               base.py:182
+           Getting all files in BDG/json...                          base.py:182
+           ...found 51 files in BDG/json                             base.py:198
+           Getting all files in BDG/raw...                           base.py:182
+           ...found 51 files in BDG/raw                              base.py:198
+           ...found 103 files in BDG                                 base.py:198
+[13:54:49] Deleting batch no. 1 consisting of 100 files              base.py:207
+[13:54:50] Deleting batch no. 2 consisting of 3 files                base.py:207
+           ...data deleted.                                          base.py:237
+           Scraping from https://modgov.lbbd.gov.uk/internet/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[13:54:53] Committing batch 1 consisting of 92 files                 base.py:265
+[13:54:55] Committing batch 2 consisting of 10 files                 base.py:265
+[13:54:56] Finished attempting to scrape: BDG                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-20-13-32">2022-06-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-20 13:32:34.303855</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-20 13:32:43.039783</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:32:34] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[13:32:35] Getting all files in BDG...                               base.py:182
+           Getting all files in BDG/json...                          base.py:182
+           ...found 51 files in BDG/json                             base.py:198
+           Getting all files in BDG/raw...                           base.py:182
+           ...found 51 files in BDG/raw                              base.py:198
+           ...found 103 files in BDG                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[13:32:36] Deleting batch no. 2 consisting of 3 files                base.py:207
+[13:32:37] ...data deleted.                                          base.py:237
+           Scraping from https://modgov.lbbd.gov.uk/internet/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[13:32:40] Committing batch 1 consisting of 92 files                 base.py:265
+[13:32:41] Committing batch 2 consisting of 10 files                 base.py:265
+[13:32:43] Finished attempting to scrape: BDG                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-13-18-43">2022-06-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-13 18:43:19.102615</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-13 18:43:28.104166</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[18:43:19] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in BDG...                               base.py:182
+[18:43:20] Getting all files in BDG/json...                          base.py:182
+           ...found 51 files in BDG/json                             base.py:198
+           Getting all files in BDG/raw...                           base.py:182
+           ...found 51 files in BDG/raw                              base.py:198
+           ...found 103 files in BDG                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[18:43:21] Deleting batch no. 2 consisting of 3 files                base.py:207
+[18:43:22] ...data deleted.                                          base.py:237
+           Scraping from https://modgov.lbbd.gov.uk/internet/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[18:43:25] Committing batch 1 consisting of 92 files                 base.py:265
+[18:43:26] Committing batch 2 consisting of 10 files                 base.py:265
+[18:43:28] Finished attempting to scrape: BDG                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-13-13-29">2022-06-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-13 13:29:30.446790</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-13 13:29:39.334202</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:29:30] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[13:29:31] Getting all files in BDG...                               base.py:182
+           Getting all files in BDG/json...                          base.py:182
+           ...found 51 files in BDG/json                             base.py:198
+           Getting all files in BDG/raw...                           base.py:182
+           ...found 51 files in BDG/raw                              base.py:198
+           ...found 103 files in BDG                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[13:29:32] Deleting batch no. 2 consisting of 3 files                base.py:207
+[13:29:33] ...data deleted.                                          base.py:237
+           Scraping from https://modgov.lbbd.gov.uk/internet/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[13:29:36] Committing batch 1 consisting of 92 files                 base.py:265
+[13:29:37] Committing batch 2 consisting of 10 files                 base.py:265
+[13:29:39] Finished attempting to scrape: BDG                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-12-12-48">2022-06-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-12 12:48:44.389385</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-12 12:48:52.999015</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:48:44] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[12:48:45] Getting all files in BDG...                               base.py:182
+           Getting all files in BDG/json...                          base.py:182
+           ...found 51 files in BDG/json                             base.py:198
+           Getting all files in BDG/raw...                           base.py:182
+           ...found 51 files in BDG/raw                              base.py:198
+           ...found 103 files in BDG                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[12:48:46] Deleting batch no. 2 consisting of 3 files                base.py:207
+[12:48:47] ...data deleted.                                          base.py:237
+           Scraping from https://modgov.lbbd.gov.uk/internet/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[12:48:50] Committing batch 1 consisting of 92 files                 base.py:265
+[12:48:51] Committing batch 2 consisting of 10 files                 base.py:265
+[12:48:52] Finished attempting to scrape: BDG                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-11-12-51">2022-06-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-11 12:51:51.283617</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-11 12:52:00.603966</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:51:51] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in BDG...                               base.py:182
+[12:51:52] Getting all files in BDG/json...                          base.py:182
+           ...found 51 files in BDG/json                             base.py:198
+           Getting all files in BDG/raw...                           base.py:182
+           ...found 51 files in BDG/raw                              base.py:198
+           ...found 103 files in BDG                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[12:51:53] Deleting batch no. 2 consisting of 3 files                base.py:207
+[12:51:54] ...data deleted.                                          base.py:237
+           Scraping from https://modgov.lbbd.gov.uk/internet/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[12:51:58] Committing batch 1 consisting of 92 files                 base.py:265
+[12:51:59] Committing batch 2 consisting of 10 files                 base.py:265
+[12:52:00] Finished attempting to scrape: BDG                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-10-11-47">2022-06-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-10 11:47:33.689492</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-10 11:47:42.661639</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:47:33] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[11:47:34] Getting all files in BDG...                               base.py:182
+           Getting all files in BDG/json...                          base.py:182
+           ...found 51 files in BDG/json                             base.py:198
+           Getting all files in BDG/raw...                           base.py:182
+[11:47:35] ...found 51 files in BDG/raw                              base.py:198
+           ...found 103 files in BDG                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[11:47:36] Deleting batch no. 2 consisting of 3 files                base.py:207
+[11:47:37] ...data deleted.                                          base.py:237
+           Scraping from https://modgov.lbbd.gov.uk/internet/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[11:47:40] Committing batch 1 consisting of 92 files                 base.py:265
+[11:47:41] Committing batch 2 consisting of 10 files                 base.py:265
+[11:47:42] Finished attempting to scrape: BDG                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-09-12-10">2022-06-09</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-09 12:10:51.480578</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-09 12:11:00.886640</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:10:51] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[12:10:52] Getting all files in BDG...                               base.py:182
+           Getting all files in BDG/json...                          base.py:182
+           ...found 51 files in BDG/json                             base.py:198
+           Getting all files in BDG/raw...                           base.py:182
+           ...found 51 files in BDG/raw                              base.py:198
+           ...found 103 files in BDG                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[12:10:53] Deleting batch no. 2 consisting of 3 files                base.py:207
+[12:10:54] ...data deleted.                                          base.py:237
+           Scraping from https://modgov.lbbd.gov.uk/internet/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[12:10:57] Committing batch 1 consisting of 92 files                 base.py:265
+[12:10:59] Committing batch 2 consisting of 10 files                 base.py:265
+[12:11:00] Finished attempting to scrape: BDG                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-08-11-59">2022-06-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-08 11:59:23.090245</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-08 11:59:33.421735</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:59:23] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in BDG...                               base.py:182
+           Getting all files in BDG/json...                          base.py:182
+[11:59:24] ...found 51 files in BDG/json                             base.py:198
+           Getting all files in BDG/raw...                           base.py:182
+           ...found 51 files in BDG/raw                              base.py:198
+           ...found 103 files in BDG                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[11:59:25] Deleting batch no. 2 consisting of 3 files                base.py:207
+[11:59:26] ...data deleted.                                          base.py:237
+           Scraping from https://modgov.lbbd.gov.uk/internet/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[11:59:30] Committing batch 1 consisting of 92 files                 base.py:265
+[11:59:32] Committing batch 2 consisting of 10 files                 base.py:265
+[11:59:33] Finished attempting to scrape: BDG                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-07-11-15">2022-06-07</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-07 11:15:33.204431</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-07 11:15:42.390509</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:15:33] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in BDG...                               base.py:182
+[11:15:34] Getting all files in BDG/json...                          base.py:182
+           ...found 51 files in BDG/json                             base.py:198
+           Getting all files in BDG/raw...                           base.py:182
+           ...found 51 files in BDG/raw                              base.py:198
+           ...found 103 files in BDG                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[11:15:35] Deleting batch no. 2 consisting of 3 files                base.py:207
+[11:15:36] ...data deleted.                                          base.py:237
+           Scraping from https://modgov.lbbd.gov.uk/internet/mgWebSer base.py:42
+           vice.asmx/GetCouncillorsByWard                                       
+[11:15:39] Committing batch 1 consisting of 92 files                 base.py:265
+[11:15:41] Committing batch 2 consisting of 10 files                 base.py:265
+[11:15:42] Finished attempting to scrape: BDG                        base.py:315
+</pre>
   
 
 

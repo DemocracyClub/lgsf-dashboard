@@ -36,42 +36,1170 @@
 
   
 
+
+  <h2 id="2022-09-05-14-37">2022-09-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-09-05 14:37:51.394418</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-09-05 14:37:53.954227</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.camden.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 723, in send
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 723, in <listcomp>
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 266, in resolve_redirects
+    resp = self.send(
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.camden.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:37:51] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[14:37:52] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[14:37:53] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://democracy.camden.gov.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+           HTTPSConnectionPool(host='democracy.camden.gov.uk',    handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
+           SSLError(SSLCertVerificationError(1, '[SSL:                          
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+           Finished attempting to scrape: CMD                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-29-15-18">2022-08-29</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>4 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-29 15:18:49.571283</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-29 15:18:53.602317</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.camden.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 723, in send
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 723, in <listcomp>
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 266, in resolve_redirects
+    resp = self.send(
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.camden.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:18:49] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[15:18:50] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 55 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+[15:18:51] ...found 55 files in Councillors/raw                      base.py:207
+           ...found 111 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[15:18:52] Deleting batch no. 2 consisting of 11 files               base.py:216
+[15:18:53] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://democracy.camden.gov.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+           HTTPSConnectionPool(host='democracy.camden.gov.uk',    handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
+           SSLError(SSLCertVerificationError(1, '[SSL:                          
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+           Finished attempting to scrape: CMD                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-22-13-09">2022-08-22</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-22 13:09:09.387221</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-22 13:09:18.890111</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:09:09] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[13:09:10] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 55 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 55 files in Councillors/raw                      base.py:207
+           ...found 111 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[13:09:11] Deleting batch no. 2 consisting of 11 files               base.py:216
+[13:09:12] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://democracy.camden.gov.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[13:09:16] Committing batch 1 consisting of 92 files                 base.py:274
+[13:09:17] Committing batch 2 consisting of 18 files                 base.py:274
+[13:09:18] Finished attempting to scrape: CMD                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-15-14-37">2022-08-15</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-15 14:37:06.119699</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-15 14:37:15.908363</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:37:06] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+[14:37:07] Getting all files in Councillors/json...                  base.py:191
+           ...found 55 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 55 files in Councillors/raw                      base.py:207
+           ...found 111 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[14:37:08] Deleting batch no. 2 consisting of 11 files               base.py:216
+[14:37:09] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://democracy.camden.gov.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[14:37:13] Committing batch 1 consisting of 92 files                 base.py:274
+[14:37:14] Committing batch 2 consisting of 18 files                 base.py:274
+[14:37:15] Finished attempting to scrape: CMD                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-08-13-55">2022-08-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-08 13:55:54.300393</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-08 13:56:03.940989</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:55:54] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[13:55:55] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 55 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+[13:55:56] ...found 55 files in Councillors/raw                      base.py:207
+           ...found 111 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[13:55:57] Deleting batch no. 2 consisting of 11 files               base.py:216
+           ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://democracy.camden.gov.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[13:56:01] Committing batch 1 consisting of 92 files                 base.py:274
+[13:56:02] Committing batch 2 consisting of 18 files                 base.py:274
+[13:56:03] Finished attempting to scrape: CMD                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-01-15-09">2022-08-01</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-01 15:09:29.992829</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-01 15:09:40.304035</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:09:29] Fetching Scraper for: CMD                              handlers.py:23
+[15:09:30] Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+[15:09:31] Getting all files in Councillors/json...                  base.py:191
+           ...found 55 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 55 files in Councillors/raw                      base.py:207
+           ...found 111 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[15:09:32] Deleting batch no. 2 consisting of 11 files               base.py:216
+[15:09:33] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://democracy.camden.gov.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[15:09:37] Committing batch 1 consisting of 92 files                 base.py:274
+[15:09:38] Committing batch 2 consisting of 18 files                 base.py:274
+[15:09:40] Finished attempting to scrape: CMD                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-07-28-16-02">2022-07-28</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-28 16:02:32.652276</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-28 16:02:42.656823</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[16:02:32] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[16:02:33] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 55 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+[16:02:34] ...found 55 files in Councillors/raw                      base.py:207
+           ...found 111 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[16:02:35] Deleting batch no. 2 consisting of 11 files               base.py:216
+           ...data deleted.                                          base.py:246
+[16:02:36] Scraping from                                              base.py:42
+           http://democracy.camden.gov.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[16:02:39] Committing batch 1 consisting of 92 files                 base.py:274
+[16:02:41] Committing batch 2 consisting of 18 files                 base.py:274
+[16:02:42] Finished attempting to scrape: CMD                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-07-18-16-17">2022-07-18</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-18 16:17:13.390030</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-18 16:17:23.582517</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[16:17:13] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[16:17:14] Getting all files in CMD...                               base.py:182
+           Getting all files in CMD/json...                          base.py:182
+           ...found 54 files in CMD/json                             base.py:198
+           Getting all files in CMD/raw...                           base.py:182
+           ...found 54 files in CMD/raw                              base.py:198
+           ...found 109 files in CMD                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[16:17:16] Deleting batch no. 2 consisting of 9 files                base.py:207
+           ...data deleted.                                          base.py:237
+           Scraping from http://democracy.camden.gov.uk/mgWebService. base.py:42
+           asmx/GetCouncillorsByWard                                            
+[16:17:20] Committing batch 1 consisting of 92 files                 base.py:265
+[16:17:22] Committing batch 2 consisting of 18 files                 base.py:265
+[16:17:23] Finished attempting to scrape: CMD                        base.py:315
+</pre>
   
 
   
 
+
+  <h2 id="2022-07-11-16-21">2022-07-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-11 16:21:16.979241</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-11 16:21:27.272547</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[16:21:16] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+[16:21:17] Deleting existing data...                                 base.py:230
+           Getting all files in CMD...                               base.py:182
+           Getting all files in CMD/json...                          base.py:182
+[16:21:18] ...found 54 files in CMD/json                             base.py:198
+           Getting all files in CMD/raw...                           base.py:182
+           ...found 54 files in CMD/raw                              base.py:198
+           ...found 109 files in CMD                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[16:21:19] Deleting batch no. 2 consisting of 9 files                base.py:207
+[16:21:20] ...data deleted.                                          base.py:237
+           Scraping from http://democracy.camden.gov.uk/mgWebService. base.py:42
+           asmx/GetCouncillorsByWard                                            
+[16:21:24] Committing batch 1 consisting of 92 files                 base.py:265
+[16:21:25] Committing batch 2 consisting of 16 files                 base.py:265
+[16:21:27] Finished attempting to scrape: CMD                        base.py:315
+</pre>
   
 
   
 
+
+  <h2 id="2022-07-05-00-05">2022-07-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-05 00:05:48.772993</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-05 00:05:58.839873</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[00:05:48] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[00:05:49] Getting all files in CMD...                               base.py:182
+           Getting all files in CMD/json...                          base.py:182
+[00:05:50] ...found 54 files in CMD/json                             base.py:198
+           Getting all files in CMD/raw...                           base.py:182
+           ...found 54 files in CMD/raw                              base.py:198
+           ...found 109 files in CMD                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[00:05:51] Deleting batch no. 2 consisting of 9 files                base.py:207
+[00:05:52] ...data deleted.                                          base.py:237
+           Scraping from http://democracy.camden.gov.uk/mgWebService. base.py:42
+           asmx/GetCouncillorsByWard                                            
+[00:05:56] Committing batch 1 consisting of 92 files                 base.py:265
+[00:05:57] Committing batch 2 consisting of 16 files                 base.py:265
+[00:05:58] Finished attempting to scrape: CMD                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-07-04-13-04">2022-07-04</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>15 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-04 13:04:55.432592</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-04 13:05:10.782347</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:04:55] Fetching Scraper for: CMD                              handlers.py:23
+[13:04:59] Begin attempting to scrape: CMD                        handlers.py:27
+[13:05:00] Deleting existing data...                                 base.py:230
+[13:05:01] Getting all files in CMD...                               base.py:182
+           Getting all files in CMD/json...                          base.py:182
+[13:05:02] ...found 54 files in CMD/json                             base.py:198
+           Getting all files in CMD/raw...                           base.py:182
+           ...found 54 files in CMD/raw                              base.py:198
+           ...found 109 files in CMD                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[13:05:03] Deleting batch no. 2 consisting of 9 files                base.py:207
+[13:05:04] ...data deleted.                                          base.py:237
+           Scraping from http://democracy.camden.gov.uk/mgWebService. base.py:42
+           asmx/GetCouncillorsByWard                                            
+[13:05:08] Committing batch 1 consisting of 92 files                 base.py:265
+[13:05:09] Committing batch 2 consisting of 16 files                 base.py:265
+[13:05:10] Finished attempting to scrape: CMD                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-27-13-21">2022-06-27</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-27 13:21:13.249277</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-27 13:21:24.180474</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:21:13] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in CMD...                               base.py:182
+[13:21:14] Getting all files in CMD/json...                          base.py:182
+           ...found 54 files in CMD/json                             base.py:198
+           Getting all files in CMD/raw...                           base.py:182
+           ...found 54 files in CMD/raw                              base.py:198
+           ...found 109 files in CMD                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[13:21:15] Deleting batch no. 2 consisting of 9 files                base.py:207
+[13:21:16] ...data deleted.                                          base.py:237
+           Scraping from http://democracy.camden.gov.uk/mgWebService. base.py:42
+           asmx/GetCouncillorsByWard                                            
+[13:21:21] Committing batch 1 consisting of 92 files                 base.py:265
+[13:21:22] Committing batch 2 consisting of 16 files                 base.py:265
+[13:21:24] Finished attempting to scrape: CMD                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-20-13-37">2022-06-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-20 13:37:48.921138</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-20 13:37:58.852454</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:37:48] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+[13:37:49] Deleting existing data...                                 base.py:230
+           Getting all files in CMD...                               base.py:182
+           Getting all files in CMD/json...                          base.py:182
+[13:37:50] ...found 54 files in CMD/json                             base.py:198
+           Getting all files in CMD/raw...                           base.py:182
+           ...found 54 files in CMD/raw                              base.py:198
+           ...found 109 files in CMD                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[13:37:51] Deleting batch no. 2 consisting of 9 files                base.py:207
+[13:37:52] ...data deleted.                                          base.py:237
+           Scraping from http://democracy.camden.gov.uk/mgWebService. base.py:42
+           asmx/GetCouncillorsByWard                                            
+[13:37:56] Committing batch 1 consisting of 92 files                 base.py:265
+[13:37:57] Committing batch 2 consisting of 16 files                 base.py:265
+[13:37:58] Finished attempting to scrape: CMD                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-13-17-50">2022-06-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-13 17:50:17.698235</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-13 17:50:27.943481</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[17:50:17] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[17:50:18] Getting all files in CMD...                               base.py:182
+           Getting all files in CMD/json...                          base.py:182
+           ...found 54 files in CMD/json                             base.py:198
+           Getting all files in CMD/raw...                           base.py:182
+[17:50:19] ...found 54 files in CMD/raw                              base.py:198
+           ...found 109 files in CMD                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[17:50:20] Deleting batch no. 2 consisting of 9 files                base.py:207
+[17:50:21] ...data deleted.                                          base.py:237
+           Scraping from http://democracy.camden.gov.uk/mgWebService. base.py:42
+           asmx/GetCouncillorsByWard                                            
+[17:50:25] Committing batch 1 consisting of 92 files                 base.py:265
+[17:50:26] Committing batch 2 consisting of 16 files                 base.py:265
+[17:50:27] Finished attempting to scrape: CMD                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-13-12-29">2022-06-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-13 12:29:47.167188</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-13 12:29:56.937233</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:29:47] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in CMD...                               base.py:182
+[12:29:48] Getting all files in CMD/json...                          base.py:182
+           ...found 54 files in CMD/json                             base.py:198
+           Getting all files in CMD/raw...                           base.py:182
+           ...found 54 files in CMD/raw                              base.py:198
+           ...found 109 files in CMD                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[12:29:49] Deleting batch no. 2 consisting of 9 files                base.py:207
+[12:29:50] ...data deleted.                                          base.py:237
+           Scraping from http://democracy.camden.gov.uk/mgWebService. base.py:42
+           asmx/GetCouncillorsByWard                                            
+[12:29:54] Committing batch 1 consisting of 92 files                 base.py:265
+[12:29:55] Committing batch 2 consisting of 16 files                 base.py:265
+[12:29:56] Finished attempting to scrape: CMD                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-12-12-25">2022-06-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-12 12:25:58.075474</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-12 12:26:07.478821</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:25:58] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in CMD...                               base.py:182
+[12:25:59] Getting all files in CMD/json...                          base.py:182
+           ...found 54 files in CMD/json                             base.py:198
+           Getting all files in CMD/raw...                           base.py:182
+           ...found 54 files in CMD/raw                              base.py:198
+           ...found 109 files in CMD                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[12:26:00] Deleting batch no. 2 consisting of 9 files                base.py:207
+[12:26:01] ...data deleted.                                          base.py:237
+           Scraping from http://democracy.camden.gov.uk/mgWebService. base.py:42
+           asmx/GetCouncillorsByWard                                            
+[12:26:04] Committing batch 1 consisting of 92 files                 base.py:265
+[12:26:06] Committing batch 2 consisting of 16 files                 base.py:265
+[12:26:07] Finished attempting to scrape: CMD                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-11-12-51">2022-06-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-11 12:51:35.102747</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-11 12:51:45.784366</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:51:35] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in CMD...                               base.py:182
+           Getting all files in CMD/json...                          base.py:182
+[12:51:36] ...found 54 files in CMD/json                             base.py:198
+           Getting all files in CMD/raw...                           base.py:182
+           ...found 54 files in CMD/raw                              base.py:198
+           ...found 109 files in CMD                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[12:51:37] Deleting batch no. 2 consisting of 9 files                base.py:207
+[12:51:38] ...data deleted.                                          base.py:237
+           Scraping from http://democracy.camden.gov.uk/mgWebService. base.py:42
+           asmx/GetCouncillorsByWard                                            
+[12:51:42] Committing batch 1 consisting of 92 files                 base.py:265
+[12:51:44] Committing batch 2 consisting of 16 files                 base.py:265
+[12:51:45] Finished attempting to scrape: CMD                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-10-12-38">2022-06-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-10 12:38:04.204243</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-10 12:38:14.228514</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:38:04] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in CMD...                               base.py:182
+[12:38:05] Getting all files in CMD/json...                          base.py:182
+           ...found 54 files in CMD/json                             base.py:198
+           Getting all files in CMD/raw...                           base.py:182
+           ...found 54 files in CMD/raw                              base.py:198
+           ...found 109 files in CMD                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[12:38:06] Deleting batch no. 2 consisting of 9 files                base.py:207
+[12:38:07] ...data deleted.                                          base.py:237
+           Scraping from http://democracy.camden.gov.uk/mgWebService. base.py:42
+           asmx/GetCouncillorsByWard                                            
+[12:38:11] Committing batch 1 consisting of 92 files                 base.py:265
+[12:38:12] Committing batch 2 consisting of 16 files                 base.py:265
+[12:38:14] Finished attempting to scrape: CMD                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-09-11-19">2022-06-09</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-09 11:19:20.580437</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-09 11:19:30.169492</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:19:20] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[11:19:21] Getting all files in CMD...                               base.py:182
+           Getting all files in CMD/json...                          base.py:182
+           ...found 54 files in CMD/json                             base.py:198
+           Getting all files in CMD/raw...                           base.py:182
+[11:19:22] ...found 54 files in CMD/raw                              base.py:198
+           ...found 109 files in CMD                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[11:19:23] Deleting batch no. 2 consisting of 9 files                base.py:207
+[11:19:24] ...data deleted.                                          base.py:237
+           Scraping from http://democracy.camden.gov.uk/mgWebService. base.py:42
+           asmx/GetCouncillorsByWard                                            
+[11:19:27] Committing batch 1 consisting of 92 files                 base.py:265
+[11:19:28] Committing batch 2 consisting of 16 files                 base.py:265
+[11:19:30] Finished attempting to scrape: CMD                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-08-14-34">2022-06-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-08 14:34:57.136752</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-08 14:35:06.590138</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:34:57] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in CMD...                               base.py:182
+[14:34:58] Getting all files in CMD/json...                          base.py:182
+           ...found 54 files in CMD/json                             base.py:198
+           Getting all files in CMD/raw...                           base.py:182
+           ...found 54 files in CMD/raw                              base.py:198
+           ...found 109 files in CMD                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[14:34:59] Deleting batch no. 2 consisting of 9 files                base.py:207
+[14:35:00] ...data deleted.                                          base.py:237
+           Scraping from http://democracy.camden.gov.uk/mgWebService. base.py:42
+           asmx/GetCouncillorsByWard                                            
+[14:35:03] Committing batch 1 consisting of 92 files                 base.py:265
+[14:35:05] Committing batch 2 consisting of 16 files                 base.py:265
+[14:35:06] Finished attempting to scrape: CMD                        base.py:315
+</pre>
   
 
 

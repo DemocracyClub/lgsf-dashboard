@@ -36,42 +36,1418 @@
 
   
 
+
+  <h2 id="2022-09-05-13-51">2022-09-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-09-05 13:51:33.675231</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-09-05 13:51:36.028110</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.plymouth.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.plymouth.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:51:33] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[13:51:34] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[13:51:35] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://democracy.plymouth.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+           HTTPSConnectionPool(host='democracy.plymouth.gov.uk',  handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
+           SSLError(SSLCertVerificationError(1, '[SSL:                          
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+[13:51:36] Finished attempting to scrape: PLY                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-29-14-55">2022-08-29</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-29 14:55:37.430780</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-29 14:55:39.882128</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.plymouth.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.plymouth.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:55:37] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[14:55:38] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[14:55:39] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://democracy.plymouth.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+           HTTPSConnectionPool(host='democracy.plymouth.gov.uk',  handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
+           SSLError(SSLCertVerificationError(1, '[SSL:                          
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+           Finished attempting to scrape: PLY                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-22-14-50">2022-08-22</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-22 14:50:15.455363</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-22 14:50:17.757683</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.plymouth.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.plymouth.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:50:15] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[14:50:16] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[14:50:17] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://democracy.plymouth.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+           HTTPSConnectionPool(host='democracy.plymouth.gov.uk',  handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
+           SSLError(SSLCertVerificationError(1, '[SSL:                          
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+           Finished attempting to scrape: PLY                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-15-14-20">2022-08-15</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-15 14:20:14.434549</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-15 14:20:16.866637</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.plymouth.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.plymouth.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:20:14] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[14:20:15] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[14:20:16] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://democracy.plymouth.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+           HTTPSConnectionPool(host='democracy.plymouth.gov.uk',  handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
+           SSLError(SSLCertVerificationError(1, '[SSL:                          
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+           Finished attempting to scrape: PLY                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-08-14-06">2022-08-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-08 14:06:29.682898</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-08 14:06:32.087528</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.plymouth.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.plymouth.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:06:29] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[14:06:30] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[14:06:31] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://democracy.plymouth.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+           HTTPSConnectionPool(host='democracy.plymouth.gov.uk',  handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
+           SSLError(SSLCertVerificationError(1, '[SSL:                          
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+[14:06:32] Finished attempting to scrape: PLY                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-08-01-14-32">2022-08-01</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-08-01 14:32:33.383956</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-08-01 14:32:35.727904</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.plymouth.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.plymouth.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:32:33] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[14:32:34] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[14:32:35] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://democracy.plymouth.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+           HTTPSConnectionPool(host='democracy.plymouth.gov.uk',  handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
+           SSLError(SSLCertVerificationError(1, '[SSL:                          
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+           Finished attempting to scrape: PLY                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-07-28-14-57">2022-07-28</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-28 14:57:04.693806</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-28 14:57:08.238710</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.plymouth.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.plymouth.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:57:04] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[14:57:05] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 57 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+[14:57:06] ...found 57 files in Councillors/raw                      base.py:207
+           ...found 115 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[14:57:07] Deleting batch no. 2 consisting of 15 files               base.py:216
+           ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://democracy.plymouth.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+[14:57:08] HTTPSConnectionPool(host='democracy.plymouth.gov.uk',  handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
+           SSLError(SSLCertVerificationError(1, '[SSL:                          
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+           Finished attempting to scrape: PLY                        base.py:324
+</pre>
   
 
   
 
+
+  <h2 id="2022-07-18-14-04">2022-07-18</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-18 14:04:30.071307</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-18 14:04:39.531755</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:04:30] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in PLY...                               base.py:182
+[14:04:31] Getting all files in PLY/json...                          base.py:182
+           ...found 57 files in PLY/json                             base.py:198
+           Getting all files in PLY/raw...                           base.py:182
+           ...found 57 files in PLY/raw                              base.py:198
+           ...found 115 files in PLY                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[14:04:32] Deleting batch no. 2 consisting of 15 files               base.py:207
+[14:04:33] ...data deleted.                                          base.py:237
+           Scraping from https://democracy.plymouth.gov.uk/mgWebServi base.py:42
+           ce.asmx/GetCouncillorsByWard                                         
+[14:04:36] Committing batch 1 consisting of 92 files                 base.py:265
+[14:04:38] Committing batch 2 consisting of 22 files                 base.py:265
+[14:04:39] Finished attempting to scrape: PLY                        base.py:315
+</pre>
   
 
   
 
+
+  <h2 id="2022-07-11-13-51">2022-07-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-11 13:51:44.964158</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-11 13:51:54.352383</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:51:44] Fetching Scraper for: PLY                              handlers.py:23
+[13:51:45] Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in PLY...                               base.py:182
+           Getting all files in PLY/json...                          base.py:182
+[13:51:46] ...found 57 files in PLY/json                             base.py:198
+           Getting all files in PLY/raw...                           base.py:182
+           ...found 57 files in PLY/raw                              base.py:198
+           ...found 115 files in PLY                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[13:51:47] Deleting batch no. 2 consisting of 15 files               base.py:207
+[13:51:48] ...data deleted.                                          base.py:237
+           Scraping from https://democracy.plymouth.gov.uk/mgWebServi base.py:42
+           ce.asmx/GetCouncillorsByWard                                         
+[13:51:51] Committing batch 1 consisting of 92 files                 base.py:265
+[13:51:52] Committing batch 2 consisting of 22 files                 base.py:265
+[13:51:54] Finished attempting to scrape: PLY                        base.py:315
+</pre>
   
 
   
 
+
+  <h2 id="2022-07-04-14-03">2022-07-04</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-07-04 14:03:08.581661</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-07-04 14:03:18.101647</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:03:08] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[14:03:09] Getting all files in PLY...                               base.py:182
+           Getting all files in PLY/json...                          base.py:182
+           ...found 57 files in PLY/json                             base.py:198
+           Getting all files in PLY/raw...                           base.py:182
+[14:03:10] ...found 57 files in PLY/raw                              base.py:198
+           ...found 115 files in PLY                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[14:03:11] Deleting batch no. 2 consisting of 15 files               base.py:207
+           ...data deleted.                                          base.py:237
+           Scraping from https://democracy.plymouth.gov.uk/mgWebServi base.py:42
+           ce.asmx/GetCouncillorsByWard                                         
+[14:03:15] Committing batch 1 consisting of 92 files                 base.py:265
+[14:03:16] Committing batch 2 consisting of 22 files                 base.py:265
+[14:03:18] Finished attempting to scrape: PLY                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-27-14-30">2022-06-27</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-27 14:30:13.884862</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-27 14:30:24.266099</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:30:13] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[14:30:14] Getting all files in PLY...                               base.py:182
+           Getting all files in PLY/json...                          base.py:182
+[14:30:15] ...found 57 files in PLY/json                             base.py:198
+           Getting all files in PLY/raw...                           base.py:182
+           ...found 57 files in PLY/raw                              base.py:198
+           ...found 115 files in PLY                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[14:30:16] Deleting batch no. 2 consisting of 15 files               base.py:207
+[14:30:17] ...data deleted.                                          base.py:237
+           Scraping from https://democracy.plymouth.gov.uk/mgWebServi base.py:42
+           ce.asmx/GetCouncillorsByWard                                         
+[14:30:21] Committing batch 1 consisting of 92 files                 base.py:265
+[14:30:22] Committing batch 2 consisting of 22 files                 base.py:265
+[14:30:24] Finished attempting to scrape: PLY                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-20-15-09">2022-06-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-20 15:09:46.867048</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-20 15:09:56.227917</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:09:46] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+[15:09:47] Deleting existing data...                                 base.py:230
+           Getting all files in PLY...                               base.py:182
+           Getting all files in PLY/json...                          base.py:182
+[15:09:48] ...found 57 files in PLY/json                             base.py:198
+           Getting all files in PLY/raw...                           base.py:182
+           ...found 57 files in PLY/raw                              base.py:198
+           ...found 115 files in PLY                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[15:09:49] Deleting batch no. 2 consisting of 15 files               base.py:207
+[15:09:50] ...data deleted.                                          base.py:237
+           Scraping from https://democracy.plymouth.gov.uk/mgWebServi base.py:42
+           ce.asmx/GetCouncillorsByWard                                         
+[15:09:53] Committing batch 1 consisting of 92 files                 base.py:265
+[15:09:54] Committing batch 2 consisting of 22 files                 base.py:265
+[15:09:56] Finished attempting to scrape: PLY                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-13-17-46">2022-06-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-13 17:46:59.709908</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-13 17:47:09.219088</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[17:46:59] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[17:47:00] Getting all files in PLY...                               base.py:182
+           Getting all files in PLY/json...                          base.py:182
+           ...found 57 files in PLY/json                             base.py:198
+           Getting all files in PLY/raw...                           base.py:182
+[17:47:01] ...found 57 files in PLY/raw                              base.py:198
+           ...found 115 files in PLY                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[17:47:02] Deleting batch no. 2 consisting of 15 files               base.py:207
+[17:47:03] ...data deleted.                                          base.py:237
+           Scraping from https://democracy.plymouth.gov.uk/mgWebServi base.py:42
+           ce.asmx/GetCouncillorsByWard                                         
+[17:47:06] Committing batch 1 consisting of 92 files                 base.py:265
+[17:47:07] Committing batch 2 consisting of 22 files                 base.py:265
+[17:47:09] Finished attempting to scrape: PLY                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-13-12-00">2022-06-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-13 12:00:23.188551</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-13 12:00:33.965041</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:00:23] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in PLY...                               base.py:182
+[12:00:24] Getting all files in PLY/json...                          base.py:182
+           ...found 57 files in PLY/json                             base.py:198
+           Getting all files in PLY/raw...                           base.py:182
+           ...found 57 files in PLY/raw                              base.py:198
+           ...found 115 files in PLY                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[12:00:25] Deleting batch no. 2 consisting of 15 files               base.py:207
+[12:00:26] ...data deleted.                                          base.py:237
+           Scraping from https://democracy.plymouth.gov.uk/mgWebServi base.py:42
+           ce.asmx/GetCouncillorsByWard                                         
+[12:00:31] Committing batch 1 consisting of 92 files                 base.py:265
+[12:00:32] Committing batch 2 consisting of 22 files                 base.py:265
+[12:00:33] Finished attempting to scrape: PLY                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-12-13-06">2022-06-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-12 13:06:25.305514</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-12 13:06:35.254600</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:06:25] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[13:06:26] Getting all files in PLY...                               base.py:182
+           Getting all files in PLY/json...                          base.py:182
+           ...found 57 files in PLY/json                             base.py:198
+           Getting all files in PLY/raw...                           base.py:182
+           ...found 57 files in PLY/raw                              base.py:198
+           ...found 115 files in PLY                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[13:06:27] Deleting batch no. 2 consisting of 15 files               base.py:207
+[13:06:28] ...data deleted.                                          base.py:237
+           Scraping from https://democracy.plymouth.gov.uk/mgWebServi base.py:42
+           ce.asmx/GetCouncillorsByWard                                         
+[13:06:32] Committing batch 1 consisting of 92 files                 base.py:265
+[13:06:33] Committing batch 2 consisting of 22 files                 base.py:265
+[13:06:35] Finished attempting to scrape: PLY                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-11-14-15">2022-06-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-11 14:15:37.996265</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-11 14:15:47.399602</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:15:37] Fetching Scraper for: PLY                              handlers.py:23
+[14:15:38] Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+           Getting all files in PLY...                               base.py:182
+           Getting all files in PLY/json...                          base.py:182
+[14:15:39] ...found 57 files in PLY/json                             base.py:198
+           Getting all files in PLY/raw...                           base.py:182
+           ...found 57 files in PLY/raw                              base.py:198
+           ...found 115 files in PLY                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[14:15:40] Deleting batch no. 2 consisting of 15 files               base.py:207
+[14:15:41] ...data deleted.                                          base.py:237
+           Scraping from https://democracy.plymouth.gov.uk/mgWebServi base.py:42
+           ce.asmx/GetCouncillorsByWard                                         
+[14:15:44] Committing batch 1 consisting of 92 files                 base.py:265
+[14:15:45] Committing batch 2 consisting of 22 files                 base.py:265
+[14:15:47] Finished attempting to scrape: PLY                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-10-14-46">2022-06-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-10 14:46:38.409821</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-10 14:46:47.684384</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:46:38] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[14:46:39] Getting all files in PLY...                               base.py:182
+           Getting all files in PLY/json...                          base.py:182
+           ...found 57 files in PLY/json                             base.py:198
+           Getting all files in PLY/raw...                           base.py:182
+           ...found 57 files in PLY/raw                              base.py:198
+           ...found 115 files in PLY                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[14:46:40] Deleting batch no. 2 consisting of 15 files               base.py:207
+[14:46:41] ...data deleted.                                          base.py:237
+           Scraping from https://democracy.plymouth.gov.uk/mgWebServi base.py:42
+           ce.asmx/GetCouncillorsByWard                                         
+[14:46:44] Committing batch 1 consisting of 92 files                 base.py:265
+[14:46:46] Committing batch 2 consisting of 22 files                 base.py:265
+[14:46:47] Finished attempting to scrape: PLY                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-09-12-02">2022-06-09</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-09 12:02:00.547099</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-09 12:02:10.254385</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:02:00] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[12:02:01] Getting all files in PLY...                               base.py:182
+           Getting all files in PLY/json...                          base.py:182
+           ...found 57 files in PLY/json                             base.py:198
+           Getting all files in PLY/raw...                           base.py:182
+[12:02:02] ...found 57 files in PLY/raw                              base.py:198
+           ...found 115 files in PLY                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[12:02:03] Deleting batch no. 2 consisting of 15 files               base.py:207
+[12:02:04] ...data deleted.                                          base.py:237
+           Scraping from https://democracy.plymouth.gov.uk/mgWebServi base.py:42
+           ce.asmx/GetCouncillorsByWard                                         
+[12:02:07] Committing batch 1 consisting of 92 files                 base.py:265
+[12:02:08] Committing batch 2 consisting of 22 files                 base.py:265
+[12:02:10] Finished attempting to scrape: PLY                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-08-12-43">2022-06-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-08 12:43:05.255756</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-08 12:43:14.624778</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:43:05] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[12:43:06] Getting all files in PLY...                               base.py:182
+           Getting all files in PLY/json...                          base.py:182
+           ...found 57 files in PLY/json                             base.py:198
+           Getting all files in PLY/raw...                           base.py:182
+           ...found 57 files in PLY/raw                              base.py:198
+           ...found 115 files in PLY                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[12:43:07] Deleting batch no. 2 consisting of 15 files               base.py:207
+[12:43:08] ...data deleted.                                          base.py:237
+           Scraping from https://democracy.plymouth.gov.uk/mgWebServi base.py:42
+           ce.asmx/GetCouncillorsByWard                                         
+[12:43:11] Committing batch 1 consisting of 92 files                 base.py:265
+[12:43:13] Committing batch 2 consisting of 22 files                 base.py:265
+[12:43:14] Finished attempting to scrape: PLY                        base.py:315
+</pre>
+  
+
+  
+
+
+  <h2 id="2022-06-07-12-11">2022-06-07</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-06-07 12:11:18.864893</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-06-07 12:11:29.259443</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:11:18] Fetching Scraper for: PLY                              handlers.py:23
+           Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:230
+[12:11:19] Getting all files in PLY...                               base.py:182
+           Getting all files in PLY/json...                          base.py:182
+           ...found 57 files in PLY/json                             base.py:198
+           Getting all files in PLY/raw...                           base.py:182
+[12:11:20] ...found 57 files in PLY/raw                              base.py:198
+           ...found 115 files in PLY                                 base.py:198
+           Deleting batch no. 1 consisting of 100 files              base.py:207
+[12:11:21] Deleting batch no. 2 consisting of 15 files               base.py:207
+[12:11:22] ...data deleted.                                          base.py:237
+           Scraping from https://democracy.plymouth.gov.uk/mgWebServi base.py:42
+           ce.asmx/GetCouncillorsByWard                                         
+[12:11:26] Committing batch 1 consisting of 92 files                 base.py:265
+[12:11:27] Committing batch 2 consisting of 22 files                 base.py:265
+[12:11:29] Finished attempting to scrape: PLY                        base.py:315
+</pre>
   
 
 
