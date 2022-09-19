@@ -8,13 +8,11 @@ import boto3
 
 client = boto3.client("codecommit", region_name="eu-west-2")
 
-folders = client.get_folder(folderPath="/", repositoryName="CouncillorsRepo")[
-    "subFolders"
-]
+repos = [result["repositoryName"] for result in client.list_repositories()["repositories"]]
 
-LAST_N_DAYS = []
-for i in range(20, 0, -1):
-    LAST_N_DAYS.append(datetime.now().date() - timedelta(days=i))
+# LAST_N_RUNS = []
+# for i in range(60, 0, -7):
+#     LAST_N_RUNS.append(datetime.now().date() - timedelta(days=i))
 
 
 @dataclass
@@ -30,15 +28,9 @@ class LogBook:
         if missing:
             return log_book
         content = json.loads(log_file["fileContent"])
-        log_books_by_date = {}
-        for run in content["runs"]:
+        for run in content["runs"][:20]:
             log_run = LogRun.from_code_commit(run)
-            log_books_by_date[log_run.run_date] = log_run
-        for date in LAST_N_DAYS:
-            if date in log_books_by_date:
-                log_book.log_runs.append(log_books_by_date[date])
-            else:
-                log_book.log_runs.append(None)
+            log_book.log_runs.append(log_run)
         return log_book
 
     def as_dict(self):
@@ -84,16 +76,17 @@ class LogRun:
 logs: List[LogBook] = []
 
 
-for folder in folders:
+for repo in repos:
     try:
+        print(repo)
         log_file = client.get_file(
-            filePath=f"{folder['absolutePath']}/logbook.json",
-            repositoryName="CouncillorsRepo",
+            filePath="Councillors/logbook.json",
+            repositoryName=repo,
         )
-    except client.exceptions.FileDoesNotExistException:
+    except (client.exceptions.FileDoesNotExistException, client.exceptions.CommitDoesNotExistException):
         log_file = {}
 
-    log_data = LogBook.from_codecommit(folder["absolutePath"], log_file)
+    log_data = LogBook.from_codecommit(repo, log_file)
     if log_data.log_runs:
         logs.append(log_data)
 
