@@ -37,6 +37,65 @@
   
 
 
+  <h2 id="2022-09-26-15-07">2022-09-26</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-09-26 15:07:20.307875</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-09-26 15:07:22.662649</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 242, in get_councillors
+    req = self.get(self.base_url, extra_headers=self.extra_headers)
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://cmis.essexcc.gov.uk/EssexCmis5/Councillors.aspx
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:07:20] Fetching Scraper for: ESS                              handlers.py:23
+           Begin attempting to scrape: ESS                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[15:07:21] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[15:07:22] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://cmis.essexcc.gov.uk/EssexCmis5/Councillors.aspx               
+           404 Client Error: Not Found for url:                   handlers.py:36
+           http://cmis.essexcc.gov.uk/EssexCmis5/Councillors.aspx               
+           Finished attempting to scrape: ESS                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2022-09-19-14-24">2022-09-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1152,65 +1211,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://cmis.
            404 Client Error: Not Found for url:                   handlers.py:36
            http://cmis.essexcc.gov.uk/EssexCmis5/Councillors.aspx               
            Finished attempting to scrape: ESS                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-06-09-12-29">2022-06-09</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-06-09 12:29:40.058559</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-06-09 12:29:42.135431</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 242, in get_councillors
-    req = self.get(self.base_url, extra_headers=self.extra_headers)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 960, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://cmis.essexcc.gov.uk/EssexCmis5/Councillors.aspx
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:29:40] Fetching Scraper for: ESS                              handlers.py:23
-           Begin attempting to scrape: ESS                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-           Getting all files in ESS...                               base.py:182
-[12:29:41] ...found 1 files in ESS                                   base.py:198
-           Deleting batch no. 1 consisting of 1 files                base.py:207
-           ...data deleted.                                          base.py:237
-           Scraping from                                              base.py:42
-           http://cmis.essexcc.gov.uk/EssexCmis5/Councillors.aspx               
-           404 Client Error: Not Found for url:                   handlers.py:36
-           http://cmis.essexcc.gov.uk/EssexCmis5/Councillors.aspx               
-[12:29:42] Finished attempting to scrape: ESS                        base.py:315
 </pre>
   
 

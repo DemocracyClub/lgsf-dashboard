@@ -37,6 +37,130 @@
   
 
 
+  <h2 id="2022-09-26-15-27">2022-09-26</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-09-26 15:27:55.727899</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-09-26 15:27:59.351046</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/opt/python/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 242, in get_councillors
+    req = self.get(self.base_url, extra_headers=self.extra_headers)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 547, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:27:55] Fetching Scraper for: BOL                              handlers.py:23
+           Begin attempting to scrape: BOL                        handlers.py:27
+[15:27:56] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 59 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+[15:27:57] ...found 59 files in Councillors/raw                      base.py:207
+           ...found 119 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[15:27:58] Deleting batch no. 2 consisting of 19 files               base.py:216
+           ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
+[15:27:59] ('Connection aborted.', ConnectionResetError(104,      handlers.py:36
+           'Connection reset by peer'))                                         
+           Finished attempting to scrape: BOL                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2022-09-19-14-50">2022-09-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -3025,233 +3149,6 @@ requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetErro
            ('Connection aborted.', ConnectionResetError(104,      handlers.py:36
            'Connection reset by peer'))                                         
            Finished attempting to scrape: BOL                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-06-09-14-41">2022-06-09</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>200 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-06-09 14:41:01.815044</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-06-09 14:44:22.169082</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:41:01] Fetching Scraper for: BOL                              handlers.py:23
-           Begin attempting to scrape: BOL                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-[14:41:02] Getting all files in BOL...                               base.py:182
-           ...found 1 files in BOL                                   base.py:198
-           Deleting batch no. 1 consisting of 1 files                base.py:207
-[14:41:03] ...data deleted.                                          base.py:237
-           Scraping from                                              base.py:42
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-[14:41:08] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/563/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:12] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/908/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:14] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/562/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:18] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/710/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:22] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/718/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:26] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/856/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:30] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/889/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:32] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/904/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:34] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/879/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:37] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/890/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:40] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/911/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:42] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/882/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:46] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/906/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:47] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/891/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:50] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/918/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:52] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/914/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:54] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/878/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:57] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/899/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:41:59] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/642/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:42:04] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/707/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:42:08] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/647/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:42:12] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/907/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:42:14] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/585/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:42:19] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/586/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:42:23] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/842/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:42:27] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/884/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:42:30] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/658/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:42:35] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/610/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:42:40] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/885/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:42:45] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/617/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:42:49] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/886/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:42:53] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/903/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:42:55] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/897/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:42:57] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/894/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:00] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/691/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:04] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/568/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:08] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/893/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:11] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/875/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:15] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/917/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:16] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/896/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:19] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/912/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:21] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/910/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:23] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/638/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:27] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/916/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:28] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/909/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:30] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/872/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:34] Committing batch 1 consisting of 92 files                 base.py:265
-[14:43:35] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/594/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:39] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/915/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:42] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/561/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:47] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/913/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:49] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/892/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:51] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/711/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:43:55] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/598/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:44:00] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/599/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:44:05] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/694/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:44:09] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/895/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:44:11] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/902/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:44:13] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/905/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:44:15] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/898/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:44:17] Scraping from https://www.democracy.bolton.gov.uk/cmis5/Pe base.py:42
-           ople/tabid/62/ctl/ViewCMIS_Person/mid/480/id/881/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[14:44:20] Committing batch 2 consisting of 28 files                 base.py:265
-[14:44:22] Finished attempting to scrape: BOL                        base.py:315
 </pre>
   
 
