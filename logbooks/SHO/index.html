@@ -37,6 +37,66 @@
   
 
 
+  <h2 id="2022-10-03-15-14">2022-10-03</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-10-03 15:14:11.540449</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-10-03 15:14:21.052968</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://democracy.sholland.gov.uk/mgError.aspx
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:14:11] Fetching Scraper for: SHO                              handlers.py:23
+           Begin attempting to scrape: SHO                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[15:14:12] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[15:14:13] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://democracy.sholland.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+[15:14:20] 404 Client Error: Not Found for url:                   handlers.py:36
+           https://democracy.sholland.gov.uk/mgError.aspx                       
+[15:14:21] Finished attempting to scrape: SHO                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2022-09-26-13-46">2022-09-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1160,65 +1220,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://demo
            Scraping from https://democracy.sholland.gov.uk/mgWebServi base.py:42
            ce.asmx/GetCouncillorsByWard                                         
 [12:52:20] 404 Client Error: Not Found for url:                   handlers.py:36
-           https://democracy.sholland.gov.uk/mgError.aspx                       
-           Finished attempting to scrape: SHO                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-06-10-14-10">2022-06-10</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>7 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-06-10 14:10:23.546163</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-06-10 14:10:30.945044</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 960, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://democracy.sholland.gov.uk/mgError.aspx
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:10:23] Fetching Scraper for: SHO                              handlers.py:23
-           Begin attempting to scrape: SHO                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-[14:10:24] Getting all files in SHO...                               base.py:182
-           ...found 1 files in SHO                                   base.py:198
-           Deleting batch no. 1 consisting of 1 files                base.py:207
-[14:10:25] ...data deleted.                                          base.py:237
-           Scraping from https://democracy.sholland.gov.uk/mgWebServi base.py:42
-           ce.asmx/GetCouncillorsByWard                                         
-[14:10:30] 404 Client Error: Not Found for url:                   handlers.py:36
            https://democracy.sholland.gov.uk/mgError.aspx                       
            Finished attempting to scrape: SHO                        base.py:315
 </pre>
