@@ -37,6 +37,65 @@
   
 
 
+  <h2 id="2022-10-17-13-05">2022-10-17</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-10-17 13:05:44.937374</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-10-17 13:05:47.435650</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 242, in get_councillors
+    req = self.get(self.base_url, extra_headers=self.extra_headers)
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://services.sstaffs.gov.uk/cmis/Councillors.aspx
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:05:44] Fetching Scraper for: SST                              handlers.py:23
+           Begin attempting to scrape: SST                        handlers.py:27
+[13:05:45] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+[13:05:46] ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+           ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://services.sstaffs.gov.uk/cmis/Councillors.aspx                
+[13:05:47] 404 Client Error: Not Found for url:                   handlers.py:36
+           https://services.sstaffs.gov.uk/cmis/Councillors.aspx                
+           Finished attempting to scrape: SST                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2022-10-10-14-45">2022-10-10</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2103,201 +2162,6 @@ KeyError: 'title'
            e/Alphabetical/Default.aspx                                          
 [12:05:31] Committing batch 2 consisting of 4 files                  base.py:265
 [12:05:33] Finished attempting to scrape: SST                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-06-12-13-57">2022-06-12</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>61 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-06-12 13:57:00.665515</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-06-12 13:58:02.400909</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:57:00] Fetching Scraper for: SST                              handlers.py:23
-           Begin attempting to scrape: SST                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-[13:57:01] Getting all files in SST...                               base.py:182
-           Getting all files in SST/json...                          base.py:182
-           ...found 48 files in SST/json                             base.py:198
-           Getting all files in SST/raw...                           base.py:182
-           ...found 48 files in SST/raw                              base.py:198
-           ...found 97 files in SST                                  base.py:198
-           Deleting batch no. 1 consisting of 97 files               base.py:207
-[13:57:02] ...data deleted.                                          base.py:237
-           Scraping from                                              base.py:42
-           https://services.sstaffs.gov.uk/cmis/Councillors.aspx                
-[13:57:05] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/165/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:57:06] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/85/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:07] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/15/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:08] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/25/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:09] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/163/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:57:10] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/95/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:11] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/29/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:13] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/37/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:14] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/41/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:15] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/159/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:57:16] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/100/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:57:17] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/141/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:57:18] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/50/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:19] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/49/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:21] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/171/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:57:22] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/164/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:57:23] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/200/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:57:24] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/46/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:25] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/161/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:57:26] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/22/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:28] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/24/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:29] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/98/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:30] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/28/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:31] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/167/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:57:32] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/39/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:33] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/168/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:57:34] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/129/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:57:35] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/43/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:36] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/99/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:38] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/87/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:39] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/172/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:57:40] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/42/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:41] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/35/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:43] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/36/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:44] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/34/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:45] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/32/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:46] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/30/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:47] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/160/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:57:48] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/201/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:57:49] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/151/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:57:50] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/162/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-           Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/27/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:52] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/88/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:53] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/21/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:55] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/14/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:56] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/96/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:57] Committing batch 1 consisting of 92 files                 base.py:265
-[13:57:58] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/18/ScreenMode           
-           /Alphabetical/Default.aspx                                           
-[13:57:59] Scraping from https://services.sstaffs.gov.uk/cmis/Council base.py:42
-           lors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/166/ScreenMod           
-           e/Alphabetical/Default.aspx                                          
-[13:58:00] Committing batch 2 consisting of 4 files                  base.py:265
-[13:58:02] Finished attempting to scrape: SST                        base.py:315
 </pre>
   
 
