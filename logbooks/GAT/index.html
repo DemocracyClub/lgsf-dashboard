@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2022-10-24-13-09">2022-10-24</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-10-24 13:09:08.329371</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-10-24 13:09:17.127091</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:09:08] Fetching Scraper for: GAT                              handlers.py:23
+           Begin attempting to scrape: GAT                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[13:09:09] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 66 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 66 files in Councillors/raw                      base.py:207
+           ...found 133 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[13:09:10] Deleting batch no. 2 consisting of 33 files               base.py:216
+[13:09:11] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://democracy.gateshead.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+[13:09:14] Committing batch 1 consisting of 92 files                 base.py:274
+[13:09:15] Committing batch 2 consisting of 40 files                 base.py:274
+[13:09:17] Finished attempting to scrape: GAT                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2022-10-17-13-31">2022-10-17</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1029,66 +1082,6 @@ requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://dem
            ...found 1 files in GAT                                   base.py:198
            Deleting batch no. 1 consisting of 1 files                base.py:207
 [18:38:45] ...data deleted.                                          base.py:237
-           Scraping from http://democracy.gateshead.gov.uk/mgWebServi base.py:42
-           ce.asmx/GetCouncillorsByWard                                         
-           400 Client Error: Bad Request for url: http://democrac handlers.py:36
-           y.gateshead.gov.uk/mgWebService.asmx/GetCouncillorsByW               
-           ard                                                                  
-           Finished attempting to scrape: GAT                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-06-13-11-42">2022-06-13</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-06-13 11:42:21.134063</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-06-13 11:42:23.470214</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 960, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://democracy.gateshead.gov.uk/mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:42:21] Fetching Scraper for: GAT                              handlers.py:23
-           Begin attempting to scrape: GAT                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-           Getting all files in GAT...                               base.py:182
-[11:42:22] ...found 1 files in GAT                                   base.py:198
-           Deleting batch no. 1 consisting of 1 files                base.py:207
-[11:42:23] ...data deleted.                                          base.py:237
            Scraping from http://democracy.gateshead.gov.uk/mgWebServi base.py:42
            ce.asmx/GetCouncillorsByWard                                         
            400 Client Error: Bad Request for url: http://democrac handlers.py:36
