@@ -37,6 +37,67 @@
   
 
 
+  <h2 id="2022-10-31-14-50">2022-10-31</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-10-31 14:50:07.887507</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-10-31 14:50:10.454908</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://motbookings.cherwellandsouthnorthants.gov.uk/mgWebService.asmx/GetCouncillorsByWard
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:50:07] Fetching Scraper for: CHR                              handlers.py:23
+           Begin attempting to scrape: CHR                        handlers.py:27
+[14:50:08] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+[14:50:09] Deleting batch no. 1 consisting of 1 files                base.py:216
+           ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://modgov.cherwell.gov.uk/mgWebService.asmx/GetCouncil           
+           lorsByWard                                                           
+[14:50:10] 404 Client Error: Not Found for url:                   handlers.py:36
+           https://motbookings.cherwellandsouthnorthants.gov.uk/m               
+           gWebService.asmx/GetCouncillorsByWard                                
+           Finished attempting to scrape: CHR                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2022-10-24-13-20">2022-10-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1063,57 +1124,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://motb
 [14:34:55] Committing batch 1 consisting of 92 files                 base.py:265
 [14:34:56] Committing batch 2 consisting of 4 files                  base.py:265
 [14:34:57] Finished attempting to scrape: CHR                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-06-13-18-51">2022-06-13</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>8 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-06-13 18:51:16.724015</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-06-13 18:51:25.087069</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[18:51:16] Fetching Scraper for: CHR                              handlers.py:23
-           Begin attempting to scrape: CHR                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-[18:51:17] Getting all files in CHR...                               base.py:182
-           Getting all files in CHR/json...                          base.py:182
-           ...found 48 files in CHR/json                             base.py:198
-           Getting all files in CHR/raw...                           base.py:182
-[18:51:18] ...found 48 files in CHR/raw                              base.py:198
-           ...found 97 files in CHR                                  base.py:198
-           Deleting batch no. 1 consisting of 97 files               base.py:207
-[18:51:19] ...data deleted.                                          base.py:237
-           Scraping from http://modgov.cherwell.gov.uk/mgWebService.a base.py:42
-           smx/GetCouncillorsByWard                                             
-[18:51:22] Committing batch 1 consisting of 92 files                 base.py:265
-[18:51:23] Committing batch 2 consisting of 4 files                  base.py:265
-[18:51:25] Finished attempting to scrape: CHR                        base.py:315
 </pre>
   
 
