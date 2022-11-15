@@ -37,6 +37,66 @@
   
 
 
+  <h2 id="2022-11-07-13-13">2022-11-07</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-11-07 13:13:02.856045</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-11-07 13:13:10.956426</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 177, in run
+    councillor = self.get_single_councillor(ward, councillor_xml)
+  File "scrapers/LEE-lewes/councillors.py", line 13, in get_single_councillor
+    if "lewes.gov.uk" in email:
+TypeError: argument of type 'NoneType' is not iterable
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:13:02] Fetching Scraper for: LEE                              handlers.py:23
+           Begin attempting to scrape: LEE                        handlers.py:27
+[13:13:03] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+[13:13:04] Getting all files in Councillors/json...                  base.py:191
+           ...found 41 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 41 files in Councillors/raw                      base.py:207
+           ...found 83 files in Councillors                          base.py:207
+           Deleting batch no. 1 consisting of 83 files               base.py:216
+[13:13:05] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://democracy.lewes-eastbourne.gov.uk//mgWebService.asm           
+           x/GetCouncillorsByWard                                               
+[13:13:09] argument of type 'NoneType' is not iterable            handlers.py:36
+           Committing batch 1 consisting of 82 files                 base.py:274
+[13:13:10] Finished attempting to scrape: LEE                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2022-10-31-15-31">2022-10-31</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1095,56 +1155,6 @@ TypeError: argument of type 'NoneType' is not iterable
            WebService.asmx/GetCouncillorsByWard                                 
 [13:34:50] Committing batch 1 consisting of 82 files                 base.py:265
 [13:34:51] Finished attempting to scrape: LEE                        base.py:315
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-06-20-14-28">2022-06-20</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>8 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-06-20 14:28:13.180761</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-06-20 14:28:21.450514</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:28:13] Fetching Scraper for: LEE                              handlers.py:23
-           Begin attempting to scrape: LEE                        handlers.py:27
-           Deleting existing data...                                 base.py:230
-           Getting all files in LEE...                               base.py:182
-[14:28:14] Getting all files in LEE/json...                          base.py:182
-           ...found 41 files in LEE/json                             base.py:198
-           Getting all files in LEE/raw...                           base.py:182
-           ...found 41 files in LEE/raw                              base.py:198
-           ...found 83 files in LEE                                  base.py:198
-           Deleting batch no. 1 consisting of 83 files               base.py:207
-[14:28:15] ...data deleted.                                          base.py:237
-           Scraping from http://democracy.lewes-eastbourne.gov.uk//mg base.py:42
-           WebService.asmx/GetCouncillorsByWard                                 
-[14:28:20] Committing batch 1 consisting of 82 files                 base.py:265
-[14:28:21] Finished attempting to scrape: LEE                        base.py:315
 </pre>
   
 
