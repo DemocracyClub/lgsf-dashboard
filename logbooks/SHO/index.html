@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2022-12-26-14-19">2022-12-26</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2022-12-26 14:19:10.050588</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2022-12-26 14:19:18.286355</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:19:10] Fetching Scraper for: SHO                              handlers.py:23
+           Begin attempting to scrape: SHO                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+[14:19:11] Getting all files in Councillors/json...                  base.py:191
+           ...found 37 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 37 files in Councillors/raw                      base.py:207
+           ...found 75 files in Councillors                          base.py:207
+           Deleting batch no. 1 consisting of 75 files               base.py:216
+[14:19:12] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://democracy.sholland.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+[14:19:16] Committing batch 1 consisting of 74 files                 base.py:274
+[14:19:18] Finished attempting to scrape: SHO                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2022-12-19-14-21">2022-12-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1084,66 +1135,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://demo
            https://democracy.sholland.gov.uk/mgWebService.asmx/GetCou           
            ncillorsByWard                                                       
 [13:40:05] 404 Client Error: Not Found for url:                   handlers.py:36
-           https://democracy.sholland.gov.uk/mgError.aspx                       
-           Finished attempting to scrape: SHO                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-08-08-13-20">2022-08-08</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>6 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-08-08 13:20:45.582805</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-08-08 13:20:52.319749</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://democracy.sholland.gov.uk/mgError.aspx
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:20:45] Fetching Scraper for: SHO                              handlers.py:23
-           Begin attempting to scrape: SHO                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[13:20:46] Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[13:20:47] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://democracy.sholland.gov.uk/mgWebService.asmx/GetCou           
-           ncillorsByWard                                                       
-[13:20:52] 404 Client Error: Not Found for url:                   handlers.py:36
            https://democracy.sholland.gov.uk/mgError.aspx                       
            Finished attempting to scrape: SHO                        base.py:324
 </pre>
