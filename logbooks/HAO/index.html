@@ -37,6 +37,110 @@
   
 
 
+  <h2 id="2023-01-30-13-09">2023-01-30</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-01-30 13:09:41.928955</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-01-30 13:09:44.541980</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='cmis.harborough.gov.uk', port=443): Max retries exceeded with url: /cmis5/Councillors.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 242, in get_councillors
+    req = self.get(self.base_url, extra_headers=self.extra_headers)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='cmis.harborough.gov.uk', port=443): Max retries exceeded with url: /cmis5/Councillors.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:09:41] Fetching Scraper for: HAO                              handlers.py:23
+           Begin attempting to scrape: HAO                        handlers.py:27
+[13:09:42] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+[13:09:43] ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[13:09:44] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://cmis.harborough.gov.uk/cmis5/Councillors.aspx                
+           HTTPSConnectionPool(host='cmis.harborough.gov.uk',     handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /cmis5/Councillors.aspx (Caused by                                   
+           SSLError(SSLCertVerificationError(1, '[SSL:                          
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+           Finished attempting to scrape: HAO                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-01-23-14-23">2023-01-23</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -3311,188 +3415,6 @@ requests.exceptions.SSLError: HTTPSConnectionPool(host='cmis.harborough.gov.uk',
            t.aspx                                                               
 [14:41:13] Committing batch 1 consisting of 66 files                 base.py:274
 [14:41:14] Finished attempting to scrape: HAO                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-09-12-15-58">2022-09-12</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>75 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-09-12 15:58:21.669783</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-09-12 15:59:36.768942</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[15:58:21] Fetching Scraper for: HAO                              handlers.py:23
-           Begin attempting to scrape: HAO                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[15:58:22] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-[15:58:23] ...found 33 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 33 files in Councillors/raw                      base.py:207
-           ...found 67 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 67 files               base.py:216
-[15:58:24] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors.aspx                
-[15:58:26] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/1427/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:58:28] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/1428/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:58:30] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2068/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:58:32] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2054/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:58:35] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2151/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:58:36] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2149/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:58:39] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2107/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:58:40] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2147/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:58:42] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2057/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:58:45] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2109/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:58:47] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2163/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:58:49] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2161/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:58:52] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2059/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:58:54] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2165/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:58:56] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2066/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:58:58] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2061/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:00] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2164/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:01] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2158/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:02] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/1450/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:05] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2166/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:06] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2162/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:07] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2074/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:10] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2148/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:12] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2072/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:14] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/1440/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:18] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2159/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:20] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/1441/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:22] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2156/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:24] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2152/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:26] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/1444/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:28] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/2121/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:30] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/1445/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:32] Scraping from                                              base.py:42
-           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/1468/ScreenMode/Ward/Defaul           
-           t.aspx                                                               
-[15:59:35] Committing batch 1 consisting of 66 files                 base.py:274
-[15:59:36] Finished attempting to scrape: HAO                        base.py:324
 </pre>
   
 
