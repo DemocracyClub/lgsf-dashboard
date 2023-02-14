@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2023-02-06-13-23">2023-02-06</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-02-06 13:23:37.305617</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-02-06 13:23:46.843820</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:23:37] Fetching Scraper for: HIL                              handlers.py:23
+           Begin attempting to scrape: HIL                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[13:23:38] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 53 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 53 files in Councillors/raw                      base.py:207
+           ...found 107 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[13:23:40] Deleting batch no. 2 consisting of 7 files                base.py:216
+           ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://modgov.hillingdon.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[13:23:44] Committing batch 1 consisting of 92 files                 base.py:274
+[13:23:45] Committing batch 2 consisting of 14 files                 base.py:274
+[13:23:46] Finished attempting to scrape: HIL                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-01-30-13-30">2023-01-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1033,72 +1086,6 @@
 [15:32:13] Committing batch 1 consisting of 92 files                 base.py:274
 [15:32:15] Committing batch 2 consisting of 14 files                 base.py:274
 [15:32:16] Finished attempting to scrape: HIL                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-09-19-13-57">2022-09-19</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>3 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-09-19 13:57:49.159262</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-09-19 13:57:52.996887</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: https://modgov.hillingdon.gov.uk/mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:57:49] Fetching Scraper for: HIL                              handlers.py:23
-           Begin attempting to scrape: HIL                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[13:57:50] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 53 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 53 files in Councillors/raw                      base.py:207
-           ...found 107 files in Councillors                         base.py:207
-           Deleting batch no. 1 consisting of 100 files              base.py:216
-[13:57:51] Deleting batch no. 2 consisting of 7 files                base.py:216
-[13:57:52] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://modgov.hillingdon.gov.uk/mgWebService.asmx/GetCounc           
-           illorsByWard                                                         
-           502 Server Error: Bad Gateway for url:                 handlers.py:36
-           https://modgov.hillingdon.gov.uk/mgWebService.asmx/Get               
-           CouncillorsByWard                                                    
-           Finished attempting to scrape: HIL                        base.py:324
 </pre>
   
 

@@ -37,6 +37,70 @@
   
 
 
+  <h2 id="2023-02-06-15-15">2023-02-06</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-02-06 15:15:57.014200</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-02-06 15:15:59.649304</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 134, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 123, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.derbyshiredales.gov.uk/your-council/councillors
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:15:57] Fetching Scraper for: DEB                              handlers.py:23
+           Begin attempting to scrape: DEB                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+[15:15:58] ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[15:15:59] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://derbyshiredales.gov.uk/your-council/councillors              
+           404 Client Error: Not Found for url:                   handlers.py:36
+           https://www.derbyshiredales.gov.uk/your-council/counci               
+           llors                                                                
+           Finished attempting to scrape: DEB                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-01-30-14-30">2023-01-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1247,70 +1311,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://derb
            https://derbyshiredales.gov.uk/your-council/councillor               
            s                                                                    
            Finished attempting to scrape: DEB                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-09-19-15-13">2022-09-19</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-09-19 15:13:07.807570</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-09-19 15:13:10.064034</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 134, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 123, in get_page
-    page = self.get(url).text
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://derbyshiredales.gov.uk/your-council/councillors
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[15:13:07] Fetching Scraper for: DEB                              handlers.py:23
-           Begin attempting to scrape: DEB                        handlers.py:27
-[15:13:08] Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[15:13:09] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://derbyshiredales.gov.uk/your-council/councillors              
-           404 Client Error: Not Found for url:                   handlers.py:36
-           https://derbyshiredales.gov.uk/your-council/councillor               
-           s                                                                    
-[15:13:10] Finished attempting to scrape: DEB                        base.py:324
 </pre>
   
 
