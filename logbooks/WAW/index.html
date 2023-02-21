@@ -37,6 +37,115 @@
   
 
 
+  <h2 id="2023-02-13-14-07">2023-02-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-02-13 14:07:06.615050</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-02-13 14:07:08.795514</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -5] No address associated with hostname
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7efd7b4dfbb0>: Failed to establish a new connection: [Errno -5] No address associated with hostname
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='estates4.warwickdc.gov.uk', port=443): Max retries exceeded with url: /cmis/CouncillorsAtoZ/tabid/39/ScreenMode/Ward/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7efd7b4dfbb0>: Failed to establish a new connection: [Errno -5] No address associated with hostname'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 242, in get_councillors
+    req = self.get(self.base_url, extra_headers=self.extra_headers)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='estates4.warwickdc.gov.uk', port=443): Max retries exceeded with url: /cmis/CouncillorsAtoZ/tabid/39/ScreenMode/Ward/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7efd7b4dfbb0>: Failed to establish a new connection: [Errno -5] No address associated with hostname'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:07:06] Fetching Scraper for: WAW                              handlers.py:23
+           Begin attempting to scrape: WAW                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[14:07:07] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[14:07:08] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://estates4.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ScreenMode/Ward/Default.aspx                                   
+           HTTPSConnectionPool(host='estates4.warwickdc.gov.uk',  handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /cmis/CouncillorsAtoZ/tabid/39/ScreenMode/Ward/Default               
+           .aspx (Caused by                                                     
+           NewConnectionError('<urllib3.connection.HTTPSConnectio               
+           n object at 0x7efd7b4dfbb0>: Failed to establish a new               
+           connection: [Errno -5] No address associated with                    
+           hostname'))                                                          
+           Finished attempting to scrape: WAW                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-02-06-15-06">2023-02-06</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2099,115 +2208,6 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='estates4.warwickd
            .aspx (Caused by                                                     
            NewConnectionError('<urllib3.connection.HTTPSConnectio               
            n object at 0x7f5a99588d30>: Failed to establish a new               
-           connection: [Errno -5] No address associated with                    
-           hostname'))                                                          
-           Finished attempting to scrape: WAW                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-09-26-15-28">2022-09-26</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-09-26 15:28:18.106362</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-09-26 15:28:20.472766</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
-    conn = connection.create_connection(
-  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
-    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
-  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-socket.gaierror: [Errno -5] No address associated with hostname
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
-    httplib_response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
-    self._validate_conn(conn)
-  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
-    conn.connect()
-  File "/opt/python/urllib3/connection.py", line 358, in connect
-    self.sock = conn = self._new_conn()
-  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
-    raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f0b9b9c1dc0>: Failed to establish a new connection: [Errno -5] No address associated with hostname
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 489, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 592, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='estates4.warwickdc.gov.uk', port=443): Max retries exceeded with url: /cmis/CouncillorsAtoZ/tabid/39/ScreenMode/Ward/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f0b9b9c1dc0>: Failed to establish a new connection: [Errno -5] No address associated with hostname'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 242, in get_councillors
-    req = self.get(self.base_url, extra_headers=self.extra_headers)
-  File "/var/task/lgsf/scrapers/base.py", line 48, in get
-    response = self.requests_session.get(url, headers=headers, verify=verify)
-  File "/opt/python/requests/sessions.py", line 600, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 587, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 701, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 565, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPSConnectionPool(host='estates4.warwickdc.gov.uk', port=443): Max retries exceeded with url: /cmis/CouncillorsAtoZ/tabid/39/ScreenMode/Ward/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f0b9b9c1dc0>: Failed to establish a new connection: [Errno -5] No address associated with hostname'))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[15:28:18] Fetching Scraper for: WAW                              handlers.py:23
-           Begin attempting to scrape: WAW                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-[15:28:19] ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[15:28:20] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://estates4.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ScreenMode/Ward/Default.aspx                                   
-           HTTPSConnectionPool(host='estates4.warwickdc.gov.uk',  handlers.py:36
-           port=443): Max retries exceeded with url:                            
-           /cmis/CouncillorsAtoZ/tabid/39/ScreenMode/Ward/Default               
-           .aspx (Caused by                                                     
-           NewConnectionError('<urllib3.connection.HTTPSConnectio               
-           n object at 0x7f0b9b9c1dc0>: Failed to establish a new               
            connection: [Errno -5] No address associated with                    
            hostname'))                                                          
            Finished attempting to scrape: WAW                        base.py:324
