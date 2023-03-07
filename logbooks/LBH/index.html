@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2023-02-27-13-16">2023-02-27</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-02-27 13:16:20.829891</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-02-27 13:16:30.851385</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:16:20] Fetching Scraper for: LBH                              handlers.py:23
+           Begin attempting to scrape: LBH                        handlers.py:27
+[13:16:21] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+[13:16:22] ...found 63 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 63 files in Councillors/raw                      base.py:207
+           ...found 127 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[13:16:23] Deleting batch no. 2 consisting of 27 files               base.py:216
+[13:16:24] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://moderngov.lambeth.gov.uk/mgWebService.asmx/GetCoun           
+           cillorsByWard                                                        
+[13:16:28] Committing batch 1 consisting of 92 files                 base.py:274
+[13:16:29] Committing batch 2 consisting of 34 files                 base.py:274
+[13:16:30] Finished attempting to scrape: LBH                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-02-20-13-10">2023-02-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1033,66 +1086,6 @@
 [15:35:07] Committing batch 1 consisting of 92 files                 base.py:274
 [15:35:09] Committing batch 2 consisting of 34 files                 base.py:274
 [15:35:11] Finished attempting to scrape: LBH                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-10-10-15-25">2022-10-10</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>4 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-10-10 15:25:08.756221</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-10-10 15:25:13.274072</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://moderngov.lambeth.gov.uk/mgError.aspx
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[15:25:08] Fetching Scraper for: LBH                              handlers.py:23
-           Begin attempting to scrape: LBH                        handlers.py:27
-[15:25:09] Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[15:25:10] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://moderngov.lambeth.gov.uk/mgWebService.asmx/GetCoun           
-           cillorsByWard                                                        
-[15:25:12] 404 Client Error: Not Found for url:                   handlers.py:36
-           https://moderngov.lambeth.gov.uk/mgError.aspx                        
-[15:25:13] Finished attempting to scrape: LBH                        base.py:324
 </pre>
   
 
