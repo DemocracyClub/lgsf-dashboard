@@ -37,6 +37,60 @@
   
 
 
+  <h2 id="2023-03-20-13-08">2023-03-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>4 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-03-20 13:08:49.687481</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-03-20 13:08:54.393431</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "/var/task/lgsf/councillors/scrapers.py", line 258, in get_single_councillor
+    division = list_page_html.find(text=self.division_text).next.strip()
+AttributeError: 'NoneType' object has no attribute 'next'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:08:49] Fetching Scraper for: NFK                              handlers.py:23
+           Begin attempting to scrape: NFK                        handlers.py:27
+[13:08:50] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[13:08:51] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://norfolkcc.cmis.uk.com/norfolkcc/Councillors.aspx             
+[13:08:54] 'NoneType' object has no attribute 'next'              handlers.py:36
+           Finished attempting to scrape: NFK                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-03-13-14-20">2023-03-13</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1057,60 +1111,6 @@ AttributeError: 'NoneType' object has no attribute 'next'
            https://norfolkcc.cmis.uk.com/norfolkcc/Councillors.aspx             
 [15:08:38] 'NoneType' object has no attribute 'next'              handlers.py:36
 [15:08:39] Finished attempting to scrape: NFK                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-10-31-15-25">2022-10-31</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>4 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-10-31 15:25:36.312674</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-10-31 15:25:41.040715</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 48, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "/var/task/lgsf/councillors/scrapers.py", line 258, in get_single_councillor
-    division = list_page_html.find(text=self.division_text).next.strip()
-AttributeError: 'NoneType' object has no attribute 'next'
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[15:25:36] Fetching Scraper for: NFK                              handlers.py:23
-           Begin attempting to scrape: NFK                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[15:25:37] Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[15:25:38] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://norfolkcc.cmis.uk.com/norfolkcc/Councillors.aspx             
-[15:25:40] 'NoneType' object has no attribute 'next'              handlers.py:36
-[15:25:41] Finished attempting to scrape: NFK                        base.py:324
 </pre>
   
 
