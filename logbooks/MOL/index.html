@@ -37,6 +37,115 @@
   
 
 
+  <h2 id="2023-03-27-14-09">2023-03-27</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-03-27 14:09:52.544755</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-03-27 14:09:54.688119</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.molevalley.gov.uk', port=443): Max retries exceeded with url: /home/council/councillors/who-are-your-councillors (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 134, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 123, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='www.molevalley.gov.uk', port=443): Max retries exceeded with url: /home/council/councillors/who-are-your-councillors (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:09:52] Fetching Scraper for: MOL                              handlers.py:23
+           Begin attempting to scrape: MOL                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[14:09:53] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[14:09:54] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://www.molevalley.gov.uk/home/council/councillors/who           
+           -are-your-councillors                                                
+           HTTPSConnectionPool(host='www.molevalley.gov.uk',      handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /home/council/councillors/who-are-your-councillors                   
+           (Caused by SSLError(SSLCertVerificationError(1, '[SSL:               
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+           Finished attempting to scrape: MOL                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-03-20-14-19">2023-03-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2106,160 +2215,6 @@ requests.exceptions.SSLError: HTTPSConnectionPool(host='www.molevalley.gov.uk', 
            unable to get local issuer certificate                               
            (_ssl.c:1131)')))                                                    
            Finished attempting to scrape: MOL                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2022-11-07-13-44">2022-11-07</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>86 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2022-11-07 13:44:17.407754</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2022-11-07 13:45:44.210642</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:44:17] Fetching Scraper for: MOL                              handlers.py:23
-           Begin attempting to scrape: MOL                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[13:44:18] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 41 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 41 files in Councillors/raw                      base.py:207
-           ...found 83 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 83 files               base.py:216
-[13:44:19] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/home/council/councillors/who           
-           -are-your-councillors                                                
-[13:44:21] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-david-hawksw           
-           orth-cbe                                                             
-[13:44:25] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-patricia-wil           
-           tshire                                                               
-[13:44:26] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-david-harper           
-[13:44:28] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-garry-stansf           
-           ield                                                                 
-[13:44:30] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-mary-cooper            
-[13:44:31] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-chris-hunt             
-[13:44:33] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-alan-reilly            
-[13:44:35] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-caroline-sal           
-           mon                                                                  
-[13:44:37] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-sarah-chambe           
-           rs                                                                   
-[13:44:40] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-monica-welle           
-           r                                                                    
-[13:44:43] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-roger-adams            
-[13:44:45] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-james-chambe           
-           rs                                                                   
-[13:44:48] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-elizabeth-da           
-           ly                                                                   
-[13:44:49] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-nancy-goodac           
-           re                                                                   
-[13:44:51] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-david-preedy           
-[13:44:52] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-paul-potter            
-[13:44:53] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-simon-budd             
-[13:44:54] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-charles-enge           
-           l                                                                    
-[13:44:56] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-lesley-bushn           
-           ell                                                                  
-[13:44:58] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-lisa-scott             
-[13:45:00] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-chris-coghla           
-           n                                                                    
-[13:45:03] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-david-draper           
-[13:45:04] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-nick-wright            
-[13:45:06] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-margaret-coo           
-           ksey                                                                 
-[13:45:08] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-stephen-cook           
-           sey                                                                  
-[13:45:09] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-tim-hall               
-[13:45:11] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-lynne-brooks           
-[13:45:13] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-raj-haque              
-[13:45:16] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-paul-kennedy           
-[13:45:17] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-rosemary-hob           
-           bs                                                                   
-[13:45:19] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-claire-malco           
-           mson                                                                 
-[13:45:21] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-clayton-well           
-           man                                                                  
-[13:45:23] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-josie-brinke           
-           r                                                                    
-[13:45:25] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-bridget-kend           
-           rick                                                                 
-[13:45:27] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-keira-vyvyan           
-           -robinson                                                            
-[13:45:30] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-simon-moss             
-[13:45:31] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-joanna-slate           
-           r                                                                    
-[13:45:33] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-hazel-watson           
-[13:45:36] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-elsie-rosam            
-[13:45:38] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-helyn-clack            
-[13:45:40] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-james-friend           
-[13:45:42] Committing batch 1 consisting of 82 files                 base.py:274
-[13:45:44] Finished attempting to scrape: MOL                        base.py:324
 </pre>
   
 
