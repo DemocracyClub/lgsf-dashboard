@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2023-05-22-15-26">2023-05-22</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>6 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-05-22 15:26:15.199180</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-05-22 15:26:22.022506</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:26:15] Fetching Scraper for: HIN                              handlers.py:23
+           Begin attempting to scrape: HIN                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[15:26:16] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 34 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 34 files in Councillors/raw                      base.py:207
+           ...found 69 files in Councillors                          base.py:207
+           Deleting batch no. 1 consisting of 69 files               base.py:216
+[15:26:17] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://moderngov.hinckley-bosworth.gov.uk/mgWebService.asm           
+           x/GetCouncillorsByWard                                               
+[15:26:20] Committing batch 1 consisting of 68 files                 base.py:274
+[15:26:22] Finished attempting to scrape: HIN                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-05-15-13-22">2023-05-15</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -996,71 +1047,6 @@
            x/GetCouncillorsByWard                                               
 [14:11:56] Committing batch 1 consisting of 68 files                 base.py:274
 [14:11:58] Finished attempting to scrape: HIN                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-01-02-14-32">2023-01-02</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>122 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-01-02 14:32:17.800457</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-01-02 14:34:20.655548</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://moderngov.hinckley-bosworth.gov.uk/mgError.aspx
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:32:17] Fetching Scraper for: HIN                              handlers.py:23
-           Begin attempting to scrape: HIN                        handlers.py:27
-[14:32:18] Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 34 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-[14:32:19] ...found 34 files in Councillors/raw                      base.py:207
-           ...found 69 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 69 files               base.py:216
-[14:32:20] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://moderngov.hinckley-bosworth.gov.uk/mgWebService.asm           
-           x/GetCouncillorsByWard                                               
-[14:34:20] 404 Client Error: Not Found for url:                   handlers.py:36
-           https://moderngov.hinckley-bosworth.gov.uk/mgError.asp               
-           x                                                                    
-           Finished attempting to scrape: HIN                        base.py:324
 </pre>
   
 
