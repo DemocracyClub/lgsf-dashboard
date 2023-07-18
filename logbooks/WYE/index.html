@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2023-07-10-14-34">2023-07-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>22 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-07-10 14:34:54.561092</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-07-10 14:35:16.957800</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:34:54] Fetching Scraper for: WYE                              handlers.py:23
+           Begin attempting to scrape: WYE                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[14:34:55] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 33 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 33 files in Councillors/raw                      base.py:207
+           ...found 67 files in Councillors                          base.py:207
+           Deleting batch no. 1 consisting of 67 files               base.py:216
+[14:34:56] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://forms.wyreforestdc.gov.uk/council/committees/com55           
+           .htm                                                                 
+[14:35:15] Committing batch 1 consisting of 66 files                 base.py:274
+[14:35:16] Finished attempting to scrape: WYE                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-07-03-15-07">2023-07-03</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1121,72 +1172,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.
            http://www.wyreforestdc.gov.uk/the-council/councillors-com           
            mittees-and-meetings/your-district-councillor.aspx                   
 [14:31:37] 404 Client Error: Not Found for url:                   handlers.py:36
-           https://www.wyreforestdc.gov.uk/the-council/councillor               
-           s-committees-and-meetings/your-district-councillor.asp               
-           x                                                                    
-           Finished attempting to scrape: WYE                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-02-20-13-52">2023-02-20</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-02-20 13:52:14.830637</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-02-20 13:52:17.551514</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 46, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 134, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 123, in get_page
-    page = self.get(url).text
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.wyreforestdc.gov.uk/the-council/councillors-committees-and-meetings/your-district-councillor.aspx
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:52:14] Fetching Scraper for: WYE                              handlers.py:23
-           Begin attempting to scrape: WYE                        handlers.py:27
-[13:52:15] Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[13:52:16] ...data deleted.                                          base.py:246
-[13:52:17] Scraping from                                              base.py:42
-           http://www.wyreforestdc.gov.uk/the-council/councillors-com           
-           mittees-and-meetings/your-district-councillor.aspx                   
-           404 Client Error: Not Found for url:                   handlers.py:36
            https://www.wyreforestdc.gov.uk/the-council/councillor               
            s-committees-and-meetings/your-district-councillor.asp               
            x                                                                    
