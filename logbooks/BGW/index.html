@@ -37,6 +37,67 @@
   
 
 
+  <h2 id="2023-07-17-14-14">2023-07-17</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-07-17 14:14:54.926488</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-07-17 14:14:57.022535</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: http://democracy.blaenau-gwent.gov.uk/mgWebService.asmx/GetCouncillorsByWard
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:14:54] Fetching Scraper for: BGW                              handlers.py:23
+           Begin attempting to scrape: BGW                        handlers.py:27
+[14:14:55] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[14:14:56] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://democracy.blaenau-gwent.gov.uk/mgWebService.asmx/Ge           
+           tCouncillorsByWard                                                   
+           403 Client Error: Forbidden for url:                   handlers.py:36
+           http://democracy.blaenau-gwent.gov.uk/mgWebService.asm               
+           x/GetCouncillorsByWard                                               
+[14:14:57] Finished attempting to scrape: BGW                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-07-10-13-46">2023-07-10</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1134,57 +1195,6 @@ requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: http://democ
            tCouncillorsByWard                                                   
 [14:36:16] Committing batch 1 consisting of 66 files                 base.py:274
 [14:36:17] Finished attempting to scrape: BGW                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-02-27-13-08">2023-02-27</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-02-27 13:08:21.381523</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-02-27 13:08:26.761237</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:08:21] Fetching Scraper for: BGW                              handlers.py:23
-           Begin attempting to scrape: BGW                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[13:08:22] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 33 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 33 files in Councillors/raw                      base.py:207
-           ...found 67 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 67 files               base.py:216
-[13:08:23] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://democracy.blaenau-gwent.gov.uk/mgWebService.asmx/Ge           
-           tCouncillorsByWard                                                   
-[13:08:25] Committing batch 1 consisting of 66 files                 base.py:274
-[13:08:26] Finished attempting to scrape: BGW                        base.py:324
 </pre>
   
 
