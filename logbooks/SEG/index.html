@@ -37,6 +37,68 @@
   
 
 
+  <h2 id="2023-08-07-15-10">2023-08-07</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-08-07 15:10:40.470036</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-08-07 15:10:43.384024</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 49, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 130, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.somerset.gov.uk/we-have-moved/
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:10:40] Fetching Scraper for: SEG                              handlers.py:23
+           Begin attempting to scrape: SEG                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[15:10:41] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[15:10:42] ...data deleted.                                          base.py:246
+           Scraping from https://www.sedgemoor.gov.uk/councillors     base.py:42
+[15:10:43] 404 Client Error: Not Found for url:                   handlers.py:36
+           https://www.somerset.gov.uk/we-have-moved/                           
+           Finished attempting to scrape: SEG                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-07-31-14-56">2023-07-31</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1342,197 +1404,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.
            Cook-Woodman                                                         
 [13:52:26] Committing batch 2 consisting of 2 files                  base.py:274
 [13:52:28] Finished attempting to scrape: SEG                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-03-20-15-12">2023-03-20</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>134 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-03-20 15:12:23.905827</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-03-20 15:14:38.873475</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[15:12:23] Fetching Scraper for: SEG                              handlers.py:23
-           Begin attempting to scrape: SEG                        handlers.py:27
-[15:12:24] Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-[15:12:25] ...found 47 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 47 files in Councillors/raw                      base.py:207
-           ...found 95 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 95 files               base.py:216
-[15:12:26] ...data deleted.                                          base.py:246
-           Scraping from https://www.sedgemoor.gov.uk/councillors     base.py:42
-[15:12:33] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3422/Councillor-Sue-B           
-           arber                                                                
-[15:12:35] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3407/Councillor-Alexi           
-           a-Bartlett                                                           
-[15:12:38] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3438/Councillor-Antho           
-           ny-Betty                                                             
-[15:12:40] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3428/Councillor-Brian           
-           -Bolt                                                                
-[15:12:42] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/1090/Councillor-Alan-           
-           Bradford                                                             
-[15:12:45] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3411/Councillor-Hilar           
-           y-Bruce                                                              
-[15:12:49] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3446/Councillor-Micha           
-           el-Caswell                                                           
-[15:12:52] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3425/Councillor-Peter           
-           -Clayton                                                             
-[15:12:54] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3416/Councillor-Julie           
-           -Cordiner                                                            
-[15:12:57] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3448/Councillor-Polly           
-           -Costello                                                            
-[15:12:59] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3444/Councillor-Barri           
-           e-Crow                                                               
-[15:13:01] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3417/Councillor-Lance           
-           -Duddridge                                                           
-[15:13:04] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3429/Councillor-Ian-D           
-           yer                                                                  
-[15:13:06] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3426/Councillor-Mike-           
-           Facey                                                                
-[15:13:09] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3440/Councillor-Bob-F           
-           ilmer                                                                
-[15:13:12] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3430/Councillor-Paul-           
-           Fineran                                                              
-[15:13:14] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3409/Councillor-Li-Gi           
-           bson                                                                 
-[15:13:16] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3441/Councillor-Andre           
-           w-Gilling                                                            
-[15:13:19] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3412/Councillor-Alex-           
-           Glassford                                                            
-[15:13:21] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3404/Councillor-Graha           
-           m-Godwin-Pearson                                                     
-[15:13:24] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3413/Councillor-Graha           
-           m-Granter                                                            
-[15:13:27] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3406/Councillor-Tony-           
-           Grimes                                                               
-[15:13:29] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3423/Councillor-Phil-           
-           Harvey                                                               
-[15:13:31] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3445/Councillor-Mark-           
-           Healey                                                               
-[15:13:34] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3424/Councillor-Alist           
-           air-Hendry                                                           
-[15:13:37] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3410/Councillor-Tony-           
-           Heywood                                                              
-[15:13:40] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3449/Councillor-Will-           
-           Human                                                                
-[15:13:42] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3435/Councillor-Janet           
-           -Keen                                                                
-[15:13:45] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3450/Councillor-Stuar           
-           t-Kingham                                                            
-[15:13:47] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3414/Councillor-Liz-L           
-           eavy                                                                 
-[15:13:49] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3420/Councillor-Racha           
-           el-Lilley                                                            
-[15:13:53] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3436/Councillor-Alan-           
-           Matthews                                                             
-[15:13:55] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3433/Councillor-Dunca           
-           n-McGinty                                                            
-[15:13:57] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3431/Councillor-Lisa-           
-           Methley                                                              
-[15:14:01] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3427/Councillor-Mike-           
-           Murphy                                                               
-[15:14:04] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3447/Councillor-Julie           
-           -Pay                                                                 
-[15:14:07] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3418/Councillor-Kathy           
-           -Pearce                                                              
-[15:14:09] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3439/Councillor-Liz-P           
-           erry                                                                 
-[15:14:12] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3415/Councillor-Leigh           
-           -Redman                                                              
-[15:14:14] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3442/Councillor-Bill-           
-           Revans                                                               
-[15:14:17] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3432/Councillor-Charl           
-           ie-Riches                                                            
-[15:14:20] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3408/Councillor-Diogo           
-           -Rodrigues                                                           
-[15:14:22] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3405/Councillor-Liz-S           
-           cott                                                                 
-[15:14:26] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3421/Councillor-Gill-           
-           Slocombe                                                             
-[15:14:28] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3419/Councillor-Brian           
-           -Smedley                                                             
-[15:14:30] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3443/Councillor-Gary-           
-           Wong                                                                 
-[15:14:33] Committing batch 1 consisting of 92 files                 base.py:274
-[15:14:34] Scraping from                                              base.py:42
-           https://www.sedgemoor.gov.uk/article/3437/Councillor-John-           
-           Cook-Woodman                                                         
-[15:14:37] Committing batch 2 consisting of 2 files                  base.py:274
-[15:14:38] Finished attempting to scrape: SEG                        base.py:324
 </pre>
   
 

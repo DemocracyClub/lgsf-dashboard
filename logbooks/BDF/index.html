@@ -37,6 +37,123 @@
   
 
 
+  <h2 id="2023-08-07-14-00">2023-08-07</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-08-07 14:00:48.757467</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-08-07 14:00:51.011676</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/opt/python/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/var/lang/lib/python3.8/http/client.py", line 1256, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/var/lang/lib/python3.8/http/client.py", line 1302, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/var/lang/lib/python3.8/http/client.py", line 1251, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/var/lang/lib/python3.8/http/client.py", line 1011, in _send_output
+    self.send(msg)
+  File "/var/lang/lib/python3.8/http/client.py", line 951, in send
+    self.connect()
+  File "/opt/python/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f335ccfa2e0>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='www.councillorsupport.bedford.gov.uk', port=80): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f335ccfa2e0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='www.councillorsupport.bedford.gov.uk', port=80): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f335ccfa2e0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:00:48] Fetching Scraper for: BDF                              handlers.py:23
+           Begin attempting to scrape: BDF                        handlers.py:27
+[14:00:49] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[14:00:50] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://www.councillorsupport.bedford.gov.uk/mgWebService.a           
+           smx/GetCouncillorsByWard                                             
+           HTTPConnectionPool(host='www.councillorsupport.bedford handlers.py:36
+           .gov.uk', port=80): Max retries exceeded with url:                   
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
+           NewConnectionError('<urllib3.connection.HTTPConnection               
+           object at 0x7f335ccfa2e0>: Failed to establish a new                 
+           connection: [Errno -2] Name or service not known'))                  
+[14:00:51] Finished attempting to scrape: BDF                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-07-31-14-12">2023-07-31</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1336,69 +1453,6 @@ requests.exceptions.HTTPError: 403 Client Error: Forbidden ( The server denied t
            http://www.councillorsupport.bedford.gov.uk/mgWebServi               
            ce.asmx/GetCouncillorsByWard                                         
            Finished attempting to scrape: BDF                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-03-20-14-27">2023-03-20</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-03-20 14:27:17.058229</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-03-20 14:27:19.089363</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 173, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 190, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden ( The server denied the specified Uniform Resource Locator (URL). Contact the server administrator.  ) for url: http://www.councillorsupport.bedford.gov.uk/mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:27:17] Fetching Scraper for: BDF                              handlers.py:23
-           Begin attempting to scrape: BDF                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-[14:27:18] ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-           ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://www.councillorsupport.bedford.gov.uk/mgWebService.a           
-           smx/GetCouncillorsByWard                                             
-           403 Client Error: Forbidden ( The server denied the    handlers.py:36
-           specified Uniform Resource Locator (URL). Contact the                
-           server administrator.  ) for url:                                    
-           http://www.councillorsupport.bedford.gov.uk/mgWebServi               
-           ce.asmx/GetCouncillorsByWard                                         
-[14:27:19] Finished attempting to scrape: BDF                        base.py:324
 </pre>
   
 
