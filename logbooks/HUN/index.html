@@ -37,6 +37,67 @@
   
 
 
+  <h2 id="2023-08-14-14-51">2023-08-14</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>47 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-08-14 14:51:42.282135</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-08-14 14:52:29.677588</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http://applications.huntingdonshire.gov.uk/moderngov//mgWebService.asmx/GetCouncillorsByWard
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:51:42] Fetching Scraper for: HUN                              handlers.py:23
+           Begin attempting to scrape: HUN                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+[14:51:43] ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+           ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://applications.huntingdonshire.gov.uk/moderngov//mgWe           
+           bService.asmx/GetCouncillorsByWard                                   
+[14:52:29] 500 Server Error: Internal Server Error for url:       handlers.py:36
+           http://applications.huntingdonshire.gov.uk/moderngov//               
+           mgWebService.asmx/GetCouncillorsByWard                               
+           Finished attempting to scrape: HUN                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-08-07-13-44">2023-08-07</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1181,59 +1242,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://appli
 [14:10:52] Committing batch 1 consisting of 92 files                 base.py:274
 [14:10:53] Committing batch 2 consisting of 12 files                 base.py:274
 [14:10:55] Finished attempting to scrape: HUN                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-03-27-15-08">2023-03-27</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>10 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-03-27 15:08:25.283481</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-03-27 15:08:35.720925</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[15:08:25] Fetching Scraper for: HUN                              handlers.py:23
-           Begin attempting to scrape: HUN                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[15:08:26] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 52 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 52 files in Councillors/raw                      base.py:207
-           ...found 105 files in Councillors                         base.py:207
-           Deleting batch no. 1 consisting of 100 files              base.py:216
-[15:08:27] Deleting batch no. 2 consisting of 5 files                base.py:216
-[15:08:28] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://applications.huntingdonshire.gov.uk/moderngov//mgWe           
-           bService.asmx/GetCouncillorsByWard                                   
-[15:08:32] Committing batch 1 consisting of 92 files                 base.py:274
-[15:08:34] Committing batch 2 consisting of 12 files                 base.py:274
-[15:08:35] Finished attempting to scrape: HUN                        base.py:324
 </pre>
   
 
