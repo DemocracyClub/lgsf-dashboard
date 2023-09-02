@@ -85,6 +85,8 @@ logs: List[LogBook] = []
 def make_ee_request(council_id: str) -> dict:
     url = urljoin(EE_BASE_URL, f"/api/organisations/local-authority/{council_id}/")
     results = requests.get(url).json()
+    if not results["results"]:
+        return None
     return results["results"][0]
 
 
@@ -96,6 +98,8 @@ def council_past_end_date(council_id: str) -> bool:
     """
 
     metadata = make_ee_request(council_id)
+    if not metadata:
+        return False
     end_date = metadata.get("end_date")
     if not end_date:
         return False
