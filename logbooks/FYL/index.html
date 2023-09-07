@@ -37,6 +37,64 @@
   
 
 
+  <h2 id="2023-09-05-13-03">2023-09-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-09-05 13:03:40.377617</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-09-05 13:03:43.725424</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 51, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "/var/task/lgsf/councillors/scrapers.py", line 267, in get_single_councillor
+    party = self.get_party_name(list_page_html)
+  File "/var/task/lgsf/councillors/scrapers.py", line 253, in get_party_name
+    return list_page_html.find_all("img")[-1]["title"].replace("(logo)", "").strip()
+  File "/opt/python/bs4/element.py", line 1573, in __getitem__
+    return self.attrs[key]
+KeyError: 'title'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:03:40] Fetching Scraper for: FYL                              handlers.py:23
+           Begin attempting to scrape: FYL                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[13:03:41] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[13:03:42] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://fylde.cmis.uk.com/fylde/CouncillorsandMP.aspx                
+[13:03:43] 'title'                                                handlers.py:36
+           Finished attempting to scrape: FYL                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-09-04-14-17">2023-09-04</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -3146,253 +3204,6 @@ KeyError: 'title'
            Default.aspx                                                         
 [15:05:23] Committing batch 2 consisting of 6 files                  base.py:274
 [15:05:25] Finished attempting to scrape: FYL                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-04-24-13-54">2023-04-24</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>83 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-04-24 13:54:35.537345</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-04-24 13:55:58.701493</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:54:35] Fetching Scraper for: FYL                              handlers.py:23
-           Begin attempting to scrape: FYL                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[13:54:36] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 49 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 49 files in Councillors/raw                      base.py:207
-           ...found 99 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 99 files               base.py:216
-[13:54:37] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://fylde.cmis.uk.com/fylde/CouncillorsandMP.aspx                
-[13:54:39] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/10/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:54:40] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/48/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:54:44] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/148/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:54:45] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/183/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:54:47] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/84/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:54:48] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/94/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:54:50] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/59/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:54:51] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/52/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:54:52] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/41/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:54:54] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/101/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:54:55] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/43/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:54:57] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/172/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:54:58] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/15/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:01] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/27/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:03] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/174/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:55:04] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/185/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:55:05] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/97/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:07] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/186/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:55:08] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/39/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:09] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/176/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:55:12] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/175/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:55:13] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/21/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:15] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/35/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:17] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/37/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:18] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/55/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:20] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/153/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:55:23] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/187/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:55:24] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/24/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:26] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/100/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:55:27] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/177/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:55:28] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/16/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:29] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/170/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:55:30] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/167/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:55:32] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/42/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:33] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/40/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:35] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/178/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:55:36] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/34/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:38] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/179/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:55:40] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/180/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:55:42] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/95/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:43] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/38/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:45] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/57/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:46] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/96/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:48] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/44/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:49] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/93/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:50] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/26/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:52] Committing batch 1 consisting of 92 files                 base.py:274
-[13:55:53] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/181/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:55:54] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/30/ScreenMode/Alphabetical/D           
-           efault.aspx                                                          
-[13:55:56] Scraping from                                              base.py:42
-           http://fylde.cmis.uk.com/fylde/CouncillorsandMP/tabid/63/c           
-           tl/ViewCMIS_Person/mid/383/id/182/ScreenMode/Alphabetical/           
-           Default.aspx                                                         
-[13:55:57] Committing batch 2 consisting of 6 files                  base.py:274
-[13:55:58] Finished attempting to scrape: FYL                        base.py:324
 </pre>
   
 
