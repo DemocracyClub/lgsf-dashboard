@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2023-09-08-13-04">2023-09-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>22 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-09-08 13:04:31.243882</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-09-08 13:04:53.306784</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:04:31] Fetching Scraper for: WYE                              handlers.py:23
+           Begin attempting to scrape: WYE                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[13:04:32] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 33 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 33 files in Councillors/raw                      base.py:207
+           ...found 67 files in Councillors                          base.py:207
+           Deleting batch no. 1 consisting of 67 files               base.py:216
+[13:04:33] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://forms.wyreforestdc.gov.uk/council/committees/com55           
+           .htm                                                                 
+[13:04:51] Committing batch 1 consisting of 66 files                 base.py:274
+[13:04:53] Finished attempting to scrape: WYE                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-09-07-12-23">2023-09-07</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1000,66 +1051,6 @@
            .htm                                                                 
 [14:58:11] Committing batch 1 consisting of 66 files                 base.py:274
 [14:58:12] Finished attempting to scrape: WYE                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-05-15-14-05">2023-05-15</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>13 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-05-15 14:05:46.095760</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-05-15 14:06:00.016381</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 51, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/WYE-wyre-forest/councillors.py", line 35, in get_single_councillor
-    councillor.email = soup.findAll("td")[5].findAll("a")[0].get_text(strip=True)
-IndexError: list index out of range
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:05:46] Fetching Scraper for: WYE                              handlers.py:23
-           Begin attempting to scrape: WYE                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-[14:05:47] Getting all files in Councillors/json...                  base.py:191
-           ...found 33 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 33 files in Councillors/raw                      base.py:207
-           ...found 67 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 67 files               base.py:216
-[14:05:48] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://forms.wyreforestdc.gov.uk/council/committees/com55           
-           .htm                                                                 
-[14:05:58] list index out of range                                handlers.py:36
-           Committing batch 1 consisting of 34 files                 base.py:274
-[14:06:00] Finished attempting to scrape: WYE                        base.py:324
 </pre>
   
 
