@@ -37,6 +37,78 @@
   
 
 
+  <h2 id="2023-09-09-13-23">2023-09-09</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-09-09 13:23:28.934175</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-09-09 13:23:36.957162</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 725, in send
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 725, in <listcomp>
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 191, in resolve_redirects
+    raise TooManyRedirects(
+requests.exceptions.TooManyRedirects: Exceeded 30 redirects.
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:23:28] Fetching Scraper for: SOL                              handlers.py:23
+           Begin attempting to scrape: SOL                        handlers.py:27
+[13:23:29] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+[13:23:30] ...found 51 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 51 files in Councillors/raw                      base.py:207
+           ...found 103 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[13:23:31] Deleting batch no. 2 consisting of 3 files                base.py:216
+           ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://eservices.solihull.gov.uk/mgInternet/mgWebService.           
+           asmx/GetCouncillorsByWard                                            
+[13:23:36] Exceeded 30 redirects.                                 handlers.py:36
+           Finished attempting to scrape: SOL                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-09-08-13-18">2023-09-08</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1038,59 +1110,6 @@
 [13:14:26] Committing batch 1 consisting of 92 files                 base.py:274
 [13:14:27] Committing batch 2 consisting of 10 files                 base.py:274
 [13:14:28] Finished attempting to scrape: SOL                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-05-22-15-13">2023-05-22</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>9 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-05-22 15:13:37.808248</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-05-22 15:13:46.934986</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[15:13:37] Fetching Scraper for: SOL                              handlers.py:23
-           Begin attempting to scrape: SOL                        handlers.py:27
-[15:13:38] Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 51 files in Councillors/json                     base.py:207
-[15:13:39] Getting all files in Councillors/raw...                   base.py:191
-           ...found 51 files in Councillors/raw                      base.py:207
-           ...found 103 files in Councillors                         base.py:207
-           Deleting batch no. 1 consisting of 100 files              base.py:216
-           Deleting batch no. 2 consisting of 3 files                base.py:216
-[15:13:40] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://eservices.solihull.gov.uk/mgInternet/mgWebService.           
-           asmx/GetCouncillorsByWard                                            
-[15:13:44] Committing batch 1 consisting of 92 files                 base.py:274
-[15:13:45] Committing batch 2 consisting of 10 files                 base.py:274
-[15:13:46] Finished attempting to scrape: SOL                        base.py:324
 </pre>
   
 
