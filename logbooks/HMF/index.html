@@ -37,6 +37,67 @@
   
 
 
+  <h2 id="2023-09-12-12-38">2023-09-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-09-12 12:38:02.804023</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-09-12 12:38:04.934980</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://democracy.lbhf.gov.uk/mgWebService.asmx/GetCouncillorsByWard
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:38:02] Fetching Scraper for: HMF                              handlers.py:23
+           Begin attempting to scrape: HMF                        handlers.py:27
+[12:38:03] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[12:38:04] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://democracy.lbhf.gov.uk/mgWebService.asmx/GetCouncill           
+           orsByWard                                                            
+           404 Client Error: Not Found for url:                   handlers.py:36
+           http://democracy.lbhf.gov.uk/mgWebService.asmx/GetCoun               
+           cillorsByWard                                                        
+           Finished attempting to scrape: HMF                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-09-11-14-22">2023-09-11</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1190,67 +1251,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://democ
            http://democracy.lbhf.gov.uk/mgWebService.asmx/GetCoun               
            cillorsByWard                                                        
 [14:56:04] Finished attempting to scrape: HMF                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-06-12-15-08">2023-06-12</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-06-12 15:08:24.852961</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-06-12 15:08:26.879643</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://democracy.lbhf.gov.uk/mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[15:08:24] Fetching Scraper for: HMF                              handlers.py:23
-           Begin attempting to scrape: HMF                        handlers.py:27
-[15:08:25] Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[15:08:26] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://democracy.lbhf.gov.uk/mgWebService.asmx/GetCouncill           
-           orsByWard                                                            
-           404 Client Error: Not Found for url:                   handlers.py:36
-           http://democracy.lbhf.gov.uk/mgWebService.asmx/GetCoun               
-           cillorsByWard                                                        
-           Finished attempting to scrape: HMF                        base.py:324
 </pre>
   
 
