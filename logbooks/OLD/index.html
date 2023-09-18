@@ -37,6 +37,73 @@
   
 
 
+  <h2 id="2023-09-16-13-04">2023-09-16</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>677 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-09-16 13:04:57.326671</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-09-16 13:16:14.682457</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 725, in send
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 725, in <listcomp>
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 191, in resolve_redirects
+    raise TooManyRedirects(
+requests.exceptions.TooManyRedirects: Exceeded 30 redirects.
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:04:57] Fetching Scraper for: OLD                              handlers.py:23
+           Begin attempting to scrape: OLD                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[13:04:58] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[13:04:59] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://committees.oldham.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[13:16:14] Exceeded 30 redirects.                                 handlers.py:36
+           Finished attempting to scrape: OLD                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-09-15-15-32">2023-09-15</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1051,59 +1118,6 @@ requests.exceptions.TooManyRedirects: Exceeded 30 redirects.
 [13:19:36] Committing batch 1 consisting of 92 files                 base.py:274
 [13:19:38] Committing batch 2 consisting of 28 files                 base.py:274
 [13:19:39] Finished attempting to scrape: OLD                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-07-10-15-23">2023-07-10</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>8 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-07-10 15:23:33.357018</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-07-10 15:23:41.857888</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[15:23:33] Fetching Scraper for: OLD                              handlers.py:23
-           Begin attempting to scrape: OLD                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[15:23:34] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 60 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 60 files in Councillors/raw                      base.py:207
-           ...found 121 files in Councillors                         base.py:207
-           Deleting batch no. 1 consisting of 100 files              base.py:216
-[15:23:35] Deleting batch no. 2 consisting of 21 files               base.py:216
-[15:23:36] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://committees.oldham.gov.uk/mgWebService.asmx/GetCounc           
-           illorsByWard                                                         
-[15:23:39] Committing batch 1 consisting of 92 files                 base.py:274
-[15:23:40] Committing batch 2 consisting of 28 files                 base.py:274
-[15:23:41] Finished attempting to scrape: OLD                        base.py:324
 </pre>
   
 
