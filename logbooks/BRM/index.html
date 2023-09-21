@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2023-09-19-13-14">2023-09-19</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-09-19 13:14:21.875330</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-09-19 13:14:27.785202</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:14:21] Fetching Scraper for: BRM                              handlers.py:23
+           Begin attempting to scrape: BRM                        handlers.py:27
+[13:14:22] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+[13:14:23] ...found 31 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 31 files in Councillors/raw                      base.py:207
+           ...found 63 files in Councillors                          base.py:207
+           Deleting batch no. 1 consisting of 63 files               base.py:216
+[13:14:24] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://moderngovwebpublic.bromsgrove.gov.uk/mgWebService.a           
+           smx/GetCouncillorsByWard                                             
+[13:14:26] Committing batch 1 consisting of 62 files                 base.py:274
+[13:14:27] Finished attempting to scrape: BRM                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-09-18-12-32">2023-09-18</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -996,71 +1047,6 @@
            smx/GetCouncillorsByWard                                             
 [13:46:32] Committing batch 1 consisting of 62 files                 base.py:274
 [13:46:33] Finished attempting to scrape: BRM                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-07-31-13-47">2023-07-31</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>170 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-07-31 13:47:20.762846</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-07-31 13:50:11.465086</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://moderngovwebpublic.bromsgrove.gov.uk/mgError.aspx
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:47:20] Fetching Scraper for: BRM                              handlers.py:23
-           Begin attempting to scrape: BRM                        handlers.py:27
-[13:47:21] Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 31 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-[13:47:22] ...found 31 files in Councillors/raw                      base.py:207
-           ...found 63 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 63 files               base.py:216
-           ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://moderngovwebpublic.bromsgrove.gov.uk/mgWebService.a           
-           smx/GetCouncillorsByWard                                             
-[13:50:11] 404 Client Error: Not Found for url:                   handlers.py:36
-           https://moderngovwebpublic.bromsgrove.gov.uk/mgError.a               
-           spx                                                                  
-           Finished attempting to scrape: BRM                        base.py:324
 </pre>
   
 
