@@ -37,6 +37,63 @@
   
 
 
+  <h2 id="2023-09-20-14-24">2023-09-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>4 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-09-20 14:24:09.679499</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-09-20 14:24:14.600864</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 51, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/ERW-east-renfrewshire/councillors.py", line 50, in get_single_councillor
+    contact_url = soup.select_one(".panel__list--relarticles a.panel__link")["href"]
+TypeError: 'NoneType' object is not subscriptable
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:24:09] Fetching Scraper for: ERW                              handlers.py:23
+           Begin attempting to scrape: ERW                        handlers.py:27
+[14:24:10] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[14:24:11] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://www.eastrenfrewshire.gov.uk/Find-my-councillor               
+[14:24:13] Scraping from                                              base.py:42
+           https://www.eastrenfrewshire.gov.uk/councillor-angela-conv           
+           ery                                                                  
+[14:24:14] 'NoneType' object is not subscriptable                 handlers.py:36
+           Finished attempting to scrape: ERW                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-09-19-14-27">2023-09-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1113,63 +1170,6 @@ TypeError: 'NoneType' object is not subscriptable
            https://www.eastrenfrewshire.gov.uk/councillor-angela-conv           
            ery                                                                  
 [14:15:41] 'NoneType' object is not subscriptable                 handlers.py:36
-           Finished attempting to scrape: ERW                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-08-07-14-40">2023-08-07</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-08-07 14:40:09.504783</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-08-07 14:40:15.187142</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 51, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/ERW-east-renfrewshire/councillors.py", line 50, in get_single_councillor
-    contact_url = soup.select_one(".panel__list--relarticles a.panel__link")["href"]
-TypeError: 'NoneType' object is not subscriptable
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:40:09] Fetching Scraper for: ERW                              handlers.py:23
-           Begin attempting to scrape: ERW                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[14:40:10] Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[14:40:11] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/Find-my-councillor               
-[14:40:13] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/councillor-angela-conv           
-           ery                                                                  
-[14:40:15] 'NoneType' object is not subscriptable                 handlers.py:36
            Finished attempting to scrape: ERW                        base.py:324
 </pre>
   
