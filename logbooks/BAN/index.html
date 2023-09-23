@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2023-09-21-13-14">2023-09-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-09-21 13:14:07.450475</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-09-21 13:14:15.842861</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:14:07] Fetching Scraper for: BAN                              handlers.py:23
+           Begin attempting to scrape: BAN                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[13:14:08] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 54 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 54 files in Councillors/raw                      base.py:207
+           ...found 109 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[13:14:09] Deleting batch no. 2 consisting of 9 files                base.py:216
+[13:14:10] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://democracy.basingstoke.gov.uk/mgWebService.asmx/Get           
+           CouncillorsByWard                                                    
+[13:14:13] Committing batch 1 consisting of 92 files                 base.py:274
+[13:14:14] Committing batch 2 consisting of 16 files                 base.py:274
+[13:14:15] Finished attempting to scrape: BAN                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-09-20-13-13">2023-09-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1137,111 +1190,6 @@ requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.basingstoke.go
            unable to get local issuer certificate                               
            (_ssl.c:1131)')))                                                    
 [14:37:22] Finished attempting to scrape: BAN                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-08-14-13-39">2023-08-14</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-08-14 13:39:16.473837</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-08-14 13:39:18.517856</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 703, in urlopen
-    httplib_response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 386, in _make_request
-    self._validate_conn(conn)
-  File "/opt/python/urllib3/connectionpool.py", line 1042, in _validate_conn
-    conn.connect()
-  File "/opt/python/urllib3/connection.py", line 419, in connect
-    self.sock = ssl_wrap_socket(
-  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(
-  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
-    return self.sslsocket_class._create(
-  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
-    self.do_handshake()
-  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
-    self._sslobj.do_handshake()
-ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 489, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 787, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 592, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.basingstoke.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 48, in get
-    response = self.requests_session.get(url, headers=headers, verify=verify)
-  File "/opt/python/requests/sessions.py", line 600, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 587, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 701, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 563, in send
-    raise SSLError(e, request=request)
-requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.basingstoke.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:39:16] Fetching Scraper for: BAN                              handlers.py:23
-           Begin attempting to scrape: BAN                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[13:39:17] Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[13:39:18] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://democracy.basingstoke.gov.uk/mgWebService.asmx/Get           
-           CouncillorsByWard                                                    
-           HTTPSConnectionPool(host='democracy.basingstoke.gov.uk handlers.py:36
-           ', port=443): Max retries exceeded with url:                         
-           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
-           SSLError(SSLCertVerificationError(1, '[SSL:                          
-           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
-           unable to get local issuer certificate                               
-           (_ssl.c:1131)')))                                                    
-           Finished attempting to scrape: BAN                        base.py:324
 </pre>
   
 
