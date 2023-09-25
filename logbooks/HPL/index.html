@@ -37,6 +37,120 @@
   
 
 
+  <h2 id="2023-09-23-13-43">2023-09-23</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-09-23 13:43:26.823059</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-09-23 13:45:39.289521</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 403, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1053, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f9b330a0df0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.hartlepool.gov.uk', port=443): Max retries exceeded with url: /councillors/name (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f9b330a0df0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 49, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 130, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.hartlepool.gov.uk', port=443): Max retries exceeded with url: /councillors/name (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f9b330a0df0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:43:26] Fetching Scraper for: HPL                              handlers.py:23
+           Begin attempting to scrape: HPL                        handlers.py:27
+[13:43:27] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+[13:43:28] ...found 36 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 36 files in Councillors/raw                      base.py:207
+           ...found 73 files in Councillors                          base.py:207
+           Deleting batch no. 1 consisting of 73 files               base.py:216
+[13:43:29] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://www.hartlepool.gov.uk/councillors/name                       
+[13:45:38] HTTPSConnectionPool(host='www.hartlepool.gov.uk',      handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /councillors/name (Caused by                                         
+           NewConnectionError('<urllib3.connection.HTTPSConnectio               
+           n object at 0x7f9b330a0df0>: Failed to establish a new               
+           connection: [Errno 110] Connection timed out'))                      
+[13:45:39] Finished attempting to scrape: HPL                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-09-22-12-38">2023-09-22</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2672,145 +2786,6 @@
            https://www.hartlepool.gov.uk/councillors/136/mike_young             
 [13:57:28] Committing batch 1 consisting of 72 files                 base.py:274
 [13:57:30] Finished attempting to scrape: HPL                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-08-28-14-53">2023-08-28</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>40 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-08-28 14:53:12.205062</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-08-28 14:53:52.502511</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:53:12] Fetching Scraper for: HPL                              handlers.py:23
-           Begin attempting to scrape: HPL                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[14:53:13] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 36 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 36 files in Councillors/raw                      base.py:207
-           ...found 73 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 73 files               base.py:216
-[14:53:14] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/name                       
-[14:53:15] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/172/gary_allen             
-[14:53:16] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/146/henry_ashton           
-[14:53:17] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/161/moss_boddy             
-[14:53:18] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/147/jonathan_bra           
-           sh                                                                   
-[14:53:19] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/131/paddy_brown            
-[14:53:20] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/167/bob_buchan             
-[14:53:21] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/132/tom_cassidy            
-[14:53:22] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/148/ben_clayton            
-[14:53:23] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/152/brian_cowie            
-[14:53:24] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/150/gordon_crann           
-           ey                                                                   
-[14:53:25] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/151/rachel_creev           
-           y                                                                    
-[14:53:26] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/177/rob_darby              
-[14:53:27] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/180/matthew_dodd           
-           s                                                                    
-[14:53:28] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/179/martin_dunba           
-           r                                                                    
-[14:53:29] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/165/tom_feeney             
-[14:53:30] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/166/christopher_           
-           groves                                                               
-[14:53:31] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/64/gerard_hall             
-[14:53:32] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/153/pamela_hargr           
-           eaves                                                                
-[14:53:33] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/120/brenda_harri           
-           son                                                                  
-[14:53:34] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/175/philip_holbr           
-           ook                                                                  
-[14:53:36] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/142/helen_howson           
-           Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/171/john_leedham           
-[14:53:37] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/114/jim_lindridg           
-           e                                                                    
-[14:53:38] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/133/sue_little             
-[14:53:39] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/168/andrew_marti           
-           n-wells                                                              
-[14:53:40] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/122/shane_moore            
-[14:53:41] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/169/melanie_morl           
-           ey                                                                   
-[14:53:42] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/155/david_nichol           
-           son                                                                  
-[14:53:43] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/156/veronica_nic           
-           holson                                                               
-[14:53:44] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/176/karen_oliver           
-[14:53:45] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/170/scott_reeve            
-[14:53:46] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/174/cameron_shar           
-           p                                                                    
-[14:53:47] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/127/leisa_smith            
-[14:53:48] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/173/carole_thomp           
-           son                                                                  
-[14:53:49] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/178/steve_wallac           
-           e                                                                    
-[14:53:50] Scraping from                                              base.py:42
-           https://www.hartlepool.gov.uk/councillors/136/mike_young             
-[14:53:51] Committing batch 1 consisting of 72 files                 base.py:274
-[14:53:52] Finished attempting to scrape: HPL                        base.py:324
 </pre>
   
 
