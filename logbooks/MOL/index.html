@@ -37,6 +37,115 @@
   
 
 
+  <h2 id="2023-09-26-12-09">2023-09-26</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-09-26 12:09:34.752676</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-09-26 12:09:37.440740</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 403, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1053, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 419, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.molevalley.gov.uk', port=443): Max retries exceeded with url: /home/council/councillors/who-are-your-councillors (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 49, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 130, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='www.molevalley.gov.uk', port=443): Max retries exceeded with url: /home/council/councillors/who-are-your-councillors (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:09:34] Fetching Scraper for: MOL                              handlers.py:23
+           Begin attempting to scrape: MOL                        handlers.py:27
+[12:09:35] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[12:09:36] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://www.molevalley.gov.uk/home/council/councillors/who           
+           -are-your-councillors                                                
+[12:09:37] HTTPSConnectionPool(host='www.molevalley.gov.uk',      handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /home/council/councillors/who-are-your-councillors                   
+           (Caused by SSLError(SSLCertVerificationError(1, '[SSL:               
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+           Finished attempting to scrape: MOL                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-09-25-14-42">2023-09-25</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2102,115 +2211,6 @@ requests.exceptions.SSLError: HTTPSConnectionPool(host='www.molevalley.gov.uk', 
            unable to get local issuer certificate                               
            (_ssl.c:1131)')))                                                    
 [14:04:16] Finished attempting to scrape: MOL                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-09-06-13-13">2023-09-06</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-09-06 13:13:34.740082</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-09-06 13:13:37.289279</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 714, in urlopen
-    httplib_response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 403, in _make_request
-    self._validate_conn(conn)
-  File "/opt/python/urllib3/connectionpool.py", line 1053, in _validate_conn
-    conn.connect()
-  File "/opt/python/urllib3/connection.py", line 419, in connect
-    self.sock = ssl_wrap_socket(
-  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(
-  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
-    return self.sslsocket_class._create(
-  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
-    self.do_handshake()
-  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
-    self._sslobj.do_handshake()
-ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 798, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 592, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.molevalley.gov.uk', port=443): Max retries exceeded with url: /home/council/councillors/who-are-your-councillors (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 49, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 130, in get_page
-    page = self.get(url).text
-  File "/var/task/lgsf/scrapers/base.py", line 48, in get
-    response = self.requests_session.get(url, headers=headers, verify=verify)
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 517, in send
-    raise SSLError(e, request=request)
-requests.exceptions.SSLError: HTTPSConnectionPool(host='www.molevalley.gov.uk', port=443): Max retries exceeded with url: /home/council/councillors/who-are-your-councillors (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:13:34] Fetching Scraper for: MOL                              handlers.py:23
-           Begin attempting to scrape: MOL                        handlers.py:27
-[13:13:35] Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[13:13:36] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/home/council/councillors/who           
-           -are-your-councillors                                                
-[13:13:37] HTTPSConnectionPool(host='www.molevalley.gov.uk',      handlers.py:36
-           port=443): Max retries exceeded with url:                            
-           /home/council/councillors/who-are-your-councillors                   
-           (Caused by SSLError(SSLCertVerificationError(1, '[SSL:               
-           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
-           unable to get local issuer certificate                               
-           (_ssl.c:1131)')))                                                    
-           Finished attempting to scrape: MOL                        base.py:324
 </pre>
   
 
