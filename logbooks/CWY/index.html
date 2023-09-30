@@ -37,6 +37,67 @@
   
 
 
+  <h2 id="2023-09-28-12-40">2023-09-28</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-09-28 12:40:07.713018</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-09-28 12:40:10.889760</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://modgoveng.conwy.gov.uk/mgWebService.asmx/GetCouncillorsByWard
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:40:07] Fetching Scraper for: CWY                              handlers.py:23
+           Begin attempting to scrape: CWY                        handlers.py:27
+[12:40:08] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[12:40:09] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://modgoveng.conwy.gov.uk/mgWebService.asmx/GetCouncil           
+           lorsByWard                                                           
+[12:40:10] 404 Client Error: Not Found for url:                   handlers.py:36
+           http://modgoveng.conwy.gov.uk/mgWebService.asmx/GetCou               
+           ncillorsByWard                                                       
+           Finished attempting to scrape: CWY                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-09-27-14-20">2023-09-27</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1187,67 +1248,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://modgo
            http://modgoveng.conwy.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
 [12:50:39] 404 Client Error: Not Found for url:                   handlers.py:36
-           http://modgoveng.conwy.gov.uk/mgWebService.asmx/GetCou               
-           ncillorsByWard                                                       
-           Finished attempting to scrape: CWY                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-09-08-12-41">2023-09-08</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-09-08 12:41:49.527600</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-09-08 12:41:51.640832</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://modgoveng.conwy.gov.uk/mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:41:49] Fetching Scraper for: CWY                              handlers.py:23
-           Begin attempting to scrape: CWY                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[12:41:50] Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[12:41:51] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://modgoveng.conwy.gov.uk/mgWebService.asmx/GetCouncil           
-           lorsByWard                                                           
-           404 Client Error: Not Found for url:                   handlers.py:36
            http://modgoveng.conwy.gov.uk/mgWebService.asmx/GetCou               
            ncillorsByWard                                                       
            Finished attempting to scrape: CWY                        base.py:324
