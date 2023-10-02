@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2023-09-30-13-27">2023-09-30</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-09-30 13:27:44.228148</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-09-30 13:27:54.070745</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[13:27:44] Fetching Scraper for: LBH                              handlers.py:23
+           Begin attempting to scrape: LBH                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[13:27:45] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 63 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 63 files in Councillors/raw                      base.py:207
+           ...found 127 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[13:27:46] Deleting batch no. 2 consisting of 27 files               base.py:216
+[13:27:47] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://moderngov.lambeth.gov.uk/mgWebService.asmx/GetCoun           
+           cillorsByWard                                                        
+[13:27:51] Committing batch 1 consisting of 92 files                 base.py:274
+[13:27:52] Committing batch 2 consisting of 34 files                 base.py:274
+[13:27:54] Finished attempting to scrape: LBH                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-09-29-14-19">2023-09-29</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1178,111 +1231,6 @@ requests.exceptions.SSLError: HTTPSConnectionPool(host='moderngov.lambeth.gov.uk
            ...found 1 files in Councillors                           base.py:207
            Deleting batch no. 1 consisting of 1 files                base.py:216
 [12:40:14] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://moderngov.lambeth.gov.uk/mgWebService.asmx/GetCoun           
-           cillorsByWard                                                        
-           HTTPSConnectionPool(host='moderngov.lambeth.gov.uk',   handlers.py:36
-           port=443): Max retries exceeded with url:                            
-           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
-           SSLError(SSLCertVerificationError(1, '[SSL:                          
-           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
-           unable to get local issuer certificate                               
-           (_ssl.c:1131)')))                                                    
-           Finished attempting to scrape: LBH                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-09-10-12-49">2023-09-10</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-09-10 12:49:43.571667</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-09-10 12:49:45.650015</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 714, in urlopen
-    httplib_response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 403, in _make_request
-    self._validate_conn(conn)
-  File "/opt/python/urllib3/connectionpool.py", line 1053, in _validate_conn
-    conn.connect()
-  File "/opt/python/urllib3/connection.py", line 419, in connect
-    self.sock = ssl_wrap_socket(
-  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(
-  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
-    return self.sslsocket_class._create(
-  File "/var/lang/lib/python3.8/ssl.py", line 1040, in _create
-    self.do_handshake()
-  File "/var/lang/lib/python3.8/ssl.py", line 1309, in do_handshake
-    self._sslobj.do_handshake()
-ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 798, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 592, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='moderngov.lambeth.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 48, in get
-    response = self.requests_session.get(url, headers=headers, verify=verify)
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 517, in send
-    raise SSLError(e, request=request)
-requests.exceptions.SSLError: HTTPSConnectionPool(host='moderngov.lambeth.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:49:43] Fetching Scraper for: LBH                              handlers.py:23
-           Begin attempting to scrape: LBH                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[12:49:44] Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[12:49:45] ...data deleted.                                          base.py:246
            Scraping from                                              base.py:42
            https://moderngov.lambeth.gov.uk/mgWebService.asmx/GetCoun           
            cillorsByWard                                                        
