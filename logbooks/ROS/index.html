@@ -37,6 +37,69 @@
   
 
 
+  <h2 id="2023-10-05-12-05">2023-10-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-05 12:05:07.273619</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-05 12:05:09.563135</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 49, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 130, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.rossendale.gov.uk/councillors/name
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:05:07] Fetching Scraper for: ROS                              handlers.py:23
+           Begin attempting to scrape: ROS                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[12:05:08] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[12:05:09] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://www.rossendale.gov.uk/councillors/name                       
+           404 Client Error: Not Found for url:                   handlers.py:36
+           https://www.rossendale.gov.uk/councillors/name                       
+           Finished attempting to scrape: ROS                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-10-04-14-19">2023-10-04</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2796,161 +2859,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.
            https://www.rossendale.gov.uk/councillors/10093/alan_woods           
 [12:57:17] Committing batch 1 consisting of 72 files                 base.py:274
 [12:57:19] Finished attempting to scrape: ROS                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-09-15-14-51">2023-09-15</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>27 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-09-15 14:51:17.471573</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-09-15 14:51:44.670945</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:51:17] Fetching Scraper for: ROS                              handlers.py:23
-           Begin attempting to scrape: ROS                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[14:51:18] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 36 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 36 files in Councillors/raw                      base.py:207
-           ...found 73 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 73 files               base.py:216
-[14:51:19] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/name                       
-[14:51:21] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10088/julie_adsh           
-           ead                                                                  
-           Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10061/barbara_as           
-           hworth                                                               
-[14:51:22] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10107/danielle_a           
-           shworth                                                              
-           Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10062/alyson_bar           
-           nes                                                                  
-[14:51:23] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10072/samara_bar           
-           nes                                                                  
-           Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10065/anne_cartn           
-           er_cheetham                                                          
-[14:51:24] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10099/mary_cooga           
-           n                                                                    
-[14:51:25] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10105/judith_dri           
-           ver                                                                  
-           Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10067/james_eato           
-           n                                                                    
-[14:51:26] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10070/david_foxc           
-           roft                                                                 
-           Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10103/christine_           
-           gill                                                                 
-[14:51:28] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10102/ann_hodgki           
-           ss                                                                   
-[14:51:29] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10074/steve_hugh           
-           es                                                                   
-           Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10075/janice_joh           
-           nson                                                                 
-[14:51:30] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10077/ann_kenyon           
-           Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10104/neil_looke           
-           r                                                                    
-[14:51:31] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10079/adrian_lyt           
-           hgoe                                                                 
-[14:51:32] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10080/andy_macna           
-           e                                                                    
-           Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10081/patrick_ma           
-           rriott                                                               
-[14:51:33] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10100/liz_mcinne           
-           s                                                                    
-           Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10097/annie_mcma           
-           hon                                                                  
-[14:51:34] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10083/granville_           
-           morris                                                               
-[14:51:35] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10084/alan_neal            
-           Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10106/matt_norto           
-           n                                                                    
-[14:51:36] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10085/jacqueline           
-           _oakes                                                               
-           Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10096/dayne_powe           
-           ll                                                                   
-[14:51:37] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10086/marilyn_pr           
-           octer                                                                
-           Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10064/jenny_rigb           
-           y                                                                    
-[14:51:38] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10071/gemma_rook           
-           e                                                                    
-[14:51:39] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10098/michelle_s           
-           mith                                                                 
-           Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10063/scott_smit           
-           h                                                                    
-[14:51:40] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10101/caroline_s           
-           nowden                                                               
-           Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10087/laura-beth           
-           _thompson                                                            
-[14:51:41] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10095/andrew_wal           
-           msley                                                                
-[14:51:42] Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10060/janet_whit           
-           ehead                                                                
-           Scraping from                                              base.py:42
-           https://www.rossendale.gov.uk/councillors/10093/alan_woods           
-[14:51:43] Committing batch 1 consisting of 72 files                 base.py:274
-[14:51:44] Finished attempting to scrape: ROS                        base.py:324
 </pre>
   
 
