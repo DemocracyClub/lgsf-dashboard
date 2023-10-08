@@ -37,6 +37,64 @@
   
 
 
+  <h2 id="2023-10-06-14-06">2023-10-06</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-06 14:06:07.187672</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-06 14:06:10.289976</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 51, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "/var/task/lgsf/councillors/scrapers.py", line 267, in get_single_councillor
+    party = self.get_party_name(list_page_html)
+  File "/var/task/lgsf/councillors/scrapers.py", line 253, in get_party_name
+    return list_page_html.find_all("img")[-1]["title"].replace("(logo)", "").strip()
+  File "/opt/python/bs4/element.py", line 1573, in __getitem__
+    return self.attrs[key]
+KeyError: 'title'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:06:07] Fetching Scraper for: FYL                              handlers.py:23
+           Begin attempting to scrape: FYL                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+[14:06:08] ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+           ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://fylde.cmis.uk.com/fylde/CouncillorsandMP.aspx                
+[14:06:10] 'title'                                                handlers.py:36
+           Finished attempting to scrape: FYL                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-10-05-12-54">2023-10-05</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1132,64 +1190,6 @@ KeyError: 'title'
            Scraping from                                              base.py:42
            https://fylde.cmis.uk.com/fylde/CouncillorsandMP.aspx                
 [12:58:28] 'title'                                                handlers.py:36
-           Finished attempting to scrape: FYL                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-09-16-12-33">2023-09-16</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>3 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-09-16 12:33:06.465672</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-09-16 12:33:09.823766</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 51, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "/var/task/lgsf/councillors/scrapers.py", line 267, in get_single_councillor
-    party = self.get_party_name(list_page_html)
-  File "/var/task/lgsf/councillors/scrapers.py", line 253, in get_party_name
-    return list_page_html.find_all("img")[-1]["title"].replace("(logo)", "").strip()
-  File "/opt/python/bs4/element.py", line 1573, in __getitem__
-    return self.attrs[key]
-KeyError: 'title'
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:33:06] Fetching Scraper for: FYL                              handlers.py:23
-           Begin attempting to scrape: FYL                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[12:33:07] Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[12:33:08] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://fylde.cmis.uk.com/fylde/CouncillorsandMP.aspx                
-[12:33:09] 'title'                                                handlers.py:36
            Finished attempting to scrape: FYL                        base.py:324
 </pre>
   
