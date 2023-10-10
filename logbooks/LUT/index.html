@@ -37,6 +37,66 @@
   
 
 
+  <h2 id="2023-10-08-12-12">2023-10-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-08 12:12:12.486895</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-08 12:12:14.792722</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 49, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 248, in get_councillors
+    req = self.get(self.base_url, extra_headers=self.extra_headers)
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: https://democracy.luton.gov.uk/cmis5public/Councillors.aspx
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:12:12] Fetching Scraper for: LUT                              handlers.py:23
+           Begin attempting to scrape: LUT                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[12:12:13] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[12:12:14] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://democracy.luton.gov.uk/cmis5public/Councillors.aspx           
+           503 Server Error: Service Unavailable for url:         handlers.py:36
+           https://democracy.luton.gov.uk/cmis5public/Councillors               
+           .aspx                                                                
+           Finished attempting to scrape: LUT                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-10-07-12-40">2023-10-07</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -4469,249 +4529,6 @@ requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: ht
            etical/Default.aspx                                                  
 [14:23:43] Committing batch 2 consisting of 4 files                  base.py:274
 [14:23:44] Finished attempting to scrape: LUT                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-09-18-13-16">2023-09-18</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>89 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-09-18 13:16:45.419727</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-09-18 13:18:15.302661</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:16:45] Fetching Scraper for: LUT                              handlers.py:23
-           Begin attempting to scrape: LUT                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[13:16:46] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 48 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 48 files in Councillors/raw                      base.py:207
-           ...found 97 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 97 files               base.py:216
-[13:16:47] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://democracy.luton.gov.uk/cmis5public/Councillors.aspx           
-[13:16:49] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/429/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:16:51] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/428/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:16:52] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/426/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:16:53] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/367/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:16:55] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/392/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:16:56] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/419/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:16:57] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/293/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:16:59] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/396/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:01] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/425/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:03] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/368/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:04] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/235/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:06] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/415/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:07] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/194/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:09] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/150/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:13] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/427/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:14] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/434/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:16] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/422/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:17] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/373/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:19] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/374/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:22] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/213/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:25] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/375/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:26] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/432/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:27] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/299/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:29] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/406/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:30] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/243/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:33] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/378/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:34] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/423/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:36] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/379/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:37] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/414/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:38] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/433/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:41] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/380/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:42] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/418/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:44] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/393/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:45] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/430/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:47] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/362/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:48] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/302/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:50] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/416/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:52] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/381/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:53] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/382/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:55] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/169/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:17:57] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/170/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:18:01] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/208/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:18:03] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/424/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:18:04] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/431/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:18:05] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/228/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:18:08] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/310/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:18:09] Committing batch 1 consisting of 92 files                 base.py:274
-[13:18:11] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/383/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:18:12] Scraping from                                              base.py:42
-           https://democracy.luton.gov.uk/cmis5public/Councillors/tab           
-           id/63/ctl/ViewCMIS_Person/mid/383/id/384/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[13:18:14] Committing batch 2 consisting of 4 files                  base.py:274
-[13:18:15] Finished attempting to scrape: LUT                        base.py:324
 </pre>
   
 

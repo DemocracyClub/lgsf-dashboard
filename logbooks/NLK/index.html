@@ -37,6 +37,71 @@
   
 
 
+  <h2 id="2023-10-08-12-19">2023-10-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-08 12:19:57.827601</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-08 12:20:00.201971</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 49, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 130, in get_page
+    page = self.get(url).text
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: https://mars.northlanarkshire.gov.uk/egenda/public/main.pl?op=ListCurrentMembers
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:19:57] Fetching Scraper for: NLK                              handlers.py:23
+           Begin attempting to scrape: NLK                        handlers.py:27
+[12:19:58] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[12:19:59] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
+           ?op=ListCurrentMembers                                               
+           502 Server Error: Bad Gateway for url:                 handlers.py:36
+           https://mars.northlanarkshire.gov.uk/egenda/public/mai               
+           n.pl?op=ListCurrentMembers                                           
+[12:20:00] Finished attempting to scrape: NLK                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-10-07-13-17">2023-10-07</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -5159,287 +5224,6 @@ requests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: https://ma
            ?op=MemberDetails&keyid=124                                          
 [12:10:44] Committing batch 2 consisting of 60 files                 base.py:274
 [12:10:46] Finished attempting to scrape: NLK                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-09-18-13-49">2023-09-18</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>127 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-09-18 13:49:33.430319</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-09-18 13:51:41.368490</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:49:33] Fetching Scraper for: NLK                              handlers.py:23
-           Begin attempting to scrape: NLK                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[13:49:34] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 76 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 76 files in Councillors/raw                      base.py:207
-           ...found 153 files in Councillors                         base.py:207
-           Deleting batch no. 1 consisting of 100 files              base.py:216
-[13:49:35] Deleting batch no. 2 consisting of 53 files               base.py:216
-[13:49:36] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=ListCurrentMembers                                               
-[13:49:38] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=74                                           
-[13:49:40] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=137                                          
-[13:49:42] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=79                                           
-[13:49:43] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=158                                          
-[13:49:46] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=2                                            
-[13:49:47] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=154                                          
-[13:49:49] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=50                                           
-[13:49:50] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=163                                          
-[13:49:52] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=114                                          
-[13:49:54] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=150                                          
-[13:49:55] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=141                                          
-[13:49:57] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=103                                          
-[13:49:58] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=92                                           
-[13:50:00] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=145                                          
-[13:50:01] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=12                                           
-[13:50:03] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=13                                           
-[13:50:04] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=160                                          
-[13:50:06] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=134                                          
-[13:50:07] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=96                                           
-[13:50:09] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=16                                           
-[13:50:10] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=109                                          
-[13:50:12] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=161                                          
-[13:50:14] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=143                                          
-[13:50:15] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=76                                           
-[13:50:17] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=116                                          
-[13:50:18] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=19                                           
-[13:50:20] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=153                                          
-[13:50:21] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=27                                           
-[13:50:23] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=146                                          
-[13:50:24] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=133                                          
-[13:50:26] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=29                                           
-[13:50:27] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=30                                           
-[13:50:29] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=31                                           
-[13:50:30] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=142                                          
-[13:50:32] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=162                                          
-[13:50:33] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=85                                           
-[13:50:35] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=152                                          
-[13:50:37] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=84                                           
-[13:50:39] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=32                                           
-[13:50:40] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=130                                          
-[13:50:42] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=95                                           
-[13:50:43] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=38                                           
-[13:50:45] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=151                                          
-[13:50:47] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=155                                          
-[13:50:48] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=167                                          
-[13:50:50] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=138                                          
-[13:50:51] Committing batch 1 consisting of 92 files                 base.py:274
-[13:50:52] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=99                                           
-[13:50:54] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=135                                          
-[13:50:55] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=166                                          
-[13:50:57] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=132                                          
-[13:50:59] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=47                                           
-[13:51:00] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=112                                          
-[13:51:01] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=48                                           
-[13:51:03] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=49                                           
-[13:51:04] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=136                                          
-[13:51:06] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=71                                           
-[13:51:08] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=148                                          
-[13:51:09] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=159                                          
-[13:51:11] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=156                                          
-[13:51:12] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=105                                          
-[13:51:14] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=113                                          
-[13:51:15] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=165                                          
-[13:51:17] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=149                                          
-[13:51:18] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=58                                           
-[13:51:20] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=59                                           
-[13:51:21] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=139                                          
-[13:51:23] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=100                                          
-[13:51:24] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=86                                           
-[13:51:26] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=157                                          
-[13:51:27] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=144                                          
-[13:51:29] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=164                                          
-[13:51:31] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=147                                          
-[13:51:33] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=98                                           
-[13:51:35] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=140                                          
-[13:51:36] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=111                                          
-[13:51:38] Scraping from                                              base.py:42
-           https://mars.northlanarkshire.gov.uk/egenda/public/main.pl           
-           ?op=MemberDetails&keyid=124                                          
-[13:51:39] Committing batch 2 consisting of 60 files                 base.py:274
-[13:51:41] Finished attempting to scrape: NLK                        base.py:324
 </pre>
   
 

@@ -37,6 +37,71 @@
   
 
 
+  <h2 id="2023-10-08-14-05">2023-10-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>158 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-08 14:05:51.382993</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-08 14:08:29.544434</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://eservices.solihull.gov.uk/InternetFailover
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:05:51] Fetching Scraper for: SOL                              handlers.py:23
+           Begin attempting to scrape: SOL                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[14:05:52] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 51 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 51 files in Councillors/raw                      base.py:207
+           ...found 103 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[14:05:53] Deleting batch no. 2 consisting of 3 files                base.py:216
+[14:05:54] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://eservices.solihull.gov.uk/mgInternet/mgWebService.           
+           asmx/GetCouncillorsByWard                                            
+[14:08:29] 404 Client Error: Not Found for url:                   handlers.py:36
+           https://eservices.solihull.gov.uk/InternetFailover                   
+           Finished attempting to scrape: SOL                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-10-07-14-03">2023-10-07</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1038,59 +1103,6 @@
 [12:36:20] Committing batch 1 consisting of 92 files                 base.py:274
 [12:36:21] Committing batch 2 consisting of 10 files                 base.py:274
 [12:36:22] Finished attempting to scrape: SOL                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-09-18-13-39">2023-09-18</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>13 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-09-18 13:39:06.138269</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-09-18 13:39:19.866329</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:39:06] Fetching Scraper for: SOL                              handlers.py:23
-           Begin attempting to scrape: SOL                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[13:39:07] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 51 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 51 files in Councillors/raw                      base.py:207
-           ...found 103 files in Councillors                         base.py:207
-           Deleting batch no. 1 consisting of 100 files              base.py:216
-[13:39:08] Deleting batch no. 2 consisting of 3 files                base.py:216
-[13:39:09] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://eservices.solihull.gov.uk/mgInternet/mgWebService.           
-           asmx/GetCouncillorsByWard                                            
-[13:39:17] Committing batch 1 consisting of 92 files                 base.py:274
-[13:39:18] Committing batch 2 consisting of 10 files                 base.py:274
-[13:39:19] Finished attempting to scrape: SOL                        base.py:324
 </pre>
   
 
