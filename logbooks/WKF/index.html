@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2023-10-10-12-07">2023-10-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>15 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-10 12:07:45.191519</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-10 12:08:00.346961</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[12:07:45] Fetching Scraper for: WKF                              handlers.py:23
+           Begin attempting to scrape: WKF                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[12:07:46] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 63 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 63 files in Councillors/raw                      base.py:207
+           ...found 127 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[12:07:47] Deleting batch no. 2 consisting of 27 files               base.py:216
+[12:07:48] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://mg.wakefield.gov.uk/mgWebService.asmx/GetCouncillor           
+           sByWard                                                              
+[12:07:57] Committing batch 1 consisting of 92 files                 base.py:274
+[12:07:59] Committing batch 2 consisting of 34 files                 base.py:274
+[12:08:00] Finished attempting to scrape: WKF                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-10-09-14-27">2023-10-09</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1041,72 +1094,6 @@ requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: 
            http://mg.wakefield.gov.uk/mgWebService.asmx/GetCounci               
            llorsByWard                                                          
            Finished attempting to scrape: WKF                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-09-20-14-01">2023-09-20</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>3 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-09-20 14:01:12.407457</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-09-20 14:01:16.024639</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: http://mg.wakefield.gov.uk/mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:01:12] Fetching Scraper for: WKF                              handlers.py:23
-           Begin attempting to scrape: WKF                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[14:01:13] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 63 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 63 files in Councillors/raw                      base.py:207
-           ...found 127 files in Councillors                         base.py:207
-           Deleting batch no. 1 consisting of 100 files              base.py:216
-[14:01:14] Deleting batch no. 2 consisting of 27 files               base.py:216
-[14:01:15] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://mg.wakefield.gov.uk/mgWebService.asmx/GetCouncillor           
-           sByWard                                                              
-           503 Server Error: Service Unavailable for url:         handlers.py:36
-           http://mg.wakefield.gov.uk/mgWebService.asmx/GetCounci               
-           llorsByWard                                                          
-[14:01:16] Finished attempting to scrape: WKF                        base.py:324
 </pre>
   
 
