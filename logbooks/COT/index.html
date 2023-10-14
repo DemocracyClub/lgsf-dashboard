@@ -37,6 +37,242 @@
   
 
 
+  <h2 id="2023-10-13-10-11">2023-10-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-13 10:11:27.968144</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-13 10:11:30.416807</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 415, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/opt/python/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/var/lang/lib/python3.8/http/client.py", line 1256, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/var/lang/lib/python3.8/http/client.py", line 1302, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/var/lang/lib/python3.8/http/client.py", line 1251, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/var/lang/lib/python3.8/http/client.py", line 1011, in _send_output
+    self.send(msg)
+  File "/var/lang/lib/python3.8/http/client.py", line 951, in send
+    self.connect()
+  File "/opt/python/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f3f2ae62eb0>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='www.cmis.cotswold.gov.uk', port=80): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f2ae62eb0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 49, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 248, in get_councillors
+    req = self.get(self.base_url, extra_headers=self.extra_headers)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='www.cmis.cotswold.gov.uk', port=80): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3f2ae62eb0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:11:27] Fetching Scraper for: COT                              handlers.py:23
+           Begin attempting to scrape: COT                        handlers.py:27
+[10:11:28] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+[10:11:29] ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[10:11:30] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://www.cmis.cotswold.gov.uk/cmis5/People/tabid/62/Scre           
+           enMode/Alphabetical/Default.aspx                                     
+           HTTPConnectionPool(host='www.cmis.cotswold.gov.uk',    handlers.py:36
+           port=80): Max retries exceeded with url:                             
+           /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default               
+           .aspx (Caused by                                                     
+           NewConnectionError('<urllib3.connection.HTTPConnection               
+           object at 0x7f3f2ae62eb0>: Failed to establish a new                 
+           connection: [Errno -2] Name or service not known'))                  
+           Finished attempting to scrape: COT                        base.py:324
+</pre>
+  
+
+  
+
+
+  <h2 id="2023-10-12-14-20">2023-10-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-12 14:20:28.955813</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-12 14:20:31.137745</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 415, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/opt/python/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/var/lang/lib/python3.8/http/client.py", line 1256, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/var/lang/lib/python3.8/http/client.py", line 1302, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/var/lang/lib/python3.8/http/client.py", line 1251, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/var/lang/lib/python3.8/http/client.py", line 1011, in _send_output
+    self.send(msg)
+  File "/var/lang/lib/python3.8/http/client.py", line 951, in send
+    self.connect()
+  File "/opt/python/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7fc2797d4a60>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='www.cmis.cotswold.gov.uk', port=80): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc2797d4a60>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 49, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 248, in get_councillors
+    req = self.get(self.base_url, extra_headers=self.extra_headers)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='www.cmis.cotswold.gov.uk', port=80): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc2797d4a60>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[14:20:28] Fetching Scraper for: COT                              handlers.py:23
+           Begin attempting to scrape: COT                        handlers.py:27
+[14:20:29] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[14:20:30] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://www.cmis.cotswold.gov.uk/cmis5/People/tabid/62/Scre           
+           enMode/Alphabetical/Default.aspx                                     
+           HTTPConnectionPool(host='www.cmis.cotswold.gov.uk',    handlers.py:36
+           port=80): Max retries exceeded with url:                             
+           /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default               
+           .aspx (Caused by                                                     
+           NewConnectionError('<urllib3.connection.HTTPConnection               
+           object at 0x7fc2797d4a60>: Failed to establish a new                 
+           connection: [Errno -2] Name or service not known'))                  
+[14:20:31] Finished attempting to scrape: COT                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-10-11-14-31">2023-10-11</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2153,242 +2389,6 @@ requests.exceptions.ConnectionError: HTTPConnectionPool(host='www.cmis.cotswold.
            .aspx (Caused by                                                     
            NewConnectionError('<urllib3.connection.HTTPConnection               
            object at 0x7eff292d52b0>: Failed to establish a new                 
-           connection: [Errno -2] Name or service not known'))                  
-           Finished attempting to scrape: COT                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-09-23-12-47">2023-09-23</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-09-23 12:47:34.310677</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-09-23 12:47:36.386967</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
-    conn = connection.create_connection(
-  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
-    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
-  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-socket.gaierror: [Errno -2] Name or service not known
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 714, in urlopen
-    httplib_response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 415, in _make_request
-    conn.request(method, url, **httplib_request_kw)
-  File "/opt/python/urllib3/connection.py", line 244, in request
-    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
-  File "/var/lang/lib/python3.8/http/client.py", line 1256, in request
-    self._send_request(method, url, body, headers, encode_chunked)
-  File "/var/lang/lib/python3.8/http/client.py", line 1302, in _send_request
-    self.endheaders(body, encode_chunked=encode_chunked)
-  File "/var/lang/lib/python3.8/http/client.py", line 1251, in endheaders
-    self._send_output(message_body, encode_chunked=encode_chunked)
-  File "/var/lang/lib/python3.8/http/client.py", line 1011, in _send_output
-    self.send(msg)
-  File "/var/lang/lib/python3.8/http/client.py", line 951, in send
-    self.connect()
-  File "/opt/python/urllib3/connection.py", line 205, in connect
-    conn = self._new_conn()
-  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
-    raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f9b32c2ed60>: Failed to establish a new connection: [Errno -2] Name or service not known
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 798, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 592, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='www.cmis.cotswold.gov.uk', port=80): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9b32c2ed60>: Failed to establish a new connection: [Errno -2] Name or service not known'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 49, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 248, in get_councillors
-    req = self.get(self.base_url, extra_headers=self.extra_headers)
-  File "/var/task/lgsf/scrapers/base.py", line 48, in get
-    response = self.requests_session.get(url, headers=headers, verify=verify)
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 519, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPConnectionPool(host='www.cmis.cotswold.gov.uk', port=80): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9b32c2ed60>: Failed to establish a new connection: [Errno -2] Name or service not known'))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:47:34] Fetching Scraper for: COT                              handlers.py:23
-           Begin attempting to scrape: COT                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[12:47:35] Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[12:47:36] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://www.cmis.cotswold.gov.uk/cmis5/People/tabid/62/Scre           
-           enMode/Alphabetical/Default.aspx                                     
-           HTTPConnectionPool(host='www.cmis.cotswold.gov.uk',    handlers.py:36
-           port=80): Max retries exceeded with url:                             
-           /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default               
-           .aspx (Caused by                                                     
-           NewConnectionError('<urllib3.connection.HTTPConnection               
-           object at 0x7f9b32c2ed60>: Failed to establish a new                 
-           connection: [Errno -2] Name or service not known'))                  
-           Finished attempting to scrape: COT                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-09-22-13-35">2023-09-22</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-09-22 13:35:43.551223</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-09-22 13:35:45.748209</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
-    conn = connection.create_connection(
-  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
-    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
-  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-socket.gaierror: [Errno -2] Name or service not known
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 714, in urlopen
-    httplib_response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 415, in _make_request
-    conn.request(method, url, **httplib_request_kw)
-  File "/opt/python/urllib3/connection.py", line 244, in request
-    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
-  File "/var/lang/lib/python3.8/http/client.py", line 1256, in request
-    self._send_request(method, url, body, headers, encode_chunked)
-  File "/var/lang/lib/python3.8/http/client.py", line 1302, in _send_request
-    self.endheaders(body, encode_chunked=encode_chunked)
-  File "/var/lang/lib/python3.8/http/client.py", line 1251, in endheaders
-    self._send_output(message_body, encode_chunked=encode_chunked)
-  File "/var/lang/lib/python3.8/http/client.py", line 1011, in _send_output
-    self.send(msg)
-  File "/var/lang/lib/python3.8/http/client.py", line 951, in send
-    self.connect()
-  File "/opt/python/urllib3/connection.py", line 205, in connect
-    conn = self._new_conn()
-  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
-    raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f80425b8b80>: Failed to establish a new connection: [Errno -2] Name or service not known
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 798, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 592, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='www.cmis.cotswold.gov.uk', port=80): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f80425b8b80>: Failed to establish a new connection: [Errno -2] Name or service not known'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 49, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 248, in get_councillors
-    req = self.get(self.base_url, extra_headers=self.extra_headers)
-  File "/var/task/lgsf/scrapers/base.py", line 48, in get
-    response = self.requests_session.get(url, headers=headers, verify=verify)
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 519, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPConnectionPool(host='www.cmis.cotswold.gov.uk', port=80): Max retries exceeded with url: /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default.aspx (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f80425b8b80>: Failed to establish a new connection: [Errno -2] Name or service not known'))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:35:43] Fetching Scraper for: COT                              handlers.py:23
-           Begin attempting to scrape: COT                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[13:35:44] Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[13:35:45] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://www.cmis.cotswold.gov.uk/cmis5/People/tabid/62/Scre           
-           enMode/Alphabetical/Default.aspx                                     
-           HTTPConnectionPool(host='www.cmis.cotswold.gov.uk',    handlers.py:36
-           port=80): Max retries exceeded with url:                             
-           /cmis5/People/tabid/62/ScreenMode/Alphabetical/Default               
-           .aspx (Caused by                                                     
-           NewConnectionError('<urllib3.connection.HTTPConnection               
-           object at 0x7f80425b8b80>: Failed to establish a new                 
            connection: [Errno -2] Name or service not known'))                  
            Finished attempting to scrape: COT                        base.py:324
 </pre>
