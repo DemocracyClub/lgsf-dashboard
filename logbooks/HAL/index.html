@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2023-10-13-10-37">2023-10-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-13 10:37:00.295504</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-13 10:37:10.137493</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:37:00] Fetching Scraper for: HAL                              handlers.py:23
+           Begin attempting to scrape: HAL                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[10:37:01] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 54 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 54 files in Councillors/raw                      base.py:207
+           ...found 109 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[10:37:02] Deleting batch no. 2 consisting of 9 files                base.py:216
+[10:37:03] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://councillors.halton.gov.uk/mgWebService.asmx/GetCoun           
+           cillorsByWard                                                        
+[10:37:07] Committing batch 1 consisting of 92 files                 base.py:274
+[10:37:09] Committing batch 2 consisting of 16 files                 base.py:274
+[10:37:10] Finished attempting to scrape: HAL                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-10-13-10-17">2023-10-13</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1032,78 +1085,6 @@
 [14:25:58] Committing batch 1 consisting of 92 files                 base.py:274
 [14:26:00] Committing batch 2 consisting of 16 files                 base.py:274
 [14:26:01] Finished attempting to scrape: HAL                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-09-24-14-05">2023-09-24</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>723 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-09-24 14:05:43.110491</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-09-24 14:17:47.070035</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 48, in get
-    response = self.requests_session.get(url, headers=headers, verify=verify)
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 725, in send
-    history = [resp for resp in gen]
-  File "/opt/python/requests/sessions.py", line 725, in <listcomp>
-    history = [resp for resp in gen]
-  File "/opt/python/requests/sessions.py", line 191, in resolve_redirects
-    raise TooManyRedirects(
-requests.exceptions.TooManyRedirects: Exceeded 30 redirects.
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:05:43] Fetching Scraper for: HAL                              handlers.py:23
-           Begin attempting to scrape: HAL                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-[14:05:44] Getting all files in Councillors/json...                  base.py:191
-           ...found 54 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 54 files in Councillors/raw                      base.py:207
-           ...found 109 files in Councillors                         base.py:207
-           Deleting batch no. 1 consisting of 100 files              base.py:216
-[14:05:45] Deleting batch no. 2 consisting of 9 files                base.py:216
-[14:05:46] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://councillors.halton.gov.uk/mgWebService.asmx/GetCoun           
-           cillorsByWard                                                        
-[14:17:46] Exceeded 30 redirects.                                 handlers.py:36
-[14:17:47] Finished attempting to scrape: HAL                        base.py:324
 </pre>
   
 
