@@ -37,6 +37,71 @@
   
 
 
+  <h2 id="2023-10-17-08-51">2023-10-17</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>35 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-17 08:51:08.157662</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-17 08:51:44.016888</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 180, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 197, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: https://www.fenland.gov.uk/localgov//mgWebService.asmx/GetCouncillorsByWard
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:51:08] Fetching Scraper for: FEN                              handlers.py:23
+           Begin attempting to scrape: FEN                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[08:51:09] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 43 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 43 files in Councillors/raw                      base.py:207
+           ...found 87 files in Councillors                          base.py:207
+           Deleting batch no. 1 consisting of 87 files               base.py:216
+[08:51:10] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://www.fenland.gov.uk/localgov//mgWebService.asmx/Get           
+           CouncillorsByWard                                                    
+[08:51:42] 500 Server Error: Internal Server Error for url:       handlers.py:36
+           https://www.fenland.gov.uk/localgov//mgWebService.asmx               
+           /GetCouncillorsByWard                                                
+[08:51:44] Finished attempting to scrape: FEN                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-10-16-09-38">2023-10-16</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1010,57 +1075,6 @@ requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: 
            CouncillorsByWard                                                    
 [12:25:21] Committing batch 1 consisting of 86 files                 base.py:274
 [12:25:23] Finished attempting to scrape: FEN                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-09-28-12-08">2023-09-28</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-09-28 12:08:59.007713</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-09-28 12:09:04.656106</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:08:59] Fetching Scraper for: FEN                              handlers.py:23
-           Begin attempting to scrape: FEN                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-[12:09:00] Getting all files in Councillors/json...                  base.py:191
-           ...found 43 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 43 files in Councillors/raw                      base.py:207
-           ...found 87 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 87 files               base.py:216
-[12:09:01] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://www.fenland.gov.uk/localgov//mgWebService.asmx/Get           
-           CouncillorsByWard                                                    
-[12:09:03] Committing batch 1 consisting of 86 files                 base.py:274
-[12:09:04] Finished attempting to scrape: FEN                        base.py:324
 </pre>
   
 
