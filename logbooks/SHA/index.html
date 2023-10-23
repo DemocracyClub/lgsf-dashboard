@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2023-10-21-08-25">2023-10-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-21 08:25:05.248234</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-21 08:25:13.508404</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:25:05] Fetching Scraper for: SHA                              handlers.py:23
+           Begin attempting to scrape: SHA                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[08:25:06] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 62 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 62 files in Councillors/raw                      base.py:207
+           ...found 125 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[08:25:07] Deleting batch no. 2 consisting of 25 files               base.py:216
+[08:25:08] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://democracy.swdevon.gov.uk//mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+[08:25:11] Committing batch 1 consisting of 92 files                 base.py:274
+[08:25:12] Committing batch 2 consisting of 32 files                 base.py:274
+[08:25:13] Finished attempting to scrape: SHA                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-10-20-10-45">2023-10-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1031,61 +1084,6 @@ IndexError: list index out of range
 [14:02:27] ...data deleted.                                          base.py:246
            Scraping from https://www.southhams.gov.uk/councillorsSH   base.py:42
 [14:02:28] Finished attempting to scrape: SHA                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-10-04-13-31">2023-10-04</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>3 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-10-04 13:31:20.025265</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-10-04 13:31:23.443100</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 49, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 145, in get_list_container
-    return selected[0]
-IndexError: list index out of range
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:31:20] Fetching Scraper for: SHA                              handlers.py:23
-           Begin attempting to scrape: SHA                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[13:31:21] ...data deleted.                                          base.py:246
-           Scraping from https://www.southhams.gov.uk/councillorsSH   base.py:42
-[13:31:23] list index out of range                                handlers.py:36
-           Finished attempting to scrape: SHA                        base.py:324
 </pre>
   
 

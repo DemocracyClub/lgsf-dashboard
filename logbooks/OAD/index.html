@@ -37,6 +37,120 @@
   
 
 
+  <h2 id="2023-10-21-09-40">2023-10-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-21 09:40:54.728597</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-21 09:40:57.260241</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 466, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/opt/python/urllib3/connectionpool.py", line 461, in _make_request
+    httplib_response = conn.getresponse()
+  File "/var/lang/lib/python3.8/http/client.py", line 1348, in getresponse
+    response.begin()
+  File "/var/lang/lib/python3.8/http/client.py", line 316, in begin
+    version, status, reason = self._read_status()
+  File "/var/lang/lib/python3.8/http/client.py", line 277, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/var/lang/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/opt/python/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/opt/python/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 466, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/opt/python/urllib3/connectionpool.py", line 461, in _make_request
+    httplib_response = conn.getresponse()
+  File "/var/lang/lib/python3.8/http/client.py", line 1348, in getresponse
+    response.begin()
+  File "/var/lang/lib/python3.8/http/client.py", line 316, in begin
+    version, status, reason = self._read_status()
+  File "/var/lang/lib/python3.8/http/client.py", line 277, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/var/lang/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 180, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 197, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:40:54] Fetching Scraper for: OAD                              handlers.py:23
+           Begin attempting to scrape: OAD                        handlers.py:27
+[09:40:55] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[09:40:56] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://moderngov.oadby-wigston.gov.uk/mgWebService.asmx/Ge           
+           tCouncillorsByWard                                                   
+[09:40:57] ('Connection aborted.', ConnectionResetError(104,      handlers.py:36
+           'Connection reset by peer'))                                         
+           Finished attempting to scrape: OAD                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-10-20-09-06">2023-10-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2195,120 +2309,6 @@ requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetErro
            http://moderngov.oadby-wigston.gov.uk/mgWebService.asmx/Ge           
            tCouncillorsByWard                                                   
 [12:10:17] ('Connection aborted.', ConnectionResetError(104,      handlers.py:36
-           'Connection reset by peer'))                                         
-           Finished attempting to scrape: OAD                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-10-02-14-22">2023-10-02</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-10-02 14:22:35.020944</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-10-02 14:22:37.668203</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 714, in urlopen
-    httplib_response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 466, in _make_request
-    six.raise_from(e, None)
-  File "<string>", line 3, in raise_from
-  File "/opt/python/urllib3/connectionpool.py", line 461, in _make_request
-    httplib_response = conn.getresponse()
-  File "/var/lang/lib/python3.8/http/client.py", line 1348, in getresponse
-    response.begin()
-  File "/var/lang/lib/python3.8/http/client.py", line 316, in begin
-    version, status, reason = self._read_status()
-  File "/var/lang/lib/python3.8/http/client.py", line 277, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/var/lang/lib/python3.8/socket.py", line 669, in readinto
-    return self._sock.recv_into(b)
-ConnectionResetError: [Errno 104] Connection reset by peer
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 798, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 550, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-  File "/opt/python/urllib3/packages/six.py", line 769, in reraise
-    raise value.with_traceback(tb)
-  File "/opt/python/urllib3/connectionpool.py", line 714, in urlopen
-    httplib_response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 466, in _make_request
-    six.raise_from(e, None)
-  File "<string>", line 3, in raise_from
-  File "/opt/python/urllib3/connectionpool.py", line 461, in _make_request
-    httplib_response = conn.getresponse()
-  File "/var/lang/lib/python3.8/http/client.py", line 1348, in getresponse
-    response.begin()
-  File "/var/lang/lib/python3.8/http/client.py", line 316, in begin
-    version, status, reason = self._read_status()
-  File "/var/lang/lib/python3.8/http/client.py", line 277, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/var/lang/lib/python3.8/socket.py", line 669, in readinto
-    return self._sock.recv_into(b)
-urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 48, in get
-    response = self.requests_session.get(url, headers=headers, verify=verify)
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:22:35] Fetching Scraper for: OAD                              handlers.py:23
-           Begin attempting to scrape: OAD                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-[14:22:36] ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-           ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://moderngov.oadby-wigston.gov.uk/mgWebService.asmx/Ge           
-           tCouncillorsByWard                                                   
-[14:22:37] ('Connection aborted.', ConnectionResetError(104,      handlers.py:36
            'Connection reset by peer'))                                         
            Finished attempting to scrape: OAD                        base.py:324
 </pre>
