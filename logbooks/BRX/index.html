@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2023-10-23-09-51">2023-10-23</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>6 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-23 09:51:50.358080</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-23 09:51:56.617376</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:51:50] Fetching Scraper for: BRX                              handlers.py:23
+           Begin attempting to scrape: BRX                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[09:51:51] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 30 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 30 files in Councillors/raw                      base.py:207
+           ...found 61 files in Councillors                          base.py:207
+           Deleting batch no. 1 consisting of 61 files               base.py:216
+[09:51:52] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://broxbourne.moderngov.co.uk/mgWebService.asmx/GetCo           
+           uncillorsByWard                                                      
+[09:51:55] Committing batch 1 consisting of 60 files                 base.py:274
+[09:51:56] Finished attempting to scrape: BRX                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-10-22-09-17">2023-10-22</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1035,61 +1086,6 @@ IndexError: list index out of range
 [14:23:28] ...data deleted.                                          base.py:246
            Scraping from https://www.broxbourne.gov.uk/councillors    base.py:42
 [14:23:29] list index out of range                                handlers.py:36
-           Finished attempting to scrape: BRX                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-10-04-14-05">2023-10-04</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-10-04 14:05:15.452761</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-10-04 14:05:18.446192</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 49, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 145, in get_list_container
-    return selected[0]
-IndexError: list index out of range
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[14:05:15] Fetching Scraper for: BRX                              handlers.py:23
-           Begin attempting to scrape: BRX                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[14:05:16] Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[14:05:17] ...data deleted.                                          base.py:246
-           Scraping from https://www.broxbourne.gov.uk/councillors    base.py:42
-[14:05:18] list index out of range                                handlers.py:36
            Finished attempting to scrape: BRX                        base.py:324
 </pre>
   
