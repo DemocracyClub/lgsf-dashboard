@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2023-10-25-11-04">2023-10-25</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>11 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-25 11:04:48.567768</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-25 11:04:59.887623</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[11:04:48] Fetching Scraper for: EAL                              handlers.py:23
+           Begin attempting to scrape: EAL                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[11:04:49] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 70 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 70 files in Councillors/raw                      base.py:207
+           ...found 141 files in Councillors                         base.py:207
+           Deleting batch no. 1 consisting of 100 files              base.py:216
+[11:04:50] Deleting batch no. 2 consisting of 41 files               base.py:216
+[11:04:51] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://ealing.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[11:04:57] Committing batch 1 consisting of 92 files                 base.py:274
+[11:04:58] Committing batch 2 consisting of 48 files                 base.py:274
+[11:04:59] Finished attempting to scrape: EAL                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-10-24-08-36">2023-10-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1070,65 +1123,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://ealin
            ...found 1 files in Councillors                           base.py:207
            Deleting batch no. 1 consisting of 1 files                base.py:216
 [13:36:30] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://ealing.cmis.uk.com/ealing/Councillors.aspx                    
-           404 Client Error: Not Found for url:                   handlers.py:36
-           http://ealing.cmis.uk.com/ealing/Councillors.aspx                    
-           Finished attempting to scrape: EAL                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-10-06-12-47">2023-10-06</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>1 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-10-06 12:47:39.854134</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-10-06 12:47:41.795675</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 49, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 248, in get_councillors
-    req = self.get(self.base_url, extra_headers=self.extra_headers)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://ealing.cmis.uk.com/ealing/Councillors.aspx
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:47:39] Fetching Scraper for: EAL                              handlers.py:23
-           Begin attempting to scrape: EAL                        handlers.py:27
-[12:47:40] Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[12:47:41] ...data deleted.                                          base.py:246
            Scraping from                                              base.py:42
            http://ealing.cmis.uk.com/ealing/Councillors.aspx                    
            404 Client Error: Not Found for url:                   handlers.py:36
