@@ -37,6 +37,117 @@
   
 
 
+  <h2 id="2023-10-28-09-18">2023-10-28</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-28 09:18:55.525875</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-28 09:21:08.378377</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 403, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1053, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fe6e811c8e0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.winchester.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fe6e811c8e0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 180, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 197, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='democracy.winchester.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fe6e811c8e0>: Failed to establish a new connection: [Errno 110] Connection timed out'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:18:55] Fetching Scraper for: SWD                              handlers.py:23
+           Begin attempting to scrape: SWD                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[09:18:56] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 45 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 45 files in Councillors/raw                      base.py:207
+           ...found 91 files in Councillors                          base.py:207
+           Deleting batch no. 1 consisting of 91 files               base.py:216
+[09:18:57] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://democracy.winchester.gov.uk/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+[09:21:07] HTTPSConnectionPool(host='democracy.winchester.gov.uk' handlers.py:36
+           , port=443): Max retries exceeded with url:                          
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
+           NewConnectionError('<urllib3.connection.HTTPSConnectio               
+           n object at 0x7fe6e811c8e0>: Failed to establish a new               
+           connection: [Errno 110] Connection timed out'))                      
+[09:21:08] Finished attempting to scrape: SWD                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-10-27-09-33">2023-10-27</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1000,57 +1111,6 @@
            ouncillorsByWard                                                     
 [14:08:42] Committing batch 1 consisting of 90 files                 base.py:274
 [14:08:44] Finished attempting to scrape: SWD                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-10-09-13-39">2023-10-09</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-10-09 13:39:20.802084</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-10-09 13:39:26.541763</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[13:39:20] Fetching Scraper for: SWD                              handlers.py:23
-           Begin attempting to scrape: SWD                        handlers.py:27
-[13:39:21] Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 45 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-[13:39:22] ...found 45 files in Councillors/raw                      base.py:207
-           ...found 91 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 91 files               base.py:216
-           ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://democracy.winchester.gov.uk/mgWebService.asmx/GetC           
-           ouncillorsByWard                                                     
-[13:39:25] Committing batch 1 consisting of 90 files                 base.py:274
-[13:39:26] Finished attempting to scrape: SWD                        base.py:324
 </pre>
   
 
