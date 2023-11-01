@@ -37,6 +37,66 @@
   
 
 
+  <h2 id="2023-10-30-09-12">2023-10-30</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>6 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-30 09:12:03.978552</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-30 09:12:10.927400</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 184, in run
+    councillor = self.get_single_councillor(ward, councillor_xml)
+  File "scrapers/LEE-lewes/councillors.py", line 13, in get_single_councillor
+    if "lewes.gov.uk" in email:
+TypeError: argument of type 'NoneType' is not iterable
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:12:03] Fetching Scraper for: LEE                              handlers.py:23
+           Begin attempting to scrape: LEE                        handlers.py:27
+[09:12:04] Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+[09:12:05] ...found 40 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 40 files in Councillors/raw                      base.py:207
+           ...found 81 files in Councillors                          base.py:207
+           Deleting batch no. 1 consisting of 81 files               base.py:216
+[09:12:06] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://democracy.lewes-eastbourne.gov.uk//mgWebService.asm           
+           x/GetCouncillorsByWard                                               
+[09:12:09] argument of type 'NoneType' is not iterable            handlers.py:36
+           Committing batch 1 consisting of 80 files                 base.py:274
+[09:12:10] Finished attempting to scrape: LEE                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-10-29-10-13">2023-10-29</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1171,66 +1231,6 @@ TypeError: argument of type 'NoneType' is not iterable
 [14:12:17] argument of type 'NoneType' is not iterable            handlers.py:36
            Committing batch 1 consisting of 80 files                 base.py:274
 [14:12:18] Finished attempting to scrape: LEE                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-10-11-12-49">2023-10-11</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>8 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-10-11 12:49:14.827604</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-10-11 12:49:23.054019</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 183, in run
-    councillor = self.get_single_councillor(ward, councillor_xml)
-  File "scrapers/LEE-lewes/councillors.py", line 13, in get_single_councillor
-    if "lewes.gov.uk" in email:
-TypeError: argument of type 'NoneType' is not iterable
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:49:14] Fetching Scraper for: LEE                              handlers.py:23
-           Begin attempting to scrape: LEE                        handlers.py:27
-[12:49:15] Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 40 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-[12:49:16] ...found 40 files in Councillors/raw                      base.py:207
-           ...found 81 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 81 files               base.py:216
-[12:49:17] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://democracy.lewes-eastbourne.gov.uk//mgWebService.asm           
-           x/GetCouncillorsByWard                                               
-[12:49:21] argument of type 'NoneType' is not iterable            handlers.py:36
-           Committing batch 1 consisting of 80 files                 base.py:274
-[12:49:23] Finished attempting to scrape: LEE                        base.py:324
 </pre>
   
 
