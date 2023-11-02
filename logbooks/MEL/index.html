@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2023-10-31-08-46">2023-10-31</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>6 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-10-31 08:46:40.588967</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-10-31 08:46:46.607714</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:46:40] Fetching Scraper for: MEL                              handlers.py:23
+           Begin attempting to scrape: MEL                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[08:46:41] Getting all files in Councillors...                       base.py:191
+           Getting all files in Councillors/json...                  base.py:191
+           ...found 28 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 28 files in Councillors/raw                      base.py:207
+           ...found 57 files in Councillors                          base.py:207
+           Deleting batch no. 1 consisting of 57 files               base.py:216
+[08:46:42] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:46:45] Committing batch 1 consisting of 56 files                 base.py:274
+[08:46:46] Finished attempting to scrape: MEL                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-10-30-08-38">2023-10-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1052,67 +1103,6 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='democracy.melton.
            illorsByWard                                                         
 [08:16:49] Committing batch 1 consisting of 56 files                 base.py:274
 [08:16:50] Finished attempting to scrape: MEL                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-10-12-12-26">2023-10-12</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>302 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-10-12 12:26:19.327465</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-10-12 12:31:22.034746</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 179, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 196, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 502 Server Error: Proxy Error for url: https://democracy.melton.gov.uk/mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[12:26:19] Fetching Scraper for: MEL                              handlers.py:23
-           Begin attempting to scrape: MEL                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[12:26:20] Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[12:26:21] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
-           illorsByWard                                                         
-[12:31:21] 502 Server Error: Proxy Error for url:                 handlers.py:36
-           https://democracy.melton.gov.uk/mgWebService.asmx/GetC               
-           ouncillorsByWard                                                     
-[12:31:22] Finished attempting to scrape: MEL                        base.py:324
 </pre>
   
 
