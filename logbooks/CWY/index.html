@@ -37,6 +37,66 @@
   
 
 
+  <h2 id="2023-11-05-08-23">2023-11-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>117 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-11-05 08:23:20.528066</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-11-05 08:25:18.282744</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 180, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 197, in get_councillors
+    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://modgovpub-eng.secure.conwy.gov.uk/mgError.aspx
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:23:20] Fetching Scraper for: CWY                              handlers.py:23
+           Begin attempting to scrape: CWY                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[08:23:21] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[08:23:22] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://modgovpub-eng.secure.conwy.gov.uk/mgWebService.asm           
+           x/GetCouncillorsByWard                                               
+[08:25:17] 404 Client Error: Not Found for url:                   handlers.py:36
+           https://modgovpub-eng.secure.conwy.gov.uk/mgError.aspx               
+[08:25:18] Finished attempting to scrape: CWY                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-11-05-07-45">2023-11-05</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -919,52 +979,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://modg
            https://modgovpub-eng.secure.conwy.gov.uk/mgWebService.asm           
            x/GetCouncillorsByWard                                               
 [22:45:43] Finished attempting to scrape: CWY                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-11-04-22-15">2023-11-04</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>35 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-11-04 22:15:23.982269</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-11-04 22:15:59.553112</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[22:15:23] Fetching Scraper for: CWY                              handlers.py:23
-[22:15:24] Begin attempting to scrape: CWY                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[22:15:25] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://modgovpub-eng.secure.conwy.gov.uk/mgWebService.asm           
-           x/GetCouncillorsByWard                                               
-[22:15:59] Finished attempting to scrape: CWY                        base.py:324
 </pre>
   
 
