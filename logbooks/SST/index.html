@@ -37,6 +37,65 @@
   
 
 
+  <h2 id="2023-11-11-09-26">2023-11-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-11-11 09:26:24.468603</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-11-11 09:26:26.664433</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 50, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 251, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://services.sstaffs.gov.uk/cmis/Councillors.aspx
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:26:24] Fetching Scraper for: SST                              handlers.py:23
+           Begin attempting to scrape: SST                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[09:26:25] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[09:26:26] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://services.sstaffs.gov.uk/cmis/Councillors.aspx                
+           404 Client Error: Not Found for url:                   handlers.py:36
+           https://services.sstaffs.gov.uk/cmis/Councillors.aspx                
+           Finished attempting to scrape: SST                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-11-10-08-29">2023-11-10</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1147,65 +1206,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://serv
            ...found 1 files in Councillors                           base.py:207
            Deleting batch no. 1 consisting of 1 files                base.py:216
 [10:22:28] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://services.sstaffs.gov.uk/cmis/Councillors.aspx                
-           404 Client Error: Not Found for url:                   handlers.py:36
-           https://services.sstaffs.gov.uk/cmis/Councillors.aspx                
-           Finished attempting to scrape: SST                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-10-22-08-23">2023-10-22</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-10-22 08:23:03.633394</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-10-22 08:23:05.945092</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 50, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 249, in get_councillors
-    req = self.get(self.base_url, extra_headers=self.extra_headers)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://services.sstaffs.gov.uk/cmis/Councillors.aspx
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:23:03] Fetching Scraper for: SST                              handlers.py:23
-           Begin attempting to scrape: SST                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[08:23:04] Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[08:23:05] ...data deleted.                                          base.py:246
            Scraping from                                              base.py:42
            https://services.sstaffs.gov.uk/cmis/Councillors.aspx                
            404 Client Error: Not Found for url:                   handlers.py:36
