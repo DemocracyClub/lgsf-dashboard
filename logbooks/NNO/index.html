@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2023-11-12-10-10">2023-11-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-11-12 10:10:06.169953</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-11-12 10:10:11.766643</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:10:06] Fetching Scraper for: NNO                              handlers.py:23
+           Begin attempting to scrape: NNO                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+           Getting all files in Councillors...                       base.py:191
+[10:10:07] Getting all files in Councillors/json...                  base.py:191
+           ...found 39 files in Councillors/json                     base.py:207
+           Getting all files in Councillors/raw...                   base.py:191
+           ...found 39 files in Councillors/raw                      base.py:207
+           ...found 79 files in Councillors                          base.py:207
+           Deleting batch no. 1 consisting of 79 files               base.py:216
+[10:10:08] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://modgov.north-norfolk.gov.uk/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+[10:10:10] Committing batch 1 consisting of 78 files                 base.py:274
+[10:10:11] Finished attempting to scrape: NNO                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-11-11-08-35">2023-11-11</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1086,64 +1137,6 @@ IndexError: list index out of range
            Scraping from                                              base.py:42
            https://www.north-norfolk.gov.uk/members/#filter-form                
 [10:14:31] list index out of range                                handlers.py:36
-           Finished attempting to scrape: NNO                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-10-23-10-44">2023-10-23</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>4 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-10-23 10:44:42.584410</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-10-23 10:44:46.710626</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 50, in run
-    for councillor_html in self.get_councillors():
-  File "scrapers/NNO-north-norfolk/councillors.py", line 15, in get_councillors
-    return super().get_councillors()[1:]
-  File "/var/task/lgsf/councillors/scrapers.py", line 149, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 146, in get_list_container
-    return selected[0]
-IndexError: list index out of range
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:44:42] Fetching Scraper for: NNO                              handlers.py:23
-           Begin attempting to scrape: NNO                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[10:44:43] Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[10:44:44] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://www.north-norfolk.gov.uk/members/#filter-form                
-[10:44:46] list index out of range                                handlers.py:36
            Finished attempting to scrape: NNO                        base.py:324
 </pre>
   
