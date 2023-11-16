@@ -37,6 +37,227 @@
   
 
 
+  <h2 id="2023-11-14-10-45">2023-11-14</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-11-14 10:45:37.569708</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-11-14 10:45:39.967140</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 715, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 404, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1058, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 419, in connect
+    self.sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/opt/python/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.8/ssl.py", line 1073, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.8/ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 799, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.cne-siar.gov.uk', port=443): Max retries exceeded with url: /your-council/wards-and-councillors/council-members/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 50, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 151, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 144, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 131, in get_page
+    page = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='www.cne-siar.gov.uk', port=443): Max retries exceeded with url: /your-council/wards-and-councillors/council-members/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:45:37] Fetching Scraper for: ELS                              handlers.py:23
+           Begin attempting to scrape: ELS                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[10:45:38] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[10:45:39] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://www.cne-siar.gov.uk/your-council/wards-and-council           
+           lors/council-members/                                                
+           HTTPSConnectionPool(host='www.cne-siar.gov.uk',        handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /your-council/wards-and-councillors/council-members/                 
+           (Caused by SSLError(SSLCertVerificationError(1, '[SSL:               
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1131)')))                                                    
+           Finished attempting to scrape: ELS                        base.py:324
+</pre>
+  
+
+  
+
+
+  <h2 id="2023-11-13-08-53">2023-11-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-11-13 08:53:18.206849</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-11-13 08:53:20.400604</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 715, in urlopen
+    httplib_response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 404, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1058, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f1617c9d730>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 799, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.cne-siar.gov.uk', port=443): Max retries exceeded with url: /your-council/wards-and-councillors/council-members/ (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f1617c9d730>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 50, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 151, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 144, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 131, in get_page
+    page = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 48, in get
+    response = self.requests_session.get(url, headers=headers, verify=verify)
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.cne-siar.gov.uk', port=443): Max retries exceeded with url: /your-council/wards-and-councillors/council-members/ (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f1617c9d730>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:53:18] Fetching Scraper for: ELS                              handlers.py:23
+           Begin attempting to scrape: ELS                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[08:53:19] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[08:53:20] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           https://www.cne-siar.gov.uk/your-council/wards-and-council           
+           lors/council-members/                                                
+           HTTPSConnectionPool(host='www.cne-siar.gov.uk',        handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /your-council/wards-and-councillors/council-members/                 
+           (Caused by                                                           
+           NewConnectionError('<urllib3.connection.HTTPSConnectio               
+           n object at 0x7f1617c9d730>: Failed to establish a new               
+           connection: [Errno -2] Name or service not known'))                  
+           Finished attempting to scrape: ELS                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-11-12-08-44">2023-11-12</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2363,282 +2584,6 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.cne-siar.gov.
            lors/council-members/norman-macdonald/                               
 [09:46:23] Committing batch 1 consisting of 58 files                 base.py:274
 [09:46:24] Finished attempting to scrape: ELS                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-10-25-09-03">2023-10-25</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>41 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-10-25 09:03:19.070542</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-10-25 09:04:00.662633</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:03:19] Fetching Scraper for: ELS                              handlers.py:23
-           Begin attempting to scrape: ELS                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-[09:03:20] Getting all files in Councillors/json...                  base.py:191
-           ...found 29 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 29 files in Councillors/raw                      base.py:207
-           ...found 59 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 59 files               base.py:216
-[09:03:21] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/                                                
-[09:03:23] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/iain-a-macneil/                                 
-[09:03:25] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/kenneth-j-maclean/                              
-[09:03:26] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/iain-m-macleod/                                 
-[09:03:27] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/paul-f-steele/                                  
-[09:03:29] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/susan-thomson/                                  
-[09:03:30] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/mustapha-hocine/                                
-[09:03:31] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/uisdean-robertson/                              
-[09:03:32] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/grant-fulton/                                   
-[09:03:33] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/paul-a-finnegan/                                
-[09:03:35] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/angus-morrison/                                 
-[09:03:36] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/robert-mackenzie/                               
-[09:03:37] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/alasdair-r-fraser/                              
-[09:03:38] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/norman-misty-macdonald/                         
-[09:03:39] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/donald-macsween/                                
-[09:03:40] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/john-n-macleod/                                 
-[09:03:42] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/kenneth-macleod/                                
-[09:03:44] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/calum-maclean/                                  
-[09:03:45] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/donald-crichton/                                
-[09:03:46] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/john-a-maciver/                                 
-[09:03:47] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/duncan-macinnes/                                
-[09:03:48] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/gordon-murray/                                  
-[09:03:50] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/iain-m-macaulay/                                
-[09:03:51] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/malcolm-k-macdonald/                            
-[09:03:52] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/angus-mccormack/                                
-[09:03:53] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/frances-murray/                                 
-[09:03:54] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/george-murray/                                  
-[09:03:55] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/rae-mackenzie/                                  
-[09:03:56] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/finlay-m-stewart/                               
-[09:03:57] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/norman-macdonald/                               
-[09:03:59] Committing batch 1 consisting of 58 files                 base.py:274
-[09:04:00] Finished attempting to scrape: ELS                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-10-24-09-27">2023-10-24</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>42 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-10-24 09:27:07.704008</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-10-24 09:27:50.228206</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:27:07] Fetching Scraper for: ELS                              handlers.py:23
-           Begin attempting to scrape: ELS                        handlers.py:27
-[09:27:08] Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 29 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-[09:27:09] ...found 29 files in Councillors/raw                      base.py:207
-           ...found 59 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 59 files               base.py:216
-           ...data deleted.                                          base.py:246
-[09:27:10] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/                                                
-[09:27:12] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/iain-a-macneil/                                 
-[09:27:14] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/kenneth-j-maclean/                              
-[09:27:15] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/iain-m-macleod/                                 
-[09:27:17] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/paul-f-steele/                                  
-[09:27:18] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/susan-thomson/                                  
-[09:27:19] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/mustapha-hocine/                                
-[09:27:21] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/uisdean-robertson/                              
-[09:27:22] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/grant-fulton/                                   
-[09:27:23] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/paul-a-finnegan/                                
-[09:27:25] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/angus-morrison/                                 
-[09:27:26] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/robert-mackenzie/                               
-[09:27:27] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/alasdair-r-fraser/                              
-[09:27:28] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/norman-misty-macdonald/                         
-[09:27:29] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/donald-macsween/                                
-[09:27:30] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/john-n-macleod/                                 
-[09:27:31] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/kenneth-macleod/                                
-[09:27:32] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/calum-maclean/                                  
-[09:27:33] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/donald-crichton/                                
-[09:27:34] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/john-a-maciver/                                 
-[09:27:35] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/duncan-macinnes/                                
-[09:27:37] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/gordon-murray/                                  
-[09:27:38] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/iain-m-macaulay/                                
-[09:27:39] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/malcolm-k-macdonald/                            
-[09:27:40] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/angus-mccormack/                                
-[09:27:42] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/frances-murray/                                 
-[09:27:43] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/george-murray/                                  
-[09:27:44] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/rae-mackenzie/                                  
-[09:27:45] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/finlay-m-stewart/                               
-[09:27:47] Scraping from                                              base.py:42
-           https://www.cne-siar.gov.uk/your-council/wards-and-council           
-           lors/council-members/norman-macdonald/                               
-[09:27:48] Committing batch 1 consisting of 58 files                 base.py:274
-[09:27:50] Finished attempting to scrape: ELS                        base.py:324
 </pre>
   
 
