@@ -37,6 +37,69 @@
   
 
 
+  <h2 id="2023-11-18-08-19">2023-11-18</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-11-18 08:19:19.288758</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-11-18 08:19:21.446375</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 50, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 257, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 49, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://testvalley.cmis.uk.com/testvalleypublic/ElectedRepresentatives/tabid/63/ScreenMode/Alphabetical/Default.aspx#MemberSectionA
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:19:19] Fetching Scraper for: TES                              handlers.py:23
+           Begin attempting to scrape: TES                        handlers.py:27
+           Deleting existing data...                                 base.py:239
+[08:19:20] Getting all files in Councillors...                       base.py:191
+           ...found 1 files in Councillors                           base.py:207
+           Deleting batch no. 1 consisting of 1 files                base.py:216
+[08:19:21] ...data deleted.                                          base.py:246
+           Scraping from                                              base.py:42
+           http://testvalley.cmis.uk.com/testvalleypublic/ElectedRepr           
+           esentatives/tabid/63/ScreenMode/Alphabetical/Default.aspx#           
+           MemberSectionA                                                       
+           404 Client Error: Not Found for url:                   handlers.py:36
+           http://testvalley.cmis.uk.com/testvalleypublic/Elected               
+           Representatives/tabid/63/ScreenMode/Alphabetical/Defau               
+           lt.aspx#MemberSectionA                                               
+           Finished attempting to scrape: TES                        base.py:324
+</pre>
+  
+
+  
+
+
   <h2 id="2023-11-17-08-29">2023-11-17</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1228,69 +1291,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://testv
            Representatives/tabid/63/ScreenMode/Alphabetical/Defau               
            lt.aspx#MemberSectionA                                               
            Finished attempting to scrape: TES                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-10-29-10-02">2023-10-29</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-10-29 10:02:46.949081</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-10-29 10:02:49.081999</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 50, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 249, in get_councillors
-    req = self.get(self.base_url, extra_headers=self.extra_headers)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://testvalley.cmis.uk.com/testvalleypublic/ElectedRepresentatives/tabid/63/ScreenMode/Alphabetical/Default.aspx#MemberSectionA
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:02:46] Fetching Scraper for: TES                              handlers.py:23
-           Begin attempting to scrape: TES                        handlers.py:27
-[10:02:47] Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[10:02:48] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://testvalley.cmis.uk.com/testvalleypublic/ElectedRepr           
-           esentatives/tabid/63/ScreenMode/Alphabetical/Default.aspx#           
-           MemberSectionA                                                       
-           404 Client Error: Not Found for url:                   handlers.py:36
-           http://testvalley.cmis.uk.com/testvalleypublic/Elected               
-           Representatives/tabid/63/ScreenMode/Alphabetical/Defau               
-           lt.aspx#MemberSectionA                                               
-[10:02:49] Finished attempting to scrape: TES                        base.py:324
 </pre>
   
 
