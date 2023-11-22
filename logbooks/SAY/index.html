@@ -37,6 +37,141 @@
   
 
 
+  <h2 id="2023-11-20-08-47">2023-11-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-11-20 08:47:58.329705</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-11-20 08:48:01.132558</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 642, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/opt/python/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 471, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/opt/python/urllib3/util/ssl_.py", line 515, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/opt/python/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 642, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/opt/python/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 471, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/opt/python/urllib3/util/ssl_.py", line 515, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 56, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 164, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 155, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 142, in get_page
+    page = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:47:58] Fetching Scraper for: SAY                              handlers.py:23
+           Begin attempting to scrape: SAY                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+[08:47:59] Getting all files in Councillors...                       base.py:203
+           Getting all files in Councillors/json...                  base.py:203
+           ...found 28 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+           ...found 28 files in Councillors/raw                      base.py:219
+           ...found 57 files in Councillors                          base.py:219
+           Deleting batch no. 1 consisting of 57 files               base.py:230
+[08:48:00] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://www.south-ayrshire.gov.uk/councillors/                       
+           ('Connection aborted.', ConnectionResetError(104,      handlers.py:36
+           'Connection reset by peer'))                                         
+[08:48:01] Finished attempting to scrape: SAY                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2023-11-19-10-14">2023-11-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2330,127 +2465,6 @@
            -Alan-Lamont                                                         
 [09:38:20] Committing batch 1 consisting of 56 files                 base.py:274
 [09:38:22] Finished attempting to scrape: SAY                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-10-31-08-32">2023-10-31</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>53 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-10-31 08:32:54.271657</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-10-31 08:33:48.247277</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:32:54] Fetching Scraper for: SAY                              handlers.py:23
-           Begin attempting to scrape: SAY                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[08:32:55] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 28 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 28 files in Councillors/raw                      base.py:207
-           ...found 57 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 57 files               base.py:216
-[08:32:56] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillors/                       
-[08:32:58] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/article/40068/Councillor           
-           -Kenneth-Bell                                                        
-[08:32:59] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-craig-mackay            
-[08:33:01] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-bob-pollock             
-[08:33:03] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-philip-saxton           
-[08:33:04] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-ian-cochrane            
-[08:33:06] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-hugh-hunter             
-[08:33:09] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/article/40070/Councillor           
-           -Martin-Kilbride                                                     
-[08:33:11] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/article/40071/Councillor           
-           -Cameron-Ramsay                                                      
-[08:33:12] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-laura-brennan           
-           -whitefield                                                          
-[08:33:14] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/article/40072/Councillor           
-           -Mark-Dixon                                                          
-[08:33:16] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-ian-cavana              
-[08:33:17] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-ian-davis               
-[08:33:19] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-chris-cullen            
-[08:33:20] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-mary-kilpatri           
-           ck                                                                   
-[08:33:22] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-brian-mcginle           
-           y                                                                    
-[08:33:24] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/article/40073/Councillor           
-           -Bob-Shields                                                         
-[08:33:25] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-martin-dowey            
-[08:33:27] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-lee-lyons               
-[08:33:29] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/article/40074/Councillor           
-           -George-Weir                                                         
-[08:33:30] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/article/40067/Councillor           
-           -Stephen-Ferry                                                       
-[08:33:32] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-julie-dettbar           
-           n                                                                    
-[08:33:34] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/article/40075/Councillor           
-           -Duncan-Townson                                                      
-[08:33:35] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-iain-campbell           
-[08:33:37] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-brian-connoll           
-           y                                                                    
-[08:33:40] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-william-grant           
-[08:33:41] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/councillor-alec-clark              
-[08:33:43] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/article/40076/Councillor           
-           -Gavin-Scott                                                         
-[08:33:45] Scraping from                                              base.py:42
-           https://www.south-ayrshire.gov.uk/article/60507/Councillor           
-           -Alan-Lamont                                                         
-[08:33:46] Committing batch 1 consisting of 56 files                 base.py:274
-[08:33:48] Finished attempting to scrape: SAY                        base.py:324
 </pre>
   
 
