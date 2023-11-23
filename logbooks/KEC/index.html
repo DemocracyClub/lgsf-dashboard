@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2023-11-21-10-17">2023-11-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-11-21 10:17:13.949932</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-11-21 10:17:23.949442</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:17:13] Fetching Scraper for: KEC                              handlers.py:23
+           Begin attempting to scrape: KEC                        handlers.py:27
+[10:17:14] Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+           Getting all files in Councillors/json...                  base.py:203
+[10:17:15] ...found 50 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+           ...found 50 files in Councillors/raw                      base.py:219
+           ...found 101 files in Councillors                         base.py:219
+           Deleting batch no. 1 consisting of 100 files              base.py:230
+[10:17:17] Deleting batch no. 2 consisting of 1 files                base.py:230
+[10:17:18] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://www.rbkc.gov.uk/Committees/mgWebService.asmx/GetCo           
+           uncillorsByWard                                                      
+[10:17:21] Committing batch 1 consisting of 92 files                 base.py:291
+[10:17:22] Committing batch 2 consisting of 8 files                  base.py:291
+[10:17:23] Finished attempting to scrape: KEC                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2023-11-20-10-45">2023-11-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1055,65 +1108,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://rbkc
            Scraping from                                              base.py:42
            https://www.rbkc.gov.uk/committees/Councillors.aspx                  
 [10:19:40] 404 Client Error: Not Found for url:                   handlers.py:36
-           https://rbkc.moderngov.co.uk/Committees/mgError.aspx                 
-           Finished attempting to scrape: KEC                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-11-01-10-07">2023-11-01</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>8 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-11-01 10:07:45.672433</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-11-01 10:07:54.529603</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 50, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 249, in get_councillors
-    req = self.get(self.base_url, extra_headers=self.extra_headers)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://rbkc.moderngov.co.uk/Committees/mgError.aspx
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:07:45] Fetching Scraper for: KEC                              handlers.py:23
-           Begin attempting to scrape: KEC                        handlers.py:27
-[10:07:46] Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[10:07:47] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://www.rbkc.gov.uk/committees/Councillors.aspx                  
-[10:07:54] 404 Client Error: Not Found for url:                   handlers.py:36
            https://rbkc.moderngov.co.uk/Committees/mgError.aspx                 
            Finished attempting to scrape: KEC                        base.py:324
 </pre>

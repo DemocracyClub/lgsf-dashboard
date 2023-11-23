@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2023-11-21-09-49">2023-11-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-11-21 09:49:37.590992</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-11-21 09:49:48.063638</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:49:37] Fetching Scraper for: HUN                              handlers.py:23
+           Begin attempting to scrape: HUN                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+[09:49:38] Getting all files in Councillors...                       base.py:203
+           Getting all files in Councillors/json...                  base.py:203
+           ...found 52 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+[09:49:39] ...found 52 files in Councillors/raw                      base.py:219
+           ...found 105 files in Councillors                         base.py:219
+           Deleting batch no. 1 consisting of 100 files              base.py:230
+           Deleting batch no. 2 consisting of 5 files                base.py:230
+[09:49:40] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://democracy.huntingdonshire.gov.uk/moderngov//mgWebS           
+           ervice.asmx/GetCouncillorsByWard                                     
+[09:49:45] Committing batch 1 consisting of 92 files                 base.py:291
+[09:49:47] Committing batch 2 consisting of 12 files                 base.py:291
+[09:49:48] Finished attempting to scrape: HUN                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2023-11-20-10-01">2023-11-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1058,67 +1111,6 @@ requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: ht
            ...found 1 files in Councillors                           base.py:207
            Deleting batch no. 1 consisting of 1 files                base.py:216
 [10:23:04] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://applications.huntingdonshire.gov.uk/moderngov//mgWe           
-           bService.asmx/GetCouncillorsByWard                                   
-           503 Server Error: Service Unavailable for url:         handlers.py:36
-           http://applications.huntingdonshire.gov.uk/moderngov//               
-           mgWebService.asmx/GetCouncillorsByWard                               
-           Finished attempting to scrape: HUN                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-11-01-10-15">2023-11-01</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-11-01 10:15:57.457086</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-11-01 10:15:59.707136</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 180, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in get_councillors
-    req = self.get(self.format_councillor_api_url(), verify=self.verify_requests)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: http://applications.huntingdonshire.gov.uk/moderngov//mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:15:57] Fetching Scraper for: HUN                              handlers.py:23
-           Begin attempting to scrape: HUN                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[10:15:58] Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[10:15:59] ...data deleted.                                          base.py:246
            Scraping from                                              base.py:42
            http://applications.huntingdonshire.gov.uk/moderngov//mgWe           
            bService.asmx/GetCouncillorsByWard                                   
