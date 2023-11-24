@@ -37,6 +37,125 @@
   
 
 
+  <h2 id="2023-11-22-10-25">2023-11-22</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>841 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-11-22 10:25:27.203025</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-11-22 10:39:28.418088</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+  File "/opt/python/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/var/lang/lib/python3.10/http/client.py", line 1375, in getresponse
+    response.begin()
+  File "/var/lang/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/var/lang/lib/python3.10/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/opt/python/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+  File "/opt/python/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/var/lang/lib/python3.10/http/client.py", line 1375, in getresponse
+    response.begin()
+  File "/var/lang/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/var/lang/lib/python3.10/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 725, in send
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 725, in <listcomp>
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 266, in resolve_redirects
+    resp = self.send(
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:25:27] Fetching Scraper for: HAL                              handlers.py:23
+           Begin attempting to scrape: HAL                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+[10:25:28] Getting all files in Councillors...                       base.py:203
+           Getting all files in Councillors/json...                  base.py:203
+           ...found 54 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+           ...found 54 files in Councillors/raw                      base.py:219
+           ...found 109 files in Councillors                         base.py:219
+           Deleting batch no. 1 consisting of 100 files              base.py:230
+[10:25:29] Deleting batch no. 2 consisting of 9 files                base.py:230
+[10:25:30] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           http://councillors.halton.gov.uk/mgWebService.asmx/GetCoun           
+           cillorsByWard                                                        
+[10:39:27] ('Connection aborted.', RemoteDisconnected('Remote end handlers.py:36
+           closed connection without response'))                                
+[10:39:28] Finished attempting to scrape: HAL                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2023-11-21-09-09">2023-11-21</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1038,59 +1157,6 @@
 [08:37:12] Committing batch 1 consisting of 92 files                 base.py:274
 [08:37:13] Committing batch 2 consisting of 16 files                 base.py:274
 [08:37:15] Finished attempting to scrape: HAL                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-11-02-09-17">2023-11-02</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>9 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-11-02 09:17:41.578313</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-11-02 09:17:51.451810</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:17:41] Fetching Scraper for: HAL                              handlers.py:23
-           Begin attempting to scrape: HAL                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[09:17:42] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 54 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-[09:17:43] ...found 54 files in Councillors/raw                      base.py:207
-           ...found 109 files in Councillors                         base.py:207
-           Deleting batch no. 1 consisting of 100 files              base.py:216
-           Deleting batch no. 2 consisting of 9 files                base.py:216
-[09:17:44] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://councillors.halton.gov.uk/mgWebService.asmx/GetCoun           
-           cillorsByWard                                                        
-[09:17:48] Committing batch 1 consisting of 92 files                 base.py:274
-[09:17:50] Committing batch 2 consisting of 16 files                 base.py:274
-[09:17:51] Finished attempting to scrape: HAL                        base.py:324
 </pre>
   
 
