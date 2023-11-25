@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2023-11-23-09-01">2023-11-23</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-11-23 09:01:22.427510</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-11-23 09:01:31.738861</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:01:22] Fetching Scraper for: MIK                              handlers.py:23
+           Begin attempting to scrape: MIK                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+[09:01:23] Getting all files in Councillors...                       base.py:203
+           Getting all files in Councillors/json...                  base.py:203
+           ...found 57 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+           ...found 57 files in Councillors/raw                      base.py:219
+           ...found 115 files in Councillors                         base.py:219
+           Deleting batch no. 1 consisting of 100 files              base.py:230
+[09:01:24] Deleting batch no. 2 consisting of 15 files               base.py:230
+[09:01:25] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://milton-keynes.moderngov.co.uk/mgWebService.asmx/Ge           
+           tCouncillorsByWard                                                   
+[09:01:29] Committing batch 1 consisting of 92 files                 base.py:291
+[09:01:30] Committing batch 2 consisting of 22 files                 base.py:291
+[09:01:31] Finished attempting to scrape: MIK                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2023-11-22-09-11">2023-11-22</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1049,67 +1102,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://milto
            http://milton-keynes.cmis.uk.com/milton-keynes/Council               
            lors.aspx                                                            
 [09:28:47] Finished attempting to scrape: MIK                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-11-03-09-14">2023-11-03</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-11-03 09:14:39.422322</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-11-03 09:14:41.551797</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 50, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 249, in get_councillors
-    req = self.get(self.base_url, extra_headers=self.extra_headers)
-  File "/var/task/lgsf/scrapers/base.py", line 49, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://milton-keynes.cmis.uk.com/milton-keynes/Councillors.aspx
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:14:39] Fetching Scraper for: MIK                              handlers.py:23
-           Begin attempting to scrape: MIK                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[09:14:40] Getting all files in Councillors...                       base.py:191
-           ...found 1 files in Councillors                           base.py:207
-           Deleting batch no. 1 consisting of 1 files                base.py:216
-[09:14:41] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://milton-keynes.cmis.uk.com/milton-keynes/Councillors           
-           .aspx                                                                
-           404 Client Error: Not Found for url:                   handlers.py:36
-           http://milton-keynes.cmis.uk.com/milton-keynes/Council               
-           lors.aspx                                                            
-           Finished attempting to scrape: MIK                        base.py:324
 </pre>
   
 
