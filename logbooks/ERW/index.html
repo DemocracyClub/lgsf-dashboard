@@ -37,6 +37,137 @@
   
 
 
+  <h2 id="2023-11-25-10-03">2023-11-25</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-11-25 10:03:01.031847</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-11-25 10:03:03.419369</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 642, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/opt/python/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 471, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/opt/python/urllib3/util/ssl_.py", line 515, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/opt/python/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 642, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/opt/python/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 471, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/opt/python/urllib3/util/ssl_.py", line 515, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 56, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 164, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 155, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 142, in get_page
+    page = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:03:01] Fetching Scraper for: ERW                              handlers.py:23
+           Begin attempting to scrape: ERW                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+[10:03:02] ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+           ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://www.eastrenfrewshire.gov.uk/Find-my-councillor               
+[10:03:03] ('Connection aborted.', ConnectionResetError(104,      handlers.py:36
+           'Connection reset by peer'))                                         
+           Finished attempting to scrape: ERW                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2023-11-24-10-08">2023-11-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2118,108 +2249,6 @@ requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetErro
            https://www.eastrenfrewshire.gov.uk/councillor-jim-mclean            
 [09:22:57] Committing batch 1 consisting of 36 files                 base.py:274
 [09:22:59] Finished attempting to scrape: ERW                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-11-05-10-04">2023-11-05</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>22 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-11-05 10:04:12.571628</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-11-05 10:04:34.892126</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:04:12] Fetching Scraper for: ERW                              handlers.py:23
-           Begin attempting to scrape: ERW                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[10:04:13] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 18 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 18 files in Councillors/raw                      base.py:207
-           ...found 37 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 37 files               base.py:216
-[10:04:14] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/Find-my-councillor               
-[10:04:15] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/councillor-angela-conv           
-           ery                                                                  
-[10:04:16] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/councillor-betty-cunni           
-           ngham                                                                
-[10:04:17] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/councillor-danny-devli           
-           n                                                                    
-[10:04:18] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/Councillor-Chris-Lunda           
-           y                                                                    
-[10:04:19] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/councillor-tony-buchan           
-           an                                                                   
-[10:04:20] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/Councillor-Andrew-Morr           
-           ison                                                                 
-[10:04:21] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/Councillor-Owen-ODonne           
-           ll                                                                   
-[10:04:22] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/councillor-colm-merric           
-           k                                                                    
-[10:04:23] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/Councillor-Mary-Montag           
-           ue                                                                   
-[10:04:24] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/councillor-gordon-wall           
-           ace                                                                  
-[10:04:25] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/Councillor-Kate-Campbe           
-           ll                                                                   
-           Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/councillor-annette-ire           
-           land                                                                 
-[10:04:26] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/councillor-david-macdo           
-           nald                                                                 
-[10:04:27] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/Councillor-Katie-Pragn           
-           ell                                                                  
-[10:04:28] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/Councillor-Andrew-Ande           
-           rson                                                                 
-[10:04:29] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/councillor-caroline-ba           
-           mforth                                                               
-[10:04:31] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/Councillor-Paul-Edlin            
-[10:04:32] Scraping from                                              base.py:42
-           https://www.eastrenfrewshire.gov.uk/councillor-jim-mclean            
-[10:04:33] Committing batch 1 consisting of 36 files                 base.py:274
-[10:04:34] Finished attempting to scrape: ERW                        base.py:324
 </pre>
   
 
