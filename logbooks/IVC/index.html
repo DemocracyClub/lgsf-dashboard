@@ -37,6 +37,119 @@
   
 
 
+  <h2 id="2023-12-03-09-37">2023-12-03</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>133 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-12-03 09:37:13.878528</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-12-03 09:39:26.927226</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 212, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7f75586c2560>, 'Connection to www.inverclyde.gov.uk timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.inverclyde.gov.uk', port=443): Max retries exceeded with url: /meetings/councillors (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f75586c2560>, 'Connection to www.inverclyde.gov.uk timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 56, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 164, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 155, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 142, in get_page
+    page = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='www.inverclyde.gov.uk', port=443): Max retries exceeded with url: /meetings/councillors (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f75586c2560>, 'Connection to www.inverclyde.gov.uk timed out. (connect timeout=None)'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:37:13] Fetching Scraper for: IVC                              handlers.py:23
+           Begin attempting to scrape: IVC                        handlers.py:27
+[09:37:14] Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+           ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+[09:37:15] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://www.inverclyde.gov.uk/meetings/councillors                   
+[09:39:26] HTTPSConnectionPool(host='www.inverclyde.gov.uk',      handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /meetings/councillors (Caused by                                     
+           ConnectTimeoutError(<urllib3.connection.HTTPSConnectio               
+           n object at 0x7f75586c2560>, 'Connection to                          
+           www.inverclyde.gov.uk timed out. (connect                            
+           timeout=None)'))                                                     
+           Finished attempting to scrape: IVC                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2023-12-02-10-29">2023-12-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1859,100 +1972,6 @@ requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='www.inverclyde.gov
            https://www.inverclyde.gov.uk/meetings/councillors/1                 
 [09:53:21] Committing batch 1 consisting of 44 files                 base.py:274
 [09:53:22] Finished attempting to scrape: IVC                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-11-13-08-38">2023-11-13</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>68 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-11-13 08:38:06.260681</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-11-13 08:39:14.374949</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:38:06] Fetching Scraper for: IVC                              handlers.py:23
-           Begin attempting to scrape: IVC                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[08:38:07] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 22 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 22 files in Councillors/raw                      base.py:207
-           ...found 45 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 45 files               base.py:216
-[08:38:08] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors                   
-[08:38:14] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/31                
-[08:38:17] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/32                
-[08:38:20] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/25                
-[08:38:23] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/34                
-[08:38:25] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/8                 
-[08:38:28] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/27                
-[08:38:31] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/21                
-[08:38:33] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/33                
-[08:38:35] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/24                
-[08:38:38] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/35                
-[08:38:42] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/4                 
-[08:38:44] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/37                
-[08:38:46] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/6                 
-[08:38:49] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/29                
-[08:38:51] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/23                
-[08:38:54] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/28                
-[08:38:57] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/7                 
-[08:39:00] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/19                
-[08:39:02] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/22                
-[08:39:05] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/38                
-[08:39:07] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/26                
-[08:39:10] Scraping from                                              base.py:42
-           https://www.inverclyde.gov.uk/meetings/councillors/1                 
-[08:39:12] Committing batch 1 consisting of 44 files                 base.py:274
-[08:39:14] Finished attempting to scrape: IVC                        base.py:324
 </pre>
   
 
