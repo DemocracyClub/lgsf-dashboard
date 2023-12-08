@@ -37,6 +37,71 @@
   
 
 
+  <h2 id="2023-12-06-09-34">2023-12-06</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-12-06 09:34:43.852534</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-12-06 09:34:52.298925</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 56, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 164, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 155, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 142, in get_page
+    page = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 50, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.molevalley.gov.uk/home/council/councillors/who-are-your-councillors
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:34:43] Fetching Scraper for: MOL                              handlers.py:23
+           Begin attempting to scrape: MOL                        handlers.py:27
+[09:34:44] Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+           ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+[09:34:45] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://www.molevalley.gov.uk/home/council/councillors/who           
+           -are-your-councillors                                                
+[09:34:51] 404 Client Error: Not Found for url:                   handlers.py:36
+           https://www.molevalley.gov.uk/home/council/councillors               
+           /who-are-your-councillors                                            
+[09:34:52] Finished attempting to scrape: MOL                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2023-12-05-08-33">2023-12-05</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1622,159 +1687,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.
            gh                                                                   
 [10:04:28] Committing batch 1 consisting of 78 files                 base.py:274
 [10:04:30] Finished attempting to scrape: MOL                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-11-16-09-23">2023-11-16</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>33 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-11-16 09:23:39.484244</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-11-16 09:24:13.366121</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:23:39] Fetching Scraper for: MOL                              handlers.py:23
-           Begin attempting to scrape: MOL                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[09:23:40] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 39 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 39 files in Councillors/raw                      base.py:207
-           ...found 79 files in Councillors                          base.py:207
-           Deleting batch no. 1 consisting of 79 files               base.py:216
-[09:23:41] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/home/council/councillors/who           
-           -are-your-councillors                                                
-[09:23:43] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-david-hawksw           
-           orth-cbe                                                             
-           Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-patricia-wil           
-           tshire                                                               
-[09:23:44] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-chris-hunt             
-[09:23:45] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-gerry-seveno           
-           aks                                                                  
-           Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-garry-stansf           
-           ield                                                                 
-[09:23:46] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-mary-cooper            
-[09:23:47] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-paul-kennedy           
-[09:23:48] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-andrew-matth           
-           ews                                                                  
-           Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-elizabeth-da           
-           ly                                                                   
-[09:23:49] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-christine-mi           
-           ller                                                                 
-[09:23:50] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-monica-welle           
-           r                                                                    
-[09:23:51] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-roger-adams            
-           Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-paula-keay             
-[09:23:52] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-paul-potter            
-[09:23:53] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-simon-budd             
-           Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-lesley-bushn           
-           ell                                                                  
-[09:23:54] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-alcia-loach            
-[09:23:55] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-jo-farrar-as           
-           trop                                                                 
-[09:23:56] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-david-draper           
-           Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-hazel-watson           
-[09:23:57] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-elsie-rosam            
-[09:23:59] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-margaret-coo           
-           ksey                                                                 
-           Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-stephen-cook           
-           sey                                                                  
-[09:24:00] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-nick-wright            
-[09:24:01] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-raj-haque              
-           Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-phil-hammond           
-[09:24:02] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-caroline-jos           
-           eph                                                                  
-[09:24:03] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-claire-malco           
-           mson                                                                 
-[09:24:04] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-clayton-well           
-           man                                                                  
-           Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-rosemary-hob           
-           bs                                                                   
-[09:24:05] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-ben-wall               
-[09:24:06] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-keira-vyvyan           
-           -robinson                                                            
-           Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-benjamin-wea           
-           r                                                                    
-[09:24:07] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-bridget-kend           
-           rick                                                                 
-[09:24:08] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-james-chambe           
-           rs                                                                   
-           Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-joanna-slate           
-           r                                                                    
-[09:24:09] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-abhiram-mage           
-           sh                                                                   
-[09:24:10] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-leah-mursale           
-           en-plank                                                             
-[09:24:11] Scraping from                                              base.py:42
-           https://www.molevalley.gov.uk/councillor/cllr-chris-budlei           
-           gh                                                                   
-           Committing batch 1 consisting of 78 files                 base.py:274
-[09:24:13] Finished attempting to scrape: MOL                        base.py:324
 </pre>
   
 
