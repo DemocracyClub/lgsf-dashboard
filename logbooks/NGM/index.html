@@ -37,6 +37,78 @@
   
 
 
+  <h2 id="2023-12-08-10-00">2023-12-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>7 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-12-08 10:00:38.053686</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-12-08 10:00:45.714160</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 725, in send
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 725, in <listcomp>
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 191, in resolve_redirects
+    raise TooManyRedirects(
+requests.exceptions.TooManyRedirects: Exceeded 30 redirects.
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:00:38] Fetching Scraper for: NGM                              handlers.py:23
+           Begin attempting to scrape: NGM                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+[10:00:39] Getting all files in Councillors/json...                  base.py:203
+           ...found 55 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+           ...found 55 files in Councillors/raw                      base.py:219
+           ...found 111 files in Councillors                         base.py:219
+           Deleting batch no. 1 consisting of 100 files              base.py:230
+[10:00:40] Deleting batch no. 2 consisting of 11 files               base.py:230
+[10:00:42] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           http://committee.nottinghamcity.gov.uk/mgWebService.asmx/G           
+           etCouncillorsByWard                                                  
+[10:00:45] Exceeded 30 redirects.                                 handlers.py:36
+           Finished attempting to scrape: NGM                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2023-12-07-10-09">2023-12-07</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1038,59 +1110,6 @@
 [08:50:17] Committing batch 1 consisting of 92 files                 base.py:274
 [08:50:18] Committing batch 2 consisting of 18 files                 base.py:274
 [08:50:19] Finished attempting to scrape: NGM                        base.py:324
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-11-18-09-21">2023-11-18</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>8 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-11-18 09:21:44.065573</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-11-18 09:21:52.677936</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:21:44] Fetching Scraper for: NGM                              handlers.py:23
-           Begin attempting to scrape: NGM                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-           Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-[09:21:45] ...found 55 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 55 files in Councillors/raw                      base.py:207
-           ...found 111 files in Councillors                         base.py:207
-           Deleting batch no. 1 consisting of 100 files              base.py:216
-[09:21:46] Deleting batch no. 2 consisting of 11 files               base.py:216
-[09:21:47] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           http://committee.nottinghamcity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[09:21:50] Committing batch 1 consisting of 92 files                 base.py:274
-[09:21:51] Committing batch 2 consisting of 18 files                 base.py:274
-[09:21:52] Finished attempting to scrape: NGM                        base.py:324
 </pre>
   
 
