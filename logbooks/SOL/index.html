@@ -37,6 +37,67 @@
   
 
 
+  <h2 id="2023-12-09-09-43">2023-12-09</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-12-09 09:43:48.024770</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-12-09 09:43:50.347363</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 50, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: https://eservices.solihull.gov.uk/mgInternet/mgWebService.asmx/GetCouncillorsByWard
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:43:48] Fetching Scraper for: SOL                              handlers.py:23
+           Begin attempting to scrape: SOL                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+[09:43:49] ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+           ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://eservices.solihull.gov.uk/mgInternet/mgWebService.           
+           asmx/GetCouncillorsByWard                                            
+[09:43:50] 503 Server Error: Service Unavailable for url:         handlers.py:36
+           https://eservices.solihull.gov.uk/mgInternet/mgWebServ               
+           ice.asmx/GetCouncillorsByWard                                        
+           Finished attempting to scrape: SOL                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2023-12-08-08-48">2023-12-08</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1067,59 +1128,6 @@ requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: ht
 [09:58:58] Committing batch 1 consisting of 92 files                 base.py:291
 [09:58:59] Committing batch 2 consisting of 10 files                 base.py:291
 [09:59:00] Finished attempting to scrape: SOL                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-11-19-09-41">2023-11-19</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>10 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-11-19 09:41:59.349858</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-11-19 09:42:10.294876</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:41:59] Fetching Scraper for: SOL                              handlers.py:23
-           Begin attempting to scrape: SOL                        handlers.py:27
-           Deleting existing data...                                 base.py:239
-[09:42:00] Getting all files in Councillors...                       base.py:191
-           Getting all files in Councillors/json...                  base.py:191
-           ...found 51 files in Councillors/json                     base.py:207
-           Getting all files in Councillors/raw...                   base.py:191
-           ...found 51 files in Councillors/raw                      base.py:207
-           ...found 103 files in Councillors                         base.py:207
-           Deleting batch no. 1 consisting of 100 files              base.py:216
-[09:42:02] Deleting batch no. 2 consisting of 3 files                base.py:216
-[09:42:03] ...data deleted.                                          base.py:246
-           Scraping from                                              base.py:42
-           https://eservices.solihull.gov.uk/mgInternet/mgWebService.           
-           asmx/GetCouncillorsByWard                                            
-[09:42:08] Committing batch 1 consisting of 92 files                 base.py:274
-[09:42:09] Committing batch 2 consisting of 10 files                 base.py:274
-[09:42:10] Finished attempting to scrape: SOL                        base.py:324
 </pre>
   
 
