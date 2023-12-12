@@ -37,6 +37,120 @@
   
 
 
+  <h2 id="2023-12-10-09-43">2023-12-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-12-10 09:43:20.882775</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-12-10 09:43:24.832157</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 642, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/opt/python/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 471, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/opt/python/urllib3/util/ssl_.py", line 515, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='committees.royalgreenwich.gov.uk', port=443): Max retries exceeded with url: /Councillors/tabid/63/ScreenMode/Alphabetical/Default.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 56, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 277, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='committees.royalgreenwich.gov.uk', port=443): Max retries exceeded with url: /Councillors/tabid/63/ScreenMode/Alphabetical/Default.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:43:20] Fetching Scraper for: GRE                              handlers.py:23
+           Begin attempting to scrape: GRE                        handlers.py:27
+[09:43:22] Deleting existing data...                                 base.py:251
+[09:43:23] Getting all files in Councillors...                       base.py:203
+           ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+[09:43:24] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://committees.royalgreenwich.gov.uk/Councillors/tabid           
+           /63/ScreenMode/Alphabetical/Default.aspx                             
+           HTTPSConnectionPool(host='committees.royalgreenwich.go handlers.py:36
+           v.uk', port=443): Max retries exceeded with url:                     
+           /Councillors/tabid/63/ScreenMode/Alphabetical/Default.               
+           aspx (Caused by SSLError(SSLCertVerificationError(1,                 
+           '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify                 
+           failed: unable to get local issuer certificate                       
+           (_ssl.c:1007)')))                                                    
+           Finished attempting to scrape: GRE                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2023-12-09-09-38">2023-12-09</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2679,279 +2793,6 @@ requests.exceptions.SSLError: HTTPSConnectionPool(host='committees.royalgreenwic
            cal/Default.aspx                                                     
 [08:42:39] Committing batch 2 consisting of 18 files                 base.py:291
 [08:42:40] Finished attempting to scrape: GRE                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-11-20-08-51">2023-11-20</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>129 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-11-20 08:51:59.732729</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-11-20 08:54:08.810641</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:51:59] Fetching Scraper for: GRE                              handlers.py:23
-           Begin attempting to scrape: GRE                        handlers.py:27
-[08:52:00] Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-           ...found 55 files in Councillors/json                     base.py:219
-[08:52:01] Getting all files in Councillors/raw...                   base.py:203
-           ...found 55 files in Councillors/raw                      base.py:219
-           ...found 111 files in Councillors                         base.py:219
-           Deleting batch no. 1 consisting of 100 files              base.py:230
-[08:52:02] Deleting batch no. 2 consisting of 11 files               base.py:230
-           ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://committees.royalgreenwich.gov.uk/Councillors/tabid           
-           /63/ScreenMode/Alphabetical/Default.aspx                             
-[08:52:04] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/336/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:06] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/354/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:08] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/337/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:10] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/75/ScreenMode/Alphabetic           
-           al/Default.aspx                                                      
-[08:52:12] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/345/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:14] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/348/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:16] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/314/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:18] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/76/ScreenMode/Alphabetic           
-           al/Default.aspx                                                      
-[08:52:20] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/315/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:23] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/355/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:25] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/96/ScreenMode/Alphabetic           
-           al/Default.aspx                                                      
-[08:52:29] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/102/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:31] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/346/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:33] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/334/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:35] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/107/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:37] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/110/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:38] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/79/ScreenMode/Alphabetic           
-           al/Default.aspx                                                      
-[08:52:42] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/81/ScreenMode/Alphabetic           
-           al/Default.aspx                                                      
-[08:52:46] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/349/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:48] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/86/ScreenMode/Alphabetic           
-           al/Default.aspx                                                      
-[08:52:50] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/92/ScreenMode/Alphabetic           
-           al/Default.aspx                                                      
-[08:52:52] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/105/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:55] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/341/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:57] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/116/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:52:59] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/123/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:01] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/338/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:03] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/122/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:06] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/125/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:08] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/121/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:10] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/120/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:12] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/316/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:14] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/112/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:16] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/342/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:18] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/109/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:21] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/357/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:22] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/103/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:25] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/340/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:28] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/356/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:29] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/350/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:31] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/352/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:33] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/351/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:35] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/344/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:37] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/99/ScreenMode/Alphabetic           
-           al/Default.aspx                                                      
-[08:53:39] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/317/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:41] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/97/ScreenMode/Alphabetic           
-           al/Default.aspx                                                      
-[08:53:43] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/95/ScreenMode/Alphabetic           
-           al/Default.aspx                                                      
-[08:53:46] Committing batch 1 consisting of 92 files                 base.py:291
-[08:53:47] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/347/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:49] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/333/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:52] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/332/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:54] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/353/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:53:55] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/82/ScreenMode/Alphabetic           
-           al/Default.aspx                                                      
-[08:53:58] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/339/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:54:01] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/80/ScreenMode/Alphabetic           
-           al/Default.aspx                                                      
-[08:54:03] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/77/ScreenMode/Alphabetic           
-           al/Default.aspx                                                      
-[08:54:05] Scraping from                                              base.py:41
-           http://committees.royalgreenwich.gov.uk/Councillors/tabid/           
-           63/ctl/ViewCMIS_Person/mid/383/id/343/ScreenMode/Alphabeti           
-           cal/Default.aspx                                                     
-[08:54:07] Committing batch 2 consisting of 18 files                 base.py:291
-[08:54:08] Finished attempting to scrape: GRE                        base.py:339
 </pre>
   
 
