@@ -37,6 +37,54 @@
   
 
 
+  <h2 id="2023-12-23-10-14">2023-12-23</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-12-23 10:14:49.326110</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-12-23 10:14:59.924981</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:14:49] Fetching Scraper for: SKP                              handlers.py:23
+           Begin attempting to scrape: SKP                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+[10:14:50] Getting all files in Councillors...                       base.py:203
+           ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+[10:14:51] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           http://democracy.stockport.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+[10:14:57] Committing batch 1 consisting of 92 files                 base.py:291
+[10:14:58] Committing batch 2 consisting of 34 files                 base.py:291
+[10:14:59] Finished attempting to scrape: SKP                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2023-12-22-08-34">2023-12-22</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1171,66 +1219,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://demo
 [10:02:12] 404 Client Error: Not Found for url:                   handlers.py:36
            https://democracy.stockport.gov.uk/mgError.aspx                      
 [10:02:13] Finished attempting to scrape: SKP                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-12-03-09-15">2023-12-03</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-12-03 09:15:12.478289</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-12-03 09:15:17.841118</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 50, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://democracy.stockport.gov.uk/mgError.aspx
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:15:12] Fetching Scraper for: SKP                              handlers.py:23
-           Begin attempting to scrape: SKP                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[09:15:13] Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-[09:15:14] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           http://democracy.stockport.gov.uk/mgWebService.asmx/GetCou           
-           ncillorsByWard                                                       
-[09:15:17] 404 Client Error: Not Found for url:                   handlers.py:36
-           https://democracy.stockport.gov.uk/mgError.aspx                      
-           Finished attempting to scrape: SKP                        base.py:339
 </pre>
   
 
