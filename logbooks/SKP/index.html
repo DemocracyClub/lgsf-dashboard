@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2023-12-24-08-30">2023-12-24</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-12-24 08:30:15.079221</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-12-24 08:30:23.852840</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:30:15] Fetching Scraper for: SKP                              handlers.py:23
+           Begin attempting to scrape: SKP                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+[08:30:16] Getting all files in Councillors/json...                  base.py:203
+           ...found 63 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+           ...found 63 files in Councillors/raw                      base.py:219
+           ...found 127 files in Councillors                         base.py:219
+           Deleting batch no. 1 consisting of 100 files              base.py:230
+[08:30:17] Deleting batch no. 2 consisting of 27 files               base.py:230
+           ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           http://democracy.stockport.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+[08:30:21] Committing batch 1 consisting of 92 files                 base.py:291
+[08:30:22] Committing batch 2 consisting of 34 files                 base.py:291
+[08:30:23] Finished attempting to scrape: SKP                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2023-12-23-10-14">2023-12-23</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1159,66 +1212,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://demo
 [10:14:24] 404 Client Error: Not Found for url:                   handlers.py:36
            https://democracy.stockport.gov.uk/mgError.aspx                      
            Finished attempting to scrape: SKP                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-12-04-10-02">2023-12-04</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>7 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-12-04 10:02:05.570660</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-12-04 10:02:13.230609</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 50, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://democracy.stockport.gov.uk/mgError.aspx
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:02:05] Fetching Scraper for: SKP                              handlers.py:23
-           Begin attempting to scrape: SKP                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[10:02:06] Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-[10:02:07] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           http://democracy.stockport.gov.uk/mgWebService.asmx/GetCou           
-           ncillorsByWard                                                       
-[10:02:12] 404 Client Error: Not Found for url:                   handlers.py:36
-           https://democracy.stockport.gov.uk/mgError.aspx                      
-[10:02:13] Finished attempting to scrape: SKP                        base.py:339
 </pre>
   
 
