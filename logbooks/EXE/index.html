@@ -37,6 +37,70 @@
   
 
 
+  <h2 id="2023-12-30-08-35">2023-12-30</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>129 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-12-30 08:35:27.285455</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-12-30 08:37:36.878697</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 50, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://committees.exeter.gov.uk/mgError.aspx
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:35:27] Fetching Scraper for: EXE                              handlers.py:23
+           Begin attempting to scrape: EXE                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+[08:35:28] Getting all files in Councillors...                       base.py:203
+           Getting all files in Councillors/json...                  base.py:203
+           ...found 39 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+           ...found 39 files in Councillors/raw                      base.py:219
+           ...found 79 files in Councillors                          base.py:219
+           Deleting batch no. 1 consisting of 79 files               base.py:230
+[08:35:29] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           http://committees.exeter.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:37:36] 404 Client Error: Not Found for url:                   handlers.py:36
+           http://committees.exeter.gov.uk/mgError.aspx                         
+           Finished attempting to scrape: EXE                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2023-12-29-09-34">2023-12-29</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1000,57 +1064,6 @@
            illorsByWard                                                         
 [09:27:55] Committing batch 1 consisting of 78 files                 base.py:291
 [09:27:56] Finished attempting to scrape: EXE                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-12-10-10-24">2023-12-10</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-12-10 10:24:02.542360</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-12-10 10:24:07.893235</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:24:02] Fetching Scraper for: EXE                              handlers.py:23
-           Begin attempting to scrape: EXE                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[10:24:03] Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-           ...found 39 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-[10:24:04] ...found 39 files in Councillors/raw                      base.py:219
-           ...found 79 files in Councillors                          base.py:219
-           Deleting batch no. 1 consisting of 79 files               base.py:230
-           ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           http://committees.exeter.gov.uk/mgWebService.asmx/GetCounc           
-           illorsByWard                                                         
-[10:24:06] Committing batch 1 consisting of 78 files                 base.py:291
-[10:24:07] Finished attempting to scrape: EXE                        base.py:339
 </pre>
   
 
