@@ -37,6 +37,121 @@
   
 
 
+  <h2 id="2023-12-31-09-33">2023-12-31</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>13 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2023-12-31 09:33:13.676072</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2023-12-31 09:33:27.104157</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/var/lang/lib/python3.10/socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 210, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7fc82e688d00>: Failed to resolve 'democracy.warwickshire.gov.uk' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.warwickshire.gov.uk', port=443): Max retries exceeded with url: //mgWebService.asmx/GetCouncillorsByWard (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fc82e688d00>: Failed to resolve 'democracy.warwickshire.gov.uk' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='democracy.warwickshire.gov.uk', port=443): Max retries exceeded with url: //mgWebService.asmx/GetCouncillorsByWard (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fc82e688d00>: Failed to resolve 'democracy.warwickshire.gov.uk' ([Errno -2] Name or service not known)"))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:33:13] Fetching Scraper for: WAR                              handlers.py:23
+           Begin attempting to scrape: WAR                        handlers.py:27
+[09:33:14] Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+           Getting all files in Councillors/json...                  base.py:203
+           ...found 57 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+[09:33:15] ...found 57 files in Councillors/raw                      base.py:219
+           ...found 115 files in Councillors                         base.py:219
+           Deleting batch no. 1 consisting of 100 files              base.py:230
+[09:33:16] Deleting batch no. 2 consisting of 15 files               base.py:230
+           ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://democracy.warwickshire.gov.uk//mgWebService.asmx/G           
+           etCouncillorsByWard                                                  
+[09:33:26] HTTPSConnectionPool(host='democracy.warwickshire.gov.u handlers.py:36
+           k', port=443): Max retries exceeded with url:                        
+           //mgWebService.asmx/GetCouncillorsByWard (Caused by                  
+           NameResolutionError("<urllib3.connection.HTTPSConnecti               
+           on object at 0x7fc82e688d00>: Failed to resolve                      
+           'democracy.warwickshire.gov.uk' ([Errno -2] Name or                  
+           service not known)"))                                                
+[09:33:27] Finished attempting to scrape: WAR                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2023-12-30-09-45">2023-12-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1038,59 +1153,6 @@
 [08:25:01] Committing batch 1 consisting of 92 files                 base.py:291
 [08:25:03] Committing batch 2 consisting of 22 files                 base.py:291
 [08:25:04] Finished attempting to scrape: WAR                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-12-11-08-32">2023-12-11</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>8 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-12-11 08:32:23.909233</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-12-11 08:32:32.645315</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:32:23] Fetching Scraper for: WAR                              handlers.py:23
-           Begin attempting to scrape: WAR                        handlers.py:27
-[08:32:24] Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-[08:32:25] ...found 57 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-           ...found 57 files in Councillors/raw                      base.py:219
-           ...found 115 files in Councillors                         base.py:219
-           Deleting batch no. 1 consisting of 100 files              base.py:230
-[08:32:26] Deleting batch no. 2 consisting of 15 files               base.py:230
-           ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://democracy.warwickshire.gov.uk//mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:32:30] Committing batch 1 consisting of 92 files                 base.py:291
-[08:32:31] Committing batch 2 consisting of 22 files                 base.py:291
-[08:32:32] Finished attempting to scrape: WAR                        base.py:339
 </pre>
   
 
