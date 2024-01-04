@@ -37,6 +37,111 @@
   
 
 
+  <h2 id="2024-01-02-09-31">2024-01-02</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>4 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-01-02 09:31:26.636670</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-01-02 09:31:31.082538</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/response.py", line 710, in _error_catcher
+    yield
+  File "/opt/python/urllib3/response.py", line 814, in _raw_read
+    data = self._fp_read(amt) if not fp_closed else b""
+  File "/opt/python/urllib3/response.py", line 799, in _fp_read
+    return self._fp.read(amt) if amt is not None else self._fp.read()
+  File "/var/lang/lib/python3.10/http/client.py", line 466, in read
+    s = self.fp.read(amt)
+  File "/var/lang/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/opt/python/urllib3/response.py", line 936, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/opt/python/urllib3/response.py", line 879, in read
+    data = self._raw_read(amt)
+  File "/opt/python/urllib3/response.py", line 813, in _raw_read
+    with self._error_catcher():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/urllib3/response.py", line 727, in _error_catcher
+    raise ProtocolError(f"Connection broken: {e!r}", e) from e
+urllib3.exceptions.ProtocolError: ("Connection broken: ConnectionResetError(104, 'Connection reset by peer')", ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 747, in send
+    r.content
+  File "/opt/python/requests/models.py", line 899, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+  File "/opt/python/requests/models.py", line 818, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: ConnectionResetError(104, 'Connection reset by peer')", ConnectionResetError(104, 'Connection reset by peer'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:31:26] Fetching Scraper for: LEE                              handlers.py:23
+           Begin attempting to scrape: LEE                        handlers.py:27
+[09:31:27] Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+           Getting all files in Councillors/json...                  base.py:203
+           ...found 41 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+           ...found 41 files in Councillors/raw                      base.py:219
+           ...found 83 files in Councillors                          base.py:219
+[09:31:28] Deleting batch no. 1 consisting of 83 files               base.py:230
+           ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           http://democracy.lewes-eastbourne.gov.uk//mgWebService.asm           
+           x/GetCouncillorsByWard                                               
+[09:31:30] ("Connection broken: ConnectionResetError(104,         handlers.py:36
+           'Connection reset by peer')",                                        
+           ConnectionResetError(104, 'Connection reset by peer'))               
+[09:31:31] Finished attempting to scrape: LEE                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-01-01-10-21">2024-01-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1000,57 +1105,6 @@
            x/GetCouncillorsByWard                                               
 [10:13:14] Committing batch 1 consisting of 82 files                 base.py:291
 [10:13:15] Finished attempting to scrape: LEE                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-12-13-09-27">2023-12-13</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>7 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-12-13 09:27:38.571159</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-12-13 09:27:45.958561</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:27:38] Fetching Scraper for: LEE                              handlers.py:23
-           Begin attempting to scrape: LEE                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[09:27:39] Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-           ...found 41 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-[09:27:40] ...found 41 files in Councillors/raw                      base.py:219
-           ...found 83 files in Councillors                          base.py:219
-           Deleting batch no. 1 consisting of 83 files               base.py:230
-[09:27:41] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           http://democracy.lewes-eastbourne.gov.uk//mgWebService.asm           
-           x/GetCouncillorsByWard                                               
-[09:27:44] Committing batch 1 consisting of 82 files                 base.py:291
-[09:27:45] Finished attempting to scrape: LEE                        base.py:339
 </pre>
   
 
