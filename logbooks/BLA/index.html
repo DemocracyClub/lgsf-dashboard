@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2024-01-03-08-56">2024-01-03</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-01-03 08:56:59.888969</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-01-03 08:57:05.601825</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:56:59] Fetching Scraper for: BLA                              handlers.py:23
+           Begin attempting to scrape: BLA                        handlers.py:27
+[08:57:00] Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+           Getting all files in Councillors/json...                  base.py:203
+[08:57:01] ...found 36 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+           ...found 36 files in Councillors/raw                      base.py:219
+           ...found 73 files in Councillors                          base.py:219
+           Deleting batch no. 1 consisting of 73 files               base.py:230
+[08:57:02] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
+           GetCouncillorsByWard                                                 
+[08:57:04] Committing batch 1 consisting of 72 files                 base.py:291
+[08:57:05] Finished attempting to scrape: BLA                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-01-02-10-06">2024-01-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1150,71 +1201,6 @@ requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetErro
            GetCouncillorsByWard                                                 
 [10:11:35] Committing batch 1 consisting of 72 files                 base.py:291
 [10:11:36] Finished attempting to scrape: BLA                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-12-14-08-19">2023-12-14</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-12-14 08:19:28.819036</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-12-14 08:19:31.592035</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 50, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:19:28] Fetching Scraper for: BLA                              handlers.py:23
-           Begin attempting to scrape: BLA                        handlers.py:27
-[08:19:29] Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-[08:19:30] ...found 36 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-           ...found 36 files in Councillors/raw                      base.py:219
-           ...found 73 files in Councillors                          base.py:219
-           Deleting batch no. 1 consisting of 73 files               base.py:230
-[08:19:31] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-           403 Client Error: Forbidden for url:                   handlers.py:36
-           https://w3.blaby.gov.uk/decision-making/mgWebService.a               
-           smx/GetCouncillorsByWard                                             
-           Finished attempting to scrape: BLA                        base.py:339
 </pre>
   
 
