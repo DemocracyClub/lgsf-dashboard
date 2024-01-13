@@ -37,6 +37,70 @@
   
 
 
+  <h2 id="2024-01-11-09-39">2024-01-11</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>6 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-01-11 09:39:16.480578</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-01-11 09:39:22.989163</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 58, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/RUG-rugby/councillors.py", line 20, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 142, in get_page
+    page = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 50, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/6619045/6618404/maximized
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:39:16] Fetching Scraper for: RUG                              handlers.py:23
+           Begin attempting to scrape: RUG                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+[09:39:17] Getting all files in Councillors...                       base.py:203
+           ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+[09:39:18] ...data deleted.                                          base.py:258
+           Scraping from https://www.rugby.gov.uk/councillors/        base.py:41
+[09:39:22] Scraping from                                              base.py:41
+           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
+           19045/6618404/maximized                                              
+           502 Server Error: Bad Gateway for url:                 handlers.py:36
+           https://www.rugby.gov.uk/councillors//-/ddl_display/dd               
+           l/6619045/6618404/maximized                                          
+           Finished attempting to scrape: RUG                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-01-11-09-08">2024-01-11</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -3337,187 +3401,6 @@ AttributeError: 'NoneType' object has no attribute 'get_text'
 [08:54:30] 'NoneType' object has no attribute 'get_text'          handlers.py:36
            Committing batch 1 consisting of 80 files                 base.py:291
 [08:54:33] Finished attempting to scrape: RUG                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-12-23-09-35">2023-12-23</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>66 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-12-23 09:35:34.749486</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-12-23 09:36:41.546787</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 58, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/RUG-rugby/councillors.py", line 49, in get_single_councillor
-    councillor.email = soup.find("span", text=re.compile("@")).get_text(strip=True)
-AttributeError: 'NoneType' object has no attribute 'get_text'
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:35:34] Fetching Scraper for: RUG                              handlers.py:23
-           Begin attempting to scrape: RUG                        handlers.py:27
-[09:35:35] Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-           ...found 40 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-[09:35:36] ...found 40 files in Councillors/raw                      base.py:219
-           ...found 81 files in Councillors                          base.py:219
-           Deleting batch no. 1 consisting of 81 files               base.py:230
-           ...data deleted.                                          base.py:258
-           Scraping from https://www.rugby.gov.uk/councillors/        base.py:41
-[09:35:40] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           19045/6618404/maximized                                              
-[09:35:43] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           19117/6618404/maximized                                              
-[09:35:44] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           19189/6618404/maximized                                              
-[09:35:46] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           19135/6618404/maximized                                              
-[09:35:47] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           19171/6618404/maximized                                              
-[09:35:48] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           19099/6618404/maximized                                              
-[09:35:50] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           19153/6618404/maximized                                              
-[09:35:51] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18865/6618404/maximized                                              
-[09:35:52] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18883/6618404/maximized                                              
-[09:35:54] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18828/6618404/maximized                                              
-[09:35:55] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18846/6618404/maximized                                              
-[09:35:56] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18774/6618404/maximized                                              
-[09:35:58] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18792/6618404/maximized                                              
-[09:35:59] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18810/6618404/maximized                                              
-[09:36:00] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18648/6618404/maximized                                              
-[09:36:02] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18611/6618404/maximized                                              
-[09:36:03] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18665/6618404/maximized                                              
-[09:36:04] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18629/6618404/maximized                                              
-[09:36:06] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18456/6618404/maximized                                              
-[09:36:07] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18492/6618404/maximized                                              
-[09:36:09] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18474/6618404/maximized                                              
-[09:36:11] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18701/6618404/maximized                                              
-[09:36:13] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18683/6618404/maximized                                              
-[09:36:14] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18737/6618404/maximized                                              
-[09:36:15] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18719/6618404/maximized                                              
-[09:36:17] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18756/6618404/maximized                                              
-[09:36:18] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           19009/6618404/maximized                                              
-[09:36:19] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18955/6618404/maximized                                              
-[09:36:21] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18901/6618404/maximized                                              
-[09:36:22] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18991/6618404/maximized                                              
-[09:36:24] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           19027/6618404/maximized                                              
-[09:36:25] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18938/6618404/maximized                                              
-[09:36:26] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18919/6618404/maximized                                              
-[09:36:28] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           18973/6618404/maximized                                              
-[09:36:29] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           19207/6618404/maximized                                              
-[09:36:30] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           19243/6618404/maximized                                              
-[09:36:32] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           19225/6618404/maximized                                              
-[09:36:33] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           19297/6618404/maximized                                              
-[09:36:34] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           19279/6618404/maximized                                              
-[09:36:36] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           19261/6618404/maximized                                              
-[09:36:37] Scraping from                                              base.py:41
-           https://www.rugby.gov.uk/councillors//-/ddl_display/ddl/66           
-           19063/6618404/maximized                                              
-[09:36:40] 'NoneType' object has no attribute 'get_text'          handlers.py:36
-           Committing batch 1 consisting of 80 files                 base.py:291
-[09:36:41] Finished attempting to scrape: RUG                        base.py:339
 </pre>
   
 
