@@ -37,6 +37,67 @@
   
 
 
+  <h2 id="2024-01-16-10-28">2024-01-16</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-01-16 10:28:43.930906</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-01-16 10:28:45.980110</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 50, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: https://eservices.solihull.gov.uk/mgInternet/mgWebService.asmx/GetCouncillorsByWard
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:28:43] Fetching Scraper for: SOL                              handlers.py:23
+           Begin attempting to scrape: SOL                        handlers.py:27
+[10:28:44] Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+           ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+[10:28:45] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://eservices.solihull.gov.uk/mgInternet/mgWebService.           
+           asmx/GetCouncillorsByWard                                            
+           503 Server Error: Service Unavailable for url:         handlers.py:36
+           https://eservices.solihull.gov.uk/mgInternet/mgWebServ               
+           ice.asmx/GetCouncillorsByWard                                        
+           Finished attempting to scrape: SOL                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-01-15-10-08">2024-01-15</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1237,67 +1298,6 @@ requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: ht
            https://eservices.solihull.gov.uk/mgInternet/mgWebService.           
            asmx/GetCouncillorsByWard                                            
            503 Server Error: Service Unavailable for url:         handlers.py:36
-           https://eservices.solihull.gov.uk/mgInternet/mgWebServ               
-           ice.asmx/GetCouncillorsByWard                                        
-           Finished attempting to scrape: SOL                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-12-27-09-58">2023-12-27</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-12-27 09:58:08.123977</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-12-27 09:58:10.410311</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 50, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: https://eservices.solihull.gov.uk/mgInternet/mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:58:08] Fetching Scraper for: SOL                              handlers.py:23
-           Begin attempting to scrape: SOL                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-[09:58:09] ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-           ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://eservices.solihull.gov.uk/mgInternet/mgWebService.           
-           asmx/GetCouncillorsByWard                                            
-[09:58:10] 503 Server Error: Service Unavailable for url:         handlers.py:36
            https://eservices.solihull.gov.uk/mgInternet/mgWebServ               
            ice.asmx/GetCouncillorsByWard                                        
            Finished attempting to scrape: SOL                        base.py:339
