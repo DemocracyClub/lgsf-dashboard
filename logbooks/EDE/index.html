@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2024-01-20-09-20">2024-01-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>7 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-01-20 09:20:47.742527</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-01-20 09:20:54.943992</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:20:47] Fetching Scraper for: EDE                              handlers.py:23
+           Begin attempting to scrape: EDE                        handlers.py:27
+[09:20:48] Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+           Getting all files in Councillors/json...                  base.py:203
+[09:20:49] ...found 60 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+           ...found 60 files in Councillors/raw                      base.py:219
+           ...found 121 files in Councillors                         base.py:219
+           Deleting batch no. 1 consisting of 100 files              base.py:230
+           Deleting batch no. 2 consisting of 21 files               base.py:230
+[09:20:50] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           http://democracy.eastdevon.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+[09:20:52] Committing batch 1 consisting of 92 files                 base.py:291
+[09:20:53] Committing batch 2 consisting of 28 files                 base.py:291
+[09:20:54] Finished attempting to scrape: EDE                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-01-19-09-16">2024-01-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1033,71 +1086,6 @@
 [10:23:01] Committing batch 1 consisting of 92 files                 base.py:291
 [10:23:03] Committing batch 2 consisting of 28 files                 base.py:291
 [10:23:04] Finished attempting to scrape: EDE                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-12-31-10-14">2023-12-31</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>122 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-12-31 10:14:07.347177</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-12-31 10:16:09.654303</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 50, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://democracy.eastdevon.gov.uk/mgError.aspx
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:14:07] Fetching Scraper for: EDE                              handlers.py:23
-           Begin attempting to scrape: EDE                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[10:14:08] Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-           ...found 60 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-           ...found 60 files in Councillors/raw                      base.py:219
-           ...found 121 files in Councillors                         base.py:219
-           Deleting batch no. 1 consisting of 100 files              base.py:230
-[10:14:09] Deleting batch no. 2 consisting of 21 files               base.py:230
-[10:14:10] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           http://democracy.eastdevon.gov.uk/mgWebService.asmx/GetCou           
-           ncillorsByWard                                                       
-[10:16:09] 404 Client Error: Not Found for url:                   handlers.py:36
-           http://democracy.eastdevon.gov.uk/mgError.aspx                       
-           Finished attempting to scrape: EDE                        base.py:339
 </pre>
   
 

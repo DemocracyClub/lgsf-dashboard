@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2024-01-20-10-21">2024-01-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-01-20 10:21:54.152279</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-01-20 10:21:59.215039</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:21:54] Fetching Scraper for: EPS                              handlers.py:23
+           Begin attempting to scrape: EPS                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+[10:21:55] Getting all files in Councillors/json...                  base.py:203
+           ...found 35 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+           ...found 35 files in Councillors/raw                      base.py:219
+           ...found 71 files in Councillors                          base.py:219
+           Deleting batch no. 1 consisting of 71 files               base.py:230
+[10:21:56] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://democracy.epsom-ewell.gov.uk/mgWebService.asmx/Get           
+           CouncillorsByWard                                                    
+[10:21:58] Committing batch 1 consisting of 70 files                 base.py:291
+[10:21:59] Finished attempting to scrape: EPS                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-01-19-09-42">2024-01-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -999,67 +1050,6 @@ requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: ht
            ...found 1 files in Councillors                           base.py:219
            Deleting batch no. 1 consisting of 1 files                base.py:230
 [10:14:50] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://democracy.epsom-ewell.gov.uk/mgWebService.asmx/Get           
-           CouncillorsByWard                                                    
-           503 Server Error: Service Unavailable for url:         handlers.py:36
-           https://democracy.epsom-ewell.gov.uk/mgWebService.asmx               
-           /GetCouncillorsByWard                                                
-           Finished attempting to scrape: EPS                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2023-12-31-10-25">2023-12-31</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2023-12-31 10:25:25.563814</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2023-12-31 10:25:27.760090</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 50, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: https://democracy.epsom-ewell.gov.uk/mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:25:25] Fetching Scraper for: EPS                              handlers.py:23
-           Begin attempting to scrape: EPS                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[10:25:26] Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-[10:25:27] ...data deleted.                                          base.py:258
            Scraping from                                              base.py:41
            https://democracy.epsom-ewell.gov.uk/mgWebService.asmx/Get           
            CouncillorsByWard                                                    
