@@ -37,6 +37,343 @@
   
 
 
+  <h2 id="2024-02-03-09-32">2024-02-03</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>133 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-02-03 09:32:17.584990</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-02-03 09:34:31.329650</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 212, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7f686060dff0>, 'Connection to estates8.warwickdc.gov.uk timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='estates8.warwickdc.gov.uk', port=443): Max retries exceeded with url: /cmis/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f686060dff0>, 'Connection to estates8.warwickdc.gov.uk timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 56, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 277, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='estates8.warwickdc.gov.uk', port=443): Max retries exceeded with url: /cmis/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f686060dff0>, 'Connection to estates8.warwickdc.gov.uk timed out. (connect timeout=None)'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:32:17] Fetching Scraper for: WAW                              handlers.py:23
+           Begin attempting to scrape: WAW                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+[09:32:18] Getting all files in Councillors...                       base.py:203
+           Getting all files in Councillors/json...                  base.py:203
+           ...found 44 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+[09:32:19] ...found 44 files in Councillors/raw                      base.py:219
+           ...found 89 files in Councillors                          base.py:219
+           Deleting batch no. 1 consisting of 89 files               base.py:230
+           ...data deleted.                                          base.py:258
+           Scraping from https://estates8.warwickdc.gov.uk/cmis/      base.py:41
+[09:34:30] HTTPSConnectionPool(host='estates8.warwickdc.gov.uk',  handlers.py:36
+           port=443): Max retries exceeded with url: /cmis/                     
+           (Caused by                                                           
+           ConnectTimeoutError(<urllib3.connection.HTTPSConnectio               
+           n object at 0x7f686060dff0>, 'Connection to                          
+           estates8.warwickdc.gov.uk timed out. (connect                        
+           timeout=None)'))                                                     
+[09:34:31] Finished attempting to scrape: WAW                        base.py:339
+</pre>
+  
+
+  
+
+
+  <h2 id="2024-02-02-09-09">2024-02-02</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>61 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-02-02 09:09:12.087399</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-02-02 09:10:13.596766</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:09:12] Fetching Scraper for: WAW                              handlers.py:23
+           Begin attempting to scrape: WAW                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+[09:09:13] Getting all files in Councillors...                       base.py:203
+           Getting all files in Councillors/json...                  base.py:203
+           ...found 44 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+           ...found 44 files in Councillors/raw                      base.py:219
+           ...found 89 files in Councillors                          base.py:219
+           Deleting batch no. 1 consisting of 89 files               base.py:230
+[09:09:14] ...data deleted.                                          base.py:258
+           Scraping from https://estates8.warwickdc.gov.uk/cmis/      base.py:41
+[09:09:15] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/327/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:16] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/313/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:17] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/294/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:18] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/310/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:19] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/62/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[09:09:21] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/312/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:22] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/325/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:23] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/314/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:25] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/326/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:26] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/188/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:28] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/189/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:29] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/225/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:30] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/224/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:32] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/315/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:33] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/55/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[09:09:34] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/227/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:35] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/58/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[09:09:37] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/316/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:38] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/228/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:39] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/317/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:41] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/318/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:42] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/311/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:43] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/230/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:45] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/303/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:46] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/231/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:47] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/232/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:48] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/196/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:50] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/242/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:51] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/234/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:52] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/320/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:53] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/328/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:54] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/321/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:56] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/203/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:09:58] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/240/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:10:00] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/309/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:10:01] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/272/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:10:02] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/322/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:10:03] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/323/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:10:05] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/77/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[09:10:06] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/221/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:10:08] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/330/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+           Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/308/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:10:09] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/324/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:10:11] Scraping from                                              base.py:41
+           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
+           id/39/ctl/ViewCMIS_Person/mid/536/id/307/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[09:10:12] Committing batch 1 consisting of 88 files                 base.py:291
+[09:10:13] Finished attempting to scrape: WAW                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-02-01-10-36">2024-02-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -4041,448 +4378,6 @@
            etical/Default.aspx                                                  
 [09:41:47] Committing batch 1 consisting of 86 files                 base.py:291
 [09:41:49] Finished attempting to scrape: WAW                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-01-14-08-22">2024-01-14</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>57 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-01-14 08:22:54.390012</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-01-14 08:23:51.851571</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:22:54] Fetching Scraper for: WAW                              handlers.py:23
-           Begin attempting to scrape: WAW                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[08:22:55] Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-           ...found 43 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-           ...found 43 files in Councillors/raw                      base.py:219
-           ...found 87 files in Councillors                          base.py:219
-           Deleting batch no. 1 consisting of 87 files               base.py:230
-[08:22:56] ...data deleted.                                          base.py:258
-           Scraping from https://estates8.warwickdc.gov.uk/cmis/      base.py:41
-[08:22:57] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/327/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:22:58] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/313/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:22:59] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/294/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:00] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/310/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:01] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/62/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[08:23:04] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/312/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:05] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/325/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:06] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/314/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:07] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/326/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:08] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/188/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:10] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/189/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:11] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/225/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:12] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/224/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:13] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/315/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:14] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/55/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[08:23:16] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/227/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:17] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/58/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[08:23:18] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/316/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:20] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/228/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:22] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/317/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:23] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/318/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:24] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/311/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:25] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/230/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:26] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/303/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:27] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/231/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:28] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/232/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:29] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/196/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:31] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/242/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:32] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/234/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:33] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/320/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:34] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/328/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:37] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/321/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:38] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/203/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:39] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/240/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:40] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/309/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:41] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/272/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:42] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/322/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:43] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/323/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:44] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/77/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[08:23:46] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/221/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:47] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/308/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:48] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/324/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:49] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/307/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:23:50] Committing batch 1 consisting of 86 files                 base.py:291
-[08:23:51] Finished attempting to scrape: WAW                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-01-13-08-29">2024-01-13</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>60 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-01-13 08:29:31.499768</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-01-13 08:30:31.531690</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:29:31] Fetching Scraper for: WAW                              handlers.py:23
-           Begin attempting to scrape: WAW                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[08:29:32] Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-           ...found 43 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-           ...found 43 files in Councillors/raw                      base.py:219
-           ...found 87 files in Councillors                          base.py:219
-           Deleting batch no. 1 consisting of 87 files               base.py:230
-[08:29:33] ...data deleted.                                          base.py:258
-           Scraping from https://estates8.warwickdc.gov.uk/cmis/      base.py:41
-[08:29:34] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/327/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:29:35] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/313/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:29:36] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/294/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:29:39] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/310/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:29:40] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/62/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[08:29:41] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/312/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:29:42] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/325/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:29:43] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/314/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:29:44] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/326/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:29:45] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/188/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:29:47] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/189/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:29:48] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/225/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:29:49] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/224/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:29:51] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/315/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:29:52] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/55/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[08:29:53] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/227/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:29:55] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/58/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[08:29:57] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/316/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:29:58] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/228/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:29:59] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/317/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:00] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/318/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:02] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/311/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:03] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/230/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:04] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/303/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:05] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/231/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:06] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/232/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:08] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/196/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:09] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/242/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:10] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/234/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:13] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/320/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:14] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/328/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:15] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/321/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:16] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/203/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:17] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/240/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:18] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/309/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:19] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/272/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:21] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/322/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:22] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/323/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:23] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/77/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[08:30:24] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/221/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:25] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/308/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:26] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/324/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:29] Scraping from                                              base.py:41
-           https://estates8.warwickdc.gov.uk/cmis/CouncillorsAtoZ/tab           
-           id/39/ctl/ViewCMIS_Person/mid/536/id/307/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[08:30:30] Committing batch 1 consisting of 86 files                 base.py:291
-[08:30:31] Finished attempting to scrape: WAW                        base.py:339
 </pre>
   
 
