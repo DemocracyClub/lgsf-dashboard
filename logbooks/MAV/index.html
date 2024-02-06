@@ -37,6 +37,140 @@
   
 
 
+  <h2 id="2024-02-04-09-45">2024-02-04</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-02-04 09:45:15.360105</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-02-04 09:45:17.534710</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 642, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/opt/python/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 471, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/opt/python/urllib3/util/ssl_.py", line 515, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/opt/python/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 642, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/opt/python/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 471, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/opt/python/urllib3/util/ssl_.py", line 515, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 725, in send
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 725, in <listcomp>
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 266, in resolve_redirects
+    resp = self.send(
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:45:15] Fetching Scraper for: MAV                              handlers.py:23
+           Begin attempting to scrape: MAV                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+[09:45:16] Getting all files in Councillors...                       base.py:203
+           ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+[09:45:17] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           http://moderngov.malvernhills.gov.uk/mgWebService.asmx/Get           
+           CouncillorsByWard                                                    
+           ('Connection aborted.', ConnectionResetError(104,      handlers.py:36
+           'Connection reset by peer'))                                         
+           Finished attempting to scrape: MAV                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-02-03-10-03">2024-02-03</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2571,140 +2705,6 @@ requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetErro
            ...found 1 files in Councillors                           base.py:219
            Deleting batch no. 1 consisting of 1 files                base.py:230
 [09:10:47] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           http://moderngov.malvernhills.gov.uk/mgWebService.asmx/Get           
-           CouncillorsByWard                                                    
-           ('Connection aborted.', ConnectionResetError(104,      handlers.py:36
-           'Connection reset by peer'))                                         
-           Finished attempting to scrape: MAV                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-01-15-08-35">2024-01-15</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-01-15 08:35:03.251822</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-01-15 08:35:05.687168</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
-    response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
-    raise new_e
-  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
-    self._validate_conn(conn)
-  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
-    conn.connect()
-  File "/opt/python/urllib3/connection.py", line 642, in connect
-    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-  File "/opt/python/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
-    ssl_sock = ssl_wrap_socket(
-  File "/opt/python/urllib3/util/ssl_.py", line 471, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-  File "/opt/python/urllib3/util/ssl_.py", line 515, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-  File "/var/lang/lib/python3.10/ssl.py", line 513, in wrap_socket
-    return self.sslsocket_class._create(
-  File "/var/lang/lib/python3.10/ssl.py", line 1104, in _create
-    self.do_handshake()
-  File "/var/lang/lib/python3.10/ssl.py", line 1375, in do_handshake
-    self._sslobj.do_handshake()
-ConnectionResetError: [Errno 104] Connection reset by peer
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "/opt/python/urllib3/util/util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
-    response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
-    raise new_e
-  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
-    self._validate_conn(conn)
-  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
-    conn.connect()
-  File "/opt/python/urllib3/connection.py", line 642, in connect
-    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-  File "/opt/python/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
-    ssl_sock = ssl_wrap_socket(
-  File "/opt/python/urllib3/util/ssl_.py", line 471, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-  File "/opt/python/urllib3/util/ssl_.py", line 515, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-  File "/var/lang/lib/python3.10/ssl.py", line 513, in wrap_socket
-    return self.sslsocket_class._create(
-  File "/var/lang/lib/python3.10/ssl.py", line 1104, in _create
-    self.do_handshake()
-  File "/var/lang/lib/python3.10/ssl.py", line 1375, in do_handshake
-    self._sslobj.do_handshake()
-urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 47, in get
-    response = self.requests_session.get(
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 725, in send
-    history = [resp for resp in gen]
-  File "/opt/python/requests/sessions.py", line 725, in <listcomp>
-    history = [resp for resp in gen]
-  File "/opt/python/requests/sessions.py", line 266, in resolve_redirects
-    resp = self.send(
-  File "/opt/python/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:35:03] Fetching Scraper for: MAV                              handlers.py:23
-           Begin attempting to scrape: MAV                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[08:35:04] Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-[08:35:05] ...data deleted.                                          base.py:258
            Scraping from                                              base.py:41
            http://moderngov.malvernhills.gov.uk/mgWebService.asmx/Get           
            CouncillorsByWard                                                    
