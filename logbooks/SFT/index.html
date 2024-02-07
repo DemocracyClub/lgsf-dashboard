@@ -37,6 +37,72 @@
   
 
 
+  <h2 id="2024-02-05-09-18">2024-02-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>23 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-02-05 09:18:43.598728</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-02-05 09:19:07.434388</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 50, in get
+    response.raise_for_status()
+  File "/opt/python/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 504 Server Error: Gateway Time-out for url: https://modgov.sefton.gov.uk/mgWebService.asmx/GetCouncillorsByWard
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:18:43] Fetching Scraper for: SFT                              handlers.py:23
+           Begin attempting to scrape: SFT                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+[09:18:44] Getting all files in Councillors...                       base.py:203
+           Getting all files in Councillors/json...                  base.py:203
+           ...found 66 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+[09:18:45] ...found 66 files in Councillors/raw                      base.py:219
+           ...found 133 files in Councillors                         base.py:219
+           Deleting batch no. 1 consisting of 100 files              base.py:230
+[09:18:46] Deleting batch no. 2 consisting of 33 files               base.py:230
+           ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://modgov.sefton.gov.uk/mgWebService.asmx/GetCouncill           
+           orsByWard                                                            
+[09:19:07] 504 Server Error: Gateway Time-out for url:            handlers.py:36
+           https://modgov.sefton.gov.uk/mgWebService.asmx/GetCoun               
+           cillorsByWard                                                        
+           Finished attempting to scrape: SFT                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-02-04-08-54">2024-02-04</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1038,59 +1104,6 @@
 [10:09:15] Committing batch 1 consisting of 92 files                 base.py:291
 [10:09:16] Committing batch 2 consisting of 40 files                 base.py:291
 [10:09:17] Finished attempting to scrape: SFT                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-01-16-09-25">2024-01-16</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>9 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-01-16 09:25:11.366298</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-01-16 09:25:20.500478</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:25:11] Fetching Scraper for: SFT                              handlers.py:23
-           Begin attempting to scrape: SFT                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[09:25:12] Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-           ...found 66 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-           ...found 66 files in Councillors/raw                      base.py:219
-           ...found 133 files in Councillors                         base.py:219
-           Deleting batch no. 1 consisting of 100 files              base.py:230
-[09:25:13] Deleting batch no. 2 consisting of 33 files               base.py:230
-[09:25:14] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://modgov.sefton.gov.uk/mgWebService.asmx/GetCouncill           
-           orsByWard                                                            
-[09:25:18] Committing batch 1 consisting of 92 files                 base.py:291
-[09:25:19] Committing batch 2 consisting of 40 files                 base.py:291
-[09:25:20] Finished attempting to scrape: SFT                        base.py:339
 </pre>
   
 
