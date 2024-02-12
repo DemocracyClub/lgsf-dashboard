@@ -37,6 +37,63 @@
   
 
 
+  <h2 id="2024-02-10-10-02">2024-02-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>4 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-02-10 10:02:02.294579</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-02-10 10:02:07.257918</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 56, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 164, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_list_container
+    return selected[0]
+IndexError: list index out of range
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:02:02] Fetching Scraper for: CAN                              handlers.py:23
+           Begin attempting to scrape: CAN                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+[10:02:03] Getting all files in Councillors...                       base.py:203
+           ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+           ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://www.cannockchasedc.gov.uk/council/about-council/yo           
+           ur-councillors                                                       
+[10:02:07] list index out of range                                handlers.py:36
+           Finished attempting to scrape: CAN                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-02-09-09-44">2024-02-09</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1113,71 +1170,6 @@ IndexError: list index out of range
            https://www.cannockchasedc.gov.uk/council/about-council/yo           
            ur-councillors                                                       
 [08:25:58] list index out of range                                handlers.py:36
-           Finished attempting to scrape: CAN                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-01-21-10-22">2024-01-21</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-01-21 10:22:36.737963</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-01-21 10:22:38.917530</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 56, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 164, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 155, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 142, in get_page
-    page = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 50, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.cannockchasedc.gov.uk/council/about-council/your-councillors
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:22:36] Fetching Scraper for: CAN                              handlers.py:23
-           Begin attempting to scrape: CAN                        handlers.py:27
-[10:22:37] Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-[10:22:38] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://www.cannockchasedc.gov.uk/council/about-council/yo           
-           ur-councillors                                                       
-           404 Client Error: Not Found for url:                   handlers.py:36
-           https://www.cannockchasedc.gov.uk/council/about-counci               
-           l/your-councillors                                                   
            Finished attempting to scrape: CAN                        base.py:339
 </pre>
   
