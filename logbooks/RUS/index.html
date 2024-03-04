@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2024-03-02-09-02">2024-03-02</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-03-02 09:02:58.715769</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-03-02 09:03:04.595373</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:02:58] Fetching Scraper for: RUS                              handlers.py:23
+           Begin attempting to scrape: RUS                        handlers.py:27
+[09:02:59] Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+           Getting all files in Councillors/json...                  base.py:203
+           ...found 44 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+           ...found 44 files in Councillors/raw                      base.py:219
+           ...found 89 files in Councillors                          base.py:219
+           Deleting batch no. 1 consisting of 89 files               base.py:230
+[09:03:00] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://democracy.rushcliffe.gov.uk/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+[09:03:03] Committing batch 1 consisting of 88 files                 base.py:291
+[09:03:04] Finished attempting to scrape: RUS                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-03-01-08-20">2024-03-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1052,120 +1103,6 @@ requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='democracy.rushclif
            /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
            ConnectTimeoutError(<urllib3.connection.HTTPSConnectio               
            n object at 0x7f8646549510>, 'Connection to                          
-           democracy.rushcliffe.gov.uk timed out. (connect                      
-           timeout=None)'))                                                     
-           Finished attempting to scrape: RUS                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-02-11-10-30">2024-02-11</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>131 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-02-11 10:30:51.802269</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-02-11 10:33:03.601131</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connection.py", line 203, in _new_conn
-    sock = connection.create_connection(
-  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
-    raise err
-  File "/opt/python/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-TimeoutError: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
-    response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
-    raise new_e
-  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
-    self._validate_conn(conn)
-  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
-    conn.connect()
-  File "/opt/python/urllib3/connection.py", line 611, in connect
-    self.sock = sock = self._new_conn()
-  File "/opt/python/urllib3/connection.py", line 212, in _new_conn
-    raise ConnectTimeoutError(
-urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7fdc110abbe0>, 'Connection to democracy.rushcliffe.gov.uk timed out. (connect timeout=None)')
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.rushcliffe.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fdc110abbe0>, 'Connection to democracy.rushcliffe.gov.uk timed out. (connect timeout=None)'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 47, in get
-    response = self.requests_session.get(
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 507, in send
-    raise ConnectTimeout(e, request=request)
-requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='democracy.rushcliffe.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fdc110abbe0>, 'Connection to democracy.rushcliffe.gov.uk timed out. (connect timeout=None)'))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:30:51] Fetching Scraper for: RUS                              handlers.py:23
-           Begin attempting to scrape: RUS                        handlers.py:27
-[10:30:52] Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-[10:30:53] ...found 44 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-           ...found 44 files in Councillors/raw                      base.py:219
-           ...found 89 files in Councillors                          base.py:219
-           Deleting batch no. 1 consisting of 89 files               base.py:230
-           ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://democracy.rushcliffe.gov.uk/mgWebService.asmx/GetC           
-           ouncillorsByWard                                                     
-[10:33:03] HTTPSConnectionPool(host='democracy.rushcliffe.gov.uk' handlers.py:36
-           , port=443): Max retries exceeded with url:                          
-           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
-           ConnectTimeoutError(<urllib3.connection.HTTPSConnectio               
-           n object at 0x7fdc110abbe0>, 'Connection to                          
            democracy.rushcliffe.gov.uk timed out. (connect                      
            timeout=None)'))                                                     
            Finished attempting to scrape: RUS                        base.py:339
