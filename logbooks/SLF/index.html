@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2024-03-04-08-19">2024-03-04</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>8 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-03-04 08:19:52.567094</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-03-04 08:20:00.866556</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:19:52] Fetching Scraper for: SLF                              handlers.py:23
+           Begin attempting to scrape: SLF                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+[08:19:53] Getting all files in Councillors...                       base.py:203
+           Getting all files in Councillors/json...                  base.py:203
+           ...found 61 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+           ...found 61 files in Councillors/raw                      base.py:219
+           ...found 123 files in Councillors                         base.py:219
+           Deleting batch no. 1 consisting of 100 files              base.py:230
+[08:19:54] Deleting batch no. 2 consisting of 23 files               base.py:230
+[08:19:55] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://sccdemocracy.salford.gov.uk/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+[08:19:58] Committing batch 1 consisting of 92 files                 base.py:291
+[08:19:59] Committing batch 2 consisting of 30 files                 base.py:291
+[08:20:00] Finished attempting to scrape: SLF                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-03-03-10-03">2024-03-03</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1033,67 +1086,6 @@
 [08:46:05] Committing batch 1 consisting of 92 files                 base.py:291
 [08:46:06] Committing batch 2 consisting of 30 files                 base.py:291
 [08:46:07] Finished attempting to scrape: SLF                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-02-13-08-59">2024-02-13</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>122 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-02-13 08:59:15.257687</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-02-13 09:01:17.631597</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 50, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 504 Server Error: Gateway Time-out for url: https://sccdemocracy.salford.gov.uk/mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:59:15] Fetching Scraper for: SLF                              handlers.py:23
-           Begin attempting to scrape: SLF                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[08:59:16] Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-           ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://sccdemocracy.salford.gov.uk/mgWebService.asmx/GetC           
-           ouncillorsByWard                                                     
-[09:01:17] 504 Server Error: Gateway Time-out for url:            handlers.py:36
-           https://sccdemocracy.salford.gov.uk/mgWebService.asmx/               
-           GetCouncillorsByWard                                                 
-           Finished attempting to scrape: SLF                        base.py:339
 </pre>
   
 
