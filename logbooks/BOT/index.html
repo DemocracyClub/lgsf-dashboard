@@ -37,6 +37,246 @@
   
 
 
+  <h2 id="2024-03-06-09-03">2024-03-06</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-03-06 09:03:26.590195</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-03-06 09:03:29.098136</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 642, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/opt/python/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 471, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/opt/python/urllib3/util/ssl_.py", line 515, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.boston.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 725, in send
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 725, in <listcomp>
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 266, in resolve_redirects
+    resp = self.send(
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.boston.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:03:26] Fetching Scraper for: BOT                              handlers.py:23
+           Begin attempting to scrape: BOT                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+[09:03:27] Getting all files in Councillors...                       base.py:203
+           ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+[09:03:28] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           http://moderngov.boston.gov.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+           HTTPSConnectionPool(host='democracy.boston.gov.uk',    handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
+           SSLError(SSLCertVerificationError(1, '[SSL:                          
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1007)')))                                                    
+[09:03:29] Finished attempting to scrape: BOT                        base.py:339
+</pre>
+  
+
+  
+
+
+  <h2 id="2024-03-05-08-44">2024-03-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-03-05 08:44:19.480930</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-03-05 08:44:22.665678</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 642, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/opt/python/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 471, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/opt/python/urllib3/util/ssl_.py", line 515, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.boston.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 725, in send
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 725, in <listcomp>
+    history = [resp for resp in gen]
+  File "/opt/python/requests/sessions.py", line 266, in resolve_redirects
+    resp = self.send(
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.boston.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:44:19] Fetching Scraper for: BOT                              handlers.py:23
+           Begin attempting to scrape: BOT                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+[08:44:21] Getting all files in Councillors...                       base.py:203
+           ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+[08:44:22] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           http://moderngov.boston.gov.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+           HTTPSConnectionPool(host='democracy.boston.gov.uk',    handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
+           SSLError(SSLCertVerificationError(1, '[SSL:                          
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           unable to get local issuer certificate                               
+           (_ssl.c:1007)')))                                                    
+           Finished attempting to scrape: BOT                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-03-04-10-14">2024-03-04</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2184,246 +2424,6 @@ requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.boston.gov.uk'
            http://moderngov.boston.gov.uk/mgWebService.asmx/GetCounci           
            llorsByWard                                                          
            HTTPSConnectionPool(host='democracy.boston.gov.uk',    handlers.py:36
-           port=443): Max retries exceeded with url:                            
-           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
-           SSLError(SSLCertVerificationError(1, '[SSL:                          
-           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
-           unable to get local issuer certificate                               
-           (_ssl.c:1007)')))                                                    
-           Finished attempting to scrape: BOT                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-02-15-10-00">2024-02-15</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-02-15 10:00:55.344802</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-02-15 10:00:57.504057</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
-    self._validate_conn(conn)
-  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
-    conn.connect()
-  File "/opt/python/urllib3/connection.py", line 642, in connect
-    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-  File "/opt/python/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
-    ssl_sock = ssl_wrap_socket(
-  File "/opt/python/urllib3/util/ssl_.py", line 471, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-  File "/opt/python/urllib3/util/ssl_.py", line 515, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-  File "/var/lang/lib/python3.10/ssl.py", line 513, in wrap_socket
-    return self.sslsocket_class._create(
-  File "/var/lang/lib/python3.10/ssl.py", line 1104, in _create
-    self.do_handshake()
-  File "/var/lang/lib/python3.10/ssl.py", line 1375, in do_handshake
-    self._sslobj.do_handshake()
-ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
-    response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
-    raise new_e
-urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.boston.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 47, in get
-    response = self.requests_session.get(
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 725, in send
-    history = [resp for resp in gen]
-  File "/opt/python/requests/sessions.py", line 725, in <listcomp>
-    history = [resp for resp in gen]
-  File "/opt/python/requests/sessions.py", line 266, in resolve_redirects
-    resp = self.send(
-  File "/opt/python/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 517, in send
-    raise SSLError(e, request=request)
-requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.boston.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:00:55] Fetching Scraper for: BOT                              handlers.py:23
-           Begin attempting to scrape: BOT                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[10:00:56] Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-[10:00:57] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           http://moderngov.boston.gov.uk/mgWebService.asmx/GetCounci           
-           llorsByWard                                                          
-           HTTPSConnectionPool(host='democracy.boston.gov.uk',    handlers.py:36
-           port=443): Max retries exceeded with url:                            
-           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
-           SSLError(SSLCertVerificationError(1, '[SSL:                          
-           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
-           unable to get local issuer certificate                               
-           (_ssl.c:1007)')))                                                    
-           Finished attempting to scrape: BOT                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-02-14-10-18">2024-02-14</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-02-14 10:18:48.144456</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-02-14 10:18:50.324005</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
-    self._validate_conn(conn)
-  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
-    conn.connect()
-  File "/opt/python/urllib3/connection.py", line 642, in connect
-    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-  File "/opt/python/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
-    ssl_sock = ssl_wrap_socket(
-  File "/opt/python/urllib3/util/ssl_.py", line 471, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-  File "/opt/python/urllib3/util/ssl_.py", line 515, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-  File "/var/lang/lib/python3.10/ssl.py", line 513, in wrap_socket
-    return self.sslsocket_class._create(
-  File "/var/lang/lib/python3.10/ssl.py", line 1104, in _create
-    self.do_handshake()
-  File "/var/lang/lib/python3.10/ssl.py", line 1375, in do_handshake
-    self._sslobj.do_handshake()
-ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
-    response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
-    raise new_e
-urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.boston.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 47, in get
-    response = self.requests_session.get(
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 725, in send
-    history = [resp for resp in gen]
-  File "/opt/python/requests/sessions.py", line 725, in <listcomp>
-    history = [resp for resp in gen]
-  File "/opt/python/requests/sessions.py", line 266, in resolve_redirects
-    resp = self.send(
-  File "/opt/python/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 517, in send
-    raise SSLError(e, request=request)
-requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.boston.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:18:48] Fetching Scraper for: BOT                              handlers.py:23
-           Begin attempting to scrape: BOT                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-[10:18:49] ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-           ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           http://moderngov.boston.gov.uk/mgWebService.asmx/GetCounci           
-           llorsByWard                                                          
-[10:18:50] HTTPSConnectionPool(host='democracy.boston.gov.uk',    handlers.py:36
            port=443): Max retries exceeded with url:                            
            /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
            SSLError(SSLCertVerificationError(1, '[SSL:                          
