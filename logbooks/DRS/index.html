@@ -37,6 +37,121 @@
   
 
 
+  <h2 id="2024-03-12-10-45">2024-03-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-03-12 10:45:21.937674</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-03-12 10:47:34.026643</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 497, in _make_request
+    conn.request(
+  File "/opt/python/urllib3/connection.py", line 395, in request
+    self.endheaders()
+  File "/var/lang/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/var/lang/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/var/lang/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/opt/python/urllib3/connection.py", line 243, in connect
+    self.sock = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 212, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x7f2e0474c8b0>, 'Connection to meetings.derrycityandstrabanedistrict.com timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='meetings.derrycityandstrabanedistrict.com', port=80): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f2e0474c8b0>, 'Connection to meetings.derrycityandstrabanedistrict.com timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='meetings.derrycityandstrabanedistrict.com', port=80): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f2e0474c8b0>, 'Connection to meetings.derrycityandstrabanedistrict.com timed out. (connect timeout=None)'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:45:21] Fetching Scraper for: DRS                              handlers.py:23
+           Begin attempting to scrape: DRS                        handlers.py:27
+[10:45:22] Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+[10:45:23] ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+           ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           http://meetings.derrycityandstrabanedistrict.com/mgWebServ           
+           ice.asmx/GetCouncillorsByWard                                        
+[10:47:33] HTTPConnectionPool(host='meetings.derrycityandstrabane handlers.py:36
+           district.com', port=80): Max retries exceeded with                   
+           url: /mgWebService.asmx/GetCouncillorsByWard (Caused                 
+           by                                                                   
+           ConnectTimeoutError(<urllib3.connection.HTTPConnection               
+           object at 0x7f2e0474c8b0>, 'Connection to                            
+           meetings.derrycityandstrabanedistrict.com timed out.                 
+           (connect timeout=None)'))                                            
+           Finished attempting to scrape: DRS                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-03-11-09-07">2024-03-11</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1324,57 +1439,6 @@ requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='meetings.derrycitya
            ice.asmx/GetCouncillorsByWard                                        
 [08:25:14] Committing batch 1 consisting of 78 files                 base.py:291
 [08:25:15] Finished attempting to scrape: DRS                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-02-21-09-18">2024-02-21</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-02-21 09:18:29.346549</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-02-21 09:18:34.547811</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:18:29] Fetching Scraper for: DRS                              handlers.py:23
-           Begin attempting to scrape: DRS                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[09:18:30] Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-           ...found 39 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-           ...found 39 files in Councillors/raw                      base.py:219
-           ...found 79 files in Councillors                          base.py:219
-           Deleting batch no. 1 consisting of 79 files               base.py:230
-[09:18:31] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           http://meetings.derrycityandstrabanedistrict.com/mgWebServ           
-           ice.asmx/GetCouncillorsByWard                                        
-[09:18:33] Committing batch 1 consisting of 78 files                 base.py:291
-[09:18:34] Finished attempting to scrape: DRS                        base.py:339
 </pre>
   
 
