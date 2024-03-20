@@ -37,6 +37,120 @@
   
 
 
+  <h2 id="2024-03-18-09-07">2024-03-18</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-03-18 09:07:19.155540</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-03-18 09:07:21.245575</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 642, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/opt/python/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 471, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/opt/python/urllib3/util/ssl_.py", line 515, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='committees.royalgreenwich.gov.uk', port=443): Max retries exceeded with url: /Councillors/tabid/63/ScreenMode/Alphabetical/Default.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 56, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 277, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='committees.royalgreenwich.gov.uk', port=443): Max retries exceeded with url: /Councillors/tabid/63/ScreenMode/Alphabetical/Default.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:07:19] Fetching Scraper for: GRE                              handlers.py:23
+           Begin attempting to scrape: GRE                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+[09:07:20] ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+           ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://committees.royalgreenwich.gov.uk/Councillors/tabid           
+           /63/ScreenMode/Alphabetical/Default.aspx                             
+[09:07:21] HTTPSConnectionPool(host='committees.royalgreenwich.go handlers.py:36
+           v.uk', port=443): Max retries exceeded with url:                     
+           /Councillors/tabid/63/ScreenMode/Alphabetical/Default.               
+           aspx (Caused by SSLError(SSLCertVerificationError(1,                 
+           '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify                 
+           failed: unable to get local issuer certificate                       
+           (_ssl.c:1007)')))                                                    
+           Finished attempting to scrape: GRE                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-03-17-09-14">2024-03-17</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2186,120 +2300,6 @@ requests.exceptions.SSLError: HTTPSConnectionPool(host='committees.royalgreenwic
            ...found 1 files in Councillors                           base.py:219
            Deleting batch no. 1 consisting of 1 files                base.py:230
 [09:19:08] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://committees.royalgreenwich.gov.uk/Councillors/tabid           
-           /63/ScreenMode/Alphabetical/Default.aspx                             
-           HTTPSConnectionPool(host='committees.royalgreenwich.go handlers.py:36
-           v.uk', port=443): Max retries exceeded with url:                     
-           /Councillors/tabid/63/ScreenMode/Alphabetical/Default.               
-           aspx (Caused by SSLError(SSLCertVerificationError(1,                 
-           '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify                 
-           failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)')))                                                    
-           Finished attempting to scrape: GRE                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-02-27-11-14">2024-02-27</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-02-27 11:14:17.610035</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-02-27 11:14:19.765442</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
-    self._validate_conn(conn)
-  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
-    conn.connect()
-  File "/opt/python/urllib3/connection.py", line 642, in connect
-    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-  File "/opt/python/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
-    ssl_sock = ssl_wrap_socket(
-  File "/opt/python/urllib3/util/ssl_.py", line 471, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-  File "/opt/python/urllib3/util/ssl_.py", line 515, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-  File "/var/lang/lib/python3.10/ssl.py", line 513, in wrap_socket
-    return self.sslsocket_class._create(
-  File "/var/lang/lib/python3.10/ssl.py", line 1104, in _create
-    self.do_handshake()
-  File "/var/lang/lib/python3.10/ssl.py", line 1375, in do_handshake
-    self._sslobj.do_handshake()
-ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
-    response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
-    raise new_e
-urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='committees.royalgreenwich.gov.uk', port=443): Max retries exceeded with url: /Councillors/tabid/63/ScreenMode/Alphabetical/Default.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 56, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 277, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 47, in get
-    response = self.requests_session.get(
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 517, in send
-    raise SSLError(e, request=request)
-requests.exceptions.SSLError: HTTPSConnectionPool(host='committees.royalgreenwich.gov.uk', port=443): Max retries exceeded with url: /Councillors/tabid/63/ScreenMode/Alphabetical/Default.aspx (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[11:14:17] Fetching Scraper for: GRE                              handlers.py:23
-           Begin attempting to scrape: GRE                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[11:14:18] Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-[11:14:19] ...data deleted.                                          base.py:258
            Scraping from                                              base.py:41
            https://committees.royalgreenwich.gov.uk/Councillors/tabid           
            /63/ScreenMode/Alphabetical/Default.aspx                             
