@@ -37,6 +37,236 @@
   
 
 
+  <h2 id="2024-04-10-09-18">2024-04-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>133 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-04-10 09:18:00.805592</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-04-10 09:20:13.892891</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 497, in _make_request
+    conn.request(
+  File "/opt/python/urllib3/connection.py", line 395, in request
+    self.endheaders()
+  File "/var/lang/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/var/lang/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/var/lang/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/opt/python/urllib3/connection.py", line 243, in connect
+    self.sock = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 212, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x7f6e1649c7c0>, 'Connection to meetings.derrycityandstrabanedistrict.com timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='meetings.derrycityandstrabanedistrict.com', port=80): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f6e1649c7c0>, 'Connection to meetings.derrycityandstrabanedistrict.com timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='meetings.derrycityandstrabanedistrict.com', port=80): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f6e1649c7c0>, 'Connection to meetings.derrycityandstrabanedistrict.com timed out. (connect timeout=None)'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:18:00] Fetching Scraper for: DRS                              handlers.py:23
+           Begin attempting to scrape: DRS                        handlers.py:27
+[09:18:01] Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+           ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+[09:18:02] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           http://meetings.derrycityandstrabanedistrict.com/mgWebServ           
+           ice.asmx/GetCouncillorsByWard                                        
+[09:20:13] HTTPConnectionPool(host='meetings.derrycityandstrabane handlers.py:36
+           district.com', port=80): Max retries exceeded with                   
+           url: /mgWebService.asmx/GetCouncillorsByWard (Caused                 
+           by                                                                   
+           ConnectTimeoutError(<urllib3.connection.HTTPConnection               
+           object at 0x7f6e1649c7c0>, 'Connection to                            
+           meetings.derrycityandstrabanedistrict.com timed out.                 
+           (connect timeout=None)'))                                            
+           Finished attempting to scrape: DRS                        base.py:339
+</pre>
+  
+
+  
+
+
+  <h2 id="2024-04-09-09-42">2024-04-09</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>132 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-04-09 09:42:34.018257</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-04-09 09:44:46.202861</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 497, in _make_request
+    conn.request(
+  File "/opt/python/urllib3/connection.py", line 395, in request
+    self.endheaders()
+  File "/var/lang/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/var/lang/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/var/lang/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/opt/python/urllib3/connection.py", line 243, in connect
+    self.sock = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 212, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x7f74d4458d60>, 'Connection to meetings.derrycityandstrabanedistrict.com timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='meetings.derrycityandstrabanedistrict.com', port=80): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f74d4458d60>, 'Connection to meetings.derrycityandstrabanedistrict.com timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='meetings.derrycityandstrabanedistrict.com', port=80): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f74d4458d60>, 'Connection to meetings.derrycityandstrabanedistrict.com timed out. (connect timeout=None)'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:42:34] Fetching Scraper for: DRS                              handlers.py:23
+           Begin attempting to scrape: DRS                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+[09:42:35] ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+           ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           http://meetings.derrycityandstrabanedistrict.com/mgWebServ           
+           ice.asmx/GetCouncillorsByWard                                        
+[09:44:45] HTTPConnectionPool(host='meetings.derrycityandstrabane handlers.py:36
+           district.com', port=80): Max retries exceeded with                   
+           url: /mgWebService.asmx/GetCouncillorsByWard (Caused                 
+           by                                                                   
+           ConnectTimeoutError(<urllib3.connection.HTTPConnection               
+           object at 0x7f74d4458d60>, 'Connection to                            
+           meetings.derrycityandstrabanedistrict.com timed out.                 
+           (connect timeout=None)'))                                            
+[09:44:46] Finished attempting to scrape: DRS                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-04-08-08-28">2024-04-08</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2098,236 +2328,6 @@ requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='meetings.derrycitya
            by                                                                   
            ConnectTimeoutError(<urllib3.connection.HTTPConnection               
            object at 0x7f8b542a5060>, 'Connection to                            
-           meetings.derrycityandstrabanedistrict.com timed out.                 
-           (connect timeout=None)'))                                            
-           Finished attempting to scrape: DRS                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-03-21-10-41">2024-03-21</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>131 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-03-21 10:41:25.656470</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-03-21 10:43:37.265459</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connection.py", line 203, in _new_conn
-    sock = connection.create_connection(
-  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
-    raise err
-  File "/opt/python/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-TimeoutError: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
-    response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 497, in _make_request
-    conn.request(
-  File "/opt/python/urllib3/connection.py", line 395, in request
-    self.endheaders()
-  File "/var/lang/lib/python3.10/http/client.py", line 1278, in endheaders
-    self._send_output(message_body, encode_chunked=encode_chunked)
-  File "/var/lang/lib/python3.10/http/client.py", line 1038, in _send_output
-    self.send(msg)
-  File "/var/lang/lib/python3.10/http/client.py", line 976, in send
-    self.connect()
-  File "/opt/python/urllib3/connection.py", line 243, in connect
-    self.sock = self._new_conn()
-  File "/opt/python/urllib3/connection.py", line 212, in _new_conn
-    raise ConnectTimeoutError(
-urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x7f9793bf7e80>, 'Connection to meetings.derrycityandstrabanedistrict.com timed out. (connect timeout=None)')
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='meetings.derrycityandstrabanedistrict.com', port=80): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f9793bf7e80>, 'Connection to meetings.derrycityandstrabanedistrict.com timed out. (connect timeout=None)'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 47, in get
-    response = self.requests_session.get(
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 507, in send
-    raise ConnectTimeout(e, request=request)
-requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='meetings.derrycityandstrabanedistrict.com', port=80): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f9793bf7e80>, 'Connection to meetings.derrycityandstrabanedistrict.com timed out. (connect timeout=None)'))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:41:25] Fetching Scraper for: DRS                              handlers.py:23
-           Begin attempting to scrape: DRS                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[10:41:26] Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-[10:41:27] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           http://meetings.derrycityandstrabanedistrict.com/mgWebServ           
-           ice.asmx/GetCouncillorsByWard                                        
-[10:43:36] HTTPConnectionPool(host='meetings.derrycityandstrabane handlers.py:36
-           district.com', port=80): Max retries exceeded with                   
-           url: /mgWebService.asmx/GetCouncillorsByWard (Caused                 
-           by                                                                   
-           ConnectTimeoutError(<urllib3.connection.HTTPConnection               
-           object at 0x7f9793bf7e80>, 'Connection to                            
-           meetings.derrycityandstrabanedistrict.com timed out.                 
-           (connect timeout=None)'))                                            
-[10:43:37] Finished attempting to scrape: DRS                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-03-20-09-48">2024-03-20</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>133 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-03-20 09:48:05.812560</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-03-20 09:50:18.871669</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connection.py", line 203, in _new_conn
-    sock = connection.create_connection(
-  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
-    raise err
-  File "/opt/python/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-TimeoutError: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
-    response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 497, in _make_request
-    conn.request(
-  File "/opt/python/urllib3/connection.py", line 395, in request
-    self.endheaders()
-  File "/var/lang/lib/python3.10/http/client.py", line 1278, in endheaders
-    self._send_output(message_body, encode_chunked=encode_chunked)
-  File "/var/lang/lib/python3.10/http/client.py", line 1038, in _send_output
-    self.send(msg)
-  File "/var/lang/lib/python3.10/http/client.py", line 976, in send
-    self.connect()
-  File "/opt/python/urllib3/connection.py", line 243, in connect
-    self.sock = self._new_conn()
-  File "/opt/python/urllib3/connection.py", line 212, in _new_conn
-    raise ConnectTimeoutError(
-urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x7fd3e198dfc0>, 'Connection to meetings.derrycityandstrabanedistrict.com timed out. (connect timeout=None)')
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='meetings.derrycityandstrabanedistrict.com', port=80): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fd3e198dfc0>, 'Connection to meetings.derrycityandstrabanedistrict.com timed out. (connect timeout=None)'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 47, in get
-    response = self.requests_session.get(
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 507, in send
-    raise ConnectTimeout(e, request=request)
-requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='meetings.derrycityandstrabanedistrict.com', port=80): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fd3e198dfc0>, 'Connection to meetings.derrycityandstrabanedistrict.com timed out. (connect timeout=None)'))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:48:05] Fetching Scraper for: DRS                              handlers.py:23
-           Begin attempting to scrape: DRS                        handlers.py:27
-[09:48:06] Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-[09:48:07] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           http://meetings.derrycityandstrabanedistrict.com/mgWebServ           
-           ice.asmx/GetCouncillorsByWard                                        
-[09:50:18] HTTPConnectionPool(host='meetings.derrycityandstrabane handlers.py:36
-           district.com', port=80): Max retries exceeded with                   
-           url: /mgWebService.asmx/GetCouncillorsByWard (Caused                 
-           by                                                                   
-           ConnectTimeoutError(<urllib3.connection.HTTPConnection               
-           object at 0x7fd3e198dfc0>, 'Connection to                            
            meetings.derrycityandstrabanedistrict.com timed out.                 
            (connect timeout=None)'))                                            
            Finished attempting to scrape: DRS                        base.py:339
