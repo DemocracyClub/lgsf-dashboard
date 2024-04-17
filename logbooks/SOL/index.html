@@ -37,6 +37,226 @@
   
 
 
+  <h2 id="2024-04-15-10-31">2024-04-15</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-04-15 10:31:51.005031</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-04-15 10:31:53.250669</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 218, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f57bd777730>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='eservices.solihull.gov.uk', port=443): Max retries exceeded with url: /mgInternet/mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f57bd777730>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='eservices.solihull.gov.uk', port=443): Max retries exceeded with url: /mgInternet/mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f57bd777730>: Failed to establish a new connection: [Errno 111] Connection refused'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:31:51] Fetching Scraper for: SOL                              handlers.py:23
+           Begin attempting to scrape: SOL                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+[10:31:52] ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+           ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://eservices.solihull.gov.uk/mgInternet/mgWebService.           
+           asmx/GetCouncillorsByWard                                            
+           HTTPSConnectionPool(host='eservices.solihull.gov.uk',  handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /mgInternet/mgWebService.asmx/GetCouncillorsByWard                   
+           (Caused by                                                           
+           NewConnectionError('<urllib3.connection.HTTPSConnectio               
+           n object at 0x7f57bd777730>: Failed to establish a new               
+           connection: [Errno 111] Connection refused'))                        
+[10:31:53] Finished attempting to scrape: SOL                        base.py:339
+</pre>
+  
+
+  
+
+
+  <h2 id="2024-04-14-09-11">2024-04-14</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-04-14 09:11:32.909404</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-04-14 09:11:35.174764</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/opt/python/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+  File "/opt/python/urllib3/connection.py", line 218, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fafb3b5c310>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='eservices.solihull.gov.uk', port=443): Max retries exceeded with url: /mgInternet/mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fafb3b5c310>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='eservices.solihull.gov.uk', port=443): Max retries exceeded with url: /mgInternet/mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fafb3b5c310>: Failed to establish a new connection: [Errno 111] Connection refused'))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:11:32] Fetching Scraper for: SOL                              handlers.py:23
+           Begin attempting to scrape: SOL                        handlers.py:27
+[09:11:33] Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+[09:11:34] ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+           ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://eservices.solihull.gov.uk/mgInternet/mgWebService.           
+           asmx/GetCouncillorsByWard                                            
+           HTTPSConnectionPool(host='eservices.solihull.gov.uk',  handlers.py:36
+           port=443): Max retries exceeded with url:                            
+           /mgInternet/mgWebService.asmx/GetCouncillorsByWard                   
+           (Caused by                                                           
+           NewConnectionError('<urllib3.connection.HTTPSConnectio               
+           n object at 0x7fafb3b5c310>: Failed to establish a new               
+           connection: [Errno 111] Connection refused'))                        
+[09:11:35] Finished attempting to scrape: SOL                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-04-13-09-07">2024-04-13</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2011,226 +2231,6 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='eservices.solihul
            n object at 0x7fab29dd3be0>: Failed to establish a new               
            connection: [Errno 111] Connection refused'))                        
 [08:40:33] Finished attempting to scrape: SOL                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-03-26-08-52">2024-03-26</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>1 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-03-26 08:52:12.207666</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-03-26 08:52:14.202149</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connection.py", line 203, in _new_conn
-    sock = connection.create_connection(
-  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
-    raise err
-  File "/opt/python/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [Errno 111] Connection refused
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
-    response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
-    raise new_e
-  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
-    self._validate_conn(conn)
-  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
-    conn.connect()
-  File "/opt/python/urllib3/connection.py", line 611, in connect
-    self.sock = sock = self._new_conn()
-  File "/opt/python/urllib3/connection.py", line 218, in _new_conn
-    raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f4663014970>: Failed to establish a new connection: [Errno 111] Connection refused
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='eservices.solihull.gov.uk', port=443): Max retries exceeded with url: /mgInternet/mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f4663014970>: Failed to establish a new connection: [Errno 111] Connection refused'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 47, in get
-    response = self.requests_session.get(
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 519, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPSConnectionPool(host='eservices.solihull.gov.uk', port=443): Max retries exceeded with url: /mgInternet/mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f4663014970>: Failed to establish a new connection: [Errno 111] Connection refused'))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:52:12] Fetching Scraper for: SOL                              handlers.py:23
-           Begin attempting to scrape: SOL                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[08:52:13] Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-           ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://eservices.solihull.gov.uk/mgInternet/mgWebService.           
-           asmx/GetCouncillorsByWard                                            
-[08:52:14] HTTPSConnectionPool(host='eservices.solihull.gov.uk',  handlers.py:36
-           port=443): Max retries exceeded with url:                            
-           /mgInternet/mgWebService.asmx/GetCouncillorsByWard                   
-           (Caused by                                                           
-           NewConnectionError('<urllib3.connection.HTTPSConnectio               
-           n object at 0x7f4663014970>: Failed to establish a new               
-           connection: [Errno 111] Connection refused'))                        
-           Finished attempting to scrape: SOL                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-03-25-10-44">2024-03-25</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>1 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-03-25 10:44:37.862107</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-03-25 10:44:39.831096</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connection.py", line 203, in _new_conn
-    sock = connection.create_connection(
-  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
-    raise err
-  File "/opt/python/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [Errno 111] Connection refused
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
-    response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
-    raise new_e
-  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
-    self._validate_conn(conn)
-  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
-    conn.connect()
-  File "/opt/python/urllib3/connection.py", line 611, in connect
-    self.sock = sock = self._new_conn()
-  File "/opt/python/urllib3/connection.py", line 218, in _new_conn
-    raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f4eedacbb20>: Failed to establish a new connection: [Errno 111] Connection refused
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='eservices.solihull.gov.uk', port=443): Max retries exceeded with url: /mgInternet/mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f4eedacbb20>: Failed to establish a new connection: [Errno 111] Connection refused'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 47, in get
-    response = self.requests_session.get(
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 519, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPSConnectionPool(host='eservices.solihull.gov.uk', port=443): Max retries exceeded with url: /mgInternet/mgWebService.asmx/GetCouncillorsByWard (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f4eedacbb20>: Failed to establish a new connection: [Errno 111] Connection refused'))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:44:37] Fetching Scraper for: SOL                              handlers.py:23
-           Begin attempting to scrape: SOL                        handlers.py:27
-[10:44:38] Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-[10:44:39] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://eservices.solihull.gov.uk/mgInternet/mgWebService.           
-           asmx/GetCouncillorsByWard                                            
-           HTTPSConnectionPool(host='eservices.solihull.gov.uk',  handlers.py:36
-           port=443): Max retries exceeded with url:                            
-           /mgInternet/mgWebService.asmx/GetCouncillorsByWard                   
-           (Caused by                                                           
-           NewConnectionError('<urllib3.connection.HTTPSConnectio               
-           n object at 0x7f4eedacbb20>: Failed to establish a new               
-           connection: [Errno 111] Connection refused'))                        
-           Finished attempting to scrape: SOL                        base.py:339
 </pre>
   
 
