@@ -37,6 +37,119 @@
   
 
 
+  <h2 id="2024-04-21-09-55">2024-04-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-04-21 09:55:45.172293</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-04-21 09:55:48.837776</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/opt/python/urllib3/connection.py", line 642, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/opt/python/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/opt/python/urllib3/util/ssl_.py", line 471, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/opt/python/urllib3/util/ssl_.py", line 515, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/var/lang/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/var/lang/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/var/lang/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1007)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/opt/python/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='democracy.tunbridgewells.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 47, in get
+    response = self.requests_session.get(
+  File "/opt/python/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/opt/python/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/opt/python/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/opt/python/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='democracy.tunbridgewells.gov.uk', port=443): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1007)')))
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:55:45] Fetching Scraper for: TUN                              handlers.py:23
+           Begin attempting to scrape: TUN                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+           Getting all files in Councillors...                       base.py:203
+[09:55:46] ...found 1 files in Councillors                           base.py:219
+           Deleting batch no. 1 consisting of 1 files                base.py:230
+           ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           https://democracy.tunbridgewells.gov.uk/mgWebService.asmx/           
+           GetCouncillorsByWard                                                 
+[09:55:47] HTTPSConnectionPool(host='democracy.tunbridgewells.gov handlers.py:36
+           .uk', port=443): Max retries exceeded with url:                      
+           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
+           SSLError(SSLCertVerificationError(1, '[SSL:                          
+           CERTIFICATE_VERIFY_FAILED] certificate verify failed:                
+           certificate has expired (_ssl.c:1007)')))                            
+[09:55:48] Finished attempting to scrape: TUN                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-04-20-09-53">2024-04-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1101,58 +1214,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://demo
 [09:25:41] Committing batch 1 consisting of 92 files                 base.py:291
 [09:25:42] Committing batch 2 consisting of 4 files                  base.py:291
            Finished attempting to scrape: TUN                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-01-08-25">2024-04-01</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>6 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-01 08:25:46.904854</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-01 08:25:53.126594</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:25:46] Fetching Scraper for: TUN                              handlers.py:23
-           Begin attempting to scrape: TUN                        handlers.py:27
-[08:25:47] Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-[08:25:48] ...found 48 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-           ...found 48 files in Councillors/raw                      base.py:219
-           ...found 97 files in Councillors                          base.py:219
-           Deleting batch no. 1 consisting of 97 files               base.py:230
-           ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://democracy.tunbridgewells.gov.uk/mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[08:25:51] Committing batch 1 consisting of 92 files                 base.py:291
-[08:25:52] Committing batch 2 consisting of 4 files                  base.py:291
-[08:25:53] Finished attempting to scrape: TUN                        base.py:339
 </pre>
   
 
