@@ -37,6 +37,258 @@
   
 
 
+  <h2 id="2024-04-26-09-49">2024-04-26</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-04-26 09:49:19.203419</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-04-26 09:49:21.755124</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 274, in get_councillors
+    req = self.get(
+TypeError: ScraperBase.get() got an unexpected keyword argument 'verify'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:49:19] Fetching Scraper for: ESS                              handlers.py:23
+           Begin attempting to scrape: ESS                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[09:49:20] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 33 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 33 files in Councillors/raw                      base.py:225
+           ...found 67 files in Councillors                          base.py:225
+           Deleting batch no. 1 consisting of 67 files               base.py:236
+[09:49:21] ...data deleted.                                          base.py:264
+           ScraperBase.get() got an unexpected keyword argument   handlers.py:36
+           'verify'                                                             
+           Finished attempting to scrape: ESS                        base.py:345
+</pre>
+  
+
+  
+
+
+  <h2 id="2024-04-25-08-26">2024-04-25</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>118 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-04-25 08:26:34.456978</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-04-25 08:28:32.706808</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 58, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "/var/task/lgsf/councillors/scrapers.py", line 306, in get_single_councillor
+    party = self.get_party_name(list_page_html)
+  File "/var/task/lgsf/councillors/scrapers.py", line 287, in get_party_name
+    list_page_html.find_all("img")[-1]["title"]
+  File "/opt/python/bs4/element.py", line 1573, in __getitem__
+    return self.attrs[key]
+KeyError: 'title'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:26:34] Fetching Scraper for: ESS                              handlers.py:23
+           Begin attempting to scrape: ESS                        handlers.py:27
+           Deleting existing data...                                 base.py:251
+[08:26:35] Getting all files in Councillors...                       base.py:203
+           Getting all files in Councillors/json...                  base.py:203
+           ...found 33 files in Councillors/json                     base.py:219
+           Getting all files in Councillors/raw...                   base.py:203
+           ...found 33 files in Councillors/raw                      base.py:219
+           ...found 67 files in Councillors                          base.py:219
+           Deleting batch no. 1 consisting of 67 files               base.py:230
+[08:26:36] ...data deleted.                                          base.py:258
+           Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/EssexCmis5/Councillors.aspx                 
+[08:26:38] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/655/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:26:41] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/327/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:26:43] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/100/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:26:48] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/639/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:26:51] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/882/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:26:55] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/880/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:26:57] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/879/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:00] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/648/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:02] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/80/ScreenMode/Ward/Default.a           
+           spx                                                                  
+[08:27:06] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/649/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:08] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/866/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:11] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/458/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:15] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/864/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:18] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/887/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:21] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/334/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:24] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/650/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:28] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/364/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:30] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/863/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:33] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/309/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:36] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/91/ScreenMode/Ward/Default.a           
+           spx                                                                  
+[08:27:40] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/877/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:43] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/777/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:45] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/865/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:48] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/359/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:51] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/870/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:54] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/340/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:27:58] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/94/ScreenMode/Ward/Default.a           
+           spx                                                                  
+[08:28:06] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/883/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:28:09] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/656/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:28:15] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/872/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:28:23] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/117/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:28:25] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/889/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:28:28] Scraping from                                              base.py:41
+           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
+           tl/ViewCMIS_Person/mid/480/id/610/ScreenMode/Ward/Default.           
+           aspx                                                                 
+[08:28:31] 'title'                                                handlers.py:36
+           Committing batch 1 consisting of 66 files                 base.py:291
+[08:28:32] Finished attempting to scrape: ESS                        base.py:339
+</pre>
+  
+
+  
+
+
   <h2 id="2024-04-24-10-35">2024-04-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -3541,396 +3793,6 @@ KeyError: 'title'
 [10:10:48] 'title'                                                handlers.py:36
            Committing batch 1 consisting of 66 files                 base.py:291
 [10:10:49] Finished attempting to scrape: ESS                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-06-10-36">2024-04-06</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>97 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-06 10:36:32.961741</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-06 10:38:10.536368</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 58, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "/var/task/lgsf/councillors/scrapers.py", line 306, in get_single_councillor
-    party = self.get_party_name(list_page_html)
-  File "/var/task/lgsf/councillors/scrapers.py", line 287, in get_party_name
-    list_page_html.find_all("img")[-1]["title"]
-  File "/opt/python/bs4/element.py", line 1573, in __getitem__
-    return self.attrs[key]
-KeyError: 'title'
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:36:32] Fetching Scraper for: ESS                              handlers.py:23
-           Begin attempting to scrape: ESS                        handlers.py:27
-[10:36:33] Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-[10:36:34] Getting all files in Councillors/json...                  base.py:203
-           ...found 33 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-           ...found 33 files in Councillors/raw                      base.py:219
-           ...found 67 files in Councillors                          base.py:219
-           Deleting batch no. 1 consisting of 67 files               base.py:230
-[10:36:35] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/EssexCmis5/Councillors.aspx                 
-[10:36:37] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/655/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:36:40] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/327/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:36:42] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/100/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:36:46] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/639/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:36:48] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/882/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:36:51] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/880/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:36:53] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/879/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:36:56] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/648/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:36:58] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/80/ScreenMode/Ward/Default.a           
-           spx                                                                  
-[10:37:03] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/649/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:05] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/866/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:07] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/458/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:10] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/864/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:12] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/887/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:15] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/334/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:18] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/650/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:21] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/364/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:23] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/863/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:26] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/309/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:30] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/91/ScreenMode/Ward/Default.a           
-           spx                                                                  
-[10:37:32] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/877/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:34] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/777/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:36] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/865/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:39] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/359/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:41] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/870/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:43] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/340/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:46] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/94/ScreenMode/Ward/Default.a           
-           spx                                                                  
-[10:37:51] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/883/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:53] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/656/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:37:57] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/872/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:38:02] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/117/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:38:04] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/889/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:38:06] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/610/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[10:38:09] 'title'                                                handlers.py:36
-           Committing batch 1 consisting of 66 files                 base.py:291
-[10:38:10] Finished attempting to scrape: ESS                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-05-09-10">2024-04-05</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>119 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-05 09:10:04.214374</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-05 09:12:03.610332</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 58, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "/var/task/lgsf/councillors/scrapers.py", line 306, in get_single_councillor
-    party = self.get_party_name(list_page_html)
-  File "/var/task/lgsf/councillors/scrapers.py", line 287, in get_party_name
-    list_page_html.find_all("img")[-1]["title"]
-  File "/opt/python/bs4/element.py", line 1573, in __getitem__
-    return self.attrs[key]
-KeyError: 'title'
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:10:04] Fetching Scraper for: ESS                              handlers.py:23
-           Begin attempting to scrape: ESS                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-[09:10:05] Getting all files in Councillors/json...                  base.py:203
-           ...found 33 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-           ...found 33 files in Councillors/raw                      base.py:219
-           ...found 67 files in Councillors                          base.py:219
-           Deleting batch no. 1 consisting of 67 files               base.py:230
-[09:10:06] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/EssexCmis5/Councillors.aspx                 
-[09:10:08] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/655/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:10:12] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/327/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:10:14] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/100/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:10:19] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/639/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:10:23] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/882/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:10:25] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/880/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:10:28] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/879/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:10:30] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/648/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:10:33] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/80/ScreenMode/Ward/Default.a           
-           spx                                                                  
-[09:10:36] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/649/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:10:38] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/866/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:10:40] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/458/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:10:47] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/864/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:10:51] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/887/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:10:54] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/334/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:10:56] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/650/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:10:59] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/364/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:11:03] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/863/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:11:05] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/309/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:11:07] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/91/ScreenMode/Ward/Default.a           
-           spx                                                                  
-[09:11:10] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/877/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:11:13] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/777/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:11:16] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/865/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:11:20] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/359/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:11:23] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/870/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:11:25] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/340/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:11:29] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/94/ScreenMode/Ward/Default.a           
-           spx                                                                  
-[09:11:36] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/883/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:11:39] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/656/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:11:44] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/872/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:11:49] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/117/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:11:53] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/889/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:11:56] Scraping from                                              base.py:41
-           http://cmis.essex.gov.uk/essexcmis5/Councillors/tabid/62/c           
-           tl/ViewCMIS_Person/mid/480/id/610/ScreenMode/Ward/Default.           
-           aspx                                                                 
-[09:12:02] 'title'                                                handlers.py:36
-           Committing batch 1 consisting of 66 files                 base.py:291
-[09:12:03] Finished attempting to scrape: ESS                        base.py:339
 </pre>
   
 
