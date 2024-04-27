@@ -37,6 +37,63 @@
   
 
 
+  <h2 id="2024-04-26-16-01">2024-04-26</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-04-26 16:01:33.352776</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-04-26 16:01:35.516905</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 163, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 154, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
+    page = self.get(
+TypeError: ScraperBase.get() got an unexpected keyword argument 'verify'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[16:01:33] Fetching Scraper for: WYE                              handlers.py:23
+           Begin attempting to scrape: WYE                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[16:01:34] Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[16:01:35] ...data deleted.                                          base.py:264
+           ScraperBase.get() got an unexpected keyword argument   handlers.py:36
+           'verify'                                                             
+           Finished attempting to scrape: WYE                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-04-26-10-25">2024-04-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1016,57 +1073,6 @@ TypeError: ScraperBase.get() got an unexpected keyword argument 'verify'
            .htm                                                                 
 [09:00:56] Committing batch 1 consisting of 66 files                 base.py:291
 [09:00:57] Finished attempting to scrape: WYE                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-08-09-26">2024-04-08</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>22 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-08 09:26:08.703052</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-08 09:26:30.827132</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:26:08] Fetching Scraper for: WYE                              handlers.py:23
-           Begin attempting to scrape: WYE                        handlers.py:27
-[09:26:09] Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-           ...found 33 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-[09:26:10] ...found 33 files in Councillors/raw                      base.py:219
-           ...found 67 files in Councillors                          base.py:219
-           Deleting batch no. 1 consisting of 67 files               base.py:230
-           ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://forms.wyreforestdc.gov.uk/council/committees/com55           
-           .htm                                                                 
-[09:26:29] Committing batch 1 consisting of 66 files                 base.py:291
-[09:26:30] Finished attempting to scrape: WYE                        base.py:339
 </pre>
   
 

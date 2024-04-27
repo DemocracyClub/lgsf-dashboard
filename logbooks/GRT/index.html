@@ -37,6 +37,106 @@
   
 
 
+  <h2 id="2024-04-26-15-28">2024-04-26</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-04-26 15:28:51.330179</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-04-26 15:28:55.185087</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 199, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 218, in get_councillors
+    req = self.get(self.format_councillor_api_url())
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno -2] Name or service not known
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:28:51] Fetching Scraper for: GRT                              handlers.py:23
+           Begin attempting to scrape: GRT                        handlers.py:27
+[15:28:53] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[15:28:54] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://www2.guildford.gov.uk/councilmeetings/mgWebService           
+           .asmx/GetCouncillorsByWard                                           
+           [Errno -2] Name or service not known                   handlers.py:36
+[15:28:55] Finished attempting to scrape: GRT                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-04-26-10-55">2024-04-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2129,117 +2229,6 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www2.guildford.go
            'www2.guildford.gov.uk' ([Errno -2] Name or service                  
            not known)"))                                                        
            Finished attempting to scrape: GRT                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-08-09-13">2024-04-08</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>12 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-08 09:13:18.998910</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-08 09:13:31.319661</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connection.py", line 203, in _new_conn
-    sock = connection.create_connection(
-  File "/opt/python/urllib3/util/connection.py", line 60, in create_connection
-    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
-  File "/var/lang/lib/python3.10/socket.py", line 955, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-socket.gaierror: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
-    response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 492, in _make_request
-    raise new_e
-  File "/opt/python/urllib3/connectionpool.py", line 468, in _make_request
-    self._validate_conn(conn)
-  File "/opt/python/urllib3/connectionpool.py", line 1097, in _validate_conn
-    conn.connect()
-  File "/opt/python/urllib3/connection.py", line 611, in connect
-    self.sock = sock = self._new_conn()
-  File "/opt/python/urllib3/connection.py", line 210, in _new_conn
-    raise NameResolutionError(self.host, self, e) from e
-urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7f4db2e4c310>: Failed to resolve 'www2.guildford.gov.uk' ([Errno -2] Name or service not known)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www2.guildford.gov.uk', port=443): Max retries exceeded with url: /councilmeetings/mgWebService.asmx/GetCouncillorsByWard (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f4db2e4c310>: Failed to resolve 'www2.guildford.gov.uk' ([Errno -2] Name or service not known)"))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 47, in get
-    response = self.requests_session.get(
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 519, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www2.guildford.gov.uk', port=443): Max retries exceeded with url: /councilmeetings/mgWebService.asmx/GetCouncillorsByWard (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f4db2e4c310>: Failed to resolve 'www2.guildford.gov.uk' ([Errno -2] Name or service not known)"))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:13:18] Fetching Scraper for: GRT                              handlers.py:23
-[09:13:19] Begin attempting to scrape: GRT                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-[09:13:20] ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-           ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://www2.guildford.gov.uk/councilmeetings/mgWebService           
-           .asmx/GetCouncillorsByWard                                           
-[09:13:30] HTTPSConnectionPool(host='www2.guildford.gov.uk',      handlers.py:36
-           port=443): Max retries exceeded with url:                            
-           /councilmeetings/mgWebService.asmx/GetCouncillorsByWar               
-           d (Caused by                                                         
-           NameResolutionError("<urllib3.connection.HTTPSConnecti               
-           on object at 0x7f4db2e4c310>: Failed to resolve                      
-           'www2.guildford.gov.uk' ([Errno -2] Name or service                  
-           not known)"))                                                        
-[09:13:31] Finished attempting to scrape: GRT                        base.py:339
 </pre>
   
 

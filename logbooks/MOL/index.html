@@ -37,6 +37,132 @@
   
 
 
+  <h2 id="2024-04-27-09-58">2024-04-27</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-04-27 09:58:30.972235</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-04-27 09:58:34.852109</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
+    page = self.get(url, extra_headers=self.extra_headers).text
+  File "/var/task/lgsf/scrapers/base.py", line 56, in get
+    response.raise_for_status()
+  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://www.molevalley.gov.uk/home/council/councillors/who-are-your-councillors'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:58:30] Fetching Scraper for: MOL                              handlers.py:23
+[09:58:31] Begin attempting to scrape: MOL                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[09:58:32] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://www.molevalley.gov.uk/home/council/councillors/who           
+           -are-your-councillors                                                
+[09:58:34] Client error '404 Not Found' for url                   handlers.py:36
+           'https://www.molevalley.gov.uk/home/council/councillor               
+           s/who-are-your-councillors'                                          
+           For more information check:                                          
+           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
+           us/404                                                               
+           Finished attempting to scrape: MOL                        base.py:345
+</pre>
+  
+
+  
+
+
+  <h2 id="2024-04-26-16-07">2024-04-26</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-04-26 16:07:53.536251</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-04-26 16:07:55.618655</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 163, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 154, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
+    page = self.get(
+TypeError: ScraperBase.get() got an unexpected keyword argument 'verify'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[16:07:53] Fetching Scraper for: MOL                              handlers.py:23
+           Begin attempting to scrape: MOL                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[16:07:54] Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[16:07:55] ...data deleted.                                          base.py:264
+           ScraperBase.get() got an unexpected keyword argument   handlers.py:36
+           'verify'                                                             
+           Finished attempting to scrape: MOL                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-04-26-10-45">2024-04-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1190,136 +1316,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.
            https://www.molevalley.gov.uk/home/council/councillors/who           
            -are-your-councillors                                                
            404 Client Error: Not Found for url:                   handlers.py:36
-           https://www.molevalley.gov.uk/home/council/councillors               
-           /who-are-your-councillors                                            
-           Finished attempting to scrape: MOL                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-09-09-59">2024-04-09</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-09 09:59:21.357899</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-09 09:59:27.106183</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 56, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 164, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 155, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 142, in get_page
-    page = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 50, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.molevalley.gov.uk/home/council/councillors/who-are-your-councillors
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:59:21] Fetching Scraper for: MOL                              handlers.py:23
-           Begin attempting to scrape: MOL                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[09:59:22] Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-[09:59:23] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://www.molevalley.gov.uk/home/council/councillors/who           
-           -are-your-councillors                                                
-[09:59:26] 404 Client Error: Not Found for url:                   handlers.py:36
-           https://www.molevalley.gov.uk/home/council/councillors               
-           /who-are-your-councillors                                            
-[09:59:27] Finished attempting to scrape: MOL                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-08-09-32">2024-04-08</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-08 09:32:50.822289</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-08 09:32:55.955678</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 56, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 164, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 155, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 142, in get_page
-    page = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 50, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.molevalley.gov.uk/home/council/councillors/who-are-your-councillors
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:32:50] Fetching Scraper for: MOL                              handlers.py:23
-           Begin attempting to scrape: MOL                        handlers.py:27
-[09:32:51] Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-[09:32:52] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://www.molevalley.gov.uk/home/council/councillors/who           
-           -are-your-councillors                                                
-[09:32:55] 404 Client Error: Not Found for url:                   handlers.py:36
            https://www.molevalley.gov.uk/home/council/councillors               
            /who-are-your-councillors                                            
            Finished attempting to scrape: MOL                        base.py:339
