@@ -37,6 +37,63 @@
   
 
 
+  <h2 id="2024-04-26-10-32">2024-04-26</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-04-26 10:32:40.661310</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-04-26 10:32:43.054563</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 163, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 154, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
+    page = self.get(
+TypeError: ScraperBase.get() got an unexpected keyword argument 'verify'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:32:40] Fetching Scraper for: SFK                              handlers.py:23
+           Begin attempting to scrape: SFK                        handlers.py:27
+[10:32:41] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[10:32:42] ...data deleted.                                          base.py:264
+           ScraperBase.get() got an unexpected keyword argument   handlers.py:36
+           'verify'                                                             
+[10:32:43] Finished attempting to scrape: SFK                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-04-26-10-03">2024-04-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -934,53 +991,6 @@ TypeError: ScraperBase.get() got an unexpected keyword argument 'verify'
            rs-and-elected-representatives/find-your-councillor/?ward=           
            &action=SEARCH&party=&name=                                          
 [00:18:53] Finished attempting to scrape: SFK                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-25-23-48">2024-04-25</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>3 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-25 23:48:50.346729</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-25 23:48:54.045354</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[23:48:50] Fetching Scraper for: SFK                              handlers.py:23
-           Begin attempting to scrape: SFK                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[23:48:51] Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-[23:48:52] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://www.suffolk.gov.uk/council-and-democracy/councillo           
-           rs-and-elected-representatives/find-your-councillor/?ward=           
-           &action=SEARCH&party=&name=                                          
-[23:48:54] Finished attempting to scrape: SFK                        base.py:339
 </pre>
   
 

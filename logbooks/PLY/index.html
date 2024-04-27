@@ -37,6 +37,110 @@
   
 
 
+  <h2 id="2024-04-26-10-45">2024-04-26</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>7 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-04-26 10:45:25.972493</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-04-26 10:45:33.343175</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    return self._connection.handle_request(request)
+  File "/opt/python/httpcore/_sync/http11.py", line 143, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 113, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+  File "/opt/python/httpcore/_sync/http11.py", line 186, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "/opt/python/httpcore/_sync/http11.py", line 224, in _receive_event
+    data = self._network_stream.read(
+  File "/opt/python/httpcore/_backends/sync.py", line 124, in read
+    with map_exceptions(exc_map):
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 199, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 218, in get_councillors
+    req = self.get(self.format_councillor_api_url())
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:45:25] Fetching Scraper for: PLY                              handlers.py:23
+[10:45:26] Begin attempting to scrape: PLY                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+[10:45:27] ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[10:45:28] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://democracy.plymouth.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+[10:45:33] The read operation timed out                           handlers.py:36
+           Finished attempting to scrape: PLY                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-04-26-09-44">2024-04-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1102,59 +1206,6 @@ requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: ht
 [09:27:06] Committing batch 1 consisting of 92 files                 base.py:291
 [09:27:08] Committing batch 2 consisting of 22 files                 base.py:291
 [09:27:09] Finished attempting to scrape: PLY                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-07-09-05">2024-04-07</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>16 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-07 09:05:45.132071</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-07 09:06:01.605391</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:05:45] Fetching Scraper for: PLY                              handlers.py:23
-           Begin attempting to scrape: PLY                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[09:05:46] Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-           ...found 57 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-           ...found 57 files in Councillors/raw                      base.py:219
-           ...found 115 files in Councillors                         base.py:219
-           Deleting batch no. 1 consisting of 100 files              base.py:230
-[09:05:47] Deleting batch no. 2 consisting of 15 files               base.py:230
-           ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://democracy.plymouth.gov.uk/mgWebService.asmx/GetCou           
-           ncillorsByWard                                                       
-[09:05:59] Committing batch 1 consisting of 92 files                 base.py:291
-[09:06:00] Committing batch 2 consisting of 22 files                 base.py:291
-[09:06:01] Finished attempting to scrape: PLY                        base.py:339
 </pre>
   
 
