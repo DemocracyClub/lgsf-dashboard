@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2024-04-29-09-07">2024-04-29</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>7 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-04-29 09:07:02.333938</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-04-29 09:07:09.346828</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:07:02] Fetching Scraper for: ABE                              handlers.py:23
+           Begin attempting to scrape: ABE                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[09:07:03] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 45 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 45 files in Councillors/raw                      base.py:225
+           ...found 91 files in Councillors                          base.py:225
+           Deleting batch no. 1 consisting of 91 files               base.py:236
+[09:07:04] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
+           etCouncillorsByWard                                                  
+[09:07:08] Committing batch 1 consisting of 90 files                 base.py:297
+[09:07:09] Finished attempting to scrape: ABE                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-04-28-10-06">2024-04-28</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -996,67 +1047,6 @@
            etCouncillorsByWard                                                  
 [09:11:17] Committing batch 1 consisting of 90 files                 base.py:291
 [09:11:18] Finished attempting to scrape: ABE                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-12-10-01">2024-04-12</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-12 10:01:29.768709</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-12 10:01:31.838828</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 50, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://committees.aberdeencity.gov.uk/mgWebService.asmx/GetCouncillorsByWard
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:01:29] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-[10:01:30] Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-[10:01:31] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-           404 Client Error: Not Found for url:                   handlers.py:36
-           https://committees.aberdeencity.gov.uk/mgWebService.as               
-           mx/GetCouncillorsByWard                                              
-           Finished attempting to scrape: ABE                        base.py:339
 </pre>
   
 
