@@ -37,6 +37,105 @@
   
 
 
+  <h2 id="2024-05-07-08-21">2024-05-07</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-05-07 08:21:18.551574</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-05-07 08:21:20.657728</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers, timeout=30)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno -2] Name or service not known
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:21:18] Fetching Scraper for: BOL                              handlers.py:23
+           Begin attempting to scrape: BOL                        handlers.py:27
+[08:21:19] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[08:21:20] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
+           [Errno -2] Name or service not known                   handlers.py:36
+           Finished attempting to scrape: BOL                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-05-06-09-31">2024-05-06</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -3904,294 +4003,6 @@ TypeError: ScraperBase.get() got an unexpected keyword argument 'verify'
            .aspx                                                                
 [09:00:15] Committing batch 2 consisting of 26 files                 base.py:291
 [09:00:16] Finished attempting to scrape: BOL                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-20-08-47">2024-04-20</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>83 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-20 08:47:05.945557</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-20 08:48:29.840314</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:47:05] Fetching Scraper for: BOL                              handlers.py:23
-           Begin attempting to scrape: BOL                        handlers.py:27
-[08:47:06] Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-[08:47:07] Getting all files in Councillors/json...                  base.py:203
-           ...found 59 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-           ...found 59 files in Councillors/raw                      base.py:219
-           ...found 119 files in Councillors                         base.py:219
-           Deleting batch no. 1 consisting of 100 files              base.py:230
-[08:47:08] Deleting batch no. 2 consisting of 19 files               base.py:230
-           ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-[08:47:10] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/563/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:12] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/921/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:14] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/562/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:16] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/710/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:18] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/923/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:19] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/922/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:20] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/925/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:21] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/924/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:22] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/879/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:23] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/890/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:24] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/911/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:25] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/882/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:26] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/914/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:27] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/842/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:30] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/884/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:31] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/935/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:32] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/658/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:34] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/878/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:35] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/642/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:36] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/926/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:37] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/707/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:39] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/906/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:40] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/936/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:41] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/937/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:42] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/694/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:43] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/885/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:44] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/617/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:47] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/938/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:48] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/940/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:49] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/903/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:50] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/941/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:51] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/897/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:52] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/893/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:53] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/927/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:54] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/928/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:55] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/929/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:56] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/912/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:57] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/944/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:58] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/930/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:47:59] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/916/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:02] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/909/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:03] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/568/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:04] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/585/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:07] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/586/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:08] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/931/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:09] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/915/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:10] Committing batch 1 consisting of 92 files                 base.py:291
-[08:48:11] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/932/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:12] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/561/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:14] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/913/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:15] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/892/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:16] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/711/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:18] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/918/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:20] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/598/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:22] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/945/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:23] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/942/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:24] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/943/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:25] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/933/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:26] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/934/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:27] Scraping from                                              base.py:41
-           https://www.democracy.bolton.gov.uk/cmis5/People/tabid/62/           
-           ctl/ViewCMIS_Person/mid/480/id/881/ScreenMode/Ward/Default           
-           .aspx                                                                
-[08:48:28] Committing batch 2 consisting of 26 files                 base.py:291
-[08:48:29] Finished attempting to scrape: BOL                        base.py:339
 </pre>
   
 
