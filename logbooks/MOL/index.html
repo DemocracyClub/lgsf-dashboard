@@ -37,6 +37,75 @@
   
 
 
+  <h2 id="2024-05-09-10-39">2024-05-09</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>16 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-05-09 10:39:05.963047</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-05-09 10:39:22.228697</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/MOL-mole-valley/councillors.py", line 44, in get_single_councillor
+    ).get_text(strip=True)
+AttributeError: 'NoneType' object has no attribute 'get_text'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:39:05] Fetching Scraper for: MOL                              handlers.py:23
+           Begin attempting to scrape: MOL                        handlers.py:27
+[10:39:06] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+[10:39:07] ...found 2 files in Councillors/json                      base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 2 files in Councillors/raw                       base.py:225
+           ...found 5 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 5 files                base.py:236
+[10:39:08] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://www.molevalley.gov.uk/councillors-decision-making/           
+           who-are-your-councillors/                                            
+[10:39:12] Scraping from                                              base.py:49
+           https://www.molevalley.gov.uk/councillors-decision-making/           
+           who-are-your-councillors/cllr-chris-hunt/                            
+[10:39:15] Scraping from                                              base.py:49
+           https://www.molevalley.gov.uk/councillors-decision-making/           
+           who-are-your-councillors/cllr-patricia-wiltshire/                    
+[10:39:18] Scraping from                                              base.py:49
+           https://www.molevalley.gov.uk/councillors-decision-making/           
+           who-are-your-councillors/cllr-andy-smith/                            
+[10:39:21] 'NoneType' object has no attribute 'get_text'          handlers.py:36
+           Committing batch 1 consisting of 4 files                  base.py:297
+[10:39:22] Finished attempting to scrape: MOL                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-05-08-10-47">2024-05-08</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2384,71 +2453,6 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.
            https://www.molevalley.gov.uk/home/council/councillors/who           
            -are-your-councillors                                                
 [10:39:24] 404 Client Error: Not Found for url:                   handlers.py:36
-           https://www.molevalley.gov.uk/home/council/councillors               
-           /who-are-your-councillors                                            
-           Finished attempting to scrape: MOL                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-22-09-24">2024-04-22</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>8 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-22 09:24:29.704500</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-22 09:24:37.940709</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 56, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 164, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 155, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 142, in get_page
-    page = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 50, in get
-    response.raise_for_status()
-  File "/opt/python/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.molevalley.gov.uk/home/council/councillors/who-are-your-councillors
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:24:29] Fetching Scraper for: MOL                              handlers.py:23
-           Begin attempting to scrape: MOL                        handlers.py:27
-[09:24:30] Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-[09:24:31] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://www.molevalley.gov.uk/home/council/councillors/who           
-           -are-your-councillors                                                
-[09:24:37] 404 Client Error: Not Found for url:                   handlers.py:36
            https://www.molevalley.gov.uk/home/council/councillors               
            /who-are-your-councillors                                            
            Finished attempting to scrape: MOL                        base.py:339
