@@ -37,6 +37,75 @@
   
 
 
+  <h2 id="2024-05-10-10-42">2024-05-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-05-10 10:42:28.331815</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-05-10 10:42:30.682175</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
+    page = self.get(url, extra_headers=self.extra_headers).text
+  File "/var/task/lgsf/scrapers/base.py", line 56, in get
+    response.raise_for_status()
+  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://www.glasgow.gov.uk/councillorsandcommittees/allMembers.asp?sort=0&page=0&rec=100'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:42:28] Fetching Scraper for: GLG                              handlers.py:23
+           Begin attempting to scrape: GLG                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[10:42:29] Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[10:42:30] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://www.glasgow.gov.uk/councillorsandcommittees/allMem           
+           bers.asp?sort=0&page=0&rec=100                                       
+           Client error '404 Not Found' for url                   handlers.py:36
+           'https://www.glasgow.gov.uk/councillorsandcommittees/a               
+           llMembers.asp?sort=0&page=0&rec=100'                                 
+           For more information check:                                          
+           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
+           us/404                                                               
+           Finished attempting to scrape: GLG                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-05-09-09-40">2024-05-09</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -4669,314 +4738,6 @@ TypeError: ScraperBase.get() got an unexpected keyword argument 'verify'
            .asp?id=2118&t=Councillor+Alex+Wilson                                
            Committing batch 2 consisting of 78 files                 base.py:291
 [10:25:41] Finished attempting to scrape: GLG                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-23-09-07">2024-04-23</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>49 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-23 09:07:36.244415</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-23 09:08:26.073062</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:07:36] Fetching Scraper for: GLG                              handlers.py:23
-           Begin attempting to scrape: GLG                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-[09:07:37] Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-           ...found 85 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-           ...found 85 files in Councillors/raw                      base.py:219
-           ...found 171 files in Councillors                         base.py:219
-           Deleting batch no. 1 consisting of 100 files              base.py:230
-[09:07:38] Deleting batch no. 2 consisting of 71 files               base.py:230
-[09:07:39] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/allMem           
-           bers.asp?sort=0&page=0&rec=100                                       
-[09:07:40] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2391&t=Councillor+Saqib+Ahmed                                
-[09:07:41] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=1300&t=Councillor+Susan+Aitken                               
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3246&t=Councilor+Imran+Alam                                  
-[09:07:42] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3277&t=Councillor+Blair+Anderson                             
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=1224&t=Councillor+Ken+Andrew                                 
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2398&t=Councillor+Alexander+Belic                            
-[09:07:43] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2394&t=Councillor+Richard+Bell                               
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3268&t=Councillor+Declan+Blench                              
-[09:07:44] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2107&t=Councillor+Eva+Bolander                               
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3259&t=Councillor+Abdul+Bostani                              
-[09:07:45] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=80&t=Councillor+Philip+Braat                                 
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3094&t=Councillor+Jill+Brown                                 
-[09:07:46] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3249&t=Councillor+Holly+Bruce                                
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=1325&t=Councillor+Maureen+Burke                              
-[09:07:47] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=130&t=Councillor+Bill+Butler                                 
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2413&t=Councillor+Graham+Campbell                            
-[09:07:48] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2414&t=Councillor+Christina+Cannon                           
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=63&t=Councillor+Paul+Carey+BEM                               
-[09:07:49] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3276&t=Bailie+Anthony+Carroll                                
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3395&t=Councillor+John+Carson                                
-[09:07:50] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2425&t=Councillor+Allan+Casey                                
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2416&t=Bailie+Annette+Christie                               
-[09:07:51] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2308&t=Councillor+Chris+Cunningham                           
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=67&t=Councillor+Stephen+Curran                               
-[09:07:52] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=1310&t=Councillor+Feargal+Dalton                             
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3272&t=Councillor+John+Daly                                  
-[09:07:53] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3264&t=Councillor+Audrey+Dempsey                             
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3250&t=Councillor+Stephen+Docherty                           
-[09:07:54] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2417&t=Councillor+Laura+Doherty                              
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=74&t=Councillor+Stephen+Dornan                               
-[09:07:55] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=484&t=Bailie+Patricia+Ferguson                               
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3242&t=Councillor+Sean+Ferguson                              
-[09:07:56] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3252&t=Bailie+Elaine+Gallagher                               
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3248&t=Councillor+Zen+Ghani                                  
-[09:07:57] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2410&t=Councillor+Allan+Gow                                  
-[09:07:58] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3244&t=Councillor+William+Graham                             
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3275&t=Councillor+Sharon+Greer                               
-[09:07:59] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2108&t=Councillor+Greg+Hepburn                               
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3262&t=Councillor+Fiona+Higgins                              
-[09:08:00] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3662&t=Councillor+Seonad+Hoy                                 
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=1293&t=Bailie+Rashid+Hussain                                 
-[09:08:01] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3247&t=Councillor+Dan+Hutchison                              
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3258&t=Councillor+Fyeza+Ikhlaq                               
-[09:08:02] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3255&t=Councillor+Eunis+Jassemi                              
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3269&t=Bailie+Ann+Jenkins                                    
-[09:08:03] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3278&t=Councillor+Lilith+Johnstone                           
-           Committing batch 1 consisting of 92 files                 base.py:291
-[09:08:05] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2486&t=Bailie+Jim+Kavanagh                                   
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2422&t=Councillor+Ruairi+Kelly                               
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3273&t=Councillor+Alex+Kerr                                  
-[09:08:06] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=41&t=Councillor+Matt+Kerr                                    
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2419&t=Bailie+Thomas+Kerr                                    
-[09:08:07] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3274&t=Councillor+Kevin+Lalley                               
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3251&t=Councillor+Paul+Leinster                              
-[09:08:08] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=107&t=Councillor+Frank+McAveety                              
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3240&t=Bailie+Paul+McCabe                                    
-[09:08:09] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=54&t=Councillor+Elaine+McDougall                             
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2411&t=Lord+Provost+Jacqueline+McLaren                       
-[09:08:10] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=9&t=Councillor+Kenny+McLean                                  
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=779&t=Bailie+Norman+MacLeod                                  
-[09:08:11] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2393&t=Councillor+Elaine+McSporran                           
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=34&t=Councillor+Anne+McTaggart                               
-[09:08:12] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3243&t=Bailie+Le%F2dhas+Massie                               
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2402&t=Councillor+Christy+Mearns                             
-[09:08:13] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2265&t=Councillor+Angus+Millar                               
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3257&t=Councillor+Malcolm+Mitchell                           
-[09:08:14] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2396&t=Councillor+Jon+Molyneux                               
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2412&t=Councillor+Robert+Mooney                              
-[09:08:15] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2389&t=Bailie+Margaret+Morgan                                
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2407&t=Councillor+Eva+Murray                                 
-[09:08:16] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2401&t=Councillor+Cecilia+O%27Lone                           
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3260&t=Councillor+Keiran+O%27Neill                           
-[09:08:17] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3271&t=Councillor+Jill+Pidgeon                               
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3253&t=Bailie+Linda+Pike                                     
-[09:08:18] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=1299&t=Bailie+Hanif+Raja                                     
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3266&t=Councillor+Thomas+Rannachan                           
-[09:08:19] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=61&t=Councillor+George+Redmond                               
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3256&t=Councillor+Lana+Reid%2DMcConnell                      
-[09:08:20] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3245&t=Bailie+Roza+Salih                                     
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=1319&t=Councillor+Franny+Scally                              
-[09:08:21] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=78&t=Bailie+James+Scanlon                                    
-[09:08:22] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=1303&t=Bailie+Dr+Soryia+Siddique                             
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3270&t=Councillor+Kieran+Turner                              
-[09:08:23] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=3241&t=Councillor+Catherine+Vallis                           
-           Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=64&t=Councillor+Martha+Wardrop                               
-[09:08:24] Scraping from                                              base.py:41
-           https://www.glasgow.gov.uk/councillorsandcommittees/member           
-           .asp?id=2118&t=Councillor+Alex+Wilson                                
-           Committing batch 2 consisting of 78 files                 base.py:291
-[09:08:26] Finished attempting to scrape: GLG                        base.py:339
 </pre>
   
 

@@ -37,6 +37,113 @@
   
 
 
+  <h2 id="2024-05-10-08-33">2024-05-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>4 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-05-10 08:33:09.609794</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-05-10 08:33:13.852592</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/CAS-castle-point/councillors.py", line 15, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
+    page = self.get(url, extra_headers=self.extra_headers).text
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers, timeout=30)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno -2] Name or service not known
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:33:09] Fetching Scraper for: CAS                              handlers.py:23
+           Begin attempting to scrape: CAS                        handlers.py:27
+[08:33:10] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 40 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+[08:33:11] ...found 40 files in Councillors/raw                      base.py:225
+           ...found 81 files in Councillors                          base.py:225
+           Deleting batch no. 1 consisting of 81 files               base.py:236
+[08:33:12] ...data deleted.                                          base.py:264
+           Scraping from https://www.castlepoint.gov.uk/councillors   base.py:49
+[08:33:13] Scraping from                                              base.py:49
+           https://www.castlepoint.gov.ukhttps://castlepoint.cmis.uk.           
+           com/castlepoint/Committees/CurrentCommittees.aspx?a=1                
+           [Errno -2] Name or service not known                   handlers.py:36
+           Finished attempting to scrape: CAS                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-05-09-10-23">2024-05-09</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2321,134 +2428,6 @@ TypeError: ScraperBase.get() got an unexpected keyword argument 'verify'
            https://www.castlepoint.gov.uk/knott-john-pip                        
 [08:57:51] Committing batch 1 consisting of 80 files                 base.py:291
 [08:57:53] Finished attempting to scrape: CAS                        base.py:339
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-23-10-22">2024-04-23</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>48 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-23 10:22:51.978021</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-23 10:23:40.557666</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:22:51] Fetching Scraper for: CAS                              handlers.py:23
-[10:22:52] Begin attempting to scrape: CAS                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-           Getting all files in Councillors/json...                  base.py:203
-[10:22:53] ...found 40 files in Councillors/json                     base.py:219
-           Getting all files in Councillors/raw...                   base.py:203
-           ...found 40 files in Councillors/raw                      base.py:219
-           ...found 81 files in Councillors                          base.py:219
-           Deleting batch no. 1 consisting of 81 files               base.py:230
-[10:22:54] ...data deleted.                                          base.py:258
-           Scraping from https://www.castlepoint.gov.uk/councillors   base.py:41
-[10:22:56] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/bizzell-benjamin-pip                  
-[10:22:57] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/mccarthy-calvert-lynsey-pip           
-[10:22:58] Scraping from https://www.castlepoint.gov.uk/skipp-tom-con base.py:41
-[10:22:59] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/edwards-allan-pip                     
-[10:23:00] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/lillis-rob-pip                        
-[10:23:01] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/thornton-andrew-con                   
-[10:23:02] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/anderson-john-ciip                    
-[10:23:03] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/blackwell-dave-ciip                   
-[10:23:04] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/may-peter-ciip                        
-[10:23:05] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/acott-alan-ciip                       
-[10:23:06] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/sach-carole-ciip                      
-[10:23:07] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/watson-grace-ciip                     
-[10:23:09] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/fuller-michael-ciip                   
-[10:23:10] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/harvey-nick-ciip                      
-[10:23:11] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/campagna-barry-ciip                   
-[10:23:12] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/palmer-barry-ciip                     
-[10:23:13] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/payne-mrs-janice-ciip                 
-[10:23:14] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/blissett-mrs-jay-con                  
-[10:23:15] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/thomas-david-ciip                     
-[10:23:16] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/greig-peter-ciip                      
-[10:23:17] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/taylor-allan-ciip                     
-[10:23:18] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/withers-graham-ciip                   
-[10:23:19] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/gibson-tom-pip                        
-[10:23:21] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/howlett-gareth-pip                    
-[10:23:22] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/mountford-stephen-pip                 
-[10:23:23] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/benson-nicola-pip                     
-[10:23:24] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/mumford-mrs-susan-con                 
-[10:23:25] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/walter-clive-con                      
-[10:23:26] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/hart-simon-con                        
-[10:23:27] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/isaacs-godfrey-ind                    
-[10:23:28] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/thornton-jacqui-con                   
-[10:23:29] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/ainsley-sharon-pip                    
-[10:23:30] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/jones-diana-pip                       
-[10:23:31] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/savage-russell-pip                    
-[10:23:32] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/barton-brown-hannah-pip               
-[10:23:33] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/dearsonmichael-pip                    
-[10:23:34] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/egan-mrs-beverley-con                 
-[10:23:35] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/bowker-kieron-pip                     
-[10:23:36] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/gibson-warren-pip                     
-[10:23:37] Scraping from                                              base.py:41
-           https://www.castlepoint.gov.uk/knott-john-pip                        
-[10:23:39] Committing batch 1 consisting of 80 files                 base.py:291
-[10:23:40] Finished attempting to scrape: CAS                        base.py:339
 </pre>
   
 
