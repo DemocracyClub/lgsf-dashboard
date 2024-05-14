@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2024-05-12-10-33">2024-05-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>6 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-05-12 10:33:07.497540</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-05-12 10:33:14.264056</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:33:07] Fetching Scraper for: CAT                              handlers.py:23
+           Begin attempting to scrape: CAT                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[10:33:08] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 43 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 43 files in Councillors/raw                      base.py:225
+           ...found 87 files in Councillors                          base.py:225
+           Deleting batch no. 1 consisting of 87 files               base.py:236
+[10:33:09] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://democracy.canterbury.gov.uk/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+[10:33:13] Committing batch 1 consisting of 86 files                 base.py:297
+[10:33:14] Finished attempting to scrape: CAT                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-05-11-08-52">2024-05-11</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1192,120 +1243,6 @@ httpx.ConnectTimeout: timed out
            uncillorsByWard                                                      
 [09:50:43] timed out                                              handlers.py:36
            Finished attempting to scrape: CAT                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-25-10-57">2024-04-25</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>131 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-25 10:57:59.983797</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-25 11:00:11.300680</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/urllib3/connection.py", line 203, in _new_conn
-    sock = connection.create_connection(
-  File "/opt/python/urllib3/util/connection.py", line 85, in create_connection
-    raise err
-  File "/opt/python/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-TimeoutError: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/urllib3/connectionpool.py", line 791, in urlopen
-    response = self._make_request(
-  File "/opt/python/urllib3/connectionpool.py", line 497, in _make_request
-    conn.request(
-  File "/opt/python/urllib3/connection.py", line 395, in request
-    self.endheaders()
-  File "/var/lang/lib/python3.10/http/client.py", line 1278, in endheaders
-    self._send_output(message_body, encode_chunked=encode_chunked)
-  File "/var/lang/lib/python3.10/http/client.py", line 1038, in _send_output
-    self.send(msg)
-  File "/var/lang/lib/python3.10/http/client.py", line 976, in send
-    self.connect()
-  File "/opt/python/urllib3/connection.py", line 243, in connect
-    self.sock = self._new_conn()
-  File "/opt/python/urllib3/connection.py", line 212, in _new_conn
-    raise ConnectTimeoutError(
-urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x7fcc2f1965c0>, 'Connection to democracy.canterbury.gov.uk timed out. (connect timeout=None)')
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/python/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/opt/python/urllib3/connectionpool.py", line 845, in urlopen
-    retries = retries.increment(
-  File "/opt/python/urllib3/util/retry.py", line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='democracy.canterbury.gov.uk', port=80): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fcc2f1965c0>, 'Connection to democracy.canterbury.gov.uk timed out. (connect timeout=None)'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 200, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 219, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 47, in get
-    response = self.requests_session.get(
-  File "/opt/python/requests/sessions.py", line 602, in get
-    return self.request("GET", url, **kwargs)
-  File "/opt/python/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/opt/python/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/opt/python/requests/adapters.py", line 507, in send
-    raise ConnectTimeout(e, request=request)
-requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='democracy.canterbury.gov.uk', port=80): Max retries exceeded with url: /mgWebService.asmx/GetCouncillorsByWard (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fcc2f1965c0>, 'Connection to democracy.canterbury.gov.uk timed out. (connect timeout=None)'))
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:57:59] Fetching Scraper for: CAT                              handlers.py:23
-[10:58:00] Begin attempting to scrape: CAT                        handlers.py:27
-           Deleting existing data...                                 base.py:251
-           Getting all files in Councillors...                       base.py:203
-           ...found 1 files in Councillors                           base.py:219
-           Deleting batch no. 1 consisting of 1 files                base.py:230
-[10:58:01] ...data deleted.                                          base.py:258
-           Scraping from                                              base.py:41
-           http://democracy.canterbury.gov.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[11:00:10] HTTPConnectionPool(host='democracy.canterbury.gov.uk', handlers.py:36
-           port=80): Max retries exceeded with url:                             
-           /mgWebService.asmx/GetCouncillorsByWard (Caused by                   
-           ConnectTimeoutError(<urllib3.connection.HTTPConnection               
-           object at 0x7fcc2f1965c0>, 'Connection to                            
-           democracy.canterbury.gov.uk timed out. (connect                      
-           timeout=None)'))                                                     
-[11:00:11] Finished attempting to scrape: CAT                        base.py:339
 </pre>
   
 
