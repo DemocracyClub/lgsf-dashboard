@@ -37,6 +37,75 @@
   
 
 
+  <h2 id="2024-05-14-10-05">2024-05-14</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-05-14 10:05:40.349372</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-05-14 10:05:50.703214</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/CAN-cannock-chase/councillors.py", line 22, in get_single_councillor
+    url = urljoin(self.base_url, link["href"].strip())
+TypeError: 'NoneType' object is not subscriptable
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:05:40] Fetching Scraper for: CAN                              handlers.py:23
+           Begin attempting to scrape: CAN                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[10:05:41] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 3 files in Councillors/json                      base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 3 files in Councillors/raw                       base.py:225
+           ...found 7 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 7 files                base.py:236
+[10:05:42] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://www.cannockchasedc.gov.uk/council/about-council/yo           
+           ur-councillors                                                       
+[10:05:44] Scraping from                                              base.py:49
+           https://www.cannockchasedc.gov.uk/council/about-us/council           
+           lors/carl-boulton                                                    
+[10:05:46] Scraping from                                              base.py:49
+           https://www.cannockchasedc.gov.uk/council/about-us/council           
+           lors/paul-fisher                                                     
+[10:05:48] Scraping from                                              base.py:49
+           https://www.cannockchasedc.gov.uk/council/about-us/council           
+           lors/david-williams                                                  
+[10:05:49] 'NoneType' object is not subscriptable                 handlers.py:36
+           Committing batch 1 consisting of 6 files                  base.py:297
+[10:05:50] Finished attempting to scrape: CAN                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-05-13-08-25">2024-05-13</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2478,63 +2547,6 @@ TypeError: ScraperBase.get() got an unexpected keyword argument 'verify'
            ...found 1 files in Councillors                           base.py:225
            Deleting batch no. 1 consisting of 1 files                base.py:236
 [15:35:23] ...data deleted.                                          base.py:264
-           ScraperBase.get() got an unexpected keyword argument   handlers.py:36
-           'verify'                                                             
-           Finished attempting to scrape: CAN                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-26-10-16">2024-04-26</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>1 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-26 10:16:14.847314</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-26 10:16:16.812233</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 163, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 154, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(
-TypeError: ScraperBase.get() got an unexpected keyword argument 'verify'
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:16:14] Fetching Scraper for: CAN                              handlers.py:23
-           Begin attempting to scrape: CAN                        handlers.py:27
-[10:16:15] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:16:16] ...data deleted.                                          base.py:264
            ScraperBase.get() got an unexpected keyword argument   handlers.py:36
            'verify'                                                             
            Finished attempting to scrape: CAN                        base.py:345
