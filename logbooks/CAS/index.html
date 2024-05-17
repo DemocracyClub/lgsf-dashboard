@@ -37,6 +37,109 @@
   
 
 
+  <h2 id="2024-05-15-08-57">2024-05-15</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-05-15 08:57:38.977430</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-05-15 08:57:42.412131</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/CAS-castle-point/councillors.py", line 15, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
+    page = self.get(url, extra_headers=self.extra_headers).text
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers, timeout=30)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno -2] Name or service not known
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:57:38] Fetching Scraper for: CAS                              handlers.py:23
+[08:57:39] Begin attempting to scrape: CAS                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+[08:57:40] ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+           ...data deleted.                                          base.py:264
+           Scraping from https://www.castlepoint.gov.uk/councillors   base.py:49
+[08:57:42] Scraping from                                              base.py:49
+           https://www.castlepoint.gov.ukhttps://castlepoint.cmis.uk.           
+           com/castlepoint/Committees/CurrentCommittees.aspx?a=1                
+           [Errno -2] Name or service not known                   handlers.py:36
+           Finished attempting to scrape: CAS                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-05-14-08-37">2024-05-14</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2338,63 +2441,6 @@ httpx.ConnectError: [Errno -2] Name or service not known
            https://www.castlepoint.gov.uk/knott-john-pip                        
 [08:40:15] Committing batch 1 consisting of 80 files                 base.py:297
 [08:40:16] Finished attempting to scrape: CAS                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-04-26-16-06">2024-04-26</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-04-26 16:06:40.857751</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-04-26 16:06:42.922520</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 163, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 154, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(
-TypeError: ScraperBase.get() got an unexpected keyword argument 'verify'
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[16:06:40] Fetching Scraper for: CAS                              handlers.py:23
-           Begin attempting to scrape: CAS                        handlers.py:27
-[16:06:41] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[16:06:42] ...data deleted.                                          base.py:264
-           ScraperBase.get() got an unexpected keyword argument   handlers.py:36
-           'verify'                                                             
-           Finished attempting to scrape: CAS                        base.py:345
 </pre>
   
 
