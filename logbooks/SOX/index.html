@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2024-05-25-10-37">2024-05-25</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>4 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-05-25 10:37:41.022554</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-05-25 10:37:45.892612</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:37:41] Fetching Scraper for: SOX                              handlers.py:23
+           Begin attempting to scrape: SOX                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+[10:37:42] Getting all files in Councillors/json...                  base.py:209
+           ...found 36 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 36 files in Councillors/raw                      base.py:225
+           ...found 73 files in Councillors                          base.py:225
+           Deleting batch no. 1 consisting of 73 files               base.py:236
+[10:37:43] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           http://democratic.southoxon.gov.uk/mgWebService.asmx/GetCo           
+           uncillorsByWard                                                      
+[10:37:44] Committing batch 1 consisting of 72 files                 base.py:297
+[10:37:45] Finished attempting to scrape: SOX                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-05-24-09-55">2024-05-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -996,75 +1047,6 @@
            uncillorsByWard                                                      
 [10:21:38] Committing batch 1 consisting of 72 files                 base.py:297
 [10:21:39] Finished attempting to scrape: SOX                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-05-05-10-19">2024-05-05</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>17 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-05-05 10:19:21.738794</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-05-05 10:19:39.439656</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Server error '503 Service Unavailable' for url 'http://democratic.southoxon.gov.uk/mgWebService.asmx/GetCouncillorsByWard'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:19:21] Fetching Scraper for: SOX                              handlers.py:23
-           Begin attempting to scrape: SOX                        handlers.py:27
-[10:19:22] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[10:19:23] ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-[10:19:24] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://democratic.southoxon.gov.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[10:19:39] Server error '503 Service Unavailable' for url         handlers.py:36
-           'http://democratic.southoxon.gov.uk/mgWebService.asmx/               
-           GetCouncillorsByWard'                                                
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/503                                                               
-           Finished attempting to scrape: SOX                        base.py:345
 </pre>
   
 
