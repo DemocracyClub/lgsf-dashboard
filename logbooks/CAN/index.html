@@ -37,6 +37,63 @@
   
 
 
+  <h2 id="2024-06-17-10-14">2024-06-17</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>4 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-06-17 10:14:46.541552</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-06-17 10:14:50.685582</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    return selected[0]
+IndexError: list index out of range
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:14:46] Fetching Scraper for: CAN                              handlers.py:23
+           Begin attempting to scrape: CAN                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[10:14:47] Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[10:14:48] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://www.cannockchasedc.gov.uk/council/about-council/yo           
+           ur-councillors                                                       
+[10:14:50] list index out of range                                handlers.py:36
+           Finished attempting to scrape: CAN                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-06-16-09-52">2024-06-16</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2366,75 +2423,6 @@ TypeError: 'NoneType' object is not subscriptable
 [10:48:32] 'NoneType' object is not subscriptable                 handlers.py:36
            Committing batch 1 consisting of 6 files                  base.py:297
 [10:48:34] Finished attempting to scrape: CAN                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-05-28-08-47">2024-05-28</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>13 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-05-28 08:47:45.799606</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-05-28 08:47:58.866457</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/CAN-cannock-chase/councillors.py", line 22, in get_single_councillor
-    url = urljoin(self.base_url, link["href"].strip())
-TypeError: 'NoneType' object is not subscriptable
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:47:45] Fetching Scraper for: CAN                              handlers.py:23
-           Begin attempting to scrape: CAN                        handlers.py:27
-[08:47:46] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[08:47:47] ...found 3 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 3 files in Councillors/raw                       base.py:225
-           ...found 7 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 7 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.cannockchasedc.gov.uk/council/about-council/yo           
-           ur-councillors                                                       
-[08:47:50] Scraping from                                              base.py:49
-           https://www.cannockchasedc.gov.uk/council/about-us/council           
-           lors/carl-boulton                                                    
-[08:47:53] Scraping from                                              base.py:49
-           https://www.cannockchasedc.gov.uk/council/about-us/council           
-           lors/paul-fisher                                                     
-[08:47:55] Scraping from                                              base.py:49
-           https://www.cannockchasedc.gov.uk/council/about-us/council           
-           lors/david-williams                                                  
-[08:47:57] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 6 files                  base.py:297
-[08:47:58] Finished attempting to scrape: CAN                        base.py:345
 </pre>
   
 
