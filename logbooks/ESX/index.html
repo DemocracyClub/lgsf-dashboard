@@ -37,6 +37,76 @@
   
 
 
+  <h2 id="2024-06-26-08-58">2024-06-26</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-06-26 08:58:43.609147</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-06-26 08:58:47.041945</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
+    req = self.get(self.format_councillor_api_url())
+  File "/var/task/lgsf/scrapers/base.py", line 56, in get
+    response.raise_for_status()
+  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '503 Service Unavailable' for url 'https://democracy.eastsussex.gov.uk/mgWebService.asmx/GetCouncillorsByWard'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:58:43] Fetching Scraper for: ESX                              handlers.py:23
+           Begin attempting to scrape: ESX                        handlers.py:27
+[08:58:44] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 50 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+[08:58:45] ...found 50 files in Councillors/raw                      base.py:225
+           ...found 101 files in Councillors                         base.py:225
+           Deleting batch no. 1 consisting of 100 files              base.py:236
+           Deleting batch no. 2 consisting of 1 files                base.py:236
+[08:58:46] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://democracy.eastsussex.gov.uk/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+           Server error '503 Service Unavailable' for url         handlers.py:36
+           'https://democracy.eastsussex.gov.uk/mgWebService.asmx               
+           /GetCouncillorsByWard'                                               
+           For more information check:                                          
+           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
+           us/503                                                               
+[08:58:47] Finished attempting to scrape: ESX                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-06-25-09-36">2024-06-25</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1038,59 +1108,6 @@
 [09:58:27] Committing batch 1 consisting of 92 files                 base.py:297
 [09:58:28] Committing batch 2 consisting of 8 files                  base.py:297
 [09:58:29] Finished attempting to scrape: ESX                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-06-06-08-55">2024-06-06</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>7 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-06-06 08:55:49.095136</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-06-06 08:55:56.207703</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:55:49] Fetching Scraper for: ESX                              handlers.py:23
-           Begin attempting to scrape: ESX                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:55:50] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 50 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 50 files in Councillors/raw                      base.py:225
-           ...found 101 files in Councillors                         base.py:225
-           Deleting batch no. 1 consisting of 100 files              base.py:236
-[08:55:51] Deleting batch no. 2 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://democracy.eastsussex.gov.uk/mgWebService.asmx/GetC           
-           ouncillorsByWard                                                     
-[08:55:54] Committing batch 1 consisting of 92 files                 base.py:297
-[08:55:55] Committing batch 2 consisting of 8 files                  base.py:297
-[08:55:56] Finished attempting to scrape: ESX                        base.py:345
 </pre>
   
 
