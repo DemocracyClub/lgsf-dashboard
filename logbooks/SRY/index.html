@@ -37,6 +37,117 @@
   
 
 
+  <h2 id="2024-07-02-08-24">2024-07-02</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>41 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-07-02 08:24:22.689821</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-07-02 08:25:04.356796</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 113, in __iter__
+    for part in self._httpcore_stream:
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 367, in __iter__
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 363, in __iter__
+    for part in self._stream:
+  File "/opt/python/httpcore/_sync/http11.py", line 349, in __iter__
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 341, in __iter__
+    for chunk in self._connection._receive_response_body(**kwargs):
+  File "/opt/python/httpcore/_sync/http11.py", line 210, in _receive_response_body
+    event = self._receive_event(timeout=timeout)
+  File "/opt/python/httpcore/_sync/http11.py", line 224, in _receive_event
+    data = self._network_stream.read(
+  File "/opt/python/httpcore/_backends/sync.py", line 124, in read
+    with map_exceptions(exc_map):
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
+    req = self.get(self.format_councillor_api_url())
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers, timeout=30)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 928, in send
+    raise exc
+  File "/opt/python/httpx/_client.py", line 922, in send
+    response.read()
+  File "/opt/python/httpx/_models.py", line 813, in read
+    self._content = b"".join(self.iter_bytes())
+  File "/opt/python/httpx/_models.py", line 829, in iter_bytes
+    for raw_bytes in self.iter_raw():
+  File "/opt/python/httpx/_models.py", line 883, in iter_raw
+    for raw_stream_bytes in self.stream:
+  File "/opt/python/httpx/_client.py", line 126, in __iter__
+    for chunk in self._stream:
+  File "/opt/python/httpx/_transports/default.py", line 112, in __iter__
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:24:22] Fetching Scraper for: SRY                              handlers.py:23
+           Begin attempting to scrape: SRY                        handlers.py:27
+[08:24:23] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 81 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+[08:24:24] ...found 81 files in Councillors/raw                      base.py:225
+           ...found 163 files in Councillors                         base.py:225
+           Deleting batch no. 1 consisting of 100 files              base.py:236
+           Deleting batch no. 2 consisting of 63 files               base.py:236
+[08:24:25] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://mycouncil.surreycc.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+[08:25:04] The read operation timed out                           handlers.py:36
+           Finished attempting to scrape: SRY                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-07-01-08-30">2024-07-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1038,59 +1149,6 @@
 [10:50:11] Committing batch 1 consisting of 92 files                 base.py:297
 [10:50:13] Committing batch 2 consisting of 70 files                 base.py:297
 [10:50:14] Finished attempting to scrape: SRY                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-06-12-10-20">2024-06-12</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>10 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-06-12 10:20:35.233922</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-06-12 10:20:45.975827</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:20:35] Fetching Scraper for: SRY                              handlers.py:23
-           Begin attempting to scrape: SRY                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:20:36] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 81 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 81 files in Councillors/raw                      base.py:225
-           ...found 163 files in Councillors                         base.py:225
-           Deleting batch no. 1 consisting of 100 files              base.py:236
-[10:20:37] Deleting batch no. 2 consisting of 63 files               base.py:236
-[10:20:38] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://mycouncil.surreycc.gov.uk/mgWebService.asmx/GetCou           
-           ncillorsByWard                                                       
-[10:20:43] Committing batch 1 consisting of 92 files                 base.py:297
-[10:20:44] Committing batch 2 consisting of 70 files                 base.py:297
-[10:20:45] Finished attempting to scrape: SRY                        base.py:345
 </pre>
   
 
