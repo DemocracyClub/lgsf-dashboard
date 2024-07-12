@@ -37,6 +37,71 @@
   
 
 
+  <h2 id="2024-07-10-10-03">2024-07-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>6 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-07-10 10:03:25.701938</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-07-10 10:03:32.575893</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 56, in get
+    response.raise_for_status()
+  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://committees.royalgreenwich.gov.uk/mgError.aspx'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:03:25] Fetching Scraper for: GRE                              handlers.py:23
+           Begin attempting to scrape: GRE                        handlers.py:27
+[10:03:26] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[10:03:27] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://committees.royalgreenwich.gov.uk/Councillors/tabid           
+           /63/ScreenMode/Alphabetical/Default.aspx                             
+[10:03:32] Client error '404 Not Found' for url                   handlers.py:36
+           'https://committees.royalgreenwich.gov.uk/mgError.aspx               
+           '                                                                    
+           For more information check:                                          
+           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
+           us/404                                                               
+           Finished attempting to scrape: GRE                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-07-09-09-08">2024-07-09</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1260,71 +1325,6 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
            https://committees.royalgreenwich.gov.uk/Councillors/tabid           
            /63/ScreenMode/Alphabetical/Default.aspx                             
 [10:13:04] Client error '404 Not Found' for url                   handlers.py:36
-           'https://committees.royalgreenwich.gov.uk/mgError.aspx               
-           '                                                                    
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/404                                                               
-           Finished attempting to scrape: GRE                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-06-20-10-02">2024-06-20</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>6 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-06-20 10:02:13.482189</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-06-20 10:02:19.751968</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://committees.royalgreenwich.gov.uk/mgError.aspx'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:02:13] Fetching Scraper for: GRE                              handlers.py:23
-           Begin attempting to scrape: GRE                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:02:14] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:02:15] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://committees.royalgreenwich.gov.uk/Councillors/tabid           
-           /63/ScreenMode/Alphabetical/Default.aspx                             
-[10:02:19] Client error '404 Not Found' for url                   handlers.py:36
            'https://committees.royalgreenwich.gov.uk/mgError.aspx               
            '                                                                    
            For more information check:                                          
