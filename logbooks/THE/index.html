@@ -37,6 +37,62 @@
   
 
 
+  <h2 id="2024-08-20-08-54">2024-08-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-08-20 08:54:43.114540</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-08-20 08:54:46.867940</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
+    container = self.get_list_container()
+  File "scrapers/THE-three-rivers/councillors.py", line 15, in get_list_container
+    return soup.find("h3", text="District Councillor").findNext("ul")
+AttributeError: 'NoneType' object has no attribute 'findNext'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:54:43] Fetching Scraper for: THE                              handlers.py:23
+           Begin attempting to scrape: THE                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[08:54:44] Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+           ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://www.threerivers.gov.uk/listing/councillors                   
+[08:54:46] 'NoneType' object has no attribute 'findNext'          handlers.py:36
+           Finished attempting to scrape: THE                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-08-19-10-55">2024-08-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1095,62 +1151,6 @@ AttributeError: 'NoneType' object has no attribute 'findNext'
            https://www.threerivers.gov.uk/listing/councillors                   
 [10:20:47] 'NoneType' object has no attribute 'findNext'          handlers.py:36
 [10:20:48] Finished attempting to scrape: THE                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-07-31-09-58">2024-07-31</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>3 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-07-31 09:58:13.963131</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-07-31 09:58:17.662232</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
-    container = self.get_list_container()
-  File "scrapers/THE-three-rivers/councillors.py", line 15, in get_list_container
-    return soup.find("h3", text="District Councillor").findNext("ul")
-AttributeError: 'NoneType' object has no attribute 'findNext'
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:58:13] Fetching Scraper for: THE                              handlers.py:23
-[09:58:14] Begin attempting to scrape: THE                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:58:15] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.threerivers.gov.uk/listing/councillors                   
-[09:58:17] 'NoneType' object has no attribute 'findNext'          handlers.py:36
-           Finished attempting to scrape: THE                        base.py:345
 </pre>
   
 
