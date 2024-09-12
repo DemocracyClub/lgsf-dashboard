@@ -37,6 +37,106 @@
   
 
 
+  <h2 id="2024-09-10-08-44">2024-09-10</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-09-10 08:44:52.752846</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-09-10 08:44:55.540613</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
+    req = self.get(self.format_councillor_api_url())
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers, timeout=30)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 113] No route to host
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:44:52] Fetching Scraper for: EDE                              handlers.py:23
+           Begin attempting to scrape: EDE                        handlers.py:27
+[08:44:53] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[08:44:54] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           http://democracy.eastdevon.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+[08:44:55] [Errno 113] No route to host                           handlers.py:36
+           Finished attempting to scrape: EDE                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-09-09-10-07">2024-09-09</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1094,59 +1194,6 @@ httpx.ReadTimeout: timed out
 [10:48:31] Committing batch 1 consisting of 92 files                 base.py:297
 [10:48:32] Committing batch 2 consisting of 28 files                 base.py:297
 [10:48:33] Finished attempting to scrape: EDE                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-08-21-08-23">2024-08-21</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>7 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-08-21 08:23:39.091278</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-08-21 08:23:46.773363</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:23:39] Fetching Scraper for: EDE                              handlers.py:23
-           Begin attempting to scrape: EDE                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:23:40] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 60 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 60 files in Councillors/raw                      base.py:225
-           ...found 121 files in Councillors                         base.py:225
-           Deleting batch no. 1 consisting of 100 files              base.py:236
-[08:23:41] Deleting batch no. 2 consisting of 21 files               base.py:236
-[08:23:42] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://democracy.eastdevon.gov.uk/mgWebService.asmx/GetCou           
-           ncillorsByWard                                                       
-[08:23:44] Committing batch 1 consisting of 92 files                 base.py:297
-[08:23:45] Committing batch 2 consisting of 28 files                 base.py:297
-[08:23:46] Finished attempting to scrape: EDE                        base.py:345
 </pre>
   
 
