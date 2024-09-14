@@ -37,6 +37,321 @@
   
 
 
+  <h2 id="2024-09-12-10-10">2024-09-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>170 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-09-12 10:10:21.111960</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-09-12 10:13:11.184182</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    return self._connection.handle_request(request)
+  File "/opt/python/httpcore/_sync/http11.py", line 143, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 113, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+  File "/opt/python/httpcore/_sync/http11.py", line 186, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "/opt/python/httpcore/_sync/http11.py", line 224, in _receive_event
+    data = self._network_stream.read(
+  File "/opt/python/httpcore/_backends/sync.py", line 124, in read
+    with map_exceptions(exc_map):
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "/var/task/lgsf/councillors/scrapers.py", line 310, in get_single_councillor
+    req = self.get(url)
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers, timeout=30)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:10:21] Fetching Scraper for: SND                              handlers.py:23
+           Begin attempting to scrape: SND                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+[10:10:22] Getting all files in Councillors/json...                  base.py:209
+           ...found 75 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 75 files in Councillors/raw                      base.py:225
+           ...found 151 files in Councillors                         base.py:225
+           Deleting batch no. 1 consisting of 100 files              base.py:236
+[10:10:23] Deleting batch no. 2 consisting of 51 files               base.py:236
+[10:10:24] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers.aspx                                                             
+[10:10:25] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1974/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:10:27] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1816/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:10:29] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1994/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:10:32] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1961/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:10:33] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1586/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:10:36] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1228/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:10:38] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1902/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:10:41] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1742/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:10:43] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1861/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:10:45] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1958/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:10:47] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1854/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:10:49] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1914/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:10:51] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1944/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:10:55] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1906/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:10:58] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1981/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:00] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1990/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:01] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1247/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:04] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1588/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:07] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1359/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:10] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1823/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:11] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1936/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:14] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1959/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:18] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1415/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:20] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1916/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:22] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1744/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:24] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1860/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:26] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1818/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:28] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1992/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:29] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1814/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:31] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1819/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:33] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1910/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:35] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1399/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:40] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1940/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:43] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1993/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:45] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1956/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:47] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1980/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:49] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1852/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:51] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1900/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:53] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1766/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:56] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1917/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:11:57] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1642/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:12:00] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1390/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:12:05] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1996/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:12:06] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1979/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:12:08] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1365/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:12:11] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1851/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:12:14] Committing batch 1 consisting of 92 files                 base.py:297
+[10:12:15] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1746/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:12:18] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1817/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:12:20] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1995/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:12:21] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1977/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:12:39] Scraping from                                              base.py:49
+           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
+           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1367/ScreenMod           
+           e/Ward/Default.aspx                                                  
+[10:13:09] The read operation timed out                           handlers.py:36
+           Committing batch 2 consisting of 8 files                  base.py:297
+[10:13:11] Finished attempting to scrape: SND                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-09-11-09-01">2024-09-11</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -6738,359 +7053,6 @@
            e/Ward/Default.aspx                                                  
 [08:25:39] Committing batch 2 consisting of 58 files                 base.py:297
 [08:25:40] Finished attempting to scrape: SND                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-08-23-10-44">2024-08-23</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>169 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-08-23 10:44:19.814369</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-08-23 10:47:08.970836</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:44:19] Fetching Scraper for: SND                              handlers.py:23
-           Begin attempting to scrape: SND                        handlers.py:27
-[10:44:20] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[10:44:21] ...found 75 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 75 files in Councillors/raw                      base.py:225
-           ...found 151 files in Councillors                         base.py:225
-           Deleting batch no. 1 consisting of 100 files              base.py:236
-[10:44:22] Deleting batch no. 2 consisting of 51 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers.aspx                                                             
-[10:44:24] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1974/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:44:26] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1816/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:44:28] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1994/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:44:31] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1961/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:44:32] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1586/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:44:34] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1228/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:44:37] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1902/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:44:39] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1742/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:44:41] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1861/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:44:43] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1958/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:44:45] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1854/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:44:47] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1914/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:44:49] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1944/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:44:52] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1906/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:44:55] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1981/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:44:56] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1990/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:44:58] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1247/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:00] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1588/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:02] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1359/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:05] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1823/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:07] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1936/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:09] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1959/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:13] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1415/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:15] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1916/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:17] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1744/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:18] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1860/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:20] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1818/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:22] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1992/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:23] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1814/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:25] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1819/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:27] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1910/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:28] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1399/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:33] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1940/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:35] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1993/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:36] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1956/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:38] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1980/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:40] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1852/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:42] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1900/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:44] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1766/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:46] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1917/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:48] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1642/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:50] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1390/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:55] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1996/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:56] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1979/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:45:58] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1365/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:00] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1851/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:02] Committing batch 1 consisting of 92 files                 base.py:297
-[10:46:03] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1746/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:05] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1817/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:07] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1995/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:09] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1977/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:11] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1367/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:13] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1960/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:17] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1920/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:18] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1857/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:21] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1229/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:23] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1975/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:25] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1904/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:26] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1858/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:28] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1989/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:29] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1955/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:31] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1976/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:33] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1252/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:37] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1383/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:40] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1953/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:42] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1908/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:43] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1595/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:45] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1345/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:48] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1912/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:50] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1376/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:52] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1978/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:54] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1991/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:46:55] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1381/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:47:00] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1334/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:47:02] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1356/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:47:05] Scraping from                                              base.py:49
-           https://committees.sunderland.gov.uk/committees/cmis5/Memb           
-           ers/tabid/62/ctl/ViewCMIS_Person/mid/600/id/1909/ScreenMod           
-           e/Ward/Default.aspx                                                  
-[10:47:07] Committing batch 2 consisting of 58 files                 base.py:297
-[10:47:08] Finished attempting to scrape: SND                        base.py:345
 </pre>
   
 
