@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2024-09-21-08-26">2024-09-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>7 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-09-21 08:26:27.593336</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-09-21 08:26:35.389701</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:26:27] Fetching Scraper for: NGM                              handlers.py:23
+           Begin attempting to scrape: NGM                        handlers.py:27
+[08:26:28] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 55 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 55 files in Councillors/raw                      base.py:225
+           ...found 111 files in Councillors                         base.py:225
+           Deleting batch no. 1 consisting of 100 files              base.py:236
+[08:26:29] Deleting batch no. 2 consisting of 11 files               base.py:236
+[08:26:30] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           http://committee.nottinghamcity.gov.uk/mgWebService.asmx/G           
+           etCouncillorsByWard                                                  
+[08:26:33] Committing batch 1 consisting of 92 files                 base.py:297
+[08:26:34] Committing batch 2 consisting of 18 files                 base.py:297
+[08:26:35] Finished attempting to scrape: NGM                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-09-20-09-08">2024-09-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1084,78 +1137,6 @@ httpx.ReadTimeout: The read operation timed out
 [09:01:13] Committing batch 1 consisting of 92 files                 base.py:297
 [09:01:14] Committing batch 2 consisting of 18 files                 base.py:297
 [09:01:15] Finished attempting to scrape: NGM                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-09-01-10-01">2024-09-01</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>3 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-09-01 10:01:21.566785</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-09-01 10:01:25.389093</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 972, in _send_handling_redirects
-    raise TooManyRedirects(
-httpx.TooManyRedirects: Exceeded maximum allowed redirects.
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:01:21] Fetching Scraper for: NGM                              handlers.py:23
-           Begin attempting to scrape: NGM                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:01:22] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 55 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 55 files in Councillors/raw                      base.py:225
-           ...found 111 files in Councillors                         base.py:225
-           Deleting batch no. 1 consisting of 100 files              base.py:236
-[10:01:23] Deleting batch no. 2 consisting of 11 files               base.py:236
-[10:01:24] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://committee.nottinghamcity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[10:01:25] Exceeded maximum allowed redirects.                    handlers.py:36
-           Finished attempting to scrape: NGM                        base.py:345
 </pre>
   
 
