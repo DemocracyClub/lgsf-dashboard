@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2024-10-06-08-58">2024-10-06</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-10-06 08:58:56.174356</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-10-06 08:59:05.488082</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:58:56] Fetching Scraper for: ENF                              handlers.py:23
+           Begin attempting to scrape: ENF                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[08:58:57] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 63 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 63 files in Councillors/raw                      base.py:225
+           ...found 127 files in Councillors                         base.py:225
+           Deleting batch no. 1 consisting of 100 files              base.py:236
+[08:58:58] Deleting batch no. 2 consisting of 27 files               base.py:236
+[08:58:59] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://governance.enfield.gov.uk/mgWebService.asmx/GetCou           
+           ncillorsByWard                                                       
+[08:59:03] Committing batch 1 consisting of 92 files                 base.py:297
+[08:59:04] Committing batch 2 consisting of 34 files                 base.py:297
+[08:59:05] Finished attempting to scrape: ENF                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-10-05-09-52">2024-10-05</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1033,76 +1086,6 @@
 [10:09:23] Committing batch 1 consisting of 92 files                 base.py:297
 [10:09:25] Committing batch 2 consisting of 34 files                 base.py:297
 [10:09:26] Finished attempting to scrape: ENF                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-09-16-08-42">2024-09-16</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>22 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-09-16 08:42:09.170289</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-09-16 08:42:32.161954</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Server error '502 Bad Gateway' for url 'https://governance.enfield.gov.uk/mgWebService.asmx/GetCouncillorsByWard'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:42:09] Fetching Scraper for: ENF                              handlers.py:23
-           Begin attempting to scrape: ENF                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:42:10] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 63 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 63 files in Councillors/raw                      base.py:225
-           ...found 127 files in Councillors                         base.py:225
-           Deleting batch no. 1 consisting of 100 files              base.py:236
-[08:42:11] Deleting batch no. 2 consisting of 27 files               base.py:236
-[08:42:12] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://governance.enfield.gov.uk/mgWebService.asmx/GetCou           
-           ncillorsByWard                                                       
-[08:42:31] Server error '502 Bad Gateway' for url                 handlers.py:36
-           'https://governance.enfield.gov.uk/mgWebService.asmx/G               
-           etCouncillorsByWard'                                                 
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/502                                                               
-[08:42:32] Finished attempting to scrape: ENF                        base.py:345
 </pre>
   
 
