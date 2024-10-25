@@ -37,6 +37,71 @@
   
 
 
+  <h2 id="2024-10-23-09-15">2024-10-23</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-10-23 09:15:27.234920</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-10-23 09:15:33.130492</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 56, in get
+    response.raise_for_status()
+  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://committees.royalgreenwich.gov.uk/mgError.aspx'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:15:27] Fetching Scraper for: GRE                              handlers.py:23
+           Begin attempting to scrape: GRE                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[09:15:28] Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[09:15:29] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://committees.royalgreenwich.gov.uk/Councillors/tabid           
+           /63/ScreenMode/Alphabetical/Default.aspx                             
+[09:15:32] Client error '404 Not Found' for url                   handlers.py:36
+           'https://committees.royalgreenwich.gov.uk/mgError.aspx               
+           '                                                                    
+           For more information check:                                          
+           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
+           us/404                                                               
+[09:15:33] Finished attempting to scrape: GRE                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-10-22-08-26">2024-10-22</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1266,71 +1331,6 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
            https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
            us/404                                                               
            Finished attempting to scrape: GRE                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-10-03-09-46">2024-10-03</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>9 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-10-03 09:46:19.530252</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-10-03 09:46:29.320514</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://committees.royalgreenwich.gov.uk/mgError.aspx'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:46:19] Fetching Scraper for: GRE                              handlers.py:23
-           Begin attempting to scrape: GRE                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:46:20] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:46:21] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://committees.royalgreenwich.gov.uk/Councillors/tabid           
-           /63/ScreenMode/Alphabetical/Default.aspx                             
-[09:46:28] Client error '404 Not Found' for url                   handlers.py:36
-           'https://committees.royalgreenwich.gov.uk/mgError.aspx               
-           '                                                                    
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/404                                                               
-[09:46:29] Finished attempting to scrape: GRE                        base.py:345
 </pre>
   
 
