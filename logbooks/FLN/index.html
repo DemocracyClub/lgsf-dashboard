@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2024-10-26-09-36">2024-10-26</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-10-26 09:36:38.432415</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-10-26 09:36:48.746465</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:36:38] Fetching Scraper for: FLN                              handlers.py:23
+           Begin attempting to scrape: FLN                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[09:36:39] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 67 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 67 files in Councillors/raw                      base.py:225
+           ...found 135 files in Councillors                         base.py:225
+           Deleting batch no. 1 consisting of 100 files              base.py:236
+[09:36:40] Deleting batch no. 2 consisting of 35 files               base.py:236
+[09:36:41] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://cyfarfodyddpwyllgor.siryfflint.gov.uk/mgWebService           
+           .asmx/GetCouncillorsByWard                                           
+[09:36:46] Committing batch 1 consisting of 92 files                 base.py:297
+[09:36:47] Committing batch 2 consisting of 42 files                 base.py:297
+[09:36:48] Finished attempting to scrape: FLN                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-10-25-09-45">2024-10-25</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1084,76 +1137,6 @@ httpx.ReadTimeout: The read operation timed out
 [08:30:46] Committing batch 1 consisting of 92 files                 base.py:297
 [08:30:47] Committing batch 2 consisting of 42 files                 base.py:297
 [08:30:49] Finished attempting to scrape: FLN                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-10-06-09-53">2024-10-06</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>3 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-10-06 09:53:27.701417</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-10-06 09:53:30.974815</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Server error '503 Service Unavailable' for url 'https://cyfarfodyddpwyllgor.siryfflint.gov.uk/mgWebService.asmx/GetCouncillorsByWard'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:53:27] Fetching Scraper for: FLN                              handlers.py:23
-           Begin attempting to scrape: FLN                        handlers.py:27
-[09:53:28] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 67 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[09:53:29] ...found 67 files in Councillors/raw                      base.py:225
-           ...found 135 files in Councillors                         base.py:225
-           Deleting batch no. 1 consisting of 100 files              base.py:236
-           Deleting batch no. 2 consisting of 35 files               base.py:236
-[09:53:30] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://cyfarfodyddpwyllgor.siryfflint.gov.uk/mgWebService           
-           .asmx/GetCouncillorsByWard                                           
-           Server error '503 Service Unavailable' for url         handlers.py:36
-           'https://cyfarfodyddpwyllgor.siryfflint.gov.uk/mgWebSe               
-           rvice.asmx/GetCouncillorsByWard'                                     
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/503                                                               
-           Finished attempting to scrape: FLN                        base.py:345
 </pre>
   
 
