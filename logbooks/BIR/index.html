@@ -37,6 +37,737 @@
   
 
 
+  <h2 id="2024-10-28-10-11">2024-10-28</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>484 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-10-28 10:11:01.469491</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-10-28 10:19:05.940751</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    return self._connection.handle_request(request)
+  File "/opt/python/httpcore/_sync/http11.py", line 143, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 113, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+  File "/opt/python/httpcore/_sync/http11.py", line 186, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "/opt/python/httpcore/_sync/http11.py", line 224, in _receive_event
+    data = self._network_stream.read(
+  File "/opt/python/httpcore/_backends/sync.py", line 124, in read
+    with map_exceptions(exc_map):
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/BIR-birmingham/councillors.py", line 45, in get_single_councillor
+    req = self.get(url)
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers, timeout=30)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:11:01] Fetching Scraper for: BIR                              handlers.py:23
+           Begin attempting to scrape: BIR                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[10:11:02] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 107 files in Councillors/json                    base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+[10:11:03] ...found 107 files in Councillors/raw                     base.py:225
+           ...found 215 files in Councillors                         base.py:225
+           Deleting batch no. 1 consisting of 100 files              base.py:236
+           Deleting batch no. 2 consisting of 100 files              base.py:236
+[10:11:04] Deleting batch no. 3 consisting of 15 files               base.py:236
+[10:11:05] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors.aspx           
+[10:11:07] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1005/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:11:12] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1005/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:11:15] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1282/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:11:17] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1282/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:11:20] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1006/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:11:22] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1006/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:11:24] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/80/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:11:27] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/5/deirdre_alden            
+           ;                                                                    
+[10:11:28] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/126/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:11:33] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/7/robert_alden ;           
+[10:11:35] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/73/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:11:37] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/11/gurdial_singh           
+           _atwal ;                                                             
+[10:11:39] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1228/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:11:41] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1228/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:11:46] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1009/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:11:49] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1009/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:11:52] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1245/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:11:54] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1245/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:11:56] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1229/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:11:59] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1229/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:12:02] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/128/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:12:07] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/14/david_barrie            
+           ;                                                                    
+           Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/180/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:12:09] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/16/matt_bennett            
+           ;                                                                    
+[10:12:10] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1240/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:12:14] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1240/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:12:19] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1238/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:12:23] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1238/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:12:26] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1251/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:12:28] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1251/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:12:30] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/14/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:12:33] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/19/sir_albert_bo           
+           re ;                                                                 
+[10:12:35] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1023/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:12:39] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1023/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:12:43] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1227/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:12:45] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1227/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:12:47] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/15/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:12:49] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/22/marje_bridle            
+           ;                                                                    
+[10:12:50] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1231/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:12:53] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1231/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:12:57] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/118/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:13:01] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/23/mick_brown ;            
+[10:13:02] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/130/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:13:04] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/28/zaker_choudhr           
+           y ;                                                                  
+[10:13:05] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/182/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:13:08] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/29/debbie_clancy           
+           ;                                                                    
+           Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/967/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:13:12] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/123/liz_clements           
+[10:13:14] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/30/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:13:18] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/33/maureen_corni           
+           sh ;                                                                 
+[10:13:20] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1385/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:13:22] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1385/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:13:23] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/21/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:13:27] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/34/john_cotton ;           
+[10:13:29] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/132/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:13:36] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/37/philip_davis_           
+           ba_ma ;                                                              
+[10:13:37] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1223/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:13:40] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1223/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:13:42] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/106/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:13:44] Scraping from                                              base.py:49
+           http://www.birmingham.gov.uk/cs/Satellite?c=Page&childpage           
+           name=Member-Services%2FPageLayout&cid=1223092734506&pagena           
+           me=BCC%2FCommon%2FWrapper%2FWrapper                                  
+           Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/106/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:13:46] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/940/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:13:51] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/38/diane_donalds           
+           on ;                                                                 
+[10:13:53] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/38/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:13:55] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/40/barbara_dring           
+           ;                                                                    
+[10:13:57] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1242/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:14:01] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1242/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:14:05] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/942/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:14:09] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/45/jayne_francis           
+           ;                                                                    
+[10:14:13] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1230/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:14:16] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1230/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:14:20] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1233/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:14:21] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1233/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:14:23] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1244/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:14:26] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1244/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:14:30] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1011/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:14:32] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1011/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:14:36] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/87/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:14:38] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/51/roger_harmer            
+           ;                                                                    
+[10:14:41] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1219/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:14:43] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1219/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:14:47] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/112/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:14:49] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/52/kath_hartley            
+           ;                                                                    
+[10:14:50] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1012/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:14:55] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1012/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:14:59] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1235/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:15:01] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1235/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:15:03] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/37/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:15:06] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/57/jon_hunt ;              
+           Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/52/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:15:10] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/58/mahmood_hussa           
+           in ;                                                                 
+[10:15:12] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1224/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:15:14] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1224/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:15:17] Committing batch 1 consisting of 92 files                 base.py:297
+[10:15:19] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/944/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:15:23] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/59/shabrana_huss           
+           ain ;                                                                
+[10:15:24] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/99/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:15:26] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/60/timothy_huxta           
+           ble                                                                  
+[10:15:28] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/113/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:15:32] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/61/mohammed_idre           
+           es ;                                                                 
+[10:15:34] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/100/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:15:36] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/62/zafar_iqbal             
+           Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1202/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:15:39] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1202/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:15:42] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/49/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:15:46] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/63/ziaul_islam_m           
+           be ;                                                                 
+[10:15:47] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/966/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:15:50] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/122/morriam_jan            
+[10:15:52] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/141/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:15:54] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/64/kerry_jenkins           
+           ;                                                                    
+[10:15:56] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/103/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:16:00] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/65/meirion_jenki           
+           ns ;                                                                 
+[10:16:01] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/25/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:16:03] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/68/brigid_jones            
+           ;                                                                    
+[10:16:05] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/25/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:16:08] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1248/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:16:11] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1248/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:16:14] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1249/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:16:16] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1249/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:16:18] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1225/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:16:20] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1225/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:16:21] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/144/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:16:25] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/75/mariam_khan ;           
+[10:16:27] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1246/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:16:31] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1246/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:16:33] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1236/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:16:36] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1236/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:16:38] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/145/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:16:41] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/76/narinder_kaur           
+           _kooner ;                                                            
+[10:16:43] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1239/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:16:45] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1239/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:16:47] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/146/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:16:49] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/77/chaman_lal ;            
+[10:16:51] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/41/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:16:53] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/79/bruce_lines ;           
+           Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/946/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:16:57] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/82/mary_locke ;            
+[10:16:58] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/102/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:17:04] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/83/ewan_mackey ;           
+[10:17:06] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1241/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:17:09] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1241/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:17:12] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/114/ScreenMode/Alphabe           
+           tical/Default.aspx                                                   
+[10:17:16] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/84/majid_mahmood           
+           ;                                                                    
+[10:17:17] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1247/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:17:20] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1247/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:17:22] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1237/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:17:25] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1237/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:17:29] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/53/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:17:33] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/85/karen_mccarth           
+           y ;                                                                  
+[10:17:34] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1016/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:17:38] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1016/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:17:43] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1226/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:17:46] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1226/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:17:48] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/44/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:17:55] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/87/gareth_moore            
+           ;                                                                    
+[10:17:57] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1017/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:18:01] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1017/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:18:05] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/26/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:18:07] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/88/yvonne_mosqui           
+           to ;                                                                 
+[10:18:09] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1250/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:18:11] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1250/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:18:15] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1234/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:18:17] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1234/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:18:19] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/82/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:18:23] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/91/david_pears ;           
+[10:18:24] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1253/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:18:27] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1253/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:18:29] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/75/ScreenMode/Alphabet           
+           ical/Default.aspx                                                    
+[10:18:33] Scraping from                                              base.py:49
+           https://www.birmingham.gov.uk/councillors/93/rob_pocock ;            
+[10:18:34] Scraping from                                              base.py:49
+           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
+           d/63/ctl/ViewCMIS_Person/mid/383/id/1018/ScreenMode/Alphab           
+           etical/Default.aspx                                                  
+[10:19:04] The read operation timed out                           handlers.py:36
+           Committing batch 2 consisting of 74 files                 base.py:297
+[10:19:05] Finished attempting to scrape: BIR                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-10-27-10-28">2024-10-27</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -16181,856 +16912,6 @@
            r ;                                                                  
 [10:15:57] Committing batch 3 consisting of 30 files                 base.py:297
 [10:15:58] Finished attempting to scrape: BIR                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-10-08-10-31">2024-10-08</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>622 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-10-08 10:31:47.116661</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-10-08 10:42:09.156106</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:31:47] Fetching Scraper for: BIR                              handlers.py:23
-           Begin attempting to scrape: BIR                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:31:48] Getting all files in Councillors/json...                  base.py:209
-           ...found 107 files in Councillors/json                    base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 107 files in Councillors/raw                     base.py:225
-           ...found 215 files in Councillors                         base.py:225
-           Deleting batch no. 1 consisting of 100 files              base.py:236
-[10:31:49] Deleting batch no. 2 consisting of 100 files              base.py:236
-[10:31:50] Deleting batch no. 3 consisting of 15 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors.aspx           
-[10:31:52] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1005/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:31:56] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1005/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:32:00] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1282/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:32:04] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1282/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:32:07] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1006/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:32:10] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1006/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:32:12] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/80/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:32:15] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/5/deirdre_alden            
-           ;                                                                    
-[10:32:17] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/126/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:32:22] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/7/robert_alden ;           
-[10:32:23] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/73/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:32:25] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/11/gurdial_singh           
-           _atwal ;                                                             
-[10:32:26] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1228/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:32:28] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1228/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:32:30] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1009/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:32:33] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1009/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:32:36] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1245/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:32:40] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1245/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:32:43] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1229/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:32:45] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1229/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:32:48] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/128/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:32:51] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/14/david_barrie            
-           ;                                                                    
-           Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/180/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:32:53] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/16/matt_bennett            
-           ;                                                                    
-[10:32:55] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1240/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:32:59] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1240/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:33:02] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1238/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:33:04] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1238/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:33:06] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1251/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:33:11] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1251/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:33:13] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/14/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:33:17] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/19/sir_albert_bo           
-           re ;                                                                 
-[10:33:19] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1023/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:33:23] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1023/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:33:26] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1227/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:33:28] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1227/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:33:30] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/15/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:33:32] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/22/marje_bridle            
-           ;                                                                    
-[10:33:34] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1231/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:33:37] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1231/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:33:40] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/118/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:33:43] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/23/mick_brown ;            
-[10:33:47] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/130/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:33:58] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/28/zaker_choudhr           
-           y ;                                                                  
-[10:34:00] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/182/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:34:06] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/29/debbie_clancy           
-           ;                                                                    
-[10:34:08] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/967/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:34:13] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/123/liz_clements           
-           Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/30/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:34:16] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/33/maureen_corni           
-           sh ;                                                                 
-[10:34:17] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1385/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:34:19] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1385/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:34:20] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/21/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:34:26] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/34/john_cotton ;           
-[10:34:27] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/132/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:34:35] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/37/philip_davis_           
-           ba_ma ;                                                              
-[10:34:37] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1223/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:34:42] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1223/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:34:45] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/106/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:34:46] Scraping from                                              base.py:49
-           http://www.birmingham.gov.uk/cs/Satellite?c=Page&childpage           
-           name=Member-Services%2FPageLayout&cid=1223092734506&pagena           
-           me=BCC%2FCommon%2FWrapper%2FWrapper                                  
-[10:34:47] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/106/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:34:48] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/940/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:34:54] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/38/diane_donalds           
-           on ;                                                                 
-[10:34:55] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/38/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:34:57] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/40/barbara_dring           
-           ;                                                                    
-[10:34:59] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1242/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:35:05] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1242/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:35:09] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/942/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:35:12] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/45/jayne_francis           
-           ;                                                                    
-[10:35:14] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1230/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:35:16] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1230/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:35:21] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1233/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:35:22] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1233/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:35:24] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1244/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:35:30] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1244/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:35:33] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1011/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:35:35] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1011/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:35:38] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/87/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:35:41] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/51/roger_harmer            
-           ;                                                                    
-[10:35:43] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1219/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:35:45] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1219/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:35:47] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/112/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:35:50] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/52/kath_hartley            
-           ;                                                                    
-[10:35:51] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1012/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:35:56] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1012/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:36:00] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1235/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:36:02] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1235/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:36:04] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/37/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:36:08] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/57/jon_hunt ;              
-[10:36:09] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/52/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:36:12] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/58/mahmood_hussa           
-           in ;                                                                 
-[10:36:14] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1224/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:36:17] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1224/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:36:20] Committing batch 1 consisting of 92 files                 base.py:297
-[10:36:22] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/944/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:36:25] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/59/shabrana_huss           
-           ain ;                                                                
-           Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/99/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:36:30] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/60/timothy_huxta           
-           ble                                                                  
-[10:36:31] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/113/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:36:35] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/61/mohammed_idre           
-           es ;                                                                 
-           Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/100/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:36:37] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/62/zafar_iqbal             
-[10:36:39] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1202/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:36:43] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1202/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:36:48] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/49/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:36:51] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/63/ziaul_islam_m           
-           be ;                                                                 
-[10:36:53] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/966/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:36:56] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/122/morriam_jan            
-[10:36:58] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/141/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:37:01] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/64/kerry_jenkins           
-           ;                                                                    
-           Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/103/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:37:05] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/65/meirion_jenki           
-           ns ;                                                                 
-           Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/25/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:37:11] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/68/brigid_jones            
-           ;                                                                    
-[10:37:12] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/25/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:37:15] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1248/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:37:18] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1248/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:37:20] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1249/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:37:23] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1249/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:37:25] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1225/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:37:27] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1225/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:37:29] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/144/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:37:33] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/75/mariam_khan ;           
-[10:37:35] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1246/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:37:38] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1246/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:37:40] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1236/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:37:45] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1236/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:37:48] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/145/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:37:51] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/76/narinder_kaur           
-           _kooner ;                                                            
-           Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1239/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:37:53] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1239/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:37:55] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/146/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:37:58] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/77/chaman_lal ;            
-[10:38:00] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/41/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:38:02] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/79/bruce_lines ;           
-[10:38:04] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/946/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:38:07] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/82/mary_locke ;            
-[10:38:09] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/102/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:38:12] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/83/ewan_mackey ;           
-[10:38:14] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1241/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:38:18] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1241/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:38:21] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/114/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:38:24] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/84/majid_mahmood           
-           ;                                                                    
-[10:38:26] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1247/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:38:29] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1247/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:38:31] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1237/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:38:35] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1237/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:38:39] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/53/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:38:42] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/85/karen_mccarth           
-           y ;                                                                  
-[10:38:43] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1016/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:38:48] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1016/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:39:01] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1226/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:39:07] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1226/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:39:10] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/44/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:39:14] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/87/gareth_moore            
-           ;                                                                    
-[10:39:16] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1017/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:39:23] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1017/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:39:28] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/26/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:39:30] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/88/yvonne_mosqui           
-           to ;                                                                 
-[10:39:32] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1250/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:39:37] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1250/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:39:41] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1234/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:39:43] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1234/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:39:45] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/82/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:39:49] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/91/david_pears ;           
-[10:39:51] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1253/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:39:54] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1253/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:39:57] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/75/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:40:02] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/93/rob_pocock ;            
-[10:40:03] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1018/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:40:08] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1018/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:40:13] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/149/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:40:15] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/95/hendrina_quin           
-           nen ;                                                                
-[10:40:17] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1386/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:40:18] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1386/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:40:19] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1243/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:40:22] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1243/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:40:25] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1200/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:40:29] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1200/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:40:31] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1363/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:40:33] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1363/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:40:34] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1020/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:40:37] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1020/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:40:40] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/64/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:40:41] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/101/valerie_seab           
-           right ;                                                              
-[10:40:42] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/64/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:40:43] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1021/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:40:44] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1021/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:40:45] Committing batch 2 consisting of 92 files                 base.py:297
-[10:40:47] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/152/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:40:49] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/103/shafique_sha           
-           h ;                                                                  
-[10:40:51] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1232/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:40:55] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1232/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:40:58] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/154/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:41:01] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/105/sybil_spence           
-           ;                                                                    
-[10:41:03] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/84/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:41:05] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/108/ron_storer ;           
-[10:41:07] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1203/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:41:10] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1203/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:41:13] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1252/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:41:16] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1252/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:41:18] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/77/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:41:23] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/110/sharon_thomp           
-           son ;                                                                
-[10:41:26] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/155/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:41:29] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/111/paul_tilsley           
-           _cbe ;                                                               
-[10:41:31] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/23/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:41:36] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/113/lisa_tricket           
-           t ;                                                                  
-[10:41:38] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1222/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:41:44] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1222/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:41:49] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/18/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:41:51] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/116/ian_ward ;             
-           Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1374/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:41:54] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/1374/ScreenMode/Alphab           
-           etical/Default.aspx                                                  
-[10:41:56] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/158/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:41:59] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/119/ken_wood ;             
-[10:42:00] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/185/ScreenMode/Alphabe           
-           tical/Default.aspx                                                   
-[10:42:02] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/120/alex_yip ;             
-[10:42:03] Scraping from                                              base.py:49
-           https://birmingham.cmis.uk.com/birmingham/Councillors/tabi           
-           d/63/ctl/ViewCMIS_Person/mid/383/id/79/ScreenMode/Alphabet           
-           ical/Default.aspx                                                    
-[10:42:06] Scraping from                                              base.py:49
-           https://www.birmingham.gov.uk/councillors/121/waseem_zaffa           
-           r ;                                                                  
-[10:42:07] Committing batch 3 consisting of 30 files                 base.py:297
-[10:42:09] Finished attempting to scrape: BIR                        base.py:345
 </pre>
   
 
