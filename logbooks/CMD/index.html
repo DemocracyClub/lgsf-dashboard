@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2024-10-29-09-35">2024-10-29</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-10-29 09:35:21.515146</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-10-29 09:35:30.594915</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:35:21] Fetching Scraper for: CMD                              handlers.py:23
+           Begin attempting to scrape: CMD                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[09:35:22] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 55 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+[09:35:23] ...found 55 files in Councillors/raw                      base.py:225
+           ...found 111 files in Councillors                         base.py:225
+           Deleting batch no. 1 consisting of 100 files              base.py:236
+           Deleting batch no. 2 consisting of 11 files               base.py:236
+[09:35:24] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://democracy.camden.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[09:35:28] Committing batch 1 consisting of 92 files                 base.py:297
+[09:35:29] Committing batch 2 consisting of 18 files                 base.py:297
+[09:35:30] Finished attempting to scrape: CMD                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-10-28-10-00">2024-10-28</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1129,71 +1182,6 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
            https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
            us/403                                                               
 [08:34:52] Finished attempting to scrape: CMD                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-10-09-10-54">2024-10-09</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-10-09 10:54:25.809695</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-10-09 10:54:27.998609</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://democracy.camden.gov.uk/mgWebService.asmx/GetCouncillorsByWard'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:54:25] Fetching Scraper for: CMD                              handlers.py:23
-           Begin attempting to scrape: CMD                        handlers.py:27
-[10:54:26] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:54:27] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://democracy.camden.gov.uk/mgWebService.asmx/GetCounc           
-           illorsByWard                                                         
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://democracy.camden.gov.uk/mgWebService.asmx/Get               
-           CouncillorsByWard'                                                   
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-           Finished attempting to scrape: CMD                        base.py:345
 </pre>
   
 
