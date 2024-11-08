@@ -37,6 +37,59 @@
   
 
 
+  <h2 id="2024-11-06-09-03">2024-11-06</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>14 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-11-06 09:03:03.350299</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-11-06 09:03:17.969575</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:03:03] Fetching Scraper for: BNH                              handlers.py:23
+           Begin attempting to scrape: BNH                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[09:03:04] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 54 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 54 files in Councillors/raw                      base.py:225
+           ...found 109 files in Councillors                         base.py:225
+           Deleting batch no. 1 consisting of 100 files              base.py:236
+[09:03:05] Deleting batch no. 2 consisting of 9 files                base.py:236
+[09:03:06] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           http://present.brighton-hove.gov.uk/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+[09:03:14] Committing batch 1 consisting of 92 files                 base.py:297
+[09:03:16] Committing batch 2 consisting of 16 files                 base.py:297
+[09:03:17] Finished attempting to scrape: BNH                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-11-05-10-28">2024-11-05</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1033,76 +1086,6 @@
 [08:39:33] Committing batch 1 consisting of 92 files                 base.py:297
 [08:39:34] Committing batch 2 consisting of 16 files                 base.py:297
 [08:39:35] Finished attempting to scrape: BNH                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-10-17-09-21">2024-10-17</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>3 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-10-17 09:21:31.225352</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-10-17 09:21:34.444326</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Server error '503 Service Unavailable' for url 'https://democracy.brighton-hove.gov.uk/mgWebService.asmx/GetCouncillorsByWard'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:21:31] Fetching Scraper for: BNH                              handlers.py:23
-           Begin attempting to scrape: BNH                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:21:32] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 54 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 54 files in Councillors/raw                      base.py:225
-           ...found 109 files in Councillors                         base.py:225
-           Deleting batch no. 1 consisting of 100 files              base.py:236
-[09:21:33] Deleting batch no. 2 consisting of 9 files                base.py:236
-[09:21:34] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://present.brighton-hove.gov.uk/mgWebService.asmx/GetC           
-           ouncillorsByWard                                                     
-           Server error '503 Service Unavailable' for url         handlers.py:36
-           'https://democracy.brighton-hove.gov.uk/mgWebService.a               
-           smx/GetCouncillorsByWard'                                            
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/503                                                               
-           Finished attempting to scrape: BNH                        base.py:345
 </pre>
   
 
