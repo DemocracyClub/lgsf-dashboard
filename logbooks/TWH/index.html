@@ -37,6 +37,75 @@
   
 
 
+  <h2 id="2024-11-08-08-18">2024-11-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-11-08 08:18:38.819638</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-11-08 08:18:41.479941</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
+    req = self.get(self.format_councillor_api_url())
+  File "/var/task/lgsf/scrapers/base.py", line 56, in get
+    response.raise_for_status()
+  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '502 Bad Gateway' for url 'https://democracy.towerhamlets.gov.uk/mgWebService.asmx/GetCouncillorsByWard'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:18:38] Fetching Scraper for: TWH                              handlers.py:23
+           Begin attempting to scrape: TWH                        handlers.py:27
+[08:18:39] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+[08:18:40] ...found 46 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 46 files in Councillors/raw                      base.py:225
+           ...found 93 files in Councillors                          base.py:225
+           Deleting batch no. 1 consisting of 93 files               base.py:236
+[08:18:41] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           http://democracy.towerhamlets.gov.uk/mgWebService.asmx/Get           
+           CouncillorsByWard                                                    
+           Server error '502 Bad Gateway' for url                 handlers.py:36
+           'https://democracy.towerhamlets.gov.uk/mgWebService.as               
+           mx/GetCouncillorsByWard'                                             
+           For more information check:                                          
+           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
+           us/502                                                               
+           Finished attempting to scrape: TWH                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-11-07-08-43">2024-11-07</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1000,57 +1069,6 @@
            CouncillorsByWard                                                    
 [10:20:44] Committing batch 1 consisting of 92 files                 base.py:297
 [10:20:45] Finished attempting to scrape: TWH                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-10-19-10-06">2024-10-19</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>6 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-10-19 10:06:11.773552</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-10-19 10:06:18.110531</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:06:11] Fetching Scraper for: TWH                              handlers.py:23
-           Begin attempting to scrape: TWH                        handlers.py:27
-[10:06:12] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[10:06:13] ...found 46 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 46 files in Councillors/raw                      base.py:225
-           ...found 93 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 93 files               base.py:236
-[10:06:14] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://democracy.towerhamlets.gov.uk/mgWebService.asmx/Get           
-           CouncillorsByWard                                                    
-[10:06:16] Committing batch 1 consisting of 92 files                 base.py:297
-[10:06:18] Finished attempting to scrape: TWH                        base.py:345
 </pre>
   
 

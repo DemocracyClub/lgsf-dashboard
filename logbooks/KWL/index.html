@@ -37,6 +37,75 @@
   
 
 
+  <h2 id="2024-11-08-08-53">2024-11-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-11-08 08:53:38.902456</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-11-08 08:53:41.550291</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
+    req = self.get(self.format_councillor_api_url())
+  File "/var/task/lgsf/scrapers/base.py", line 56, in get
+    response.raise_for_status()
+  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '503 Service Unavailable' for url 'http://councillors.knowsley.gov.uk/mgWebService.asmx/GetCouncillorsByWard'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:53:38] Fetching Scraper for: KWL                              handlers.py:23
+           Begin attempting to scrape: KWL                        handlers.py:27
+[08:53:39] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+[08:53:40] ...found 45 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 45 files in Councillors/raw                      base.py:225
+           ...found 91 files in Councillors                          base.py:225
+           Deleting batch no. 1 consisting of 91 files               base.py:236
+[08:53:41] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           http://councillors.knowsley.gov.uk/mgWebService.asmx/GetCo           
+           uncillorsByWard                                                      
+           Server error '503 Service Unavailable' for url         handlers.py:36
+           'http://councillors.knowsley.gov.uk/mgWebService.asmx/               
+           GetCouncillorsByWard'                                                
+           For more information check:                                          
+           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
+           us/503                                                               
+           Finished attempting to scrape: KWL                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-11-07-08-58">2024-11-07</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1000,57 +1069,6 @@
            uncillorsByWard                                                      
 [10:46:55] Committing batch 1 consisting of 90 files                 base.py:297
 [10:46:56] Finished attempting to scrape: KWL                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-10-19-10-25">2024-10-19</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>9 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-10-19 10:25:36.358280</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-10-19 10:25:45.370699</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:25:36] Fetching Scraper for: KWL                              handlers.py:23
-           Begin attempting to scrape: KWL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:25:37] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 45 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 45 files in Councillors/raw                      base.py:225
-           ...found 91 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 91 files               base.py:236
-[10:25:38] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://councillors.knowsley.gov.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[10:25:44] Committing batch 1 consisting of 90 files                 base.py:297
-[10:25:45] Finished attempting to scrape: KWL                        base.py:345
 </pre>
   
 
