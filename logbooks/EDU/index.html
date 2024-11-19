@@ -37,6 +37,75 @@
   
 
 
+  <h2 id="2024-11-17-10-12">2024-11-17</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-11-17 10:12:35.122701</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-11-17 10:12:37.647628</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
+    page = self.get(url, extra_headers=self.extra_headers).text
+  File "/var/task/lgsf/scrapers/base.py", line 56, in get
+    response.raise_for_status()
+  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://www.eastdunbarton.gov.uk/residents/council-democracy/committees-and-councillors/councillors-2017'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:12:35] Fetching Scraper for: EDU                              handlers.py:23
+           Begin attempting to scrape: EDU                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[10:12:36] Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[10:12:37] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://www.eastdunbarton.gov.uk/residents/council-democra           
+           cy/committees-and-councillors/councillors-2017                       
+           Client error '404 Not Found' for url                   handlers.py:36
+           'https://www.eastdunbarton.gov.uk/residents/council-de               
+           mocracy/committees-and-councillors/councillors-2017'                 
+           For more information check:                                          
+           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
+           us/404                                                               
+           Finished attempting to scrape: EDU                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-11-16-09-56">2024-11-16</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1442,123 +1511,6 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
            an-murray                                                            
 [10:30:39] Committing batch 1 consisting of 44 files                 base.py:297
 [10:30:40] Finished attempting to scrape: EDU                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-10-28-09-07">2024-10-28</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>38 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-10-28 09:07:12.952480</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-10-28 09:07:51.467533</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:07:12] Fetching Scraper for: EDU                              handlers.py:23
-           Begin attempting to scrape: EDU                        handlers.py:27
-[09:07:13] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[09:07:14] ...found 22 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 22 files in Councillors/raw                      base.py:225
-           ...found 45 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 45 files               base.py:236
-[09:07:15] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/residents/council-democra           
-           cy/committees-and-councillors/councillors-2017                       
-[09:07:16] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-jim           
-           -gibbons                                                             
-[09:07:18] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-ali           
-           x-mathieson                                                          
-[09:07:19] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-ail           
-           een-polson                                                           
-[09:07:21] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-dun           
-           can-cumming                                                          
-[09:07:22] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-ala           
-           n-reid                                                               
-[09:07:23] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-cal           
-           um-smith                                                             
-[09:07:25] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-ian           
-           -gallagher                                                           
-[09:07:26] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-vau           
-           ghan-moody                                                           
-[09:07:29] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-and           
-           rew-polson                                                           
-[09:07:31] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-pau           
-           l-ferretti                                                           
-[09:07:32] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-bil           
-           ly-hendry                                                            
-[09:07:33] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-col           
-           ette-mcdiarmid                                                       
-[09:07:35] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-lyn           
-           da-williamson                                                        
-[09:07:36] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-gor           
-           dan-low                                                              
-[09:07:38] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-ala           
-           n-moir                                                               
-[09:07:40] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-ben           
-           -rose                                                                
-[09:07:41] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-cal           
-           lum-mcnally                                                          
-[09:07:42] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-wil           
-           lie-paterson                                                         
-[09:07:44] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-gil           
-           lian-renwick                                                         
-[09:07:45] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-ste           
-           wart-macdonald                                                       
-[09:07:47] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-pam           
-           ela-marshall                                                         
-[09:07:48] Scraping from                                              base.py:49
-           https://www.eastdunbarton.gov.uk/councillor/councillor-sus           
-           an-murray                                                            
-[09:07:50] Committing batch 1 consisting of 44 files                 base.py:297
-[09:07:51] Finished attempting to scrape: EDU                        base.py:345
 </pre>
   
 
