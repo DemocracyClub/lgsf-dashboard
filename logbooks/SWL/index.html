@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2024-11-25-09-25">2024-11-25</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-11-25 09:25:16.072703</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-11-25 09:25:26.376852</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:25:16] Fetching Scraper for: SWL                              handlers.py:23
+           Begin attempting to scrape: SWL                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[09:25:17] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 45 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 45 files in Councillors/raw                      base.py:225
+           ...found 91 files in Councillors                          base.py:225
+           Deleting batch no. 1 consisting of 91 files               base.py:236
+[09:25:18] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
+           orsByWard                                                            
+[09:25:25] Committing batch 1 consisting of 90 files                 base.py:297
+[09:25:26] Finished attempting to scrape: SWL                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-11-24-08-30">2024-11-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1052,75 +1103,6 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
            orsByWard                                                            
 [09:05:10] Committing batch 1 consisting of 90 files                 base.py:297
 [09:05:11] Finished attempting to scrape: SWL                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-11-05-08-18">2024-11-05</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-11-05 08:18:16.288288</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-11-05 08:18:18.797634</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Server error '503 Service Unavailable' for url 'https://ws.swale.gov.uk/meetings/mgWebService.asmx/GetCouncillorsByWard'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:18:16] Fetching Scraper for: SWL                              handlers.py:23
-           Begin attempting to scrape: SWL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:18:17] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 45 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 45 files in Councillors/raw                      base.py:225
-           ...found 91 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 91 files               base.py:236
-[08:18:18] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
-           orsByWard                                                            
-           Server error '503 Service Unavailable' for url         handlers.py:36
-           'https://ws.swale.gov.uk/meetings/mgWebService.asmx/Ge               
-           tCouncillorsByWard'                                                  
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/503                                                               
-           Finished attempting to scrape: SWL                        base.py:345
 </pre>
   
 
