@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2024-11-28-09-56">2024-11-28</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-11-28 09:56:18.045265</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-11-28 09:56:23.202215</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:56:18] Fetching Scraper for: MAV                              handlers.py:23
+           Begin attempting to scrape: MAV                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+[09:56:19] ...found 31 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 31 files in Councillors/raw                      base.py:225
+           ...found 63 files in Councillors                          base.py:225
+           Deleting batch no. 1 consisting of 63 files               base.py:236
+[09:56:20] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           http://moderngov.malvernhills.gov.uk/mgWebService.asmx/Get           
+           CouncillorsByWard                                                    
+[09:56:22] Committing batch 1 consisting of 62 files                 base.py:297
+[09:56:23] Finished attempting to scrape: MAV                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-11-27-08-46">2024-11-27</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -996,75 +1047,6 @@
            CouncillorsByWard                                                    
 [10:09:29] Committing batch 1 consisting of 62 files                 base.py:297
 [10:09:30] Finished attempting to scrape: MAV                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-11-08-08-19">2024-11-08</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-11-08 08:19:34.810475</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-11-08 08:19:37.295953</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Server error '503 Service Unavailable' for url 'http://moderngov.malvernhills.gov.uk/mgWebService.asmx/GetCouncillorsByWard'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:19:34] Fetching Scraper for: MAV                              handlers.py:23
-           Begin attempting to scrape: MAV                        handlers.py:27
-[08:19:35] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[08:19:36] ...found 31 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 31 files in Councillors/raw                      base.py:225
-           ...found 63 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 63 files               base.py:236
-[08:19:37] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://moderngov.malvernhills.gov.uk/mgWebService.asmx/Get           
-           CouncillorsByWard                                                    
-           Server error '503 Service Unavailable' for url         handlers.py:36
-           'http://moderngov.malvernhills.gov.uk/mgWebService.asm               
-           x/GetCouncillorsByWard'                                              
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/503                                                               
-           Finished attempting to scrape: MAV                        base.py:345
 </pre>
   
 
