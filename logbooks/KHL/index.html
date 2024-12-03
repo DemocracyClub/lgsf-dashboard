@@ -37,6 +37,108 @@
   
 
 
+  <h2 id="2024-12-01-10-33">2024-12-01</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-12-01 10:33:31.222736</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-12-01 10:33:33.410256</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+    stream = stream.start_tls(**kwargs)
+  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+    with map_exceptions(exc_map):
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+    req = self.get(
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers, timeout=30)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:33:31] Fetching Scraper for: KHL                              handlers.py:23
+           Begin attempting to scrape: KHL                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[10:33:32] Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[10:33:33] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
+           rs/CouncillorsandSeniorOfficers.aspx                                 
+           [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
+           failed: unable to get local issuer certificate                       
+           (_ssl.c:1007)                                                        
+           Finished attempting to scrape: KHL                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-11-30-10-34">2024-11-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2690,287 +2792,6 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
            on/mid/383/id/1112/ScreenMode/Alphabetical/Default.aspx              
 [10:19:15] Committing batch 2 consisting of 22 files                 base.py:297
 [10:19:16] Finished attempting to scrape: KHL                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-11-11-09-21">2024-11-11</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>197 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-11-11 09:21:06.473291</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-11-11 09:24:23.950224</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:21:06] Fetching Scraper for: KHL                              handlers.py:23
-           Begin attempting to scrape: KHL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:21:07] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 57 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 57 files in Councillors/raw                      base.py:225
-[09:21:08] ...found 115 files in Councillors                         base.py:225
-           Deleting batch no. 1 consisting of 100 files              base.py:236
-           Deleting batch no. 2 consisting of 15 files               base.py:236
-[09:21:09] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers.aspx                                 
-[09:21:13] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1096/ScreenMode/Alphabetical/Default.aspx              
-[09:21:16] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/590/ScreenMode/Alphabetical/Default.aspx               
-[09:21:20] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/699/ScreenMode/Alphabetical/Default.aspx               
-[09:21:23] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/800/ScreenMode/Alphabetical/Default.aspx               
-[09:21:27] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1078/ScreenMode/Alphabetical/Default.aspx              
-[09:21:31] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1117/ScreenMode/Alphabetical/Default.aspx              
-[09:21:33] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/46/ScreenMode/Alphabetical/Default.aspx                
-[09:21:36] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/793/ScreenMode/Alphabetical/Default.aspx               
-[09:21:39] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1118/ScreenMode/Alphabetical/Default.aspx              
-[09:21:42] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/51/ScreenMode/Alphabetical/Default.aspx                
-[09:21:47] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/702/ScreenMode/Alphabetical/Default.aspx               
-[09:21:49] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/588/ScreenMode/Alphabetical/Default.aspx               
-[09:21:53] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1008/ScreenMode/Alphabetical/Default.aspx              
-[09:21:56] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1115/ScreenMode/Alphabetical/Default.aspx              
-[09:21:58] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/790/ScreenMode/Alphabetical/Default.aspx               
-[09:22:01] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/636/ScreenMode/Alphabetical/Default.aspx               
-[09:22:04] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/54/ScreenMode/Alphabetical/Default.aspx                
-[09:22:07] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1113/ScreenMode/Alphabetical/Default.aspx              
-[09:22:09] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/935/ScreenMode/Alphabetical/Default.aspx               
-[09:22:13] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/57/ScreenMode/Alphabetical/Default.aspx                
-[09:22:17] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1116/ScreenMode/Alphabetical/Default.aspx              
-[09:22:19] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/58/ScreenMode/Alphabetical/Default.aspx                
-[09:22:21] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/637/ScreenMode/Alphabetical/Default.aspx               
-[09:22:25] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/933/ScreenMode/Alphabetical/Default.aspx               
-[09:22:29] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1036/ScreenMode/Alphabetical/Default.aspx              
-[09:22:33] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/635/ScreenMode/Alphabetical/Default.aspx               
-[09:22:36] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1088/ScreenMode/Alphabetical/Default.aspx              
-[09:22:39] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/801/ScreenMode/Alphabetical/Default.aspx               
-[09:22:44] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1077/ScreenMode/Alphabetical/Default.aspx              
-[09:22:46] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1075/ScreenMode/Alphabetical/Default.aspx              
-[09:22:49] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/37/ScreenMode/Alphabetical/Default.aspx                
-[09:22:52] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1034/ScreenMode/Alphabetical/Default.aspx              
-[09:22:55] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/63/ScreenMode/Alphabetical/Default.aspx                
-[09:22:59] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/799/ScreenMode/Alphabetical/Default.aspx               
-[09:23:02] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/125/ScreenMode/Alphabetical/Default.aspx               
-[09:23:04] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/795/ScreenMode/Alphabetical/Default.aspx               
-[09:23:07] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/553/ScreenMode/Alphabetical/Default.aspx               
-[09:23:12] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1009/ScreenMode/Alphabetical/Default.aspx              
-[09:23:15] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/40/ScreenMode/Alphabetical/Default.aspx                
-[09:23:19] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1011/ScreenMode/Alphabetical/Default.aspx              
-[09:23:22] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/69/ScreenMode/Alphabetical/Default.aspx                
-[09:23:26] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/587/ScreenMode/Alphabetical/Default.aspx               
-[09:23:31] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/72/ScreenMode/Alphabetical/Default.aspx                
-[09:23:34] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1114/ScreenMode/Alphabetical/Default.aspx              
-[09:23:36] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/804/ScreenMode/Alphabetical/Default.aspx               
-[09:23:42] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/75/ScreenMode/Alphabetical/Default.aspx                
-[09:23:45] Committing batch 1 consisting of 92 files                 base.py:297
-[09:23:46] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/806/ScreenMode/Alphabetical/Default.aspx               
-[09:23:50] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1079/ScreenMode/Alphabetical/Default.aspx              
-[09:23:53] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1076/ScreenMode/Alphabetical/Default.aspx              
-[09:23:55] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/80/ScreenMode/Alphabetical/Default.aspx                
-[09:23:59] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/934/ScreenMode/Alphabetical/Default.aspx               
-[09:24:03] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1037/ScreenMode/Alphabetical/Default.aspx              
-[09:24:06] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/700/ScreenMode/Alphabetical/Default.aspx               
-[09:24:09] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/698/ScreenMode/Alphabetical/Default.aspx               
-[09:24:14] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/98/ScreenMode/Alphabetical/Default.aspx                
-[09:24:17] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1035/ScreenMode/Alphabetical/Default.aspx              
-[09:24:20] Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers/tabid/63/ctl/ViewCMIS_Pers           
-           on/mid/383/id/1112/ScreenMode/Alphabetical/Default.aspx              
-[09:24:22] Committing batch 2 consisting of 22 files                 base.py:297
-[09:24:23] Finished attempting to scrape: KHL                        base.py:345
 </pre>
   
 
