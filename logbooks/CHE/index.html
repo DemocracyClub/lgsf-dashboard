@@ -37,6 +37,219 @@
   
 
 
+  <h2 id="2024-12-17-09-55">2024-12-17</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-12-17 09:55:31.899258</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-12-17 09:55:35.269641</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+    stream = stream.start_tls(**kwargs)
+  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+    with map_exceptions(exc_map):
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
+    req = self.get(self.format_councillor_api_url())
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers, timeout=30)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:55:31] Fetching Scraper for: CHE                              handlers.py:23
+           Begin attempting to scrape: CHE                        handlers.py:27
+[09:55:32] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+[09:55:33] ...found 82 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 82 files in Councillors/raw                      base.py:225
+           ...found 165 files in Councillors                         base.py:225
+           Deleting batch no. 1 consisting of 100 files              base.py:236
+[09:55:34] Deleting batch no. 2 consisting of 65 files               base.py:236
+           ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           http://moderngov.cheshireeast.gov.uk/mgWebService.asmx/Get           
+           CouncillorsByWard                                                    
+[09:55:35] [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
+           failed: unable to get local issuer certificate                       
+           (_ssl.c:1007)                                                        
+           Finished attempting to scrape: CHE                        base.py:345
+</pre>
+  
+
+  
+
+
+  <h2 id="2024-12-16-10-16">2024-12-16</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>13 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-12-16 10:16:17.786677</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-12-16 10:16:31.107709</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:16:17] Fetching Scraper for: CHE                              handlers.py:23
+           Begin attempting to scrape: CHE                        handlers.py:27
+[10:16:18] Deleting existing data...                                 base.py:257
+[10:16:20] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 82 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 82 files in Councillors/raw                      base.py:225
+           ...found 165 files in Councillors                         base.py:225
+           Deleting batch no. 1 consisting of 100 files              base.py:236
+[10:16:21] Deleting batch no. 2 consisting of 65 files               base.py:236
+[10:16:22] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           http://moderngov.cheshireeast.gov.uk/mgWebService.asmx/Get           
+           CouncillorsByWard                                                    
+[10:16:28] Committing batch 1 consisting of 92 files                 base.py:297
+[10:16:29] Committing batch 2 consisting of 72 files                 base.py:297
+[10:16:31] Finished attempting to scrape: CHE                        base.py:345
+</pre>
+  
+
+  
+
+
+  <h2 id="2024-12-15-09-34">2024-12-15</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-12-15 09:34:11.526316</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-12-15 09:34:21.299024</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:34:11] Fetching Scraper for: CHE                              handlers.py:23
+           Begin attempting to scrape: CHE                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[09:34:12] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 82 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 82 files in Councillors/raw                      base.py:225
+           ...found 165 files in Councillors                         base.py:225
+           Deleting batch no. 1 consisting of 100 files              base.py:236
+[09:34:13] Deleting batch no. 2 consisting of 65 files               base.py:236
+[09:34:14] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           http://moderngov.cheshireeast.gov.uk/mgWebService.asmx/Get           
+           CouncillorsByWard                                                    
+[09:34:18] Committing batch 1 consisting of 92 files                 base.py:297
+[09:34:20] Committing batch 2 consisting of 72 files                 base.py:297
+[09:34:21] Finished attempting to scrape: CHE                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-12-14-10-05">2024-12-14</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -932,165 +1145,6 @@
 [09:34:16] Committing batch 1 consisting of 92 files                 base.py:297
 [09:34:17] Committing batch 2 consisting of 72 files                 base.py:297
 [09:34:18] Finished attempting to scrape: CHE                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-11-27-08-37">2024-11-27</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>9 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-11-27 08:37:21.700127</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-11-27 08:37:31.300615</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:37:21] Fetching Scraper for: CHE                              handlers.py:23
-           Begin attempting to scrape: CHE                        handlers.py:27
-[08:37:22] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 82 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 82 files in Councillors/raw                      base.py:225
-           ...found 165 files in Councillors                         base.py:225
-           Deleting batch no. 1 consisting of 100 files              base.py:236
-[08:37:23] Deleting batch no. 2 consisting of 65 files               base.py:236
-[08:37:24] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://moderngov.cheshireeast.gov.uk/mgWebService.asmx/Get           
-           CouncillorsByWard                                                    
-[08:37:28] Committing batch 1 consisting of 92 files                 base.py:297
-[08:37:30] Committing batch 2 consisting of 72 files                 base.py:297
-[08:37:31] Finished attempting to scrape: CHE                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-11-26-09-55">2024-11-26</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>10 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-11-26 09:55:52.685126</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-11-26 09:56:02.942633</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:55:52] Fetching Scraper for: CHE                              handlers.py:23
-           Begin attempting to scrape: CHE                        handlers.py:27
-[09:55:53] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 82 files in Councillors/json                     base.py:225
-[09:55:54] Getting all files in Councillors/raw...                   base.py:209
-           ...found 82 files in Councillors/raw                      base.py:225
-           ...found 165 files in Councillors                         base.py:225
-           Deleting batch no. 1 consisting of 100 files              base.py:236
-           Deleting batch no. 2 consisting of 65 files               base.py:236
-[09:55:55] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://moderngov.cheshireeast.gov.uk/mgWebService.asmx/Get           
-           CouncillorsByWard                                                    
-[09:56:00] Committing batch 1 consisting of 92 files                 base.py:297
-[09:56:01] Committing batch 2 consisting of 72 files                 base.py:297
-[09:56:02] Finished attempting to scrape: CHE                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-11-25-09-26">2024-11-25</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>12 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-11-25 09:26:55.337667</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-11-25 09:27:08.151716</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:26:55] Fetching Scraper for: CHE                              handlers.py:23
-           Begin attempting to scrape: CHE                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:26:56] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 82 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 82 files in Councillors/raw                      base.py:225
-           ...found 165 files in Councillors                         base.py:225
-           Deleting batch no. 1 consisting of 100 files              base.py:236
-[09:26:57] Deleting batch no. 2 consisting of 65 files               base.py:236
-[09:26:58] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://moderngov.cheshireeast.gov.uk/mgWebService.asmx/Get           
-           CouncillorsByWard                                                    
-[09:27:05] Committing batch 1 consisting of 92 files                 base.py:297
-[09:27:07] Committing batch 2 consisting of 72 files                 base.py:297
-[09:27:08] Finished attempting to scrape: CHE                        base.py:345
 </pre>
   
 
