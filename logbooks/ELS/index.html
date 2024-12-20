@@ -37,6 +37,74 @@
   
 
 
+  <h2 id="2024-12-18-10-41">2024-12-18</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2024-12-18 10:41:22.522545</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2024-12-18 10:41:25.015522</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
+    page = self.get(url, extra_headers=self.extra_headers).text
+  File "/var/task/lgsf/scrapers/base.py", line 56, in get
+    response.raise_for_status()
+  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://www.cne-siar.gov.uk/home/your-council/council-members/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:41:22] Fetching Scraper for: ELS                              handlers.py:23
+           Begin attempting to scrape: ELS                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[10:41:23] Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[10:41:24] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://cne-siar.gov.uk/home/your-council/council-members/           
+           Client error '404 Not Found' for url                   handlers.py:36
+           'https://www.cne-siar.gov.uk/home/your-council/council               
+           -members/'                                                           
+           For more information check:                                          
+           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
+           us/404                                                               
+[10:41:25] Finished attempting to scrape: ELS                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2024-12-17-08-57">2024-12-17</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1591,118 +1659,6 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
            https://cne-siar.gov.uk/council-members/finlay-m-stewart/            
 [08:19:57] Committing batch 1 consisting of 58 files                 base.py:297
 [08:19:59] Finished attempting to scrape: ELS                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-11-28-09-13">2024-11-28</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>47 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-11-28 09:13:29.992092</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-11-28 09:14:17.702982</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:13:29] Fetching Scraper for: ELS                              handlers.py:23
-[09:13:30] Begin attempting to scrape: ELS                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:13:31] Getting all files in Councillors/json...                  base.py:209
-           ...found 29 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 29 files in Councillors/raw                      base.py:225
-           ...found 59 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 59 files               base.py:236
-[09:13:32] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/home/your-council/council-members/           
-[09:13:34] Scraping from https://cne-siar.gov.uk/kenneth-j-maclean/   base.py:49
-[09:13:36] Scraping from https://cne-siar.gov.uk/iain-a-macneil/      base.py:49
-[09:13:37] Scraping from https://cne-siar.gov.uk/iain-m-macleod/      base.py:49
-[09:13:39] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/paul-f-steele/               
-[09:13:42] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/susan-g-thomson/             
-[09:13:43] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/home/your-council/council-members/           
-           mustapha-hocine-2/                                                   
-[09:13:45] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/uisdean-robertson/           
-[09:13:46] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/paul-a-finnegan/             
-[09:13:47] Scraping from https://cne-siar.gov.uk/?page_id=8311        base.py:49
-[09:13:49] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/angus-morrison/              
-[09:13:50] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/robert-mackenzie/            
-[09:13:52] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/alasdair-r-fraser/           
-[09:13:53] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/home/your-council/council-members/           
-           norman-misty-macdonald-2/                                            
-[09:13:54] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/john-n-macleod/              
-[09:13:55] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/home/your-council/council-members/           
-           kenneth-macleod-2/                                                   
-[09:13:57] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/home/your-council/council-members/           
-           donald-macsween-2/                                                   
-[09:13:58] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/home/your-council/council-members/           
-           donald-f-crichton/                                                   
-[09:13:59] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/john-a-maciver/              
-[09:14:00] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/calum-maclean/               
-[09:14:02] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/iain-m-macaulay/             
-[09:14:03] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/home/your-council/council-members/           
-           malcolm-k-macdonald/                                                 
-[09:14:04] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/duncan-macinnes/             
-[09:14:06] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/gordon-murray/               
-[09:14:07] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/angus-mccormack/             
-[09:14:08] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/rae-mackenzie/               
-[09:14:10] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/home/your-council/council-members/           
-           frances-murray-2/                                                    
-[09:14:11] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/george-murray/               
-[09:14:12] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/home/your-council/council-members/           
-           norman-macdonald-2/                                                  
-[09:14:15] Scraping from                                              base.py:49
-           https://cne-siar.gov.uk/council-members/finlay-m-stewart/            
-[09:14:16] Committing batch 1 consisting of 58 files                 base.py:297
-[09:14:17] Finished attempting to scrape: ELS                        base.py:345
 </pre>
   
 
