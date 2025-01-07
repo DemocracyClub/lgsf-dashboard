@@ -37,6 +37,73 @@
   
 
 
+  <h2 id="2025-01-05-08-19">2025-01-05</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-01-05 08:19:42.694892</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-01-05 08:19:45.847409</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
+    req = self.get(self.format_councillor_api_url())
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers, timeout=30)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 972, in _send_handling_redirects
+    raise TooManyRedirects(
+httpx.TooManyRedirects: Exceeded maximum allowed redirects.
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:19:42] Fetching Scraper for: NGM                              handlers.py:23
+           Begin attempting to scrape: NGM                        handlers.py:27
+[08:19:43] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[08:19:44] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           http://committee.nottinghamcity.gov.uk/mgWebService.asmx/G           
+           etCouncillorsByWard                                                  
+[08:19:45] Exceeded maximum allowed redirects.                    handlers.py:36
+           Finished attempting to scrape: NGM                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2025-01-04-08-32">2025-01-04</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1099,59 +1166,6 @@ httpx.TooManyRedirects: Exceeded maximum allowed redirects.
 [09:26:52] Committing batch 1 consisting of 92 files                 base.py:297
 [09:26:53] Committing batch 2 consisting of 18 files                 base.py:297
 [09:26:54] Finished attempting to scrape: NGM                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-12-16-10-38">2024-12-16</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>7 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-12-16 10:38:40.042003</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-12-16 10:38:47.795591</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:38:40] Fetching Scraper for: NGM                              handlers.py:23
-           Begin attempting to scrape: NGM                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:38:41] Getting all files in Councillors/json...                  base.py:209
-           ...found 55 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 55 files in Councillors/raw                      base.py:225
-           ...found 111 files in Councillors                         base.py:225
-           Deleting batch no. 1 consisting of 100 files              base.py:236
-[10:38:42] Deleting batch no. 2 consisting of 11 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://committee.nottinghamcity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[10:38:45] Committing batch 1 consisting of 92 files                 base.py:297
-[10:38:46] Committing batch 2 consisting of 18 files                 base.py:297
-[10:38:47] Finished attempting to scrape: NGM                        base.py:345
 </pre>
   
 
