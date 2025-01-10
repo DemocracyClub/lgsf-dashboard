@@ -37,6 +37,126 @@
   
 
 
+  <h2 id="2025-01-08-09-45">2025-01-08</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>74 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-01-08 09:45:14.315333</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-01-08 09:46:28.892896</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    return self._connection.handle_request(request)
+  File "/opt/python/httpcore/_sync/http11.py", line 143, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 113, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+  File "/opt/python/httpcore/_sync/http11.py", line 186, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "/opt/python/httpcore/_sync/http11.py", line 224, in _receive_event
+    data = self._network_stream.read(
+  File "/opt/python/httpcore/_backends/sync.py", line 124, in read
+    with map_exceptions(exc_map):
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/IVC-inverclyde/councillors.py", line 17, in get_single_councillor
+    soup = self.get_page(url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
+    page = self.get(url, extra_headers=self.extra_headers).text
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers, timeout=30)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:45:14] Fetching Scraper for: IVC                              handlers.py:23
+           Begin attempting to scrape: IVC                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[09:45:15] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 22 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 22 files in Councillors/raw                      base.py:225
+           ...found 45 files in Councillors                          base.py:225
+           Deleting batch no. 1 consisting of 45 files               base.py:236
+[09:45:16] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://www.inverclyde.gov.uk/meetings/councillors                   
+[09:45:27] Scraping from                                              base.py:49
+           https://www.inverclyde.gov.uk/meetings/councillors/31                
+[09:45:45] Scraping from                                              base.py:49
+           https://www.inverclyde.gov.uk/meetings/councillors/32                
+[09:45:49] Scraping from                                              base.py:49
+           https://www.inverclyde.gov.uk/meetings/councillors/25                
+[09:45:52] Scraping from                                              base.py:49
+           https://www.inverclyde.gov.uk/meetings/councillors/34                
+[09:45:57] Scraping from                                              base.py:49
+           https://www.inverclyde.gov.uk/meetings/councillors/8                 
+[09:46:27] The read operation timed out                           handlers.py:36
+           Committing batch 1 consisting of 8 files                  base.py:297
+[09:46:28] Finished attempting to scrape: IVC                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2025-01-07-09-24">2025-01-07</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1817,100 +1937,6 @@
            https://www.inverclyde.gov.uk/meetings/councillors/1                 
 [08:30:28] Committing batch 1 consisting of 44 files                 base.py:297
 [08:30:30] Finished attempting to scrape: IVC                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2024-12-19-09-52">2024-12-19</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>76 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2024-12-19 09:52:56.418379</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2024-12-19 09:54:12.969550</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:52:56] Fetching Scraper for: IVC                              handlers.py:23
-           Begin attempting to scrape: IVC                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:52:57] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 22 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 22 files in Councillors/raw                      base.py:225
-           ...found 45 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 45 files               base.py:236
-[09:52:58] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors                   
-[09:53:07] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/31                
-[09:53:10] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/32                
-[09:53:13] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/25                
-[09:53:16] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/34                
-[09:53:18] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/8                 
-[09:53:21] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/27                
-[09:53:24] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/21                
-[09:53:28] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/33                
-[09:53:31] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/39                
-[09:53:32] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/24                
-[09:53:35] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/35                
-[09:53:38] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/4                 
-[09:53:42] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/6                 
-[09:53:44] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/29                
-[09:53:47] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/23                
-[09:53:50] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/28                
-[09:53:53] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/7                 
-[09:53:56] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/19                
-[09:54:00] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/22                
-[09:54:02] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/38                
-[09:54:05] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/26                
-[09:54:08] Scraping from                                              base.py:49
-           https://www.inverclyde.gov.uk/meetings/councillors/1                 
-[09:54:11] Committing batch 1 consisting of 44 files                 base.py:297
-[09:54:12] Finished attempting to scrape: IVC                        base.py:345
 </pre>
   
 
