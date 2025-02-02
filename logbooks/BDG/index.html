@@ -37,6 +37,106 @@
   
 
 
+  <h2 id="2025-01-31-09-05">2025-01-31</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>17 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-01-31 09:05:46.784164</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-01-31 09:06:04.179660</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
+    req = self.get(self.format_councillor_api_url())
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers, timeout=30)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: [Errno 110] Connection timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:05:46] Fetching Scraper for: BDG                              handlers.py:23
+           Begin attempting to scrape: BDG                        handlers.py:27
+[09:05:47] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[09:05:48] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://modgov.lbbd.gov.uk/internet/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+[09:06:03] [Errno 110] Connection timed out                       handlers.py:36
+[09:06:04] Finished attempting to scrape: BDG                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2025-01-30-08-48">2025-01-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1930,106 +2030,6 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
            https://modgov.lbbd.gov.uk/internet/mgWebService.asmx/GetC           
            ouncillorsByWard                                                     
 [08:56:46] [Errno 110] Connection timed out                       handlers.py:36
-           Finished attempting to scrape: BDG                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-01-11-09-20">2025-01-11</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>17 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-01-11 09:20:58.013979</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-01-11 09:21:15.457339</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:20:58] Fetching Scraper for: BDG                              handlers.py:23
-           Begin attempting to scrape: BDG                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:20:59] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://modgov.lbbd.gov.uk/internet/mgWebService.asmx/GetC           
-           ouncillorsByWard                                                     
-[09:21:15] [Errno 110] Connection timed out                       handlers.py:36
            Finished attempting to scrape: BDG                        base.py:345
 </pre>
   
