@@ -37,6 +37,79 @@
   
 
 
+  <h2 id="2025-02-07-09-37">2025-02-07</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-02-07 09:37:48.924478</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-02-07 09:37:51.449651</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+    for councillor_html in self.get_councillors():
+  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
+    container = self.get_list_container()
+  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
+    page = self.get(url, extra_headers=self.extra_headers).text
+  File "/var/task/lgsf/scrapers/base.py", line 56, in get
+    response.raise_for_status()
+  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.stirling.gov.uk/council-and-committees/politicians-and-elections/councillors/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:37:48] Fetching Scraper for: STG                              handlers.py:23
+           Begin attempting to scrape: STG                        handlers.py:27
+[09:37:49] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+[09:37:50] Getting all files in Councillors/json...                  base.py:209
+           ...found 23 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 23 files in Councillors/raw                      base.py:225
+           ...found 47 files in Councillors                          base.py:225
+           Deleting batch no. 1 consisting of 47 files               base.py:236
+[09:37:51] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://www.stirling.gov.uk/council-and-committees/politic           
+           ians-and-elections/councillors/                                      
+           Client error '403 Forbidden' for url                   handlers.py:36
+           'https://www.stirling.gov.uk/council-and-committees/po               
+           liticians-and-elections/councillors/'                                
+           For more information check:                                          
+           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
+           us/403                                                               
+           Finished attempting to scrape: STG                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2025-02-06-09-22">2025-02-06</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -2425,135 +2498,6 @@ TypeError: 'NoneType' object is not subscriptable
 [10:21:41] 'NoneType' object is not subscriptable                 handlers.py:36
            Committing batch 1 consisting of 44 files                 base.py:297
 [10:21:42] Finished attempting to scrape: STG                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-01-18-09-01">2025-01-18</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>34 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-01-18 09:01:48.431238</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-01-18 09:02:22.996182</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/STG-stirling/councillors.py", line 42, in get_single_councillor
-    councillor.email = soup.select_one("a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:01:48] Fetching Scraper for: STG                              handlers.py:23
-           Begin attempting to scrape: STG                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:01:49] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 22 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 22 files in Councillors/raw                      base.py:225
-           ...found 45 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 45 files               base.py:236
-[09:01:50] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/politic           
-           ians-and-elections/councillors/                                      
-[09:01:51] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/elaine-watterson/                              
-[09:01:53] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/gene-maxwell/                                  
-[09:01:54] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/martin-earl/                                   
-[09:01:55] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/gerry-mcgarvey/                                
-[09:01:56] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/paul-henke/                                    
-[09:01:58] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/rosemary-fraser/                               
-[09:01:59] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/alasdair-tollemache/                           
-[09:02:01] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/david-wilson/                                  
-[09:02:03] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/robin-kleinman/                                
-[09:02:04] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/thomas-heald/                                  
-[09:02:05] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/danny-gibson/                                  
-[09:02:06] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/jim-thomson/                                   
-[09:02:08] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/rachel-nunn/                                   
-[09:02:09] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/susan-mcgill/                                  
-[09:02:10] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/jen-preston/                                   
-[09:02:11] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/neil-benny/                                    
-[09:02:13] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/scott-farmer/                                  
-[09:02:14] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/bryan-flannagan/                               
-[09:02:15] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/gerry-mclaughlan/                              
-[09:02:16] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/willie-ferguson/                               
-[09:02:18] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/alasdair-macpherson/                           
-[09:02:19] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/brian-hambly/                                  
-[09:02:20] Scraping from                                              base.py:49
-           https://www.stirling.gov.uk/council-and-committees/council           
-           lors/your-councillors/vacant-1/                                      
-[09:02:21] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 44 files                 base.py:297
-[09:02:22] Finished attempting to scrape: STG                        base.py:345
 </pre>
   
 
