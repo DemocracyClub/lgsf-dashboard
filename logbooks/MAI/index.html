@@ -37,6 +37,158 @@
   
 
 
+  <h2 id="2025-02-13-09-45">2025-02-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>27 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-02-13 09:45:41.744202</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-02-13 09:46:09.414305</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:45:41] Fetching Scraper for: MAI                              handlers.py:23
+           Begin attempting to scrape: MAI                        handlers.py:27
+[09:45:42] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[09:45:43] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://meetings.maidstone.gov.uk//mgWebService.asmx/GetCo           
+           uncillorsByWard                                                      
+[09:46:06] Committing batch 1 consisting of 92 files                 base.py:297
+[09:46:08] Committing batch 2 consisting of 6 files                  base.py:297
+[09:46:09] Finished attempting to scrape: MAI                        base.py:345
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-02-12-09-35">2025-02-12</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>18 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-02-12 09:35:58.451525</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-02-12 09:36:16.717588</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: [Errno 110] Connection timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
+    req = self.get(self.format_councillor_api_url())
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers, timeout=30)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: [Errno 110] Connection timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:35:58] Fetching Scraper for: MAI                              handlers.py:23
+           Begin attempting to scrape: MAI                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[09:35:59] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 49 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 49 files in Councillors/raw                      base.py:225
+           ...found 99 files in Councillors                          base.py:225
+           Deleting batch no. 1 consisting of 99 files               base.py:236
+[09:36:00] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://meetings.maidstone.gov.uk//mgWebService.asmx/GetCo           
+           uncillorsByWard                                                      
+[09:36:16] [Errno 110] Connection timed out                       handlers.py:36
+           Finished attempting to scrape: MAI                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2025-02-11-10-39">2025-02-11</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -967,110 +1119,6 @@
 [08:31:03] Committing batch 1 consisting of 92 files                 base.py:297
 [08:31:04] Committing batch 2 consisting of 6 files                  base.py:297
 [08:31:05] Finished attempting to scrape: MAI                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-01-24-08-41">2025-01-24</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>11 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-01-24 08:41:52.935549</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-01-24 08:42:03.975680</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:41:52] Fetching Scraper for: MAI                              handlers.py:23
-           Begin attempting to scrape: MAI                        handlers.py:27
-[08:41:53] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 49 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[08:41:54] ...found 49 files in Councillors/raw                      base.py:225
-           ...found 99 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 99 files               base.py:236
-[08:41:55] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://meetings.maidstone.gov.uk//mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[08:42:01] Committing batch 1 consisting of 92 files                 base.py:297
-[08:42:02] Committing batch 2 consisting of 6 files                  base.py:297
-[08:42:03] Finished attempting to scrape: MAI                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-01-23-09-19">2025-01-23</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>12 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-01-23 09:19:54.767994</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-01-23 09:20:07.372347</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:19:54] Fetching Scraper for: MAI                              handlers.py:23
-           Begin attempting to scrape: MAI                        handlers.py:27
-[09:19:55] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[09:19:56] ...found 49 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 49 files in Councillors/raw                      base.py:225
-           ...found 99 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 99 files               base.py:236
-[09:19:57] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://meetings.maidstone.gov.uk//mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[09:20:05] Committing batch 1 consisting of 92 files                 base.py:297
-[09:20:06] Committing batch 2 consisting of 6 files                  base.py:297
-[09:20:07] Finished attempting to scrape: MAI                        base.py:345
 </pre>
   
 
