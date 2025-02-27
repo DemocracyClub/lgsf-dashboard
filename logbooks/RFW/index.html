@@ -37,6 +37,267 @@
   
 
 
+  <h2 id="2025-02-25-09-51">2025-02-25</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>323 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-02-25 09:51:58.119159</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-02-25 09:57:21.990983</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    return self._connection.handle_request(request)
+  File "/opt/python/httpcore/_sync/http11.py", line 143, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 113, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+  File "/opt/python/httpcore/_sync/http11.py", line 186, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "/opt/python/httpcore/_sync/http11.py", line 224, in _receive_event
+    data = self._network_stream.read(
+  File "/opt/python/httpcore/_backends/sync.py", line 124, in read
+    with map_exceptions(exc_map):
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "/var/task/lgsf/councillors/scrapers.py", line 310, in get_single_councillor
+    req = self.get(url)
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers, timeout=30)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:51:58] Fetching Scraper for: RFW                              handlers.py:23
+           Begin attempting to scrape: RFW                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[09:51:59] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 43 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 43 files in Councillors/raw                      base.py:225
+           ...found 87 files in Councillors                          base.py:225
+           Deleting batch no. 1 consisting of 87 files               base.py:236
+[09:52:00] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://renfrewshire.cmis.uk.com/renfrewshire/Councillors.           
+           aspx                                                                 
+[09:52:01] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1269/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:52:09] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1976/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:52:17] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1280/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:52:27] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1275/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:52:33] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1277/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:52:43] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/20/ScreenMode/Alpha           
+           betical/Default.aspx                                                 
+[09:52:47] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1288/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:52:53] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1967/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:52:59] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1273/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:53:04] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/46/ScreenMode/Alpha           
+           betical/Default.aspx                                                 
+[09:53:13] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/44/ScreenMode/Alpha           
+           betical/Default.aspx                                                 
+[09:53:19] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/34/ScreenMode/Alpha           
+           betical/Default.aspx                                                 
+[09:53:27] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1972/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:53:40] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1268/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:53:45] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1973/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:53:52] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1270/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:54:06] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1966/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:54:11] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1970/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:54:16] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/23/ScreenMode/Alpha           
+           betical/Default.aspx                                                 
+[09:54:23] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1265/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:54:35] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1974/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:54:44] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1979/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:54:51] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1978/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:54:56] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/54/ScreenMode/Alpha           
+           betical/Default.aspx                                                 
+[09:55:08] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/56/ScreenMode/Alpha           
+           betical/Default.aspx                                                 
+[09:55:35] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/57/ScreenMode/Alpha           
+           betical/Default.aspx                                                 
+[09:55:41] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1286/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:55:44] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1968/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:55:55] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/42/ScreenMode/Alpha           
+           betical/Default.aspx                                                 
+[09:56:01] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1975/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:56:04] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1965/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:56:07] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/59/ScreenMode/Alpha           
+           betical/Default.aspx                                                 
+[09:56:18] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1971/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:56:26] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1274/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:56:34] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1276/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:56:39] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/1977/ScreenMode/Alp           
+           habetical/Default.aspx                                               
+[09:56:46] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/24/ScreenMode/Alpha           
+           betical/Default.aspx                                                 
+[09:56:50] Scraping from                                              base.py:49
+           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
+           abid/63/ctl/ViewCMIS_Person/mid/383/id/45/ScreenMode/Alpha           
+           betical/Default.aspx                                                 
+[09:57:20] The read operation timed out                           handlers.py:36
+           Committing batch 1 consisting of 74 files                 base.py:297
+[09:57:21] Finished attempting to scrape: RFW                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2025-02-24-10-41">2025-02-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -4268,229 +4529,6 @@
            habetical/Default.aspx                                               
 [08:29:46] Committing batch 1 consisting of 86 files                 base.py:297
 [08:29:47] Finished attempting to scrape: RFW                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-02-05-09-35">2025-02-05</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>259 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-02-05 09:35:45.626972</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-02-05 09:40:04.869832</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:35:45] Fetching Scraper for: RFW                              handlers.py:23
-           Begin attempting to scrape: RFW                        handlers.py:27
-[09:35:46] Deleting existing data...                                 base.py:257
-[09:35:48] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 43 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 43 files in Councillors/raw                      base.py:225
-           ...found 87 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 87 files               base.py:236
-[09:35:49] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://renfrewshire.cmis.uk.com/renfrewshire/Councillors.           
-           aspx                                                                 
-[09:35:51] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1269/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:35:56] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1976/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:36:01] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1280/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:36:07] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1275/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:36:12] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1277/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:36:21] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/20/ScreenMode/Alpha           
-           betical/Default.aspx                                                 
-[09:36:24] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1288/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:36:30] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1967/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:36:36] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1273/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:36:41] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/46/ScreenMode/Alpha           
-           betical/Default.aspx                                                 
-[09:36:48] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/44/ScreenMode/Alpha           
-           betical/Default.aspx                                                 
-[09:36:54] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/34/ScreenMode/Alpha           
-           betical/Default.aspx                                                 
-[09:37:02] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1972/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:37:09] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1268/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:37:13] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1973/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:37:17] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1270/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:37:27] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1966/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:37:30] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1970/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:37:35] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/23/ScreenMode/Alpha           
-           betical/Default.aspx                                                 
-[09:37:40] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1265/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:37:48] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1974/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:37:54] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1979/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:38:01] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1978/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:38:05] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/54/ScreenMode/Alpha           
-           betical/Default.aspx                                                 
-[09:38:12] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/56/ScreenMode/Alpha           
-           betical/Default.aspx                                                 
-[09:38:16] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/57/ScreenMode/Alpha           
-           betical/Default.aspx                                                 
-[09:38:20] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1286/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:38:23] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1968/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:38:32] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/42/ScreenMode/Alpha           
-           betical/Default.aspx                                                 
-[09:38:39] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1975/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:38:42] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1965/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:38:47] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/59/ScreenMode/Alpha           
-           betical/Default.aspx                                                 
-[09:38:55] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1971/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:39:02] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1274/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:39:08] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1276/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:39:12] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1977/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:39:16] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/24/ScreenMode/Alpha           
-           betical/Default.aspx                                                 
-[09:39:18] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/45/ScreenMode/Alpha           
-           betical/Default.aspx                                                 
-[09:39:31] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1177/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:39:39] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1284/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:39:44] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1266/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:39:52] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1969/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:39:56] Scraping from                                              base.py:49
-           http://renfrewshire.cmis.uk.com/renfrewshire/Councillors/t           
-           abid/63/ctl/ViewCMIS_Person/mid/383/id/1279/ScreenMode/Alp           
-           habetical/Default.aspx                                               
-[09:40:03] Committing batch 1 consisting of 86 files                 base.py:297
-[09:40:04] Finished attempting to scrape: RFW                        base.py:345
 </pre>
   
 
