@@ -37,6 +37,96 @@
   
 
 
+  <h2 id="2025-03-02-10-25">2025-03-02</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>15 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-03-02 10:25:13.200761</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-03-02 10:25:28.467684</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
+    councillor = self.get_single_councillor(councillor_html)
+  File "scrapers/WLN-west-lothian/councillors.py", line 37, in get_single_councillor
+    councillor.email = soup.select("a[href^=mailto]")[0].get_text(
+IndexError: list index out of range
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:25:13] Fetching Scraper for: WLN                              handlers.py:23
+           Begin attempting to scrape: WLN                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[10:25:14] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 2 files in Councillors/json                      base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 2 files in Councillors/raw                       base.py:225
+           ...found 5 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 5 files                base.py:236
+[10:25:15] ...data deleted.                                          base.py:264
+           Scraping from https://westlothian.gov.uk/councillors       base.py:49
+[10:25:17] Scraping from                                              base.py:49
+           https://westlothian.gov.uk/article/33888/Linlithgow                  
+[10:25:18] Scraping from                                              base.py:49
+           https://westlothian.gov.uk/article/33889/Broxburn-Uphall-a           
+           nd-Winchburgh                                                        
+[10:25:19] Scraping from                                              base.py:49
+           https://westlothian.gov.uk/article/33890/Livingston-North            
+           Scraping from                                              base.py:49
+           https://westlothian.gov.uk/article/33891/Livingston-South            
+[10:25:20] Scraping from                                              base.py:49
+           https://westlothian.gov.uk/article/33893/East-Livingston-a           
+           nd-East-Calder                                                       
+[10:25:21] Scraping from                                              base.py:49
+           https://westlothian.gov.uk/article/33892/Fauldhouse-and-th           
+           e-Breich-Valley                                                      
+[10:25:22] Scraping from                                              base.py:49
+           https://westlothian.gov.uk/article/33894/Whitburn-and-Blac           
+           kburn                                                                
+[10:25:23] Scraping from                                              base.py:49
+           https://westlothian.gov.uk/article/33895/Bathgate                    
+           Scraping from                                              base.py:49
+           https://westlothian.gov.uk/article/33896/Armadale-and-Blac           
+           kridge                                                               
+[10:25:24] Scraping from                                              base.py:49
+           https://westlothian.gov.uk/article/33897/Councillor-Tom-Co           
+           nn                                                                   
+[10:25:25] Scraping from                                              base.py:49
+           https://westlothian.gov.uk/article/33898/Councillor-Paulin           
+           e-Orr                                                                
+[10:25:26] Scraping from                                              base.py:49
+           https://westlothian.gov.uk/article/33899/Councillor-Sally-           
+           Pattle                                                               
+[10:25:27] list index out of range                                handlers.py:36
+           Committing batch 1 consisting of 4 files                  base.py:297
+[10:25:28] Finished attempting to scrape: WLN                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2025-03-01-09-02">2025-03-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1741,96 +1831,6 @@ IndexError: list index out of range
 [10:41:15] list index out of range                                handlers.py:36
            Committing batch 1 consisting of 4 files                  base.py:297
 [10:41:16] Finished attempting to scrape: WLN                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-02-10-10-00">2025-02-10</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>17 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-02-10 10:00:10.109278</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-02-10 10:00:27.758910</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/WLN-west-lothian/councillors.py", line 37, in get_single_councillor
-    councillor.email = soup.select("a[href^=mailto]")[0].get_text(
-IndexError: list index out of range
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:00:10] Fetching Scraper for: WLN                              handlers.py:23
-           Begin attempting to scrape: WLN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:00:11] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 2 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 2 files in Councillors/raw                       base.py:225
-           ...found 5 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 5 files                base.py:236
-[10:00:12] ...data deleted.                                          base.py:264
-           Scraping from https://westlothian.gov.uk/councillors       base.py:49
-[10:00:15] Scraping from                                              base.py:49
-           https://westlothian.gov.uk/article/33888/Linlithgow                  
-[10:00:16] Scraping from                                              base.py:49
-           https://westlothian.gov.uk/article/33889/Broxburn-Uphall-a           
-           nd-Winchburgh                                                        
-           Scraping from                                              base.py:49
-           https://westlothian.gov.uk/article/33890/Livingston-North            
-[10:00:17] Scraping from                                              base.py:49
-           https://westlothian.gov.uk/article/33891/Livingston-South            
-[10:00:18] Scraping from                                              base.py:49
-           https://westlothian.gov.uk/article/33893/East-Livingston-a           
-           nd-East-Calder                                                       
-[10:00:19] Scraping from                                              base.py:49
-           https://westlothian.gov.uk/article/33892/Fauldhouse-and-th           
-           e-Breich-Valley                                                      
-[10:00:20] Scraping from                                              base.py:49
-           https://westlothian.gov.uk/article/33894/Whitburn-and-Blac           
-           kburn                                                                
-[10:00:22] Scraping from                                              base.py:49
-           https://westlothian.gov.uk/article/33895/Bathgate                    
-[10:00:23] Scraping from                                              base.py:49
-           https://westlothian.gov.uk/article/33896/Armadale-and-Blac           
-           kridge                                                               
-           Scraping from                                              base.py:49
-           https://westlothian.gov.uk/article/33897/Councillor-Tom-Co           
-           nn                                                                   
-[10:00:24] Scraping from                                              base.py:49
-           https://westlothian.gov.uk/article/33898/Councillor-Paulin           
-           e-Orr                                                                
-[10:00:25] Scraping from                                              base.py:49
-           https://westlothian.gov.uk/article/33899/Councillor-Sally-           
-           Pattle                                                               
-[10:00:26] list index out of range                                handlers.py:36
-           Committing batch 1 consisting of 4 files                  base.py:297
-[10:00:27] Finished attempting to scrape: WLN                        base.py:345
 </pre>
   
 
