@@ -37,6 +37,75 @@
   
 
 
+  <h2 id="2025-03-15-09-31">2025-03-15</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-03-15 09:31:06.265228</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-03-15 09:31:08.700235</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
+    req = self.get(self.format_councillor_api_url())
+  File "/var/task/lgsf/scrapers/base.py", line 56, in get
+    response.raise_for_status()
+  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '503 Service Unavailable' for url 'https://councillorsupport.bedford.gov.uk/mgWebService.asmx/GetCouncillorsByWard'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:31:06] Fetching Scraper for: BDF                              handlers.py:23
+           Begin attempting to scrape: BDF                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[09:31:07] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 47 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 47 files in Councillors/raw                      base.py:225
+           ...found 95 files in Councillors                          base.py:225
+           Deleting batch no. 1 consisting of 95 files               base.py:236
+[09:31:08] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://councillorsupport.bedford.gov.uk/mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+           Server error '503 Service Unavailable' for url         handlers.py:36
+           'https://councillorsupport.bedford.gov.uk/mgWebService               
+           .asmx/GetCouncillorsByWard'                                          
+           For more information check:                                          
+           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
+           us/503                                                               
+           Finished attempting to scrape: BDF                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2025-03-14-09-32">2025-03-14</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1019,58 +1088,6 @@
 [10:36:35] Committing batch 1 consisting of 92 files                 base.py:297
 [10:36:36] Committing batch 2 consisting of 2 files                  base.py:297
 [10:36:37] Finished attempting to scrape: BDF                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-02-23-09-06">2025-02-23</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>6 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-02-23 09:06:37.412344</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-02-23 09:06:44.221161</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:06:37] Fetching Scraper for: BDF                              handlers.py:23
-           Begin attempting to scrape: BDF                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:06:38] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:06:39] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://councillorsupport.bedford.gov.uk/mgWebService.asmx           
-           /GetCouncillorsByWard                                                
-[09:06:42] Committing batch 1 consisting of 92 files                 base.py:297
-[09:06:43] Committing batch 2 consisting of 2 files                  base.py:297
-[09:06:44] Finished attempting to scrape: BDF                        base.py:345
 </pre>
   
 
