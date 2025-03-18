@@ -37,6 +37,104 @@
   
 
 
+  <h2 id="2025-03-16-09-43">2025-03-16</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-03-16 09:43:51.880328</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-03-16 09:43:54.087338</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    return self._connection.handle_request(request)
+  File "/opt/python/httpcore/_sync/http11.py", line 143, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 113, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+  File "/opt/python/httpcore/_sync/http11.py", line 186, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "/opt/python/httpcore/_sync/http11.py", line 238, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
+    req = self.get(self.format_councillor_api_url())
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers, timeout=30)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:43:51] Fetching Scraper for: NGM                              handlers.py:23
+           Begin attempting to scrape: NGM                        handlers.py:27
+[09:43:52] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[09:43:53] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           http://committee.nottinghamcity.gov.uk/mgWebService.asmx/G           
+           etCouncillorsByWard                                                  
+           Server disconnected without sending a response.        handlers.py:36
+[09:43:54] Finished attempting to scrape: NGM                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2025-03-15-09-03">2025-03-15</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1180,59 +1278,6 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
 [09:44:14] Committing batch 1 consisting of 92 files                 base.py:297
 [09:44:15] Committing batch 2 consisting of 18 files                 base.py:297
 [09:44:16] Finished attempting to scrape: NGM                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-02-24-08-52">2025-02-24</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>9 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-02-24 08:52:30.871058</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-02-24 08:52:40.624038</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:52:30] Fetching Scraper for: NGM                              handlers.py:23
-           Begin attempting to scrape: NGM                        handlers.py:27
-[08:52:31] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:52:32] Getting all files in Councillors/json...                  base.py:209
-           ...found 55 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 55 files in Councillors/raw                      base.py:225
-           ...found 111 files in Councillors                         base.py:225
-           Deleting batch no. 1 consisting of 100 files              base.py:236
-[08:52:33] Deleting batch no. 2 consisting of 11 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://committee.nottinghamcity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:52:38] Committing batch 1 consisting of 92 files                 base.py:297
-[08:52:39] Committing batch 2 consisting of 18 files                 base.py:297
-[08:52:40] Finished attempting to scrape: NGM                        base.py:345
 </pre>
   
 
