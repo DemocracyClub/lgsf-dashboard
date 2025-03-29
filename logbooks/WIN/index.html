@@ -37,6 +37,106 @@
   
 
 
+  <h2 id="2025-03-27-09-08">2025-03-27</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>32 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-03-27 09:08:26.703921</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-03-27 09:08:59.181754</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+    stream = stream.start_tls(**kwargs)
+  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+    with map_exceptions(exc_map):
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: _ssl.c:990: The handshake operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+    wards = self.get_councillors()
+  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
+    req = self.get(self.format_councillor_api_url())
+  File "/var/task/lgsf/scrapers/base.py", line 55, in get
+    response = self.http_client.get(url, headers=headers, timeout=30)
+  File "/opt/python/httpx/_client.py", line 1054, in get
+    return self.request(
+  File "/opt/python/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: _ssl.c:990: The handshake operation timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:08:26] Fetching Scraper for: WIN                              handlers.py:23
+           Begin attempting to scrape: WIN                        handlers.py:27
+[09:08:27] Deleting existing data...                                 base.py:257
+           Getting all files in Councillors...                       base.py:209
+           ...found 1 files in Councillors                           base.py:225
+           Deleting batch no. 1 consisting of 1 files                base.py:236
+[09:08:28] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://democracy.winchester.gov.uk/mgWebService.asmx/GetC           
+           ouncillorsByWard                                                     
+[09:08:58] _ssl.c:990: The handshake operation timed out          handlers.py:36
+[09:08:59] Finished attempting to scrape: WIN                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2025-03-26-10-12">2025-03-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1102,57 +1202,6 @@ httpx.ConnectTimeout: _ssl.c:990: The handshake operation timed out
            ouncillorsByWard                                                     
 [10:18:51] Committing batch 1 consisting of 90 files                 base.py:297
 [10:18:52] Finished attempting to scrape: WIN                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-07-10-40">2025-03-07</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>7 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-03-07 10:40:29.587645</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-03-07 10:40:37.175954</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:40:29] Fetching Scraper for: WIN                              handlers.py:23
-           Begin attempting to scrape: WIN                        handlers.py:27
-[10:40:30] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 45 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[10:40:31] ...found 45 files in Councillors/raw                      base.py:225
-           ...found 91 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 91 files               base.py:236
-[10:40:32] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://democracy.winchester.gov.uk/mgWebService.asmx/GetC           
-           ouncillorsByWard                                                     
-[10:40:35] Committing batch 1 consisting of 90 files                 base.py:297
-[10:40:37] Finished attempting to scrape: WIN                        base.py:345
 </pre>
   
 
