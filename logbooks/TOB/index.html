@@ -37,6 +37,57 @@
   
 
 
+  <h2 id="2025-04-06-10-00">2025-04-06</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-04-06 10:00:22.079361</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-04-06 10:00:27.761414</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[10:00:22] Fetching Scraper for: TOB                              handlers.py:23
+           Begin attempting to scrape: TOB                        handlers.py:27
+           Deleting existing data...                                 base.py:257
+[10:00:23] Getting all files in Councillors...                       base.py:209
+           Getting all files in Councillors/json...                  base.py:209
+           ...found 36 files in Councillors/json                     base.py:225
+           Getting all files in Councillors/raw...                   base.py:209
+           ...found 36 files in Councillors/raw                      base.py:225
+           ...found 73 files in Councillors                          base.py:225
+           Deleting batch no. 1 consisting of 73 files               base.py:236
+[10:00:24] ...data deleted.                                          base.py:264
+           Scraping from                                              base.py:49
+           https://www.torbay.gov.uk/DemocraticServices//mgWebService           
+           .asmx/GetCouncillorsByWard                                           
+[10:00:26] Committing batch 1 consisting of 72 files                 base.py:297
+[10:00:27] Finished attempting to scrape: TOB                        base.py:345
+</pre>
+  
+
+  
+
+
   <h2 id="2025-04-05-08-41">2025-04-05</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -996,71 +1047,6 @@
            .asmx/GetCouncillorsByWard                                           
 [10:36:35] Committing batch 1 consisting of 72 files                 base.py:297
 [10:36:36] Finished attempting to scrape: TOB                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-17-09-48">2025-03-17</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-03-17 09:48:47.460461</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-03-17 09:48:49.882878</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Server error '503 Service Unavailable' for url 'https://www.torbay.gov.uk/DemocraticServices//mgWebService.asmx/GetCouncillorsByWard'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:48:47] Fetching Scraper for: TOB                              handlers.py:23
-           Begin attempting to scrape: TOB                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:48:48] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:48:49] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.torbay.gov.uk/DemocraticServices//mgWebService           
-           .asmx/GetCouncillorsByWard                                           
-           Server error '503 Service Unavailable' for url         handlers.py:36
-           'https://www.torbay.gov.uk/DemocraticServices//mgWebSe               
-           rvice.asmx/GetCouncillorsByWard'                                     
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/503                                                               
-           Finished attempting to scrape: TOB                        base.py:345
 </pre>
   
 
