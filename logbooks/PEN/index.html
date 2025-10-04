@@ -37,21 +37,21 @@
   
 
 
-  <h2 id="2025-04-13-08-53">2025-04-13</h2>
+  <h2 id="2025-10-02-08-43">2025-10-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>12 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-13 08:53:14.916674</dd>
+        <dd>2025-10-02 08:43:36.773763</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-13 08:53:27.249208</dd>
+        <dd>2025-10-02 08:43:39.387517</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -62,11 +62,21 @@
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -74,63 +84,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:53:14] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[08:43:36] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-[08:53:15] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[08:53:16] ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-[08:53:17] ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[08:53:18] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[08:53:19] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-[08:53:20] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-[08:53:21] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-[08:53:22] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[08:53:23] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-[08:53:24] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-[08:53:25] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-           'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[08:53:27] Finished attempting to scrape: PEN                        base.py:345
+[08:43:37] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:43:38] ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+[08:43:39] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-12-10-05">2025-04-12</h2>
+  <h2 id="2025-10-01-09-03">2025-10-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>12 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-12 10:05:51.369694</dd>
+        <dd>2025-10-01 09:03:24.076015</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-12 10:06:03.680163</dd>
+        <dd>2025-10-01 09:03:27.017812</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -141,11 +127,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -153,63 +149,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:05:51] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[09:03:24] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:05:52] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-[10:05:53] ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[10:05:55] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[10:05:56] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-[10:05:57] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-[10:05:58] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[10:05:59] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-[10:06:00] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-[10:06:01] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-[10:06:02] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[10:06:03] Finished attempting to scrape: PEN                        base.py:345
+           Deleting existing data...                                 base.py:263
+[09:03:25] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:03:26] ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+[09:03:27] Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-11-09-53">2025-04-11</h2>
+  <h2 id="2025-09-30-08-35">2025-09-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>13 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-11 09:53:10.692531</dd>
+        <dd>2025-09-30 08:35:46.797229</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-11 09:53:24.324381</dd>
+        <dd>2025-09-30 08:35:49.544985</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -220,11 +192,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -232,63 +214,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:53:10] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[08:35:46] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-[09:53:11] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[09:53:12] ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-[09:53:13] ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[09:53:15] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[09:53:16] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-[09:53:17] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-[09:53:18] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-[09:53:19] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[09:53:20] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-[09:53:21] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-[09:53:22] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-[09:53:23] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[09:53:24] Finished attempting to scrape: PEN                        base.py:345
+[08:35:47] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:35:48] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+[08:35:49] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-10-09-31">2025-04-10</h2>
+  <h2 id="2025-09-29-08-33">2025-09-29</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>13 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-10 09:31:34.552507</dd>
+        <dd>2025-09-29 08:33:47.649271</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-10 09:31:47.909128</dd>
+        <dd>2025-09-29 08:33:50.369343</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -299,11 +257,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -311,63 +279,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:31:34] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[08:33:47] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-[09:31:35] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[09:31:36] ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-[09:31:37] ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[09:31:38] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[09:31:39] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-[09:31:40] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-[09:31:41] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-[09:31:42] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[09:31:43] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-[09:31:44] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-[09:31:45] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-[09:31:46] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[09:31:47] Finished attempting to scrape: PEN                        base.py:345
+[08:33:48] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:33:49] ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+[08:33:50] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-09-08-22">2025-04-09</h2>
+  <h2 id="2025-09-28-08-38">2025-09-28</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>12 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-09 08:22:25.197374</dd>
+        <dd>2025-09-28 08:38:23.201401</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-09 08:22:37.449176</dd>
+        <dd>2025-09-28 08:38:25.877304</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -378,11 +322,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -390,63 +344,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:22:25] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[08:38:23] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:22:26] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-[08:22:27] ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[08:22:28] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[08:22:29] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-[08:22:30] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-[08:22:31] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-[08:22:32] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[08:22:33] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-[08:22:34] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-[08:22:35] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-[08:22:36] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[08:22:37] Finished attempting to scrape: PEN                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:38:24] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:38:25] ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-08-10-12">2025-04-08</h2>
+  <h2 id="2025-09-27-09-05">2025-09-27</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>12 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-08 10:12:55.638329</dd>
+        <dd>2025-09-27 09:05:03.874770</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-08 10:13:08.206934</dd>
+        <dd>2025-09-27 09:05:06.525266</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -457,11 +387,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -469,63 +409,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:12:55] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[09:05:03] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-[10:12:56] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[10:12:57] ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-[10:12:58] ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[10:12:59] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[10:13:00] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-[10:13:01] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-[10:13:02] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-[10:13:03] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[10:13:04] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-[10:13:05] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-[10:13:06] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-[10:13:07] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[10:13:08] Finished attempting to scrape: PEN                        base.py:345
+[09:05:04] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[09:05:05] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+[09:05:06] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-07-08-18">2025-04-07</h2>
+  <h2 id="2025-09-26-08-46">2025-09-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>12 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-07 08:18:49.106641</dd>
+        <dd>2025-09-26 08:46:40.875262</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-07 08:19:01.639110</dd>
+        <dd>2025-09-26 08:46:43.523774</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -536,11 +452,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -548,63 +474,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:18:49] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[08:46:40] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:18:50] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-[08:18:51] ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[08:18:53] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-[08:18:54] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-[08:18:55] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-[08:18:56] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[08:18:57] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-[08:18:58] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-[08:18:59] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-[08:19:00] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[08:19:01] Finished attempting to scrape: PEN                        base.py:345
+[08:46:41] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:46:42] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+[08:46:43] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-06-09-11">2025-04-06</h2>
+  <h2 id="2025-09-25-09-00">2025-09-25</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>14 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-06 09:11:17.831641</dd>
+        <dd>2025-09-25 09:00:03.018421</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-06 09:11:31.867261</dd>
+        <dd>2025-09-25 09:00:05.648533</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -615,11 +517,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -627,63 +539,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:11:17] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[09:00:03] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-[09:11:18] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[09:11:19] ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-[09:11:20] ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[09:11:21] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[09:11:22] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-[09:11:23] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-[09:11:24] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-[09:11:26] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[09:11:27] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-[09:11:28] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-[09:11:29] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-[09:11:30] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[09:11:31] Finished attempting to scrape: PEN                        base.py:345
+           Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[09:00:04] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:00:05] ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-05-09-09">2025-04-05</h2>
+  <h2 id="2025-09-24-08-28">2025-09-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>13 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-05 09:09:05.586410</dd>
+        <dd>2025-09-24 08:28:27.780154</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-05 09:09:19.436222</dd>
+        <dd>2025-09-24 08:28:30.431174</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -694,11 +582,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -706,63 +604,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:09:05] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[08:28:27] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-[09:09:06] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[09:09:07] ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[09:09:09] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[09:09:10] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-[09:09:11] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-[09:09:12] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-[09:09:14] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[09:09:15] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-[09:09:16] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-[09:09:17] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-[09:09:18] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[09:09:19] Finished attempting to scrape: PEN                        base.py:345
+[08:28:28] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:28:29] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+[08:28:30] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-04-09-53">2025-04-04</h2>
+  <h2 id="2025-09-23-08-51">2025-09-23</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>14 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-04 09:53:41.162017</dd>
+        <dd>2025-09-23 08:51:46.778723</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-04 09:53:55.519257</dd>
+        <dd>2025-09-23 08:51:49.368975</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -773,11 +647,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -785,63 +669,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:53:41] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[08:51:46] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:53:42] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-[09:53:43] ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[09:53:46] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[09:53:47] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-[09:53:48] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-[09:53:49] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-[09:53:50] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[09:53:51] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-[09:53:52] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-[09:53:53] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-[09:53:54] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[09:53:55] Finished attempting to scrape: PEN                        base.py:345
+[08:51:47] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:51:48] ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+[08:51:49] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-03-08-54">2025-04-03</h2>
+  <h2 id="2025-09-22-08-59">2025-09-22</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>12 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-03 08:54:56.682616</dd>
+        <dd>2025-09-22 08:59:59.411848</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-03 08:55:09.447870</dd>
+        <dd>2025-09-22 09:00:03.583819</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -852,11 +712,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -864,63 +734,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:54:56] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[08:59:59] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-[08:54:57] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[08:54:58] ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-           ...data deleted.                                          base.py:264
-[08:54:59] Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[08:55:00] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[08:55:01] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-[08:55:02] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-[08:55:03] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-[08:55:04] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[08:55:05] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-[08:55:06] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-[08:55:07] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-[08:55:08] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[08:55:09] Finished attempting to scrape: PEN                        base.py:345
+           Deleting existing data...                                 base.py:263
+[09:00:00] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:00:01] ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+[09:00:03] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-02-10-31">2025-04-02</h2>
+  <h2 id="2025-09-21-08-40">2025-09-21</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>13 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-02 10:31:43.417874</dd>
+        <dd>2025-09-21 08:40:44.363694</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-02 10:31:57.240179</dd>
+        <dd>2025-09-21 08:40:46.942397</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -931,11 +777,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -943,63 +799,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:31:43] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[08:40:44] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:31:44] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-[10:31:45] Deleting batch no. 1 consisting of 19 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[10:31:47] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[10:31:48] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-[10:31:49] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-[10:31:50] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[10:31:51] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-[10:31:54] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-[10:31:55] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-           'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[10:31:57] Finished attempting to scrape: PEN                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:40:45] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:40:46] ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-01-09-00">2025-04-01</h2>
+  <h2 id="2025-09-20-08-21">2025-09-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>12 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-01 09:00:36.443750</dd>
+        <dd>2025-09-20 08:21:19.215242</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-01 09:00:49.415859</dd>
+        <dd>2025-09-20 08:21:21.955512</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1010,11 +842,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1022,63 +864,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:00:36] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[08:21:19] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:00:37] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[09:00:38] ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[09:00:40] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[09:00:41] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-[09:00:42] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-[09:00:43] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-[09:00:44] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[09:00:45] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-[09:00:46] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-[09:00:47] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-           'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[09:00:49] Finished attempting to scrape: PEN                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:21:20] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:21:21] ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-31-10-31">2025-03-31</h2>
+  <h2 id="2025-09-19-08-56">2025-09-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>14 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-31 10:31:38.447755</dd>
+        <dd>2025-09-19 08:56:57.424306</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-31 10:31:52.583902</dd>
+        <dd>2025-09-19 08:56:59.908139</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1089,11 +907,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1101,63 +929,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:31:38] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[08:56:57] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:31:39] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-[10:31:40] ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[10:31:43] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[10:31:44] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-[10:31:45] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-[10:31:46] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-[10:31:47] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[10:31:48] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-[10:31:49] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-[10:31:50] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-[10:31:51] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[10:31:52] Finished attempting to scrape: PEN                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:56:58] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:56:59] ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-30-08-40">2025-03-30</h2>
+  <h2 id="2025-09-18-08-42">2025-09-18</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>12 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-30 08:40:37.920097</dd>
+        <dd>2025-09-18 08:42:10.881231</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-30 08:40:50.608227</dd>
+        <dd>2025-09-18 08:42:13.664279</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1168,11 +972,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1180,63 +994,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:40:37] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[08:42:10] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-[08:40:38] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:40:39] Getting all files in Councillors/json...                  base.py:209
-           ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-[08:40:40] ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[08:40:41] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[08:40:42] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-[08:40:43] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-[08:40:44] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-[08:40:45] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[08:40:46] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-[08:40:47] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-[08:40:48] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-[08:40:49] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[08:40:50] Finished attempting to scrape: PEN                        base.py:345
+[08:42:11] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:42:12] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:42:13] ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-29-10-17">2025-03-29</h2>
+  <h2 id="2025-09-17-08-52">2025-09-17</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>12 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-29 10:17:37.596600</dd>
+        <dd>2025-09-17 08:52:47.018781</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-29 10:17:49.930571</dd>
+        <dd>2025-09-17 08:52:49.664806</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1247,11 +1037,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1259,63 +1059,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:17:37] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[08:52:47] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-[10:17:38] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-[10:17:39] ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[10:17:41] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[10:17:42] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-[10:17:43] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-[10:17:44] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-[10:17:45] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-[10:17:46] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-[10:17:47] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-[10:17:48] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[10:17:49] Finished attempting to scrape: PEN                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:52:48] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+[08:52:49] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-28-08-19">2025-03-28</h2>
+  <h2 id="2025-09-16-09-00">2025-09-16</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>12 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-28 08:19:01.676846</dd>
+        <dd>2025-09-16 09:00:56.544275</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-28 08:19:14.202006</dd>
+        <dd>2025-09-16 09:00:59.673379</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1326,11 +1102,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1338,63 +1124,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:19:01] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[09:00:56] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-[08:19:02] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[08:19:03] ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[08:19:05] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[08:19:06] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-[08:19:07] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-[08:19:08] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-[08:19:09] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[08:19:10] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-[08:19:11] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-[08:19:12] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-           'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[08:19:14] Finished attempting to scrape: PEN                        base.py:345
+[09:00:57] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:00:59] ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-27-10-38">2025-03-27</h2>
+  <h2 id="2025-09-15-08-58">2025-09-15</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>14 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-27 10:38:51.868462</dd>
+        <dd>2025-09-15 08:58:01.398956</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-27 10:39:06.057157</dd>
+        <dd>2025-09-15 08:58:04.218207</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1405,11 +1167,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1417,63 +1189,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:38:51] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[08:58:01] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-[10:38:52] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:38:53] Getting all files in Councillors/json...                  base.py:209
-           ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-[10:38:54] ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[10:38:55] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[10:38:56] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-[10:38:57] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-[10:38:58] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-[10:38:59] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[10:39:00] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-[10:39:01] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-[10:39:03] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-[10:39:04] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-           'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[10:39:06] Finished attempting to scrape: PEN                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:58:02] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:58:03] ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+[08:58:04] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-26-08-55">2025-03-26</h2>
+  <h2 id="2025-09-14-08-58">2025-09-14</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>11 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-26 08:55:23.887224</dd>
+        <dd>2025-09-14 08:58:36.839105</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-26 08:55:35.755135</dd>
+        <dd>2025-09-14 08:58:39.477617</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1484,11 +1232,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1496,63 +1254,39 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:55:23] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[08:58:36] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-[08:55:24] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:55:25] Getting all files in Councillors/json...                  base.py:209
-           ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-[08:55:26] ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[08:55:27] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[08:55:28] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-[08:55:29] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-[08:55:30] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-[08:55:31] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-[08:55:32] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-[08:55:33] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-[08:55:34] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[08:55:35] Finished attempting to scrape: PEN                        base.py:345
+[08:58:37] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:58:38] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+[08:58:39] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-25-08-32">2025-03-25</h2>
+  <h2 id="2025-09-13-08-48">2025-09-13</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>13 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-25 08:32:09.356447</dd>
+        <dd>2025-09-13 08:48:22.440595</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-25 08:32:22.592569</dd>
+        <dd>2025-09-13 08:48:25.040314</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1563,11 +1297,21 @@ TypeError: 'NoneType' object is not subscriptable
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 57, in run
-    councillor = self.get_single_councillor(councillor_html)
-  File "scrapers/PEN-pendle/councillors.py", line 48, in get_single_councillor
-    councillor.email = soup.select_one("li a[href^=mailto]")[
-TypeError: 'NoneType' object is not subscriptable
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1575,42 +1319,18 @@ TypeError: 'NoneType' object is not subscriptable
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:32:09] Fetching Scraper for: PEN                              handlers.py:23
+  <pre>[08:48:22] Fetching Scraper for: PEN                              handlers.py:23
            Begin attempting to scrape: PEN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:32:10] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 9 files in Councillors/json                      base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[08:32:12] ...found 9 files in Councillors/raw                       base.py:225
-           ...found 19 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 19 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:49
-[08:32:14] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/76/mohammed_adnan              
-[08:32:15] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/83/faraz_ahmad                 
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/2/nadeem_ahmed                 
-[08:32:16] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/91/sajjad_ahmed                
-[08:32:17] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/67/zafar_ali                   
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/88/mohammad_ammer              
-[08:32:18] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/84/ruby_anwar                  
-[08:32:19] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/8/naeem_hussain_ashr           
-           af                                                                   
-           Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/94/mohammad_aslam              
-[08:32:20] Scraping from                                              base.py:49
-           https://www.pendle.gov.uk/councillors/101/andy_bell                  
-[08:32:21] 'NoneType' object is not subscriptable                 handlers.py:36
-           Committing batch 1 consisting of 18 files                 base.py:297
-[08:32:22] Finished attempting to scrape: PEN                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:48:23] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:48:24] ...data deleted.                                          base.py:270
+           Scraping from https://www.pendle.gov.uk/councillors/name   base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+[08:48:25] Finished attempting to scrape: PEN                        base.py:351
 </pre>
   
 

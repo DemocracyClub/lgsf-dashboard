@@ -37,1040 +37,2300 @@
   
 
 
-  <h2 id="2025-04-13-10-10">2025-04-13</h2>
+  <h2 id="2025-10-02-08-57">2025-10-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-13 10:10:58.006202</dd>
+        <dd>2025-10-02 08:57:38.357326</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-13 10:11:04.627034</dd>
+        <dd>2025-10-02 08:57:50.855624</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:10:58] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[08:57:38] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:10:59] Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[10:11:00] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:57:39] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:57:40] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[10:11:02] Committing batch 1 consisting of 92 files                 base.py:297
-[10:11:03] Committing batch 2 consisting of 4 files                  base.py:297
-[10:11:04] Finished attempting to scrape: ELM                        base.py:345
+[08:57:50] timed out                                              handlers.py:36
+           Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-12-09-40">2025-04-12</h2>
+  <h2 id="2025-10-01-08-29">2025-10-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>8 seconds</dd>
+        <dd>13 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-12 09:40:22.919528</dd>
+        <dd>2025-10-01 08:29:55.342446</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-12 09:40:31.440548</dd>
+        <dd>2025-10-01 08:30:08.792356</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:40:22] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[08:29:55] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-[09:40:23] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:40:24] Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[09:40:25] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:29:56] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+[08:29:57] Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:29:58] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[09:40:29] Committing batch 1 consisting of 92 files                 base.py:297
-[09:40:30] Committing batch 2 consisting of 4 files                  base.py:297
-[09:40:31] Finished attempting to scrape: ELM                        base.py:345
+[08:30:08] timed out                                              handlers.py:36
+           Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-11-09-11">2025-04-11</h2>
+  <h2 id="2025-09-30-09-10">2025-09-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-11 09:11:11.800771</dd>
+        <dd>2025-09-30 09:10:38.198588</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-11 09:11:18.794241</dd>
+        <dd>2025-09-30 09:10:50.950847</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:11:11] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[09:10:38] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-[09:11:12] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[09:11:13] ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[09:11:14] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[09:10:39] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:10:40] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[09:11:16] Committing batch 1 consisting of 92 files                 base.py:297
-[09:11:17] Committing batch 2 consisting of 4 files                  base.py:297
-[09:11:18] Finished attempting to scrape: ELM                        base.py:345
+[09:10:50] timed out                                              handlers.py:36
+           Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-10-10-14">2025-04-10</h2>
+  <h2 id="2025-09-29-09-07">2025-09-29</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>8 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-10 10:14:02.267516</dd>
+        <dd>2025-09-29 09:07:23.704401</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-10 10:14:10.823596</dd>
+        <dd>2025-09-29 09:07:36.269827</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:14:02] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[09:07:23] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:14:03] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[10:14:04] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[09:07:24] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:07:25] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[10:14:08] Committing batch 1 consisting of 92 files                 base.py:297
-[10:14:09] Committing batch 2 consisting of 4 files                  base.py:297
-[10:14:10] Finished attempting to scrape: ELM                        base.py:345
+[09:07:35] timed out                                              handlers.py:36
+[09:07:36] Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-09-10-33">2025-04-09</h2>
+  <h2 id="2025-09-28-09-00">2025-09-28</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-09 10:33:09.249997</dd>
+        <dd>2025-09-28 09:00:04.022894</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-09 10:33:15.939785</dd>
+        <dd>2025-09-28 09:00:16.547157</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:33:09] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[09:00:04] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:33:10] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[10:33:11] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[09:00:05] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[10:33:13] Committing batch 1 consisting of 92 files                 base.py:297
-[10:33:14] Committing batch 2 consisting of 4 files                  base.py:297
-[10:33:15] Finished attempting to scrape: ELM                        base.py:345
+[09:00:16] timed out                                              handlers.py:36
+           Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-08-08-22">2025-04-08</h2>
+  <h2 id="2025-09-27-08-38">2025-09-27</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-08 08:22:26.370786</dd>
+        <dd>2025-09-27 08:38:35.460834</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-08 08:22:33.908687</dd>
+        <dd>2025-09-27 08:38:47.772481</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:22:26] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[08:38:35] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:22:27] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[08:22:28] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:38:36] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:38:37] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[08:22:31] Committing batch 1 consisting of 92 files                 base.py:297
-[08:22:32] Committing batch 2 consisting of 4 files                  base.py:297
-[08:22:33] Finished attempting to scrape: ELM                        base.py:345
+[08:38:47] timed out                                              handlers.py:36
+           Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-07-08-46">2025-04-07</h2>
+  <h2 id="2025-09-26-08-35">2025-09-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-07 08:46:43.658146</dd>
+        <dd>2025-09-26 08:35:31.747156</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-07 08:46:51.003147</dd>
+        <dd>2025-09-26 08:35:44.185079</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:46:43] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[08:35:31] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-[08:46:44] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[08:46:45] ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[08:46:46] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:35:32] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:35:33] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[08:46:48] Committing batch 1 consisting of 92 files                 base.py:297
-[08:46:50] Committing batch 2 consisting of 4 files                  base.py:297
-[08:46:51] Finished attempting to scrape: ELM                        base.py:345
+[08:35:43] timed out                                              handlers.py:36
+[08:35:44] Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-06-10-00">2025-04-06</h2>
+  <h2 id="2025-09-25-08-47">2025-09-25</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-06 10:00:54.889783</dd>
+        <dd>2025-09-25 08:47:28.477711</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-06 10:01:02.100713</dd>
+        <dd>2025-09-25 08:47:41.312711</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:00:54] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[08:47:28] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-[10:00:55] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[10:00:56] ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[10:00:57] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:47:29] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:47:30] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[10:00:59] Committing batch 1 consisting of 92 files                 base.py:297
-[10:01:00] Committing batch 2 consisting of 4 files                  base.py:297
-[10:01:02] Finished attempting to scrape: ELM                        base.py:345
+[08:47:40] timed out                                              handlers.py:36
+[08:47:41] Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-05-09-03">2025-04-05</h2>
+  <h2 id="2025-09-24-08-27">2025-09-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-05 09:03:01.320021</dd>
+        <dd>2025-09-24 08:27:42.561897</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-05 09:03:08.586188</dd>
+        <dd>2025-09-24 08:27:55.000735</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:03:01] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[08:27:42] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:03:02] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[09:03:03] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:27:43] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:27:44] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[09:03:06] Committing batch 1 consisting of 92 files                 base.py:297
-[09:03:07] Committing batch 2 consisting of 4 files                  base.py:297
-[09:03:08] Finished attempting to scrape: ELM                        base.py:345
+[08:27:54] timed out                                              handlers.py:36
+           Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-04-08-59">2025-04-04</h2>
+  <h2 id="2025-09-23-08-22">2025-09-23</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-04 08:59:47.096835</dd>
+        <dd>2025-09-23 08:22:57.806568</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-04 08:59:54.405793</dd>
+        <dd>2025-09-23 08:23:10.242174</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:59:47] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[08:22:57] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:59:48] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[08:59:49] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:22:58] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:22:59] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[08:59:52] Committing batch 1 consisting of 92 files                 base.py:297
-[08:59:53] Committing batch 2 consisting of 4 files                  base.py:297
-[08:59:54] Finished attempting to scrape: ELM                        base.py:345
+[08:23:09] timed out                                              handlers.py:36
+[08:23:10] Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-03-08-25">2025-04-03</h2>
+  <h2 id="2025-09-22-08-22">2025-09-22</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>8 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-03 08:25:40.713218</dd>
+        <dd>2025-09-22 08:22:15.044547</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-03 08:25:48.944222</dd>
+        <dd>2025-09-22 08:22:27.702008</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:25:40] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[08:22:15] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-[08:25:41] Deleting existing data...                                 base.py:257
-[08:25:43] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[08:25:44] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:22:16] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:22:17] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[08:25:47] Committing batch 1 consisting of 92 files                 base.py:297
-           Committing batch 2 consisting of 4 files                  base.py:297
-[08:25:48] Finished attempting to scrape: ELM                        base.py:345
+[08:22:27] timed out                                              handlers.py:36
+           Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-02-09-15">2025-04-02</h2>
+  <h2 id="2025-09-21-09-09">2025-09-21</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-02 09:15:35.800157</dd>
+        <dd>2025-09-21 09:09:06.328912</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-02 09:15:42.504263</dd>
+        <dd>2025-09-21 09:09:18.629519</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:15:35] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[09:09:06] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-[09:15:36] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[09:15:37] ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-           ...data deleted.                                          base.py:264
-[09:15:38] Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[09:09:07] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:09:08] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[09:15:40] Committing batch 1 consisting of 92 files                 base.py:297
-[09:15:41] Committing batch 2 consisting of 4 files                  base.py:297
-[09:15:42] Finished attempting to scrape: ELM                        base.py:345
+[09:09:18] timed out                                              handlers.py:36
+           Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-01-10-44">2025-04-01</h2>
+  <h2 id="2025-09-20-09-08">2025-09-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-01 10:44:39.230238</dd>
+        <dd>2025-09-20 09:08:38.277607</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-01 10:44:46.298921</dd>
+        <dd>2025-09-20 09:08:51.008227</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:44:39] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[09:08:38] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:44:40] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[10:44:41] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[09:08:39] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:08:40] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[10:44:44] Committing batch 1 consisting of 92 files                 base.py:297
-[10:44:45] Committing batch 2 consisting of 4 files                  base.py:297
-[10:44:46] Finished attempting to scrape: ELM                        base.py:345
+[09:08:50] timed out                                              handlers.py:36
+           Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-31-10-23">2025-03-31</h2>
+  <h2 id="2025-09-19-09-05">2025-09-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>8 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-31 10:23:21.259356</dd>
+        <dd>2025-09-19 09:05:47.073529</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-31 10:23:30.241626</dd>
+        <dd>2025-09-19 09:05:59.556123</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:23:21] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[09:05:47] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:23:22] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[10:23:23] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[09:05:48] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:05:49] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[10:23:28] Committing batch 1 consisting of 92 files                 base.py:297
-[10:23:29] Committing batch 2 consisting of 4 files                  base.py:297
-[10:23:30] Finished attempting to scrape: ELM                        base.py:345
+[09:05:59] timed out                                              handlers.py:36
+           Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-30-08-34">2025-03-30</h2>
+  <h2 id="2025-09-18-08-52">2025-09-18</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-30 08:34:47.889541</dd>
+        <dd>2025-09-18 08:52:53.498597</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-30 08:34:54.791794</dd>
+        <dd>2025-09-18 08:53:06.046651</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:34:47] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[08:52:53] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-[08:34:48] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:34:49] Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[08:34:50] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:52:54] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:52:55] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[08:34:52] Committing batch 1 consisting of 92 files                 base.py:297
-[08:34:53] Committing batch 2 consisting of 4 files                  base.py:297
-[08:34:54] Finished attempting to scrape: ELM                        base.py:345
+[08:53:05] timed out                                              handlers.py:36
+[08:53:06] Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-29-09-56">2025-03-29</h2>
+  <h2 id="2025-09-17-08-28">2025-09-17</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-29 09:56:18.125702</dd>
+        <dd>2025-09-17 08:28:58.512668</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-29 09:56:24.719965</dd>
+        <dd>2025-09-17 08:29:11.305252</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:56:18] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[08:28:58] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:56:19] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[09:56:20] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:28:59] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:29:00] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[09:56:22] Committing batch 1 consisting of 92 files                 base.py:297
-[09:56:23] Committing batch 2 consisting of 4 files                  base.py:297
-[09:56:24] Finished attempting to scrape: ELM                        base.py:345
+[08:29:10] timed out                                              handlers.py:36
+[08:29:11] Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-28-10-27">2025-03-28</h2>
+  <h2 id="2025-09-16-08-35">2025-09-16</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-28 10:27:03.420327</dd>
+        <dd>2025-09-16 08:35:42.489393</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-28 10:27:10.545185</dd>
+        <dd>2025-09-16 08:35:54.822015</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:27:03] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[08:35:42] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:27:04] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[10:27:05] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:35:43] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:35:44] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[10:27:08] Committing batch 1 consisting of 92 files                 base.py:297
-[10:27:09] Committing batch 2 consisting of 4 files                  base.py:297
-[10:27:10] Finished attempting to scrape: ELM                        base.py:345
+[08:35:54] timed out                                              handlers.py:36
+           Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-27-10-30">2025-03-27</h2>
+  <h2 id="2025-09-15-08-23">2025-09-15</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-27 10:30:24.870784</dd>
+        <dd>2025-09-15 08:23:57.469128</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-27 10:30:32.732419</dd>
+        <dd>2025-09-15 08:24:10.292781</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:30:24] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[08:23:57] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-[10:30:25] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:30:26] Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[10:30:27] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:23:58] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:23:59] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[10:30:30] Committing batch 1 consisting of 92 files                 base.py:297
-[10:30:31] Committing batch 2 consisting of 4 files                  base.py:297
-[10:30:32] Finished attempting to scrape: ELM                        base.py:345
+[08:24:09] timed out                                              handlers.py:36
+[08:24:10] Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-26-10-23">2025-03-26</h2>
+  <h2 id="2025-09-14-08-36">2025-09-14</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-26 10:23:19.205005</dd>
+        <dd>2025-09-14 08:36:47.856792</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-26 10:23:26.812437</dd>
+        <dd>2025-09-14 08:37:00.235120</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:23:19] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[08:36:47] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:23:20] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[10:23:21] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:36:48] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:36:49] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[10:23:24] Committing batch 1 consisting of 92 files                 base.py:297
-[10:23:25] Committing batch 2 consisting of 4 files                  base.py:297
-[10:23:26] Finished attempting to scrape: ELM                        base.py:345
+[08:36:59] timed out                                              handlers.py:36
+[08:37:00] Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-25-09-48">2025-03-25</h2>
+  <h2 id="2025-09-13-09-03">2025-09-13</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-25 09:48:36.106610</dd>
+        <dd>2025-09-13 09:03:26.135850</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-25 09:48:43.112001</dd>
+        <dd>2025-09-13 09:03:38.656996</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:48:36] Fetching Scraper for: ELM                              handlers.py:23
+  <pre>[09:03:26] Fetching Scraper for: ELM                              handlers.py:23
            Begin attempting to scrape: ELM                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:48:37] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[09:48:38] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[09:03:27] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:03:28] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://mygov.elmbridge.gov.uk/mgWebService.asmx/GetCouncil           
            lorsByWard                                                           
-[09:48:41] Committing batch 1 consisting of 92 files                 base.py:297
-[09:48:42] Committing batch 2 consisting of 4 files                  base.py:297
-[09:48:43] Finished attempting to scrape: ELM                        base.py:345
+[09:03:38] timed out                                              handlers.py:36
+           Finished attempting to scrape: ELM                        base.py:351
 </pre>
   
 

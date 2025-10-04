@@ -37,1020 +37,2300 @@
   
 
 
-  <h2 id="2025-04-13-08-49">2025-04-13</h2>
+  <h2 id="2025-10-02-08-44">2025-10-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-13 08:49:41.884735</dd>
+        <dd>2025-10-02 08:44:23.910388</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-13 08:49:49.368081</dd>
+        <dd>2025-10-02 08:44:27.415199</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:49:41] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:44:23] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-[08:49:42] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:49:43] Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-[08:49:44] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:44:25] Deleting existing data...                                 base.py:263
+[08:44:26] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:44:27] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[08:49:48] Committing batch 1 consisting of 72 files                 base.py:297
-[08:49:49] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+           Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-12-10-35">2025-04-12</h2>
+  <h2 id="2025-10-01-08-56">2025-10-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-12 10:35:29.050079</dd>
+        <dd>2025-10-01 08:56:51.488142</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-12 10:35:36.173506</dd>
+        <dd>2025-10-01 08:56:53.931095</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:35:29] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:56:51] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:35:30] Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-[10:35:31] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:56:52] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:56:53] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[10:35:35] Committing batch 1 consisting of 72 files                 base.py:297
-[10:35:36] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+           Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-11-09-53">2025-04-11</h2>
+  <h2 id="2025-09-30-08-44">2025-09-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-11 09:53:28.113507</dd>
+        <dd>2025-09-30 08:44:48.340708</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-11 09:53:35.162431</dd>
+        <dd>2025-09-30 08:44:50.915844</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:53:28] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:44:48] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:53:29] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-[09:53:30] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:44:49] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:44:50] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[09:53:34] Committing batch 1 consisting of 72 files                 base.py:297
-[09:53:35] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+           Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-10-09-58">2025-04-10</h2>
+  <h2 id="2025-09-29-08-41">2025-09-29</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-10 09:58:52.679977</dd>
+        <dd>2025-09-29 08:41:14.722448</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-10 09:58:58.132485</dd>
+        <dd>2025-09-29 08:41:16.928043</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:58:52] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:41:14] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-[09:58:53] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[09:58:54] ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:41:15] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:41:16] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[09:58:56] Committing batch 1 consisting of 72 files                 base.py:297
-[09:58:58] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+           Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-09-09-51">2025-04-09</h2>
+  <h2 id="2025-09-28-09-04">2025-09-28</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-09 09:51:59.160977</dd>
+        <dd>2025-09-28 09:04:15.461052</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-09 09:52:04.852029</dd>
+        <dd>2025-09-28 09:04:18.160224</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:51:59] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[09:04:15] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:52:00] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-[09:52:01] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[09:04:16] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:04:17] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[09:52:03] Committing batch 1 consisting of 72 files                 base.py:297
-[09:52:04] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+[09:04:18] Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-08-10-13">2025-04-08</h2>
+  <h2 id="2025-09-27-08-55">2025-09-27</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-08 10:13:39.236606</dd>
+        <dd>2025-09-27 08:55:26.074562</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-08 10:13:44.865445</dd>
+        <dd>2025-09-27 08:55:28.728366</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:13:39] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:55:26] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:13:40] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-[10:13:41] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:55:27] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:55:28] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[10:13:43] Committing batch 1 consisting of 72 files                 base.py:297
-[10:13:44] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+           Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-07-09-04">2025-04-07</h2>
+  <h2 id="2025-09-26-08-32">2025-09-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-07 09:04:29.675077</dd>
+        <dd>2025-09-26 08:32:24.165594</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-07 09:04:35.267700</dd>
+        <dd>2025-09-26 08:32:26.749674</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:04:29] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:32:24] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-[09:04:30] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[09:04:31] ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-[09:04:32] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:32:25] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:32:26] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[09:04:34] Committing batch 1 consisting of 72 files                 base.py:297
-[09:04:35] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+           Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-06-09-20">2025-04-06</h2>
+  <h2 id="2025-09-25-08-51">2025-09-25</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-06 09:20:59.451401</dd>
+        <dd>2025-09-25 08:51:44.750609</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-06 09:21:07.051567</dd>
+        <dd>2025-09-25 08:51:47.076007</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:20:59] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:51:44] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:21:00] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-[09:21:01] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:51:45] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:51:46] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[09:21:05] Committing batch 1 consisting of 72 files                 base.py:297
-[09:21:07] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+[08:51:47] Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-05-08-38">2025-04-05</h2>
+  <h2 id="2025-09-24-08-48">2025-09-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-05 08:38:58.565809</dd>
+        <dd>2025-09-24 08:48:08.934797</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-05 08:39:04.214934</dd>
+        <dd>2025-09-24 08:48:11.401248</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:38:58] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:48:08] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-[08:38:59] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[08:39:00] ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:48:09] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:48:10] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:48:11] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[08:39:03] Committing batch 1 consisting of 72 files                 base.py:297
-[08:39:04] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+           Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-04-08-30">2025-04-04</h2>
+  <h2 id="2025-09-23-08-53">2025-09-23</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-04 08:30:13.692094</dd>
+        <dd>2025-09-23 08:53:58.034654</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-04 08:30:21.192265</dd>
+        <dd>2025-09-23 08:54:00.417145</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:30:13] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:53:58] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-[08:30:14] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:30:16] Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-[08:30:17] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:53:59] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:54:00] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[08:30:19] Committing batch 1 consisting of 72 files                 base.py:297
-[08:30:21] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+           Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-03-10-44">2025-04-03</h2>
+  <h2 id="2025-09-22-08-31">2025-09-22</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-03 10:44:04.375566</dd>
+        <dd>2025-09-22 08:31:21.240400</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-03 10:44:10.102968</dd>
+        <dd>2025-09-22 08:31:23.433032</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:44:04] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:31:21] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:44:05] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-[10:44:06] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:31:22] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:31:23] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[10:44:08] Committing batch 1 consisting of 72 files                 base.py:297
-[10:44:10] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+           Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-02-10-03">2025-04-02</h2>
+  <h2 id="2025-09-21-08-45">2025-09-21</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-02 10:03:23.836006</dd>
+        <dd>2025-09-21 08:45:23.663774</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-02 10:03:28.913604</dd>
+        <dd>2025-09-21 08:45:25.975896</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:03:23] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:45:23] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-[10:03:24] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[10:03:25] ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-           ...data deleted.                                          base.py:264
-[10:03:26] Scraping from                                              base.py:49
+[08:45:24] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:45:25] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[10:03:27] Committing batch 1 consisting of 72 files                 base.py:297
-[10:03:28] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+           Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-01-08-24">2025-04-01</h2>
+  <h2 id="2025-09-20-08-59">2025-09-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-01 08:24:10.775568</dd>
+        <dd>2025-09-20 08:59:04.037527</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-01 08:24:16.208355</dd>
+        <dd>2025-09-20 08:59:06.587241</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:24:10] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:59:04] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-[08:24:11] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[08:24:12] ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-[08:24:13] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:59:05] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:59:06] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[08:24:14] Committing batch 1 consisting of 72 files                 base.py:297
-[08:24:16] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+           Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-31-09-02">2025-03-31</h2>
+  <h2 id="2025-09-19-08-34">2025-09-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-31 09:02:08.892081</dd>
+        <dd>2025-09-19 08:34:35.911964</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-31 09:02:16.087635</dd>
+        <dd>2025-09-19 08:34:38.153549</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:02:08] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:34:35] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-[09:02:09] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:02:10] Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-[09:02:11] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:34:36] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:34:37] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[09:02:14] Committing batch 1 consisting of 72 files                 base.py:297
-[09:02:16] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+[08:34:38] Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-30-10-00">2025-03-30</h2>
+  <h2 id="2025-09-18-08-36">2025-09-18</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-30 10:00:34.195503</dd>
+        <dd>2025-09-18 08:36:13.777219</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-30 10:00:39.772495</dd>
+        <dd>2025-09-18 08:36:16.064969</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:00:34] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:36:13] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:00:35] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-[10:00:36] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:36:14] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:36:15] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[10:00:38] Committing batch 1 consisting of 72 files                 base.py:297
-[10:00:39] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+[08:36:16] Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-29-09-50">2025-03-29</h2>
+  <h2 id="2025-09-17-08-44">2025-09-17</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-29 09:50:09.858146</dd>
+        <dd>2025-09-17 08:44:32.575506</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-29 09:50:17.060641</dd>
+        <dd>2025-09-17 08:44:34.810286</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:50:09] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:44:32] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-[09:50:10] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[09:50:11] ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-[09:50:12] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:44:33] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:44:34] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[09:50:15] Committing batch 1 consisting of 72 files                 base.py:297
-[09:50:17] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+           Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-28-10-35">2025-03-28</h2>
+  <h2 id="2025-09-16-08-47">2025-09-16</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-28 10:35:44.464378</dd>
+        <dd>2025-09-16 08:47:45.688265</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-28 10:35:50.320482</dd>
+        <dd>2025-09-16 08:47:48.049396</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:35:44] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:47:45] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:35:45] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[10:35:46] ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:47:46] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:47:47] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[10:35:48] Committing batch 1 consisting of 72 files                 base.py:297
-[10:35:50] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+[08:47:48] Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-27-09-16">2025-03-27</h2>
+  <h2 id="2025-09-15-08-42">2025-09-15</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-27 09:16:38.570675</dd>
+        <dd>2025-09-15 08:42:28.321480</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-27 09:16:45.550382</dd>
+        <dd>2025-09-15 08:42:31.108704</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:16:38] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:42:28] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-[09:16:39] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[09:16:40] ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:42:29] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:42:30] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[09:16:44] Committing batch 1 consisting of 72 files                 base.py:297
-[09:16:45] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+[08:42:31] Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-26-10-02">2025-03-26</h2>
+  <h2 id="2025-09-14-08-22">2025-09-14</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-26 10:02:31.964497</dd>
+        <dd>2025-09-14 08:22:27.561783</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-26 10:02:38.829956</dd>
+        <dd>2025-09-14 08:22:30.163241</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:02:31] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:22:27] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-[10:02:32] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:02:33] Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-[10:02:34] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:22:28] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:22:29] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[10:02:37] Committing batch 1 consisting of 72 files                 base.py:297
-[10:02:38] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+[08:22:30] Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-25-09-05">2025-03-25</h2>
+  <h2 id="2025-09-13-08-25">2025-09-13</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-25 09:05:34.138582</dd>
+        <dd>2025-09-13 08:25:55.301344</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-25 09:05:40.876004</dd>
+        <dd>2025-09-13 08:25:57.676795</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 16] Device or resource busy
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 16] Device or resource busy
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:05:34] Fetching Scraper for: BLA                              handlers.py:23
+  <pre>[08:25:55] Fetching Scraper for: BLA                              handlers.py:23
            Begin attempting to scrape: BLA                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:05:35] Getting all files in Councillors/json...                  base.py:209
-           ...found 36 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 36 files in Councillors/raw                      base.py:225
-           ...found 73 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 73 files               base.py:236
-[09:05:36] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:25:56] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:25:57] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://w3.blaby.gov.uk/decision-making/mgWebService.asmx/           
            GetCouncillorsByWard                                                 
-[09:05:39] Committing batch 1 consisting of 72 files                 base.py:297
-[09:05:40] Finished attempting to scrape: BLA                        base.py:345
+           [Errno 16] Device or resource busy                     handlers.py:36
+           Finished attempting to scrape: BLA                        base.py:351
 </pre>
   
 

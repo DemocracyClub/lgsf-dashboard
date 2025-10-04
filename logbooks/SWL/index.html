@@ -37,1040 +37,2132 @@
   
 
 
-  <h2 id="2025-04-13-10-07">2025-04-13</h2>
+  <h2 id="2025-10-02-09-06">2025-10-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>24 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-13 10:07:10.232544</dd>
+        <dd>2025-10-02 09:06:52.626344</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-13 10:07:34.397165</dd>
+        <dd>2025-10-02 09:06:55.974090</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:07:10] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[09:06:52] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:07:11] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[10:07:12] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[09:06:53] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:06:54] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[10:07:32] Committing batch 1 consisting of 92 files                 base.py:297
-[10:07:33] Committing batch 2 consisting of 2 files                  base.py:297
-[10:07:34] Finished attempting to scrape: SWL                        base.py:345
+[09:06:55] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-12-08-21">2025-04-12</h2>
+  <h2 id="2025-10-01-08-20">2025-10-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>22 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-12 08:21:14.639661</dd>
+        <dd>2025-10-01 08:20:51.719450</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-12 08:21:37.110637</dd>
+        <dd>2025-10-01 08:21:04.375713</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:21:14] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[08:20:51] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-[08:21:15] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[08:21:16] ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[08:21:17] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:20:52] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:20:53] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[08:21:34] Committing batch 1 consisting of 92 files                 base.py:297
-[08:21:36] Committing batch 2 consisting of 2 files                  base.py:297
-[08:21:37] Finished attempting to scrape: SWL                        base.py:345
+[08:21:03] The read operation timed out                           handlers.py:36
+[08:21:04] Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-11-10-02">2025-04-11</h2>
+  <h2 id="2025-09-30-08-36">2025-09-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>29 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-11 10:02:25.499943</dd>
+        <dd>2025-09-30 08:36:23.812340</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-11 10:02:55.065207</dd>
+        <dd>2025-09-30 08:36:26.218037</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 58, in get
+    response.raise_for_status()
+  File "/opt/python/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://ws.swale.gov.uk/meetings/mgWebService.asmx/GetCouncillorsByWard'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:02:25] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[08:36:23] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:02:26] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[10:02:27] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:36:24] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:36:25] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[10:02:52] Committing batch 1 consisting of 92 files                 base.py:297
-[10:02:53] Committing batch 2 consisting of 2 files                  base.py:297
-[10:02:55] Finished attempting to scrape: SWL                        base.py:345
+           Client error '404 Not Found' for url                   handlers.py:36
+           'https://ws.swale.gov.uk/meetings/mgWebService.asmx/Ge               
+           tCouncillorsByWard'                                                  
+           For more information check:                                          
+           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
+           us/404                                                               
+[08:36:26] Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-10-09-25">2025-04-10</h2>
+  <h2 id="2025-09-29-09-08">2025-09-29</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-10 09:25:25.968278</dd>
+        <dd>2025-09-29 09:08:49.967526</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-10 09:25:32.413028</dd>
+        <dd>2025-09-29 09:08:52.328159</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 58, in get
+    response.raise_for_status()
+  File "/opt/python/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://ws.swale.gov.uk/meetings/mgWebService.asmx/GetCouncillorsByWard'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:25:25] Fetching Scraper for: SWL                              handlers.py:23
-[09:25:26] Begin attempting to scrape: SWL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[09:25:27] ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:25:28] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+  <pre>[09:08:49] Fetching Scraper for: SWL                              handlers.py:23
+[09:08:50] Begin attempting to scrape: SWL                        handlers.py:27
+           Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[09:08:51] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[09:25:30] Committing batch 1 consisting of 92 files                 base.py:297
-[09:25:31] Committing batch 2 consisting of 2 files                  base.py:297
-[09:25:32] Finished attempting to scrape: SWL                        base.py:345
+[09:08:52] Client error '404 Not Found' for url                   handlers.py:36
+           'https://ws.swale.gov.uk/meetings/mgWebService.asmx/Ge               
+           tCouncillorsByWard'                                                  
+           For more information check:                                          
+           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
+           us/404                                                               
+           Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-09-09-08">2025-04-09</h2>
+  <h2 id="2025-09-28-08-53">2025-09-28</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>26 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-09 09:08:22.245998</dd>
+        <dd>2025-09-28 08:53:20.664500</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-09 09:08:48.878037</dd>
+        <dd>2025-09-28 08:53:33.314629</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:08:22] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[08:53:20] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:08:23] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:08:24] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:53:21] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:53:22] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[09:08:46] Committing batch 1 consisting of 92 files                 base.py:297
-[09:08:47] Committing batch 2 consisting of 2 files                  base.py:297
-[09:08:48] Finished attempting to scrape: SWL                        base.py:345
+[08:53:32] The read operation timed out                           handlers.py:36
+[08:53:33] Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-08-08-20">2025-04-08</h2>
+  <h2 id="2025-09-27-08-30">2025-09-27</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>26 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-08 08:20:46.715409</dd>
+        <dd>2025-09-27 08:30:41.069549</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-08 08:21:13.528275</dd>
+        <dd>2025-09-27 08:30:53.488019</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:20:46] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[08:30:41] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-[08:20:47] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[08:20:48] ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[08:20:49] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:30:42] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[08:21:11] Committing batch 1 consisting of 92 files                 base.py:297
-[08:21:12] Committing batch 2 consisting of 2 files                  base.py:297
-[08:21:13] Finished attempting to scrape: SWL                        base.py:345
+[08:30:52] The read operation timed out                           handlers.py:36
+[08:30:53] Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-07-09-01">2025-04-07</h2>
+  <h2 id="2025-09-26-08-59">2025-09-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>26 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-07 09:01:45.605451</dd>
+        <dd>2025-09-26 08:59:28.697552</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-07 09:02:11.775820</dd>
+        <dd>2025-09-26 08:59:32.677187</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:01:45] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[08:59:28] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-[09:01:46] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[09:01:47] ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:01:48] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:59:29] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:59:30] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[09:02:09] Committing batch 1 consisting of 92 files                 base.py:297
-[09:02:10] Committing batch 2 consisting of 2 files                  base.py:297
-[09:02:11] Finished attempting to scrape: SWL                        base.py:345
+[08:59:32] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-06-08-36">2025-04-06</h2>
+  <h2 id="2025-09-25-08-56">2025-09-25</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>22 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-06 08:36:24.179449</dd>
+        <dd>2025-09-25 08:56:03.635666</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-06 08:36:47.099826</dd>
+        <dd>2025-09-25 08:56:16.551509</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:36:24] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[08:56:03] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:36:25] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[08:36:26] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:56:04] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:56:05] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[08:36:44] Committing batch 1 consisting of 92 files                 base.py:297
-[08:36:46] Committing batch 2 consisting of 2 files                  base.py:297
-[08:36:47] Finished attempting to scrape: SWL                        base.py:345
+[08:56:16] The read operation timed out                           handlers.py:36
+           Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-05-08-29">2025-04-05</h2>
+  <h2 id="2025-09-24-08-18">2025-09-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>26 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-05 08:29:47.112816</dd>
+        <dd>2025-09-24 08:18:39.619493</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-05 08:30:13.758798</dd>
+        <dd>2025-09-24 08:18:52.458063</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:29:47] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[08:18:39] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:29:48] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[08:29:49] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:18:40] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:18:41] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[08:30:11] Committing batch 1 consisting of 92 files                 base.py:297
-[08:30:12] Committing batch 2 consisting of 2 files                  base.py:297
-[08:30:13] Finished attempting to scrape: SWL                        base.py:345
+[08:18:52] The read operation timed out                           handlers.py:36
+           Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-04-08-48">2025-04-04</h2>
+  <h2 id="2025-09-23-08-31">2025-09-23</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>24 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-04 08:48:30.152881</dd>
+        <dd>2025-09-23 08:31:29.741469</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-04 08:48:54.228825</dd>
+        <dd>2025-09-23 08:31:42.576019</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:48:30] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[08:31:29] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:48:31] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[08:48:32] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:31:30] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:31:31] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[08:48:51] Committing batch 1 consisting of 92 files                 base.py:297
-[08:48:53] Committing batch 2 consisting of 2 files                  base.py:297
-[08:48:54] Finished attempting to scrape: SWL                        base.py:345
+[08:31:42] The read operation timed out                           handlers.py:36
+           Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-03-09-04">2025-04-03</h2>
+  <h2 id="2025-09-22-09-01">2025-09-22</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>25 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-03 09:04:27.422300</dd>
+        <dd>2025-09-22 09:01:18.122536</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-03 09:04:52.636857</dd>
+        <dd>2025-09-22 09:01:30.610139</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:04:27] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[09:01:18] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:04:28] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:04:29] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[09:01:19] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:01:20] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[09:04:50] Committing batch 1 consisting of 92 files                 base.py:297
-[09:04:51] Committing batch 2 consisting of 2 files                  base.py:297
-[09:04:52] Finished attempting to scrape: SWL                        base.py:345
+[09:01:30] The read operation timed out                           handlers.py:36
+           Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-02-09-26">2025-04-02</h2>
+  <h2 id="2025-09-21-08-38">2025-09-21</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>27 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-02 09:26:47.106830</dd>
+        <dd>2025-09-21 08:38:04.337379</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-02 09:27:14.167006</dd>
+        <dd>2025-09-21 08:38:16.924411</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:26:47] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[08:38:04] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:26:48] Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:26:49] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:38:05] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:38:06] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[09:27:11] Committing batch 1 consisting of 92 files                 base.py:297
-[09:27:13] Committing batch 2 consisting of 2 files                  base.py:297
-[09:27:14] Finished attempting to scrape: SWL                        base.py:345
+[08:38:16] The read operation timed out                           handlers.py:36
+           Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-01-08-49">2025-04-01</h2>
+  <h2 id="2025-09-20-08-35">2025-09-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>13 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-01 08:49:38.220559</dd>
+        <dd>2025-09-20 08:35:57.527250</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-01 08:49:44.781356</dd>
+        <dd>2025-09-20 08:36:11.357995</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:49:38] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[08:35:57] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:49:39] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[08:49:40] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:35:59] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:36:00] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[08:49:42] Committing batch 1 consisting of 92 files                 base.py:297
-[08:49:43] Committing batch 2 consisting of 2 files                  base.py:297
-[08:49:44] Finished attempting to scrape: SWL                        base.py:345
+[08:36:10] The read operation timed out                           handlers.py:36
+[08:36:11] Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-31-09-48">2025-03-31</h2>
+  <h2 id="2025-09-19-08-19">2025-09-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-31 09:48:47.897422</dd>
+        <dd>2025-09-19 08:19:16.753306</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-31 09:48:54.799543</dd>
+        <dd>2025-09-19 08:19:29.407662</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:48:47] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[08:19:16] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-[09:48:48] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[09:48:49] ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:48:50] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:19:17] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:19:18] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[09:48:52] Committing batch 1 consisting of 92 files                 base.py:297
-[09:48:53] Committing batch 2 consisting of 2 files                  base.py:297
-[09:48:54] Finished attempting to scrape: SWL                        base.py:345
+[08:19:28] The read operation timed out                           handlers.py:36
+[08:19:29] Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-30-09-39">2025-03-30</h2>
+  <h2 id="2025-09-18-08-24">2025-09-18</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-30 09:39:04.920482</dd>
+        <dd>2025-09-18 08:24:50.231233</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-30 09:39:12.145535</dd>
+        <dd>2025-09-18 08:25:03.061355</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:39:04] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[08:24:50] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-[09:39:05] Deleting existing data...                                 base.py:257
-[09:39:06] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:39:07] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:24:51] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:24:52] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[09:39:10] Committing batch 1 consisting of 92 files                 base.py:297
-[09:39:11] Committing batch 2 consisting of 2 files                  base.py:297
-[09:39:12] Finished attempting to scrape: SWL                        base.py:345
+[08:25:02] The read operation timed out                           handlers.py:36
+[08:25:03] Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-29-10-11">2025-03-29</h2>
+  <h2 id="2025-09-17-09-05">2025-09-17</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>9 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-29 10:11:51.600000</dd>
+        <dd>2025-09-17 09:05:18.511263</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-29 10:12:01.197146</dd>
+        <dd>2025-09-17 09:05:31.055119</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:11:51] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[09:05:18] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-[10:11:52] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[10:11:53] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[09:05:19] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:05:20] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[10:11:59] Committing batch 1 consisting of 92 files                 base.py:297
-[10:12:00] Committing batch 2 consisting of 2 files                  base.py:297
-[10:12:01] Finished attempting to scrape: SWL                        base.py:345
+[09:05:30] The read operation timed out                           handlers.py:36
+[09:05:31] Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-28-08-56">2025-03-28</h2>
+  <h2 id="2025-09-16-08-28">2025-09-16</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-28 08:56:58.787619</dd>
+        <dd>2025-09-16 08:28:06.775370</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-28 08:57:05.777086</dd>
+        <dd>2025-09-16 08:28:19.269633</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:56:58] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[08:28:06] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-[08:56:59] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[08:57:00] ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[08:57:01] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:28:07] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:28:08] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[08:57:03] Committing batch 1 consisting of 92 files                 base.py:297
-[08:57:04] Committing batch 2 consisting of 2 files                  base.py:297
-[08:57:05] Finished attempting to scrape: SWL                        base.py:345
+[08:28:18] The read operation timed out                           handlers.py:36
+[08:28:19] Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-27-09-45">2025-03-27</h2>
+  <h2 id="2025-09-15-09-08">2025-09-15</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>20 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-27 09:45:11.939309</dd>
+        <dd>2025-09-15 09:08:07.332701</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-27 09:45:32.894843</dd>
+        <dd>2025-09-15 09:08:10.933509</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:45:11] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[09:08:07] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-[09:45:12] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[09:45:13] ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:45:14] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[09:08:08] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:08:09] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[09:45:30] Committing batch 1 consisting of 92 files                 base.py:297
-[09:45:31] Committing batch 2 consisting of 2 files                  base.py:297
-[09:45:32] Finished attempting to scrape: SWL                        base.py:345
+[09:08:10] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-26-08-39">2025-03-26</h2>
+  <h2 id="2025-09-14-08-55">2025-09-14</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>21 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-26 08:39:25.868082</dd>
+        <dd>2025-09-14 08:55:30.765444</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-26 08:39:47.681060</dd>
+        <dd>2025-09-14 08:55:43.526145</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:39:25] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[08:55:30] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-[08:39:26] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:39:27] Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[08:39:28] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:55:31] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:55:32] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[08:39:45] Committing batch 1 consisting of 92 files                 base.py:297
-[08:39:46] Committing batch 2 consisting of 2 files                  base.py:297
-[08:39:47] Finished attempting to scrape: SWL                        base.py:345
+[08:55:43] The read operation timed out                           handlers.py:36
+           Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-25-09-12">2025-03-25</h2>
+  <h2 id="2025-09-13-08-49">2025-09-13</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>22 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-25 09:12:04.774086</dd>
+        <dd>2025-09-13 08:49:30.190820</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-25 09:12:27.612380</dd>
+        <dd>2025-09-13 08:49:42.899055</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:12:04] Fetching Scraper for: SWL                              handlers.py:23
+  <pre>[08:49:30] Fetching Scraper for: SWL                              handlers.py:23
            Begin attempting to scrape: SWL                        handlers.py:27
-[09:12:05] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[09:12:06] ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:12:07] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:49:31] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:49:32] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            http://services.swale.gov.uk/mgWebService.asmx/GetCouncill           
            orsByWard                                                            
-[09:12:25] Committing batch 1 consisting of 92 files                 base.py:297
-[09:12:26] Committing batch 2 consisting of 2 files                  base.py:297
-[09:12:27] Finished attempting to scrape: SWL                        base.py:345
+[08:49:42] The read operation timed out                           handlers.py:36
+           Finished attempting to scrape: SWL                        base.py:351
 </pre>
   
 

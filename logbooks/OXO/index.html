@@ -37,59 +37,181 @@
   
 
 
-  <h2 id="2025-04-13-10-04">2025-04-13</h2>
+  <h2 id="2025-10-03-08-20">2025-10-03</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>6 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-13 10:04:48.246939</dd>
+        <dd>2025-10-03 08:20:42.698036</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-13 10:04:55.562435</dd>
+        <dd>2025-10-03 08:20:49.021230</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:04:48] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[08:20:42] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:04:49] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[10:04:50] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:20:43] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:20:44] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[10:04:53] Committing batch 1 consisting of 92 files                 base.py:297
-[10:04:54] Committing batch 2 consisting of 2 files                  base.py:297
-[10:04:55] Finished attempting to scrape: OXO                        base.py:345
+[08:20:48] Server disconnected without sending a response.        handlers.py:36
+[08:20:49] Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-12-09-22">2025-04-12</h2>
+  <h2 id="2025-10-02-08-26">2025-10-02</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>5 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-10-02 08:26:01.174042</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-10-02 08:26:07.086700</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:26:01] Fetching Scraper for: OXO                              handlers.py:23
+           Begin attempting to scrape: OXO                        handlers.py:27
+[08:26:02] Deleting existing data...                                 base.py:263
+[08:26:03] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:26:04] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:26:06] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+[08:26:07] Finished attempting to scrape: OXO                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-10-01-08-37">2025-10-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -99,978 +221,1088 @@
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-12 09:22:09.361190</dd>
+        <dd>2025-10-01 08:37:12.281267</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-12 09:22:17.608159</dd>
+        <dd>2025-10-01 08:37:21.113632</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:22:09] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[08:37:12] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:22:10] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:22:11] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:37:13] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:37:14] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[09:22:15] Committing batch 1 consisting of 92 files                 base.py:297
-[09:22:16] Committing batch 2 consisting of 2 files                  base.py:297
-[09:22:17] Finished attempting to scrape: OXO                        base.py:345
+[08:37:20] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+[08:37:21] Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-11-09-02">2025-04-11</h2>
+  <h2 id="2025-09-30-08-41">2025-09-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>8 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-11 09:02:18.114902</dd>
+        <dd>2025-09-30 08:41:31.016170</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-11 09:02:26.557182</dd>
+        <dd>2025-09-30 08:41:35.108535</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:02:18] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[08:41:31] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:02:19] Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:02:20] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:41:32] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:41:33] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[09:02:24] Committing batch 1 consisting of 92 files                 base.py:297
-[09:02:25] Committing batch 2 consisting of 2 files                  base.py:297
-[09:02:26] Finished attempting to scrape: OXO                        base.py:345
+[08:41:34] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+[08:41:35] Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-10-10-35">2025-04-10</h2>
+  <h2 id="2025-09-29-09-05">2025-09-29</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>5 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-10 10:35:37.479803</dd>
+        <dd>2025-09-29 09:05:07.844152</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-10 10:35:45.087451</dd>
+        <dd>2025-09-29 09:05:12.898698</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:35:37] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[09:05:07] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:35:38] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[10:35:39] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[09:05:08] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[09:05:09] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[10:35:43] Committing batch 1 consisting of 92 files                 base.py:297
-[10:35:44] Committing batch 2 consisting of 2 files                  base.py:297
-[10:35:45] Finished attempting to scrape: OXO                        base.py:345
+[09:05:12] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-09-09-28">2025-04-09</h2>
+  <h2 id="2025-09-28-08-47">2025-09-28</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>9 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-09 09:28:47.274338</dd>
+        <dd>2025-09-28 08:47:42.608257</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-09 09:28:56.651927</dd>
+        <dd>2025-09-28 08:47:46.607440</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:28:47] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[08:47:42] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:28:48] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:28:49] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:47:43] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:47:44] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[09:28:54] Committing batch 1 consisting of 92 files                 base.py:297
-[09:28:55] Committing batch 2 consisting of 2 files                  base.py:297
-[09:28:56] Finished attempting to scrape: OXO                        base.py:345
+[08:47:46] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-08-08-37">2025-04-08</h2>
+  <h2 id="2025-09-27-08-27">2025-09-27</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>8 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-08 08:37:08.817357</dd>
+        <dd>2025-09-27 08:27:33.475094</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-08 08:37:17.325075</dd>
+        <dd>2025-09-27 08:27:37.775770</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:37:08] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[08:27:33] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-[08:37:09] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:37:10] Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[08:37:11] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:27:34] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:27:35] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[08:37:15] Committing batch 1 consisting of 92 files                 base.py:297
-[08:37:16] Committing batch 2 consisting of 2 files                  base.py:297
-[08:37:17] Finished attempting to scrape: OXO                        base.py:345
+[08:27:37] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-07-09-45">2025-04-07</h2>
+  <h2 id="2025-09-26-08-51">2025-09-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>8 seconds</dd>
+        <dd>5 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-07 09:45:35.375956</dd>
+        <dd>2025-09-26 08:51:32.306427</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-07 09:45:43.471629</dd>
+        <dd>2025-09-26 08:51:37.455282</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:45:35] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[08:51:32] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:45:36] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:45:37] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:51:33] Deleting existing data...                                 base.py:263
+[08:51:34] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:51:35] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[09:45:41] Committing batch 1 consisting of 92 files                 base.py:297
-[09:45:42] Committing batch 2 consisting of 2 files                  base.py:297
-[09:45:43] Finished attempting to scrape: OXO                        base.py:345
+[08:51:37] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-06-08-38">2025-04-06</h2>
+  <h2 id="2025-09-25-08-22">2025-09-25</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>9 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-06 08:38:11.921092</dd>
+        <dd>2025-09-25 08:22:31.516780</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-06 08:38:21.098620</dd>
+        <dd>2025-09-25 08:22:35.983479</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:38:11] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[08:22:31] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-[08:38:12] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[08:38:13] ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[08:38:14] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:22:32] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:22:33] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[08:38:19] Committing batch 1 consisting of 92 files                 base.py:297
-[08:38:20] Committing batch 2 consisting of 2 files                  base.py:297
-[08:38:21] Finished attempting to scrape: OXO                        base.py:345
+[08:22:35] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-05-08-29">2025-04-05</h2>
+  <h2 id="2025-09-24-08-28">2025-09-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-05 08:29:26.859109</dd>
+        <dd>2025-09-24 08:28:04.749966</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-05 08:29:34.837019</dd>
+        <dd>2025-09-24 08:28:09.129716</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:29:26] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[08:28:04] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-[08:29:27] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[08:29:28] ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[08:29:29] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:28:05] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:28:06] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[08:29:32] Committing batch 1 consisting of 92 files                 base.py:297
-[08:29:33] Committing batch 2 consisting of 2 files                  base.py:297
-[08:29:34] Finished attempting to scrape: OXO                        base.py:345
+[08:28:08] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+[08:28:09] Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-04-10-34">2025-04-04</h2>
+  <h2 id="2025-09-23-08-35">2025-09-23</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>8 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-04 10:34:04.652151</dd>
+        <dd>2025-09-23 08:35:17.807239</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-04 10:34:13.391833</dd>
+        <dd>2025-09-23 08:35:22.652294</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:34:04] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[08:35:17] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-[10:34:05] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[10:34:06] ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[10:34:07] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:35:18] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:35:19] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[10:34:11] Committing batch 1 consisting of 92 files                 base.py:297
-[10:34:12] Committing batch 2 consisting of 2 files                  base.py:297
-[10:34:13] Finished attempting to scrape: OXO                        base.py:345
+[08:35:22] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-03-09-54">2025-04-03</h2>
+  <h2 id="2025-09-22-08-57">2025-09-22</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-03 09:54:36.720114</dd>
+        <dd>2025-09-22 08:57:13.386013</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-03 09:54:44.386071</dd>
+        <dd>2025-09-22 08:57:17.954847</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:54:36] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[08:57:13] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-[09:54:37] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-[09:54:38] ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:57:14] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:57:15] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[09:54:42] Committing batch 1 consisting of 92 files                 base.py:297
-[09:54:43] Committing batch 2 consisting of 2 files                  base.py:297
-[09:54:44] Finished attempting to scrape: OXO                        base.py:345
+[08:57:17] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-02-09-55">2025-04-02</h2>
+  <h2 id="2025-09-21-08-54">2025-09-21</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>5 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-02 09:55:15.128945</dd>
+        <dd>2025-09-21 08:54:39.667721</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-02 09:55:23.071778</dd>
+        <dd>2025-09-21 08:54:45.282634</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:55:15] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[08:54:39] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[09:55:16] ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:55:17] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:54:40] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+[08:54:41] Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:54:42] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[09:55:20] Committing batch 1 consisting of 92 files                 base.py:297
-[09:55:21] Committing batch 2 consisting of 2 files                  base.py:297
-[09:55:23] Finished attempting to scrape: OXO                        base.py:345
+[08:54:45] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-01-10-03">2025-04-01</h2>
+  <h2 id="2025-09-20-08-46">2025-09-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>8 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-01 10:03:50.755328</dd>
+        <dd>2025-09-20 08:46:07.505349</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-01 10:03:58.958034</dd>
+        <dd>2025-09-20 08:46:11.498345</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:03:50] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[08:46:07] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-[10:03:51] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[10:03:52] ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[10:03:53] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:46:08] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:46:09] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[10:03:56] Committing batch 1 consisting of 92 files                 base.py:297
-[10:03:57] Committing batch 2 consisting of 2 files                  base.py:297
-[10:03:58] Finished attempting to scrape: OXO                        base.py:345
+[08:46:11] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-31-09-48">2025-03-31</h2>
+  <h2 id="2025-09-19-08-43">2025-09-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>8 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-31 09:48:57.873902</dd>
+        <dd>2025-09-19 08:43:49.458843</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-31 09:49:06.759259</dd>
+        <dd>2025-09-19 08:43:53.519233</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:48:57] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[08:43:49] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-[09:48:58] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[09:48:59] ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:43:50] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:43:51] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[09:49:04] Committing batch 1 consisting of 92 files                 base.py:297
-[09:49:05] Committing batch 2 consisting of 2 files                  base.py:297
-[09:49:06] Finished attempting to scrape: OXO                        base.py:345
+[08:43:53] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-30-09-56">2025-03-30</h2>
+  <h2 id="2025-09-18-08-55">2025-09-18</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-30 09:56:03.237400</dd>
+        <dd>2025-09-18 08:55:36.221922</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-30 09:56:10.803166</dd>
+        <dd>2025-09-18 08:55:40.248165</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:56:03] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[08:55:36] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:56:04] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:56:05] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:55:37] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:55:38] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[09:56:08] Committing batch 1 consisting of 92 files                 base.py:297
-[09:56:09] Committing batch 2 consisting of 2 files                  base.py:297
-[09:56:10] Finished attempting to scrape: OXO                        base.py:345
+[08:55:40] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-29-09-56">2025-03-29</h2>
+  <h2 id="2025-09-17-09-04">2025-09-17</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-29 09:56:54.744538</dd>
+        <dd>2025-09-17 09:04:30.199648</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-29 09:57:02.394937</dd>
+        <dd>2025-09-17 09:04:34.685799</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:56:54] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[09:04:30] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-[09:56:55] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:56:56] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[09:04:31] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:04:32] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[09:57:00] Committing batch 1 consisting of 92 files                 base.py:297
-[09:57:01] Committing batch 2 consisting of 2 files                  base.py:297
-[09:57:02] Finished attempting to scrape: OXO                        base.py:345
+[09:04:34] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-28-09-13">2025-03-28</h2>
+  <h2 id="2025-09-16-09-03">2025-09-16</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-28 09:13:44.512230</dd>
+        <dd>2025-09-16 09:03:34.917339</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-28 09:13:52.219261</dd>
+        <dd>2025-09-16 09:03:38.927772</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:13:44] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[09:03:34] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:13:45] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-[09:13:46] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[09:03:35] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:03:36] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[09:13:50] Committing batch 1 consisting of 92 files                 base.py:297
-           Committing batch 2 consisting of 2 files                  base.py:297
-[09:13:52] Finished attempting to scrape: OXO                        base.py:345
+[09:03:38] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-27-10-02">2025-03-27</h2>
+  <h2 id="2025-09-15-08-47">2025-09-15</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>8 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-27 10:02:41.592350</dd>
+        <dd>2025-09-15 08:47:23.690459</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-27 10:02:49.601195</dd>
+        <dd>2025-09-15 08:47:28.032273</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:02:41] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[08:47:23] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:02:42] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 47 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[10:02:43] ...found 47 files in Councillors/raw                      base.py:225
-           ...found 95 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 95 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:47:24] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:47:25] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[10:02:47] Committing batch 1 consisting of 92 files                 base.py:297
-[10:02:48] Committing batch 2 consisting of 2 files                  base.py:297
-[10:02:49] Finished attempting to scrape: OXO                        base.py:345
+[08:47:27] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+[08:47:28] Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-26-08-44">2025-03-26</h2>
+  <h2 id="2025-09-14-08-17">2025-09-14</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-26 08:44:25.097943</dd>
+        <dd>2025-09-14 08:17:55.047569</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-26 08:44:32.970127</dd>
+        <dd>2025-09-14 08:17:58.910026</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:44:25] Fetching Scraper for: OXO                              handlers.py:23
+  <pre>[08:17:55] Fetching Scraper for: OXO                              handlers.py:23
            Begin attempting to scrape: OXO                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:44:26] Getting all files in Councillors/json...                  base.py:209
-           ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[08:44:27] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:17:56] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:17:57] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[08:44:30] Committing batch 1 consisting of 92 files                 base.py:297
-[08:44:31] Committing batch 2 consisting of 2 files                  base.py:297
-[08:44:32] Finished attempting to scrape: OXO                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-25-08-57">2025-03-25</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>7 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-03-25 08:57:20.976332</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-03-25 08:57:28.391251</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:57:20] Fetching Scraper for: OXO                              handlers.py:23
-[08:57:21] Begin attempting to scrape: OXO                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[08:57:22] ...found 48 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 48 files in Councillors/raw                      base.py:225
-           ...found 97 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 97 files               base.py:236
-[08:57:23] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://mycouncil.oxford.gov.uk/mgWebService.asmx/GetCounc           
-           illorsByWard                                                         
-[08:57:26] Committing batch 1 consisting of 92 files                 base.py:297
-[08:57:27] Committing batch 2 consisting of 4 files                  base.py:297
-[08:57:28] Finished attempting to scrape: OXO                        base.py:345
+[08:17:58] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: OXO                        base.py:351
 </pre>
   
 

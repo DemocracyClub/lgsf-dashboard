@@ -37,1020 +37,1226 @@
   
 
 
-  <h2 id="2025-04-13-08-55">2025-04-13</h2>
+  <h2 id="2025-10-03-09-03">2025-10-03</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-13 08:55:59.373434</dd>
+        <dd>2025-10-03 09:03:43.560527</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-13 08:56:04.573282</dd>
+        <dd>2025-10-03 09:03:45.808272</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 58, in get
+    response.raise_for_status()
+  File "/opt/python/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '502 Bad Gateway' for url 'https://democracy.melton.gov.uk/mgWebService.asmx/GetCouncillorsByWard'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:55:59] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[09:03:43] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:56:00] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[08:56:01] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[09:03:44] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:03:45] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[08:56:03] Committing batch 1 consisting of 54 files                 base.py:297
-[08:56:04] Finished attempting to scrape: MEL                        base.py:345
+           Server error '502 Bad Gateway' for url                 handlers.py:36
+           'https://democracy.melton.gov.uk/mgWebService.asmx/Get               
+           CouncillorsByWard'                                                   
+           For more information check:                                          
+           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
+           us/502                                                               
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-12-08-29">2025-04-12</h2>
+  <h2 id="2025-10-02-08-50">2025-10-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-12 08:29:25.138449</dd>
+        <dd>2025-10-02 08:50:17.509942</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-12 08:29:30.512925</dd>
+        <dd>2025-10-02 08:50:20.584127</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:29:25] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[08:50:17] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:29:26] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[08:29:27] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:50:18] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:50:19] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[08:29:29] Committing batch 1 consisting of 54 files                 base.py:297
-[08:29:30] Finished attempting to scrape: MEL                        base.py:345
+[08:50:20] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-11-08-30">2025-04-11</h2>
+  <h2 id="2025-10-01-08-50">2025-10-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-11 08:30:55.015428</dd>
+        <dd>2025-10-01 08:50:43.330467</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-11 08:31:00.404847</dd>
+        <dd>2025-10-01 08:50:46.358729</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:30:55] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[08:50:43] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:30:56] Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[08:30:57] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:50:44] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:50:45] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[08:30:59] Committing batch 1 consisting of 54 files                 base.py:297
-[08:31:00] Finished attempting to scrape: MEL                        base.py:345
+[08:50:46] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-10-09-51">2025-04-10</h2>
+  <h2 id="2025-09-30-08-39">2025-09-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>4 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-10 09:51:47.411801</dd>
+        <dd>2025-09-30 08:39:49.229188</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-10 09:51:52.269648</dd>
+        <dd>2025-09-30 08:39:52.489941</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:51:47] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[08:39:49] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:51:48] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[09:51:49] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:39:50] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:39:51] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[09:51:51] Committing batch 1 consisting of 54 files                 base.py:297
-[09:51:52] Finished attempting to scrape: MEL                        base.py:345
+[08:39:52] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-09-09-26">2025-04-09</h2>
+  <h2 id="2025-09-29-08-57">2025-09-29</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-09 09:26:21.336475</dd>
+        <dd>2025-09-29 08:57:15.768166</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-09 09:26:26.682322</dd>
+        <dd>2025-09-29 08:57:18.888218</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:26:21] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[08:57:15] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:26:22] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[09:26:23] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:57:16] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:57:17] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[09:26:25] Committing batch 1 consisting of 54 files                 base.py:297
-[09:26:26] Finished attempting to scrape: MEL                        base.py:345
+[08:57:18] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-08-10-12">2025-04-08</h2>
+  <h2 id="2025-09-28-08-52">2025-09-28</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-08 10:12:45.903568</dd>
+        <dd>2025-09-28 08:52:26.933689</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-08 10:12:51.108729</dd>
+        <dd>2025-09-28 08:52:29.908654</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:12:45] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[08:52:26] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-[10:12:46] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:12:47] Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[10:12:48] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:52:27] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:52:28] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+[08:52:29] Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[10:12:49] Committing batch 1 consisting of 54 files                 base.py:297
-[10:12:51] Finished attempting to scrape: MEL                        base.py:345
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-07-08-48">2025-04-07</h2>
+  <h2 id="2025-09-27-08-56">2025-09-27</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-07 08:48:21.979736</dd>
+        <dd>2025-09-27 08:56:58.827137</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-07 08:48:29.194403</dd>
+        <dd>2025-09-27 08:57:02.127999</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:48:21] Fetching Scraper for: MEL                              handlers.py:23
-[08:48:22] Begin attempting to scrape: MEL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:48:23] Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[08:48:24] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
-           illorsByWard                                                         
-[08:48:27] Committing batch 1 consisting of 54 files                 base.py:297
-[08:48:29] Finished attempting to scrape: MEL                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-04-06-08-36">2025-04-06</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-04-06 08:36:15.011830</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-04-06 08:36:20.886708</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:36:15] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[08:56:58] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:36:16] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[08:36:17] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:56:59] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:57:00] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:57:01] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[08:36:19] Committing batch 1 consisting of 54 files                 base.py:297
-[08:36:20] Finished attempting to scrape: MEL                        base.py:345
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+[08:57:02] Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-05-08-58">2025-04-05</h2>
+  <h2 id="2025-09-26-08-43">2025-09-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-05 08:58:21.485199</dd>
+        <dd>2025-09-26 08:43:55.724789</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-05 08:58:27.123245</dd>
+        <dd>2025-09-26 08:43:59.259346</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:58:21] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[08:43:55] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:58:22] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[08:58:23] ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[08:58:24] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:43:56] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:43:57] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[08:58:25] Committing batch 1 consisting of 54 files                 base.py:297
-[08:58:27] Finished attempting to scrape: MEL                        base.py:345
+[08:43:59] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-04-09-51">2025-04-04</h2>
+  <h2 id="2025-09-25-08-35">2025-09-25</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-04 09:51:21.235046</dd>
+        <dd>2025-09-25 08:35:20.369523</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-04 09:51:26.947925</dd>
+        <dd>2025-09-25 08:35:23.667397</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:51:21] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[08:35:20] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:51:22] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-[09:51:23] Deleting batch no. 1 consisting of 55 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:35:21] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:35:22] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[09:51:25] Committing batch 1 consisting of 54 files                 base.py:297
-[09:51:26] Finished attempting to scrape: MEL                        base.py:345
+[08:35:23] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-03-10-44">2025-04-03</h2>
+  <h2 id="2025-09-24-08-28">2025-09-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-03 10:44:13.113917</dd>
+        <dd>2025-09-24 08:28:34.318605</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-03 10:44:18.412573</dd>
+        <dd>2025-09-24 08:28:37.565849</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:44:13] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[08:28:34] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:44:14] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[10:44:15] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:28:35] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:28:36] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[10:44:17] Committing batch 1 consisting of 54 files                 base.py:297
-[10:44:18] Finished attempting to scrape: MEL                        base.py:345
+[08:28:37] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-02-09-23">2025-04-02</h2>
+  <h2 id="2025-09-23-08-56">2025-09-23</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>4 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-02 09:23:57.666457</dd>
+        <dd>2025-09-23 08:56:31.736193</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-02 09:24:02.310246</dd>
+        <dd>2025-09-23 08:56:34.732644</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:23:57] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[08:56:31] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-[09:23:58] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[09:23:59] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:56:32] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:56:33] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[09:24:01] Committing batch 1 consisting of 54 files                 base.py:297
-[09:24:02] Finished attempting to scrape: MEL                        base.py:345
+[08:56:34] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-01-10-23">2025-04-01</h2>
+  <h2 id="2025-09-22-08-32">2025-09-22</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-01 10:23:18.260399</dd>
+        <dd>2025-09-22 08:32:50.170240</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-01 10:23:23.945338</dd>
+        <dd>2025-09-22 08:32:53.823161</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:23:18] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[08:32:50] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:23:19] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[10:23:20] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:32:51] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:32:52] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[10:23:22] Committing batch 1 consisting of 54 files                 base.py:297
-[10:23:23] Finished attempting to scrape: MEL                        base.py:345
+[08:32:53] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-31-10-43">2025-03-31</h2>
+  <h2 id="2025-09-21-09-03">2025-09-21</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-31 10:43:59.940386</dd>
+        <dd>2025-09-21 09:03:42.908240</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-31 10:44:05.149735</dd>
+        <dd>2025-09-21 09:03:45.822531</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:43:59] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[09:03:42] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-[10:44:00] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:44:01] Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[10:44:02] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[09:03:43] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:03:44] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[10:44:03] Committing batch 1 consisting of 54 files                 base.py:297
-[10:44:05] Finished attempting to scrape: MEL                        base.py:345
+[09:03:45] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-30-10-03">2025-03-30</h2>
+  <h2 id="2025-09-20-08-28">2025-09-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-30 10:03:10.144875</dd>
+        <dd>2025-09-20 08:28:02.246117</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-30 10:03:15.350499</dd>
+        <dd>2025-09-20 08:28:05.271834</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:03:10] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[08:28:02] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:03:11] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[10:03:12] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:28:03] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:28:04] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[10:03:14] Committing batch 1 consisting of 54 files                 base.py:297
-[10:03:15] Finished attempting to scrape: MEL                        base.py:345
+[08:28:05] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-29-09-23">2025-03-29</h2>
+  <h2 id="2025-09-19-08-19">2025-09-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-29 09:23:53.900209</dd>
+        <dd>2025-09-19 08:19:07.217434</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-29 09:23:59.035435</dd>
+        <dd>2025-09-19 08:19:09.926281</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:23:53] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[08:19:07] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-[09:23:54] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[09:23:55] ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[09:23:56] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:19:08] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:19:09] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[09:23:57] Committing batch 1 consisting of 54 files                 base.py:297
-[09:23:59] Finished attempting to scrape: MEL                        base.py:345
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-28-09-49">2025-03-28</h2>
+  <h2 id="2025-09-18-08-20">2025-09-18</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>16 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-28 09:49:05.382172</dd>
+        <dd>2025-09-18 08:20:06.582885</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-28 09:49:22.319968</dd>
+        <dd>2025-09-18 08:20:09.859588</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:49:05] Fetching Scraper for: MEL                              handlers.py:23
-[09:49:15] Begin attempting to scrape: MEL                        handlers.py:27
-[09:49:17] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:49:18] Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[09:49:19] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
-           illorsByWard                                                         
-[09:49:21] Committing batch 1 consisting of 54 files                 base.py:297
-[09:49:22] Finished attempting to scrape: MEL                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-27-08-50">2025-03-27</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-03-27 08:50:11.751970</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-03-27 08:50:16.971504</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:50:11] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[08:20:06] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-[08:50:12] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[08:50:13] ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[08:50:14] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:20:07] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:20:08] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[08:50:15] Committing batch 1 consisting of 54 files                 base.py:297
-[08:50:16] Finished attempting to scrape: MEL                        base.py:345
+[08:20:09] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-26-08-23">2025-03-26</h2>
+  <h2 id="2025-09-17-08-59">2025-09-17</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-26 08:23:21.414047</dd>
+        <dd>2025-09-17 08:59:42.295692</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-26 08:23:26.581802</dd>
+        <dd>2025-09-17 08:59:45.441797</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:23:21] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[08:59:42] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:23:22] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[08:23:23] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:59:43] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:59:44] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[08:23:25] Committing batch 1 consisting of 54 files                 base.py:297
-[08:23:26] Finished attempting to scrape: MEL                        base.py:345
+[08:59:45] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-25-08-49">2025-03-25</h2>
+  <h2 id="2025-09-16-09-01">2025-09-16</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>2 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-25 08:49:40.863395</dd>
+        <dd>2025-09-16 09:01:03.777680</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-25 08:49:46.244383</dd>
+        <dd>2025-09-16 09:01:06.716789</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:49:40] Fetching Scraper for: MEL                              handlers.py:23
+  <pre>[09:01:03] Fetching Scraper for: MEL                              handlers.py:23
            Begin attempting to scrape: MEL                        handlers.py:27
-[08:49:41] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[08:49:42] ...found 27 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 27 files in Councillors/raw                      base.py:225
-           ...found 55 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 55 files               base.py:236
-[08:49:43] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[09:01:04] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:01:05] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
            illorsByWard                                                         
-[08:49:45] Committing batch 1 consisting of 54 files                 base.py:297
-[08:49:46] Finished attempting to scrape: MEL                        base.py:345
+[09:01:06] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-15-08-26">2025-09-15</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-15 08:26:52.379939</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-15 08:26:55.392935</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:26:52] Fetching Scraper for: MEL                              handlers.py:23
+           Begin attempting to scrape: MEL                        handlers.py:27
+           Deleting existing data...                                 base.py:263
+[08:26:53] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:26:54] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+[08:26:55] Finished attempting to scrape: MEL                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-14-08-26">2025-09-14</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-14 08:26:59.338615</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-14 08:27:02.575533</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:26:59] Fetching Scraper for: MEL                              handlers.py:23
+           Begin attempting to scrape: MEL                        handlers.py:27
+           Deleting existing data...                                 base.py:263
+[08:27:00] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:27:01] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://democracy.melton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:27:02] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: MEL                        base.py:351
 </pre>
   
 

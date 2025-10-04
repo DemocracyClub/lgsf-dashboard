@@ -37,7 +37,7 @@
   
 
 
-  <h2 id="2025-04-13-08-44">2025-04-13</h2>
+  <h2 id="2025-10-02-08-21">2025-10-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -47,11 +47,11 @@
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-13 08:44:55.715063</dd>
+        <dd>2025-10-02 08:21:31.320425</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-13 08:44:57.908155</dd>
+        <dd>2025-10-02 08:21:33.683773</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -60,58 +60,73 @@
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -119,27 +134,27 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:44:55] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[08:21:31] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-[08:44:56] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:44:57] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:21:32] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:21:33] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-           Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+           Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-12-09-13">2025-04-12</h2>
+  <h2 id="2025-10-01-08-50">2025-10-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -149,11 +164,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-12 09:13:52.345781</dd>
+        <dd>2025-10-01 08:50:15.471344</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-12 09:13:54.492522</dd>
+        <dd>2025-10-01 08:50:17.852145</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -162,58 +177,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -221,27 +251,27 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:13:52] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[08:50:15] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:13:53] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:13:54] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:50:16] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:50:17] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-           Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+           Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-11-08-29">2025-04-11</h2>
+  <h2 id="2025-09-30-08-53">2025-09-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -251,11 +281,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-11 08:29:06.325565</dd>
+        <dd>2025-09-30 08:53:05.498520</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-11 08:29:08.657158</dd>
+        <dd>2025-09-30 08:53:07.998179</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -264,58 +294,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -323,27 +368,27 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:29:06] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[08:53:05] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:29:07] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:29:08] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:53:06] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:53:07] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-           Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+           Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-10-08-51">2025-04-10</h2>
+  <h2 id="2025-09-29-08-50">2025-09-29</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -353,11 +398,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-10 08:51:30.086089</dd>
+        <dd>2025-09-29 08:50:30.405633</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-10 08:51:32.461543</dd>
+        <dd>2025-09-29 08:50:33.048341</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -366,58 +411,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -425,27 +485,27 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:51:30] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[08:50:30] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:51:31] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:51:32] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:50:31] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:50:32] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-           Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+[08:50:33] Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-09-10-17">2025-04-09</h2>
+  <h2 id="2025-09-28-08-30">2025-09-28</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -455,11 +515,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-09 10:17:53.577058</dd>
+        <dd>2025-09-28 08:30:11.784875</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-09 10:17:55.822920</dd>
+        <dd>2025-09-28 08:30:14.051758</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -468,58 +528,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -527,27 +602,27 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:17:53] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[08:30:11] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:17:54] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:17:55] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:30:12] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:30:13] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-           Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+           Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-08-09-16">2025-04-08</h2>
+  <h2 id="2025-09-27-08-30">2025-09-27</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -557,11 +632,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-08 09:16:46.600129</dd>
+        <dd>2025-09-27 08:30:34.843902</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-08 09:16:48.843299</dd>
+        <dd>2025-09-27 08:30:37.421302</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -570,58 +645,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -629,27 +719,27 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:16:46] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[08:30:34] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-[09:16:47] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:16:48] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:30:35] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:30:36] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:30:37] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-           Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+           Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-07-08-48">2025-04-07</h2>
+  <h2 id="2025-09-26-08-39">2025-09-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -659,11 +749,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-07 08:48:33.019520</dd>
+        <dd>2025-09-26 08:39:57.704651</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-07 08:48:35.427537</dd>
+        <dd>2025-09-26 08:40:00.056403</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -672,58 +762,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -731,27 +836,27 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:48:33] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[08:39:57] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:48:34] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:48:35] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:39:58] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:39:59] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-           Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+[08:40:00] Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-06-09-34">2025-04-06</h2>
+  <h2 id="2025-09-25-08-52">2025-09-25</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -761,11 +866,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-06 09:34:36.014094</dd>
+        <dd>2025-09-25 08:52:23.190569</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-06 09:34:38.280671</dd>
+        <dd>2025-09-25 08:52:25.610592</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -774,58 +879,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -833,27 +953,27 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:34:36] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[08:52:23] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:34:37] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:52:24] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:52:25] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-[09:34:38] Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+           Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-05-10-26">2025-04-05</h2>
+  <h2 id="2025-09-24-09-01">2025-09-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -863,11 +983,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-05 10:26:38.681063</dd>
+        <dd>2025-09-24 09:01:32.131763</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-05 10:26:41.083243</dd>
+        <dd>2025-09-24 09:01:34.532233</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -876,58 +996,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -935,231 +1070,27 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:26:38] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[09:01:32] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-[10:26:39] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:26:40] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[09:01:33] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:01:34] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-[10:26:41] Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+           Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-04-10-19">2025-04-04</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-04-04 10:19:12.783381</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-04-04 10:19:15.234515</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
-    stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:19:12] Fetching Scraper for: KHL                              handlers.py:23
-           Begin attempting to scrape: KHL                        handlers.py:27
-[10:19:13] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:19:14] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers.aspx                                 
-[10:19:15] [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
-           failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-           Finished attempting to scrape: KHL                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-04-03-08-54">2025-04-03</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-04-03 08:54:11.883385</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-04-03 08:54:14.090152</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
-    stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:54:11] Fetching Scraper for: KHL                              handlers.py:23
-           Begin attempting to scrape: KHL                        handlers.py:27
-[08:54:12] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:54:13] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
-           rs/CouncillorsandSeniorOfficers.aspx                                 
-           [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
-           failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-[08:54:14] Finished attempting to scrape: KHL                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-04-02-09-09">2025-04-02</h2>
+  <h2 id="2025-09-23-08-37">2025-09-23</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -1169,11 +1100,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-02 09:09:40.498989</dd>
+        <dd>2025-09-23 08:37:42.057648</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-02 09:09:43.968111</dd>
+        <dd>2025-09-23 08:37:45.448938</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1182,58 +1113,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -1241,27 +1187,144 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:09:40] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[08:37:42] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-[09:09:42] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:09:43] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:37:44] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:37:45] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-           Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+           Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-01-10-15">2025-04-01</h2>
+  <h2 id="2025-09-22-08-24">2025-09-22</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-22 08:24:02.401271</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-22 08:24:05.474465</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
+    req = self.get(
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:24:02] Fetching Scraper for: KHL                              handlers.py:23
+           Begin attempting to scrape: KHL                        handlers.py:27
+           Deleting existing data...                                 base.py:263
+[08:24:03] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:24:04] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
+           rs/CouncillorsandSeniorOfficers.aspx                                 
+[08:24:05] [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
+           failed: unable to get local issuer certificate                       
+           (_ssl.c:1010)                                                        
+           Finished attempting to scrape: KHL                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-21-08-56">2025-09-21</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -1271,11 +1334,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-01 10:15:05.400682</dd>
+        <dd>2025-09-21 08:56:47.775034</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-01 10:15:07.628399</dd>
+        <dd>2025-09-21 08:56:50.119059</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1284,58 +1347,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -1343,27 +1421,27 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:15:05] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[08:56:47] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:15:06] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:15:07] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:56:48] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:56:49] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-           Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+[08:56:50] Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-31-08-42">2025-03-31</h2>
+  <h2 id="2025-09-20-08-40">2025-09-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -1373,11 +1451,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-31 08:42:19.066908</dd>
+        <dd>2025-09-20 08:40:04.862975</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-31 08:42:21.242817</dd>
+        <dd>2025-09-20 08:40:07.487857</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1386,58 +1464,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -1445,27 +1538,27 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:42:19] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[08:40:04] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:42:20] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:40:05] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:40:06] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:40:07] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
-[08:42:21] [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
+           [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-           Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+           Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-30-10-38">2025-03-30</h2>
+  <h2 id="2025-09-19-09-09">2025-09-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -1475,11 +1568,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-30 10:38:23.942225</dd>
+        <dd>2025-09-19 09:09:27.053120</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-30 10:38:26.065169</dd>
+        <dd>2025-09-19 09:09:29.552542</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1488,58 +1581,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -1547,27 +1655,27 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:38:23] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[09:09:27] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-[10:38:24] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:38:25] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[09:09:28] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:09:29] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-[10:38:26] Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+           Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-29-08-47">2025-03-29</h2>
+  <h2 id="2025-09-18-08-54">2025-09-18</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -1577,11 +1685,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-29 08:47:07.161562</dd>
+        <dd>2025-09-18 08:54:35.272057</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-29 08:47:09.371006</dd>
+        <dd>2025-09-18 08:54:37.800908</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1590,58 +1698,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -1649,27 +1772,27 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:47:07] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[08:54:35] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:47:08] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:47:09] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[08:54:36] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:54:37] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-           Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+           Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-28-10-25">2025-03-28</h2>
+  <h2 id="2025-09-17-09-08">2025-09-17</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -1679,11 +1802,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-28 10:25:33.798535</dd>
+        <dd>2025-09-17 09:08:44.028461</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-28 10:25:36.235319</dd>
+        <dd>2025-09-17 09:08:46.425199</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1692,58 +1815,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -1751,27 +1889,27 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:25:33] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[09:08:44] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-[10:25:34] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:25:35] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+           Deleting existing data...                                 base.py:263
+[09:08:45] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:08:46] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-[10:25:36] Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+           Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-27-08-23">2025-03-27</h2>
+  <h2 id="2025-09-16-08-49">2025-09-16</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -1781,11 +1919,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-27 08:23:23.112895</dd>
+        <dd>2025-09-16 08:49:32.810353</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-27 08:23:25.424697</dd>
+        <dd>2025-09-16 08:49:35.162411</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1794,58 +1932,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -1853,27 +2006,27 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:23:23] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[08:49:32] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:23:24] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:23:25] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:49:33] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:49:34] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-           Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+[08:49:35] Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-26-09-48">2025-03-26</h2>
+  <h2 id="2025-09-15-08-44">2025-09-15</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -1883,11 +2036,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-26 09:48:24.819277</dd>
+        <dd>2025-09-15 08:44:56.884164</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-26 09:48:27.055047</dd>
+        <dd>2025-09-15 08:44:59.612141</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1896,58 +2049,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -1955,27 +2123,27 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:48:24] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[08:44:56] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-[09:48:25] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:48:26] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:44:57] Deleting existing data...                                 base.py:263
+[08:44:58] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:44:59] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-[09:48:27] Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+           Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-25-10-00">2025-03-25</h2>
+  <h2 id="2025-09-14-08-25">2025-09-14</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -1985,11 +2153,11 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-25 10:00:13.845496</dd>
+        <dd>2025-09-14 08:25:20.809194</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-25 10:00:16.154137</dd>
+        <dd>2025-09-14 08:25:23.249511</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1998,58 +2166,73 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
     yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
     resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
     raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
     response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
     raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
     stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 154, in _connect
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
     stream = stream.start_tls(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 152, in start_tls
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
     with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
   File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
     raise to_exc(exc) from exc
-httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
     req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
     return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 914, in send
     response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
     response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
     response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
     response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
     with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
     raise mapped_exc(message) from exc
-httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
 </dd>
       </div>
     </dl>
@@ -2057,20 +2240,137 @@ httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:00:13] Fetching Scraper for: KHL                              handlers.py:23
+  <pre>[08:25:20] Fetching Scraper for: KHL                              handlers.py:23
            Begin attempting to scrape: KHL                        handlers.py:27
-[10:00:14] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:00:15] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
+[08:25:21] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:25:22] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
            https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
            rs/CouncillorsandSeniorOfficers.aspx                                 
            [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
            failed: unable to get local issuer certificate                       
-           (_ssl.c:1007)                                                        
-[10:00:16] Finished attempting to scrape: KHL                        base.py:345
+           (_ssl.c:1010)                                                        
+[08:25:23] Finished attempting to scrape: KHL                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-13-08-37">2025-09-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-13 08:37:47.059297</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-13 08:37:49.565789</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 281, in get_councillors
+    req = self.get(
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:37:47] Fetching Scraper for: KHL                              handlers.py:23
+           Begin attempting to scrape: KHL                        handlers.py:27
+           Deleting existing data...                                 base.py:263
+[08:37:48] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:37:49] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://cmis.hullcc.gov.uk/cmis/CouncillorsandSeniorOffice           
+           rs/CouncillorsandSeniorOfficers.aspx                                 
+           [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify    handlers.py:36
+           failed: unable to get local issuer certificate                       
+           (_ssl.c:1010)                                                        
+           Finished attempting to scrape: KHL                        base.py:351
 </pre>
   
 

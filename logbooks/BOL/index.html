@@ -37,21 +37,21 @@
   
 
 
-  <h2 id="2025-04-13-09-20">2025-04-13</h2>
+  <h2 id="2025-10-03-08-40">2025-10-03</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-13 09:20:17.820455</dd>
+        <dd>2025-10-03 08:40:58.687210</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-13 09:20:20.048010</dd>
+        <dd>2025-10-03 08:41:02.757725</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -60,58 +60,17 @@
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -119,38 +78,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:20:17] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[08:40:58] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-[09:20:18] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:20:19] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-[09:20:20] Finished attempting to scrape: BOL                        base.py:345
+[08:40:59] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:41:00] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[08:41:02] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-12-09-07">2025-04-12</h2>
+  <h2 id="2025-10-02-09-06">2025-10-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-12 09:07:17.025148</dd>
+        <dd>2025-10-02 09:06:19.565625</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-12 09:07:19.359657</dd>
+        <dd>2025-10-02 09:06:23.199621</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -159,58 +121,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -218,38 +139,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:07:17] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[09:06:19] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:07:18] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:07:19] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-           Finished attempting to scrape: BOL                        base.py:345
+[09:06:20] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:06:21] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[09:06:22] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+[09:06:23] Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-11-09-27">2025-04-11</h2>
+  <h2 id="2025-10-01-08-35">2025-10-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-11 09:27:32.049719</dd>
+        <dd>2025-10-01 08:35:34.782384</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-11 09:27:34.243734</dd>
+        <dd>2025-10-01 08:35:38.567058</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -258,58 +182,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -317,38 +200,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:27:32] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[08:35:34] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:27:33] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-[09:27:34] [Errno -2] Name or service not known                   handlers.py:36
-           Finished attempting to scrape: BOL                        base.py:345
+[08:35:35] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:35:36] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[08:35:38] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-10-09-00">2025-04-10</h2>
+  <h2 id="2025-09-30-08-58">2025-09-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>5 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-10 09:00:27.666158</dd>
+        <dd>2025-09-30 08:58:54.351051</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-10 09:00:29.982268</dd>
+        <dd>2025-09-30 08:58:59.803171</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -357,58 +243,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -416,38 +261,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:00:27] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[08:58:54] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-[09:00:28] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:00:29] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-           Finished attempting to scrape: BOL                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:58:55] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:58:56] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[08:58:59] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-09-09-58">2025-04-09</h2>
+  <h2 id="2025-09-29-08-21">2025-09-29</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-09 09:58:49.978879</dd>
+        <dd>2025-09-29 08:21:15.574220</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-09 09:58:52.145393</dd>
+        <dd>2025-09-29 08:21:18.985687</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -456,58 +304,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -515,137 +322,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:58:49] Fetching Scraper for: BOL                              handlers.py:23
-[09:58:50] Begin attempting to scrape: BOL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:58:51] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-[09:58:52] Finished attempting to scrape: BOL                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-04-08-09-37">2025-04-08</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-04-08 09:37:42.566354</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-04-08 09:37:44.709417</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:37:42] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[08:21:15] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-[09:37:43] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:37:44] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-           Finished attempting to scrape: BOL                        base.py:345
+[08:21:16] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:21:17] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[08:21:18] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-07-10-06">2025-04-07</h2>
+  <h2 id="2025-09-28-09-00">2025-09-28</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-07 10:06:01.007262</dd>
+        <dd>2025-09-28 09:00:22.298041</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-07 10:06:03.497516</dd>
+        <dd>2025-09-28 09:00:26.261082</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -654,58 +365,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -713,38 +383,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:06:01] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[09:00:22] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:06:02] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:06:03] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-           Finished attempting to scrape: BOL                        base.py:345
+           Deleting existing data...                                 base.py:263
+[09:00:23] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:00:24] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[09:00:26] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-06-08-40">2025-04-06</h2>
+  <h2 id="2025-09-27-09-05">2025-09-27</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-06 08:40:07.694638</dd>
+        <dd>2025-09-27 09:05:39.633311</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-06 08:40:09.805871</dd>
+        <dd>2025-09-27 09:05:43.760254</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -753,58 +426,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -812,38 +444,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:40:07] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[09:05:39] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-[08:40:08] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:40:09] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-           Finished attempting to scrape: BOL                        base.py:345
+[09:05:40] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:05:41] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[09:05:43] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-05-10-26">2025-04-05</h2>
+  <h2 id="2025-09-26-09-03">2025-09-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-05 10:26:56.671428</dd>
+        <dd>2025-09-26 09:03:03.633175</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-05 10:26:58.890585</dd>
+        <dd>2025-09-26 09:03:07.455439</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -852,58 +487,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -911,38 +505,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:26:56] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[09:03:03] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-[10:26:57] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:26:58] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-           Finished attempting to scrape: BOL                        base.py:345
+[09:03:04] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:03:05] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[09:03:07] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-04-08-42">2025-04-04</h2>
+  <h2 id="2025-09-25-08-50">2025-09-25</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-04 08:42:41.112085</dd>
+        <dd>2025-09-25 08:50:32.773289</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-04 08:42:43.457387</dd>
+        <dd>2025-09-25 08:50:36.870113</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -951,58 +548,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1010,38 +566,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:42:41] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[08:50:32] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:42:42] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:42:43] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-           Finished attempting to scrape: BOL                        base.py:345
+[08:50:33] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:50:34] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[08:50:36] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-03-08-47">2025-04-03</h2>
+  <h2 id="2025-09-24-08-18">2025-09-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-03 08:47:12.217796</dd>
+        <dd>2025-09-24 08:18:22.590807</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-03 08:47:14.626039</dd>
+        <dd>2025-09-24 08:18:26.555492</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1050,58 +609,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1109,38 +627,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:47:12] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[08:18:22] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:47:13] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:47:14] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-           Finished attempting to scrape: BOL                        base.py:345
+[08:18:23] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:18:24] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[08:18:26] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-02-09-56">2025-04-02</h2>
+  <h2 id="2025-09-23-08-28">2025-09-23</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-02 09:56:46.899255</dd>
+        <dd>2025-09-23 08:28:51.570950</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-02 09:56:48.971295</dd>
+        <dd>2025-09-23 08:28:55.229799</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1149,58 +670,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1208,38 +688,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:56:46] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[08:28:51] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-[09:56:47] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:56:48] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-           Finished attempting to scrape: BOL                        base.py:345
+[08:28:52] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:28:53] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[08:28:55] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-01-10-39">2025-04-01</h2>
+  <h2 id="2025-09-22-08-18">2025-09-22</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-01 10:39:02.232232</dd>
+        <dd>2025-09-22 08:18:04.236146</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-01 10:39:04.561876</dd>
+        <dd>2025-09-22 08:18:08.145967</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1248,58 +731,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1307,38 +749,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:39:02] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[08:18:04] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:39:03] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:39:04] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-           Finished attempting to scrape: BOL                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:18:05] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:18:06] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[08:18:07] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+[08:18:08] Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-31-08-18">2025-03-31</h2>
+  <h2 id="2025-09-21-08-50">2025-09-21</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-31 08:18:57.717605</dd>
+        <dd>2025-09-21 08:50:04.682322</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-31 08:19:00.031077</dd>
+        <dd>2025-09-21 08:50:08.802185</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1347,58 +792,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1406,38 +810,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:18:57] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[08:50:04] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-[08:18:58] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:18:59] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-[08:19:00] Finished attempting to scrape: BOL                        base.py:345
+[08:50:05] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:50:06] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:50:07] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[08:50:08] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-30-10-08">2025-03-30</h2>
+  <h2 id="2025-09-20-08-41">2025-09-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-30 10:08:24.982511</dd>
+        <dd>2025-09-20 08:41:40.803342</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-30 10:08:27.033630</dd>
+        <dd>2025-09-20 08:41:44.622284</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1446,58 +853,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1505,38 +871,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:08:24] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[08:41:40] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-[10:08:25] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-[10:08:26] Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-[10:08:27] Finished attempting to scrape: BOL                        base.py:345
+[08:41:41] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:41:42] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:41:43] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[08:41:44] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-29-09-50">2025-03-29</h2>
+  <h2 id="2025-09-19-08-20">2025-09-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-29 09:50:42.770534</dd>
+        <dd>2025-09-19 08:20:35.338979</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-29 09:50:44.835825</dd>
+        <dd>2025-09-19 08:20:38.945815</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1545,58 +914,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1604,38 +932,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:50:42] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[08:20:35] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-[09:50:43] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:50:44] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-           Finished attempting to scrape: BOL                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:20:36] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:20:37] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[08:20:38] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-28-10-43">2025-03-28</h2>
+  <h2 id="2025-09-18-08-44">2025-09-18</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-28 10:43:55.723117</dd>
+        <dd>2025-09-18 08:44:45.608770</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-28 10:43:57.784104</dd>
+        <dd>2025-09-18 08:44:49.131673</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1644,58 +975,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1703,38 +993,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:43:55] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[08:44:45] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-[10:43:56] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:43:57] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-           Finished attempting to scrape: BOL                        base.py:345
+[08:44:46] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:44:47] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[08:44:48] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+[08:44:49] Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-27-08-20">2025-03-27</h2>
+  <h2 id="2025-09-17-08-30">2025-09-17</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-27 08:20:51.008720</dd>
+        <dd>2025-09-17 08:30:39.740123</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-27 08:20:53.083635</dd>
+        <dd>2025-09-17 08:30:43.454140</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1743,58 +1036,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1802,38 +1054,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:20:51] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[08:30:39] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:20:52] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-[08:20:53] Finished attempting to scrape: BOL                        base.py:345
+[08:30:40] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:30:41] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[08:30:43] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-26-09-25">2025-03-26</h2>
+  <h2 id="2025-09-16-08-19">2025-09-16</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-26 09:25:28.799452</dd>
+        <dd>2025-09-16 08:19:00.555919</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-26 09:25:31.193395</dd>
+        <dd>2025-09-16 08:19:04.250611</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1842,58 +1097,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1901,38 +1115,41 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:25:28] Fetching Scraper for: BOL                              handlers.py:23
+  <pre>[08:19:00] Fetching Scraper for: BOL                              handlers.py:23
            Begin attempting to scrape: BOL                        handlers.py:27
-[09:25:29] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:25:30] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-           [Errno -2] Name or service not known                   handlers.py:36
-[09:25:31] Finished attempting to scrape: BOL                        base.py:345
+[08:19:01] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:19:02] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[08:19:04] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-25-08-18">2025-03-25</h2>
+  <h2 id="2025-09-15-08-23">2025-09-15</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>2 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-25 08:18:19.999725</dd>
+        <dd>2025-09-15 08:23:47.584339</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-25 08:18:22.259010</dd>
+        <dd>2025-09-15 08:23:51.576109</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1941,58 +1158,17 @@ httpx.ConnectError: [Errno -2] Name or service not known
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: [Errno -2] Name or service not known
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 272, in get_councillors
-    req = self.get(
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: [Errno -2] Name or service not known
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -2000,17 +1176,81 @@ httpx.ConnectError: [Errno -2] Name or service not known
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:18:19] Fetching Scraper for: BOL                              handlers.py:23
-[08:18:20] Begin attempting to scrape: BOL                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:18:21] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://www.democracy.bolton.gov.uk/cmis5/People.aspx                
-[08:18:22] [Errno -2] Name or service not known                   handlers.py:36
-           Finished attempting to scrape: BOL                        base.py:345
+  <pre>[08:23:47] Fetching Scraper for: BOL                              handlers.py:23
+           Begin attempting to scrape: BOL                        handlers.py:27
+[08:23:48] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:23:49] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[08:23:51] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-14-09-03">2025-09-14</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>4 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-14 09:03:36.603712</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-14 09:03:40.920774</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:03:36] Fetching Scraper for: BOL                              handlers.py:23
+           Begin attempting to scrape: BOL                        handlers.py:27
+[09:03:37] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:03:38] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://bolton.moderngov.co.uk/mgWebService.asmx/GetCounci           
+           llorsByWard                                                          
+[09:03:40] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: BOL                        base.py:351
 </pre>
   
 

@@ -37,109 +37,1157 @@
   
 
 
-  <h2 id="2025-04-13-09-19">2025-04-13</h2>
+  <h2 id="2025-10-02-08-34">2025-10-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-13 09:19:30.749706</dd>
+        <dd>2025-10-02 08:34:23.376135</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-13 09:19:37.787561</dd>
+        <dd>2025-10-02 08:34:35.773497</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:19:30] Fetching Scraper for: STN                              handlers.py:23
+  <pre>[08:34:23] Fetching Scraper for: STN                              handlers.py:23
            Begin attempting to scrape: STN                        handlers.py:27
-[09:19:31] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[09:19:32] ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[09:19:36] Committing batch 1 consisting of 78 files                 base.py:297
-[09:19:37] Finished attempting to scrape: STN                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:34:24] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:34:25] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:34:35] timed out                                              handlers.py:36
+           Finished attempting to scrape: STN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-12-09-14">2025-04-12</h2>
+  <h2 id="2025-10-01-08-21">2025-10-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>12 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-12 09:14:40.361738</dd>
+        <dd>2025-10-01 08:21:34.507973</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-12 09:14:46.572363</dd>
+        <dd>2025-10-01 08:21:46.826581</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:14:40] Fetching Scraper for: STN                              handlers.py:23
+  <pre>[08:21:34] Fetching Scraper for: STN                              handlers.py:23
            Begin attempting to scrape: STN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:14:41] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-[09:14:42] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[09:14:45] Committing batch 1 consisting of 78 files                 base.py:297
-[09:14:46] Finished attempting to scrape: STN                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:21:35] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:21:36] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:21:46] timed out                                              handlers.py:36
+           Finished attempting to scrape: STN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-11-10-01">2025-04-11</h2>
+  <h2 id="2025-09-30-09-04">2025-09-30</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>12 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-30 09:04:46.490799</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-30 09:04:59.223791</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:04:46] Fetching Scraper for: STN                              handlers.py:23
+           Begin attempting to scrape: STN                        handlers.py:27
+[09:04:47] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:04:48] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[09:04:58] timed out                                              handlers.py:36
+[09:04:59] Finished attempting to scrape: STN                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-29-08-43">2025-09-29</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>13 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-29 08:43:32.173019</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-29 08:43:45.415850</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:43:32] Fetching Scraper for: STN                              handlers.py:23
+           Begin attempting to scrape: STN                        handlers.py:27
+[08:43:33] Deleting existing data...                                 base.py:263
+[08:43:34] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:43:45] timed out                                              handlers.py:36
+           Finished attempting to scrape: STN                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-28-08-23">2025-09-28</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>12 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-28 08:23:36.708917</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-28 08:23:49.173421</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:23:36] Fetching Scraper for: STN                              handlers.py:23
+           Begin attempting to scrape: STN                        handlers.py:27
+[08:23:37] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:23:38] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:23:48] timed out                                              handlers.py:36
+[08:23:49] Finished attempting to scrape: STN                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-27-08-43">2025-09-27</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>12 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-27 08:43:55.865476</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-27 08:44:08.433103</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:43:55] Fetching Scraper for: STN                              handlers.py:23
+           Begin attempting to scrape: STN                        handlers.py:27
+[08:43:56] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:43:57] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:44:07] timed out                                              handlers.py:36
+[08:44:08] Finished attempting to scrape: STN                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-26-08-41">2025-09-26</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>12 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-26 08:41:07.179662</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-26 08:41:19.952011</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:41:07] Fetching Scraper for: STN                              handlers.py:23
+           Begin attempting to scrape: STN                        handlers.py:27
+           Deleting existing data...                                 base.py:263
+[08:41:08] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:41:09] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:41:19] timed out                                              handlers.py:36
+           Finished attempting to scrape: STN                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-25-08-33">2025-09-25</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>12 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-25 08:33:06.019945</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-25 08:33:18.902914</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:33:06] Fetching Scraper for: STN                              handlers.py:23
+           Begin attempting to scrape: STN                        handlers.py:27
+           Deleting existing data...                                 base.py:263
+[08:33:07] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:33:08] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:33:18] timed out                                              handlers.py:36
+           Finished attempting to scrape: STN                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-24-08-31">2025-09-24</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>12 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-24 08:31:15.956165</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-24 08:31:28.612364</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:31:15] Fetching Scraper for: STN                              handlers.py:23
+           Begin attempting to scrape: STN                        handlers.py:27
+[08:31:16] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:31:17] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:31:18] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:31:28] timed out                                              handlers.py:36
+           Finished attempting to scrape: STN                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-23-08-37">2025-09-23</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>12 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-23 08:37:15.960679</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-23 08:37:28.638141</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 224, in get_councillors
+    req = self.get(self.format_councillor_api_url(), extra_headers=self.extra_headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 57, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:37:15] Fetching Scraper for: STN                              handlers.py:23
+           Begin attempting to scrape: STN                        handlers.py:27
+[08:37:16] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:37:17] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:37:18] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:37:28] timed out                                              handlers.py:36
+           Finished attempting to scrape: STN                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-22-08-38">2025-09-22</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -149,908 +1197,600 @@
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-11 10:01:58.542519</dd>
+        <dd>2025-09-22 08:38:42.871387</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-11 10:02:04.174575</dd>
+        <dd>2025-09-22 08:38:48.323793</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:01:58] Fetching Scraper for: STN                              handlers.py:23
+  <pre>[08:38:42] Fetching Scraper for: STN                              handlers.py:23
            Begin attempting to scrape: STN                        handlers.py:27
-[10:01:59] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[10:02:00] ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[10:02:02] Committing batch 1 consisting of 78 files                 base.py:297
-[10:02:04] Finished attempting to scrape: STN                        base.py:345
+[08:38:43] Deleting existing data...                                 base.py:263
+[08:38:44] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:38:45] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:38:48] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: STN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-10-10-40">2025-04-10</h2>
+  <h2 id="2025-09-21-08-56">2025-09-21</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-10 10:40:55.949684</dd>
+        <dd>2025-09-21 08:56:20.826499</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-10 10:41:03.454098</dd>
+        <dd>2025-09-21 08:56:25.654843</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:40:55] Fetching Scraper for: STN                              handlers.py:23
+  <pre>[08:56:20] Fetching Scraper for: STN                              handlers.py:23
            Begin attempting to scrape: STN                        handlers.py:27
-[10:40:56] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[10:40:57] ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-[10:40:58] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[10:41:02] Committing batch 1 consisting of 78 files                 base.py:297
-[10:41:03] Finished attempting to scrape: STN                        base.py:345
+[08:56:21] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:56:22] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:56:25] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: STN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-09-09-40">2025-04-09</h2>
+  <h2 id="2025-09-20-09-02">2025-09-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-09 09:40:21.930533</dd>
+        <dd>2025-09-20 09:02:21.613412</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-09 09:40:28.634548</dd>
+        <dd>2025-09-20 09:02:26.405835</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:40:21] Fetching Scraper for: STN                              handlers.py:23
+  <pre>[09:02:21] Fetching Scraper for: STN                              handlers.py:23
            Begin attempting to scrape: STN                        handlers.py:27
-[09:40:22] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:40:23] Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-[09:40:24] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[09:40:27] Committing batch 1 consisting of 78 files                 base.py:297
-[09:40:28] Finished attempting to scrape: STN                        base.py:345
+[09:02:22] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:02:23] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[09:02:26] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: STN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-08-10-33">2025-04-08</h2>
+  <h2 id="2025-09-19-09-08">2025-09-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-08 10:33:24.618345</dd>
+        <dd>2025-09-19 09:08:27.157932</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-08 10:33:30.680417</dd>
+        <dd>2025-09-19 09:08:31.916234</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:33:24] Fetching Scraper for: STN                              handlers.py:23
+  <pre>[09:08:27] Fetching Scraper for: STN                              handlers.py:23
            Begin attempting to scrape: STN                        handlers.py:27
-[10:33:25] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[10:33:26] ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[10:33:29] Committing batch 1 consisting of 78 files                 base.py:297
-[10:33:30] Finished attempting to scrape: STN                        base.py:345
+           Deleting existing data...                                 base.py:263
+[09:08:28] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:08:29] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[09:08:31] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: STN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-07-09-59">2025-04-07</h2>
+  <h2 id="2025-09-18-08-30">2025-09-18</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-07 09:59:20.821362</dd>
+        <dd>2025-09-18 08:30:24.760483</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-07 09:59:28.195212</dd>
+        <dd>2025-09-18 08:30:29.192020</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:59:20] Fetching Scraper for: STN                              handlers.py:23
+  <pre>[08:30:24] Fetching Scraper for: STN                              handlers.py:23
            Begin attempting to scrape: STN                        handlers.py:27
-[09:59:21] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-[09:59:22] Getting all files in Councillors/raw...                   base.py:209
-           ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-[09:59:23] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[09:59:26] Committing batch 1 consisting of 78 files                 base.py:297
-[09:59:28] Finished attempting to scrape: STN                        base.py:345
+[08:30:25] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:30:26] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:30:28] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+[08:30:29] Finished attempting to scrape: STN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-06-08-40">2025-04-06</h2>
+  <h2 id="2025-09-17-08-29">2025-09-17</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-06 08:40:14.004753</dd>
+        <dd>2025-09-17 08:29:18.256227</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-06 08:40:20.870162</dd>
+        <dd>2025-09-17 08:29:22.448101</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:40:14] Fetching Scraper for: STN                              handlers.py:23
+  <pre>[08:29:18] Fetching Scraper for: STN                              handlers.py:23
            Begin attempting to scrape: STN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:40:15] Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-[08:40:16] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[08:40:19] Committing batch 1 consisting of 78 files                 base.py:297
-[08:40:20] Finished attempting to scrape: STN                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:29:19] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:29:20] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:29:22] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: STN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-05-10-20">2025-04-05</h2>
+  <h2 id="2025-09-16-08-51">2025-09-16</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>7 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-05 10:20:47.387781</dd>
+        <dd>2025-09-16 08:51:51.482797</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-05 10:20:54.833147</dd>
+        <dd>2025-09-16 08:51:56.108651</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:20:47] Fetching Scraper for: STN                              handlers.py:23
+  <pre>[08:51:51] Fetching Scraper for: STN                              handlers.py:23
            Begin attempting to scrape: STN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:20:48] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-[10:20:49] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[10:20:53] Committing batch 1 consisting of 78 files                 base.py:297
-[10:20:54] Finished attempting to scrape: STN                        base.py:345
+[08:51:52] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:51:53] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:51:55] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+[08:51:56] Finished attempting to scrape: STN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-04-10-39">2025-04-04</h2>
+  <h2 id="2025-09-15-08-17">2025-09-15</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-04 10:39:54.977896</dd>
+        <dd>2025-09-15 08:17:37.791756</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-04 10:40:01.606954</dd>
+        <dd>2025-09-15 08:17:42.418640</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:39:54] Fetching Scraper for: STN                              handlers.py:23
+  <pre>[08:17:37] Fetching Scraper for: STN                              handlers.py:23
            Begin attempting to scrape: STN                        handlers.py:27
-[10:39:55] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:39:56] Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-[10:39:57] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[10:40:00] Committing batch 1 consisting of 78 files                 base.py:297
-[10:40:01] Finished attempting to scrape: STN                        base.py:345
+[08:17:38] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:17:39] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:17:42] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: STN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-03-08-23">2025-04-03</h2>
+  <h2 id="2025-09-14-08-57">2025-09-14</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>6 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-03 08:23:27.017879</dd>
+        <dd>2025-09-14 08:57:15.976718</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-03 08:23:33.955885</dd>
+        <dd>2025-09-14 08:57:20.201392</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:23:27] Fetching Scraper for: STN                              handlers.py:23
-           Begin attempting to scrape: STN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:23:28] Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-[08:23:29] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[08:23:32] Committing batch 1 consisting of 78 files                 base.py:297
-[08:23:33] Finished attempting to scrape: STN                        base.py:345
+  <pre>[08:57:15] Fetching Scraper for: STN                              handlers.py:23
+[08:57:16] Begin attempting to scrape: STN                        handlers.py:27
+           Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:57:17] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[08:57:20] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: STN                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-02-09-59">2025-04-02</h2>
+  <h2 id="2025-09-13-09-11">2025-09-13</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>5 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-02 09:59:27.434054</dd>
+        <dd>2025-09-13 09:11:01.316708</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-02 09:59:33.137115</dd>
+        <dd>2025-09-13 09:11:05.627940</dd>
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>0</dd>
+        <dd>1</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd></dd>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:59:27] Fetching Scraper for: STN                              handlers.py:23
+  <pre>[09:11:01] Fetching Scraper for: STN                              handlers.py:23
            Begin attempting to scrape: STN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:59:28] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-[09:59:29] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[09:59:31] Committing batch 1 consisting of 78 files                 base.py:297
-[09:59:33] Finished attempting to scrape: STN                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-04-01-09-48">2025-04-01</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>6 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-04-01 09:48:45.659875</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-04-01 09:48:52.244361</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:48:45] Fetching Scraper for: STN                              handlers.py:23
-           Begin attempting to scrape: STN                        handlers.py:27
-[09:48:46] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[09:48:47] ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-[09:48:48] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[09:48:50] Committing batch 1 consisting of 78 files                 base.py:297
-[09:48:52] Finished attempting to scrape: STN                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-31-09-59">2025-03-31</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-03-31 09:59:33.714568</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-03-31 09:59:39.300834</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:59:33] Fetching Scraper for: STN                              handlers.py:23
-           Begin attempting to scrape: STN                        handlers.py:27
-[09:59:34] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-[09:59:35] Getting all files in Councillors/raw...                   base.py:209
-           ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[09:59:38] Committing batch 1 consisting of 78 files                 base.py:297
-[09:59:39] Finished attempting to scrape: STN                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-30-08-33">2025-03-30</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-03-30 08:33:25.485056</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-03-30 08:33:31.029583</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:33:25] Fetching Scraper for: STN                              handlers.py:23
-           Begin attempting to scrape: STN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:33:26] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-[08:33:27] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[08:33:29] Committing batch 1 consisting of 78 files                 base.py:297
-[08:33:31] Finished attempting to scrape: STN                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-29-10-31">2025-03-29</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>6 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-03-29 10:31:46.255614</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-03-29 10:31:52.257291</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:31:46] Fetching Scraper for: STN                              handlers.py:23
-           Begin attempting to scrape: STN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:31:47] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-[10:31:48] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[10:31:51] Committing batch 1 consisting of 78 files                 base.py:297
-[10:31:52] Finished attempting to scrape: STN                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-28-09-55">2025-03-28</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-03-28 09:55:38.453051</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-03-28 09:55:43.714535</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:55:38] Fetching Scraper for: STN                              handlers.py:23
-           Begin attempting to scrape: STN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:55:39] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-[09:55:40] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[09:55:42] Committing batch 1 consisting of 78 files                 base.py:297
-[09:55:43] Finished attempting to scrape: STN                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-27-10-16">2025-03-27</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>6 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-03-27 10:16:44.472281</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-03-27 10:16:50.968066</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:16:44] Fetching Scraper for: STN                              handlers.py:23
-           Begin attempting to scrape: STN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:16:45] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-[10:16:46] ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-[10:16:47] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[10:16:49] Committing batch 1 consisting of 78 files                 base.py:297
-[10:16:50] Finished attempting to scrape: STN                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-26-08-24">2025-03-26</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>7 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-03-26 08:24:00.772883</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-03-26 08:24:08.720759</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:24:00] Fetching Scraper for: STN                              handlers.py:23
-           Begin attempting to scrape: STN                        handlers.py:27
-[08:24:01] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-[08:24:02] ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-[08:24:03] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[08:24:07] Committing batch 1 consisting of 78 files                 base.py:297
-[08:24:08] Finished attempting to scrape: STN                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-25-10-27">2025-03-25</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-03-25 10:27:00.304819</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-03-25 10:27:05.977437</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd></dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:27:00] Fetching Scraper for: STN                              handlers.py:23
-           Begin attempting to scrape: STN                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:27:01] Getting all files in Councillors...                       base.py:209
-           Getting all files in Councillors/json...                  base.py:209
-           ...found 39 files in Councillors/json                     base.py:225
-           Getting all files in Councillors/raw...                   base.py:209
-           ...found 39 files in Councillors/raw                      base.py:225
-           ...found 79 files in Councillors                          base.py:225
-           Deleting batch no. 1 consisting of 79 files               base.py:236
-[10:27:02] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           https://uttlesford.moderngov.co.uk/mgWebService.asmx/GetCo           
-           uncillorsByWard                                                      
-[10:27:04] Committing batch 1 consisting of 78 files                 base.py:297
-[10:27:05] Finished attempting to scrape: STN                        base.py:345
+           Deleting existing data...                                 base.py:263
+[09:11:02] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:11:03] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://moderngov.sutton.gov.uk/mgWebService.asmx/GetCounc           
+           illorsByWard                                                         
+[09:11:05] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: STN                        base.py:351
 </pre>
   
 

@@ -37,21 +37,21 @@
   
 
 
-  <h2 id="2025-04-13-10-15">2025-04-13</h2>
+  <h2 id="2025-10-02-08-19">2025-10-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-13 10:15:38.979069</dd>
+        <dd>2025-10-02 08:19:56.316054</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-13 10:15:56.806847</dd>
+        <dd>2025-10-02 08:20:00.129529</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -60,58 +60,17 @@
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -119,139 +78,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:15:38] Fetching Scraper for: GLS                              handlers.py:23
-[10:15:39] Begin attempting to scrape: GLS                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:15:40] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[10:15:56] [Errno 110] Connection timed out                       handlers.py:36
-           Finished attempting to scrape: GLS                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-04-12-09-49">2025-04-12</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>17 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-04-12 09:49:00.347110</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-04-12 09:49:18.023278</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:49:00] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[08:19:56] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:49:01] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:49:02] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[09:49:17] [Errno 110] Connection timed out                       handlers.py:36
-[09:49:18] Finished attempting to scrape: GLS                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:19:57] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:19:58] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:19:59] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+[08:20:00] Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-11-09-06">2025-04-11</h2>
+  <h2 id="2025-10-01-09-03">2025-10-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-11 09:06:07.912077</dd>
+        <dd>2025-10-01 09:03:57.051706</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-11 09:06:25.393362</dd>
+        <dd>2025-10-01 09:04:01.190134</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -260,58 +121,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -319,39 +139,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:06:07] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[09:03:57] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-[09:06:08] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:06:09] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[09:06:24] [Errno 110] Connection timed out                       handlers.py:36
-[09:06:25] Finished attempting to scrape: GLS                        base.py:345
+           Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[09:03:58] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:03:59] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[09:04:00] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+[09:04:01] Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-10-09-37">2025-04-10</h2>
+  <h2 id="2025-09-30-08-27">2025-09-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-10 09:37:45.100996</dd>
+        <dd>2025-09-30 08:27:38.066661</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-10 09:38:02.708669</dd>
+        <dd>2025-09-30 08:27:42.557564</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -360,58 +182,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -419,39 +200,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:37:45] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[08:27:38] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:37:46] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[09:38:02] [Errno 110] Connection timed out                       handlers.py:36
-           Finished attempting to scrape: GLS                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:27:39] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:27:40] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:27:42] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-09-09-57">2025-04-09</h2>
+  <h2 id="2025-09-29-08-47">2025-09-29</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-09 09:57:32.193492</dd>
+        <dd>2025-09-29 08:47:18.758553</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-09 09:57:50.030750</dd>
+        <dd>2025-09-29 08:47:22.554957</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -460,58 +243,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -519,39 +261,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:57:32] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[08:47:18] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:57:33] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:57:34] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[09:57:49] [Errno 110] Connection timed out                       handlers.py:36
-[09:57:50] Finished attempting to scrape: GLS                        base.py:345
+[08:47:19] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:47:20] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:47:22] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-08-09-22">2025-04-08</h2>
+  <h2 id="2025-09-28-08-29">2025-09-28</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-08 09:22:51.935996</dd>
+        <dd>2025-09-28 08:29:44.901264</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-08 09:23:09.742694</dd>
+        <dd>2025-09-28 08:29:48.571909</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -560,58 +304,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -619,39 +322,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:22:51] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[08:29:44] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-[09:22:52] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:22:53] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[09:23:09] [Errno 110] Connection timed out                       handlers.py:36
-           Finished attempting to scrape: GLS                        base.py:345
+[08:29:45] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:29:46] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:29:48] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-07-08-35">2025-04-07</h2>
+  <h2 id="2025-09-27-08-53">2025-09-27</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>7 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-07 08:35:01.798230</dd>
+        <dd>2025-09-27 08:53:15.556819</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-07 08:35:19.739252</dd>
+        <dd>2025-09-27 08:53:22.588192</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -660,58 +365,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -719,39 +383,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:35:01] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[08:53:15] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-[08:35:02] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:35:03] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[08:35:19] [Errno 110] Connection timed out                       handlers.py:36
-           Finished attempting to scrape: GLS                        base.py:345
+[08:53:16] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:53:17] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:53:22] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-06-08-43">2025-04-06</h2>
+  <h2 id="2025-09-26-08-46">2025-09-26</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-06 08:43:43.965953</dd>
+        <dd>2025-09-26 08:46:11.456674</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-06 08:44:01.504854</dd>
+        <dd>2025-09-26 08:46:15.173542</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -760,58 +426,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -819,39 +444,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:43:43] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[08:46:11] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-[08:43:44] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:43:45] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[08:44:01] [Errno 110] Connection timed out                       handlers.py:36
-           Finished attempting to scrape: GLS                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:46:12] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:46:13] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:46:14] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+[08:46:15] Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-05-09-12">2025-04-05</h2>
+  <h2 id="2025-09-25-08-40">2025-09-25</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-05 09:12:00.612389</dd>
+        <dd>2025-09-25 08:40:52.414624</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-05 09:12:18.270805</dd>
+        <dd>2025-09-25 08:40:56.286594</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -860,58 +487,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -919,39 +505,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:12:00] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[08:40:52] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-[09:12:01] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:12:02] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[09:12:17] [Errno 110] Connection timed out                       handlers.py:36
-[09:12:18] Finished attempting to scrape: GLS                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:40:53] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:40:54] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:40:56] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-04-09-10">2025-04-04</h2>
+  <h2 id="2025-09-24-09-06">2025-09-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-04 09:10:18.057426</dd>
+        <dd>2025-09-24 09:06:39.373595</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-04 09:10:35.864541</dd>
+        <dd>2025-09-24 09:06:43.026833</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -960,58 +548,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1019,39 +566,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:10:18] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[09:06:39] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:10:19] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:10:20] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[09:10:35] [Errno 110] Connection timed out                       handlers.py:36
-           Finished attempting to scrape: GLS                        base.py:345
+           Deleting existing data...                                 base.py:263
+[09:06:40] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:06:41] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[09:06:42] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+[09:06:43] Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-03-09-57">2025-04-03</h2>
+  <h2 id="2025-09-23-08-37">2025-09-23</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-03 09:57:52.443892</dd>
+        <dd>2025-09-23 08:37:49.026631</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-03 09:58:10.084020</dd>
+        <dd>2025-09-23 08:37:52.904242</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1060,58 +609,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1119,39 +627,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:57:52] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[08:37:49] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:57:53] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:57:54] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[09:58:09] [Errno 110] Connection timed out                       handlers.py:36
-[09:58:10] Finished attempting to scrape: GLS                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:37:50] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:37:51] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:37:52] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-02-09-50">2025-04-02</h2>
+  <h2 id="2025-09-22-08-45">2025-09-22</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-02 09:50:48.922195</dd>
+        <dd>2025-09-22 08:45:22.705923</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-02 09:51:06.585028</dd>
+        <dd>2025-09-22 08:45:26.960069</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1160,58 +670,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1219,39 +688,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:50:48] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[08:45:22] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-[09:50:49] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:50:50] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[09:51:06] [Errno 110] Connection timed out                       handlers.py:36
-           Finished attempting to scrape: GLS                        base.py:345
+[08:45:23] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:45:24] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:45:26] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-01-10-22">2025-04-01</h2>
+  <h2 id="2025-09-21-08-58">2025-09-21</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-01 10:22:55.218806</dd>
+        <dd>2025-09-21 08:58:49.588311</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-01 10:23:12.952421</dd>
+        <dd>2025-09-21 08:58:53.277620</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1260,58 +731,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1319,39 +749,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:22:55] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[08:58:49] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:22:56] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:22:57] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[10:23:12] [Errno 110] Connection timed out                       handlers.py:36
-           Finished attempting to scrape: GLS                        base.py:345
+[08:58:50] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:58:51] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:58:53] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-31-10-29">2025-03-31</h2>
+  <h2 id="2025-09-20-08-26">2025-09-20</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-31 10:29:47.397157</dd>
+        <dd>2025-09-20 08:26:46.000902</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-31 10:30:04.841926</dd>
+        <dd>2025-09-20 08:26:50.671184</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1360,58 +792,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1419,39 +810,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:29:47] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[08:26:46] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:29:48] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:29:49] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[10:30:04] [Errno 110] Connection timed out                       handlers.py:36
-           Finished attempting to scrape: GLS                        base.py:345
+           Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:26:47] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:26:48] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:26:50] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-30-09-27">2025-03-30</h2>
+  <h2 id="2025-09-19-08-30">2025-09-19</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>3 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-30 09:27:06.520111</dd>
+        <dd>2025-09-19 08:30:28.031857</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-30 09:27:24.215296</dd>
+        <dd>2025-09-19 08:30:31.697500</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1460,58 +853,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1519,39 +871,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:27:06] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[08:30:28] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-[09:27:07] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:27:08] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[09:27:23] [Errno 110] Connection timed out                       handlers.py:36
-[09:27:24] Finished attempting to scrape: GLS                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:30:29] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:30:30] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:30:31] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-29-09-41">2025-03-29</h2>
+  <h2 id="2025-09-18-08-28">2025-09-18</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-29 09:41:56.978449</dd>
+        <dd>2025-09-18 08:28:15.536744</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-29 09:42:14.496345</dd>
+        <dd>2025-09-18 08:28:19.920340</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1560,58 +914,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1619,139 +932,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:41:56] Fetching Scraper for: GLS                              handlers.py:23
-[09:41:57] Begin attempting to scrape: GLS                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:41:58] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[09:42:14] [Errno 110] Connection timed out                       handlers.py:36
-           Finished attempting to scrape: GLS                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-28-10-44">2025-03-28</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>17 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-03-28 10:44:10.406287</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-03-28 10:44:28.192175</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
-    wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:44:10] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[08:28:15] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:44:11] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:44:12] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[10:44:27] [Errno 110] Connection timed out                       handlers.py:36
-[10:44:28] Finished attempting to scrape: GLS                        base.py:345
+[08:28:16] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:28:18] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:28:19] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-27-08-19">2025-03-27</h2>
+  <h2 id="2025-09-17-08-56">2025-09-17</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-27 08:19:40.744127</dd>
+        <dd>2025-09-17 08:56:39.693396</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-27 08:19:58.413742</dd>
+        <dd>2025-09-17 08:56:43.698332</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1760,58 +975,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1819,39 +993,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:19:40] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[08:56:39] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-[08:19:41] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:19:42] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[08:19:58] [Errno 110] Connection timed out                       handlers.py:36
-           Finished attempting to scrape: GLS                        base.py:345
+[08:56:40] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:56:41] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:56:43] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-26-09-50">2025-03-26</h2>
+  <h2 id="2025-09-16-08-37">2025-09-16</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-26 09:50:56.433556</dd>
+        <dd>2025-09-16 08:37:04.389822</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-26 09:51:14.062529</dd>
+        <dd>2025-09-16 08:37:08.511499</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1860,58 +1036,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1919,39 +1054,41 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:50:56] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[08:37:04] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:50:57] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:50:58] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[09:51:13] [Errno 110] Connection timed out                       handlers.py:36
-[09:51:14] Finished attempting to scrape: GLS                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:37:05] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:37:06] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:37:08] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-25-09-22">2025-03-25</h2>
+  <h2 id="2025-09-15-08-19">2025-09-15</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>17 seconds</dd>
+        <dd>4 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-25 09:22:57.209646</dd>
+        <dd>2025-09-15 08:19:48.294712</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-25 09:23:14.826151</dd>
+        <dd>2025-09-15 08:19:52.710249</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1960,58 +1097,17 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
       <div>
         <dt>Error</dt>
         <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 233, in handle_request
-    resp = self._pool.handle_request(req)
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 216, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 196, in handle_request
-    response = connection.handle_request(
-  File "/opt/python/httpcore/_sync/connection.py", line 99, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/connection.py", line 76, in handle_request
-    stream = self._connect(request)
-  File "/opt/python/httpcore/_sync/connection.py", line 122, in _connect
-    stream = self._network_backend.connect_tcp(**kwargs)
-  File "/opt/python/httpcore/_backends/sync.py", line 205, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectTimeout: [Errno 110] Connection timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 197, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
     wards = self.get_councillors()
-  File "/var/task/lgsf/councillors/scrapers.py", line 216, in get_councillors
-    req = self.get(self.format_councillor_api_url())
-  File "/var/task/lgsf/scrapers/base.py", line 55, in get
-    response = self.http_client.get(url, headers=headers, timeout=30)
-  File "/opt/python/httpx/_client.py", line 1054, in get
-    return self.request(
-  File "/opt/python/httpx/_client.py", line 827, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-  File "/opt/python/httpx/_client.py", line 1015, in _send_single_request
-    response = transport.handle_request(request)
-  File "/opt/python/httpx/_transports/default.py", line 232, in handle_request
-    with map_httpcore_exceptions():
-  File "/var/lang/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/opt/python/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectTimeout: [Errno 110] Connection timed out
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -2019,18 +1115,142 @@ httpx.ConnectTimeout: [Errno 110] Connection timed out
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:22:57] Fetching Scraper for: GLS                              handlers.py:23
+  <pre>[08:19:48] Fetching Scraper for: GLS                              handlers.py:23
            Begin attempting to scrape: GLS                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:22:58] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:22:59] ...data deleted.                                          base.py:264
-           Scraping from                                              base.py:49
-           http://glostext.gloucestershire.gov.uk//mgWebService.asmx/           
-           GetCouncillorsByWard                                                 
-[09:23:14] [Errno 110] Connection timed out                       handlers.py:36
-           Finished attempting to scrape: GLS                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:19:49] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:19:50] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:19:52] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: GLS                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-14-08-37">2025-09-14</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-14 08:37:43.063909</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-14 08:37:46.852581</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:37:43] Fetching Scraper for: GLS                              handlers.py:23
+           Begin attempting to scrape: GLS                        handlers.py:27
+           Deleting existing data...                                 base.py:263
+[08:37:44] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:37:45] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[08:37:46] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: GLS                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-13-09-03">2025-09-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-13 09:03:08.698430</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-13 09:03:12.674331</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
+    soup = BeautifulSoup(req.text, "lxml")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:03:08] Fetching Scraper for: GLS                              handlers.py:23
+           Begin attempting to scrape: GLS                        handlers.py:27
+[09:03:09] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:03:10] ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://glostext.gloucestershire.gov.uk//mgWebService.asmx           
+           /GetCouncillorsByWard                                                
+[09:03:12] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: lxml. Do you need to install a parser                     
+           library?                                                             
+           Finished attempting to scrape: GLS                        base.py:351
 </pre>
   
 

@@ -37,7 +37,7 @@
   
 
 
-  <h2 id="2025-04-13-10-28">2025-04-13</h2>
+  <h2 id="2025-10-02-08-17">2025-10-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -47,11 +47,11 @@
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-13 10:28:14.094476</dd>
+        <dd>2025-10-02 08:17:48.824390</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-13 10:28:16.212903</dd>
+        <dd>2025-10-02 08:17:51.665566</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -62,20 +62,21 @@
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
     container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
     self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -83,27 +84,25 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:28:14] Fetching Scraper for: WRT                              handlers.py:23
+  <pre>[08:17:48] Fetching Scraper for: WRT                              handlers.py:23
            Begin attempting to scrape: WRT                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:28:15] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-[10:28:16] Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-           Finished attempting to scrape: WRT                        base.py:345
+[08:17:49] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:17:50] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+[08:17:51] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-12-09-47">2025-04-12</h2>
+  <h2 id="2025-10-01-08-36">2025-10-01</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -113,11 +112,11 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-12 09:47:07.091522</dd>
+        <dd>2025-10-01 08:36:00.363799</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-12 09:47:09.202658</dd>
+        <dd>2025-10-01 08:36:03.151393</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -128,20 +127,21 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
     container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
     self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -149,27 +149,25 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:47:07] Fetching Scraper for: WRT                              handlers.py:23
+  <pre>[08:36:00] Fetching Scraper for: WRT                              handlers.py:23
            Begin attempting to scrape: WRT                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:47:08] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-[09:47:09] Finished attempting to scrape: WRT                        base.py:345
+[08:36:01] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:36:02] ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+[08:36:03] Finished attempting to scrape: WRT                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-11-10-15">2025-04-11</h2>
+  <h2 id="2025-09-30-08-42">2025-09-30</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -179,11 +177,11 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-11 10:15:34.544643</dd>
+        <dd>2025-09-30 08:42:15.759199</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-11 10:15:36.744768</dd>
+        <dd>2025-09-30 08:42:18.589340</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -194,20 +192,21 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
     container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
     self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -215,27 +214,25 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
   </div>
 
   <h3>Run log</h3>
-  <pre>[10:15:34] Fetching Scraper for: WRT                              handlers.py:23
+  <pre>[08:42:15] Fetching Scraper for: WRT                              handlers.py:23
            Begin attempting to scrape: WRT                        handlers.py:27
-[10:15:35] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:15:36] ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-           Finished attempting to scrape: WRT                        base.py:345
+[08:42:16] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:42:17] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+[08:42:18] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-10-09-49">2025-04-10</h2>
+  <h2 id="2025-09-29-08-30">2025-09-29</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -245,11 +242,11 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-04-10 09:49:22.423318</dd>
+        <dd>2025-09-29 08:30:31.043323</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-04-10 09:49:24.698075</dd>
+        <dd>2025-09-29 08:30:33.909624</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -260,20 +257,21 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
     container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
     self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -281,885 +279,25 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:49:22] Fetching Scraper for: WRT                              handlers.py:23
+  <pre>[08:30:31] Fetching Scraper for: WRT                              handlers.py:23
            Begin attempting to scrape: WRT                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:49:23] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:49:24] ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-           Finished attempting to scrape: WRT                        base.py:345
+           Deleting existing data...                                 base.py:263
+[08:30:32] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+[08:30:33] Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-04-09-09-27">2025-04-09</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-04-09 09:27:20.802667</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-04-09 09:27:23.332648</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:27:20] Fetching Scraper for: WRT                              handlers.py:23
-           Begin attempting to scrape: WRT                        handlers.py:27
-[09:27:21] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[09:27:22] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-[09:27:23] Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-           Finished attempting to scrape: WRT                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-04-08-09-40">2025-04-08</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-04-08 09:40:38.827323</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-04-08 09:40:41.230078</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:40:38] Fetching Scraper for: WRT                              handlers.py:23
-           Begin attempting to scrape: WRT                        handlers.py:27
-[09:40:39] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:40:40] ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-[09:40:41] Finished attempting to scrape: WRT                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-04-07-09-34">2025-04-07</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-04-07 09:34:27.362822</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-04-07 09:34:29.980642</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:34:27] Fetching Scraper for: WRT                              handlers.py:23
-           Begin attempting to scrape: WRT                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:34:28] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:34:29] ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-           Finished attempting to scrape: WRT                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-04-06-08-39">2025-04-06</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-04-06 08:39:32.782169</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-04-06 08:39:35.026926</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:39:32] Fetching Scraper for: WRT                              handlers.py:23
-           Begin attempting to scrape: WRT                        handlers.py:27
-[08:39:33] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:39:34] ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-[08:39:35] Finished attempting to scrape: WRT                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-04-05-09-49">2025-04-05</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-04-05 09:49:32.431482</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-04-05 09:49:34.706685</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:49:32] Fetching Scraper for: WRT                              handlers.py:23
-           Begin attempting to scrape: WRT                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:49:33] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:49:34] ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-           Finished attempting to scrape: WRT                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-04-04-10-02">2025-04-04</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-04-04 10:02:39.035644</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-04-04 10:02:41.496631</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:02:39] Fetching Scraper for: WRT                              handlers.py:23
-           Begin attempting to scrape: WRT                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[10:02:40] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:02:41] ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-           Finished attempting to scrape: WRT                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-04-03-09-01">2025-04-03</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-04-03 09:01:18.166753</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-04-03 09:01:20.767437</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:01:18] Fetching Scraper for: WRT                              handlers.py:23
-           Begin attempting to scrape: WRT                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:01:19] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:01:20] ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-           Finished attempting to scrape: WRT                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-04-02-08-27">2025-04-02</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-04-02 08:27:40.048216</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-04-02 08:27:42.181560</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:27:40] Fetching Scraper for: WRT                              handlers.py:23
-           Begin attempting to scrape: WRT                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-[08:27:41] ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-           ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-[08:27:42] Finished attempting to scrape: WRT                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-04-01-10-42">2025-04-01</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-04-01 10:42:33.819154</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-04-01 10:42:35.913370</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:42:33] Fetching Scraper for: WRT                              handlers.py:23
-           Begin attempting to scrape: WRT                        handlers.py:27
-[10:42:34] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:42:35] ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-           Finished attempting to scrape: WRT                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-31-10-14">2025-03-31</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-03-31 10:14:47.349145</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-03-31 10:14:49.890433</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:14:47] Fetching Scraper for: WRT                              handlers.py:23
-           Begin attempting to scrape: WRT                        handlers.py:27
-[10:14:48] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:14:49] ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-           Finished attempting to scrape: WRT                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-30-08-35">2025-03-30</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-03-30 08:35:06.440669</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-03-30 08:35:08.682649</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:35:06] Fetching Scraper for: WRT                              handlers.py:23
-           Begin attempting to scrape: WRT                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[08:35:07] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:35:08] ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-           Finished attempting to scrape: WRT                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-29-10-06">2025-03-29</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-03-29 10:06:47.859364</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-03-29 10:06:50.127185</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:06:47] Fetching Scraper for: WRT                              handlers.py:23
-           Begin attempting to scrape: WRT                        handlers.py:27
-[10:06:48] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:06:49] ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-[10:06:50] Finished attempting to scrape: WRT                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-28-10-17">2025-03-28</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-03-28 10:17:35.079006</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-03-28 10:17:37.518196</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
-    for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
-    container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[10:17:35] Fetching Scraper for: WRT                              handlers.py:23
-           Begin attempting to scrape: WRT                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[10:17:36] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[10:17:37] ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-           Finished attempting to scrape: WRT                        base.py:345
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-03-27-08-47">2025-03-27</h2>
+  <h2 id="2025-09-28-08-44">2025-09-28</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -1169,11 +307,11 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-27 08:47:33.631869</dd>
+        <dd>2025-09-28 08:44:16.516592</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-27 08:47:37.473535</dd>
+        <dd>2025-09-28 08:44:19.947420</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1184,20 +322,21 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
     container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
     self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1205,27 +344,25 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:47:33] Fetching Scraper for: WRT                              handlers.py:23
+  <pre>[08:44:16] Fetching Scraper for: WRT                              handlers.py:23
            Begin attempting to scrape: WRT                        handlers.py:27
-[08:47:34] Deleting existing data...                                 base.py:257
-[08:47:36] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[08:47:37] ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-           Finished attempting to scrape: WRT                        base.py:345
+[08:44:17] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:44:18] ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+[08:44:19] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-26-09-57">2025-03-26</h2>
+  <h2 id="2025-09-27-08-24">2025-09-27</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -1235,11 +372,11 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-26 09:57:14.663147</dd>
+        <dd>2025-09-27 08:24:01.427530</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-26 09:57:16.982674</dd>
+        <dd>2025-09-27 08:24:04.316583</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1250,20 +387,21 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
     container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
     self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1271,27 +409,90 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:57:14] Fetching Scraper for: WRT                              handlers.py:23
+  <pre>[08:24:01] Fetching Scraper for: WRT                              handlers.py:23
            Begin attempting to scrape: WRT                        handlers.py:27
-[09:57:15] Deleting existing data...                                 base.py:257
-           Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:57:16] ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-           Finished attempting to scrape: WRT                        base.py:345
+[08:24:02] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:24:03] ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+[08:24:04] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
 </pre>
   
 
   
 
 
-  <h2 id="2025-03-25-09-22">2025-03-25</h2>
+  <h2 id="2025-09-26-09-06">2025-09-26</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-26 09:06:57.853016</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-26 09:07:00.871887</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:06:57] Fetching Scraper for: WRT                              handlers.py:23
+           Begin attempting to scrape: WRT                        handlers.py:27
+[09:06:58] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[09:06:59] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:07:00] ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-25-08-26">2025-09-25</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -1301,11 +502,11 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-03-25 09:22:29.350403</dd>
+        <dd>2025-09-25 08:26:41.601566</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-03-25 09:22:31.582170</dd>
+        <dd>2025-09-25 08:26:43.907700</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -1316,20 +517,21 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
         <dd>Traceback (most recent call last):
   File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 55, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
     for councillor_html in self.get_councillors():
-  File "/var/task/lgsf/councillors/scrapers.py", line 161, in get_councillors
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
     container = self.get_list_container()
-  File "/var/task/lgsf/councillors/scrapers.py", line 152, in get_list_container
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
     self.base_url_soup = self.get_page(self.base_url)
-  File "/var/task/lgsf/councillors/scrapers.py", line 141, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-  File "/var/task/lgsf/scrapers/base.py", line 56, in get
-    response.raise_for_status()
-  File "/opt/python/httpx/_models.py", line 761, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://www.warrington.gov.uk/councillors'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
 </dd>
       </div>
     </dl>
@@ -1337,20 +539,798 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
   </div>
 
   <h3>Run log</h3>
-  <pre>[09:22:29] Fetching Scraper for: WRT                              handlers.py:23
+  <pre>[08:26:41] Fetching Scraper for: WRT                              handlers.py:23
            Begin attempting to scrape: WRT                        handlers.py:27
-           Deleting existing data...                                 base.py:257
-[09:22:30] Getting all files in Councillors...                       base.py:209
-           ...found 1 files in Councillors                           base.py:225
-           Deleting batch no. 1 consisting of 1 files                base.py:236
-[09:22:31] ...data deleted.                                          base.py:264
-           Scraping from https://www.warrington.gov.uk/councillors    base.py:49
-           Client error '403 Forbidden' for url                   handlers.py:36
-           'https://www.warrington.gov.uk/councillors'                          
-           For more information check:                                          
-           https://developer.mozilla.org/en-US/docs/Web/HTTP/Stat               
-           us/403                                                               
-           Finished attempting to scrape: WRT                        base.py:345
+[08:26:42] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:26:43] ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-24-08-18">2025-09-24</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-24 08:18:32.361193</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-24 08:18:34.607214</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:18:32] Fetching Scraper for: WRT                              handlers.py:23
+           Begin attempting to scrape: WRT                        handlers.py:27
+           Deleting existing data...                                 base.py:263
+[08:18:33] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:18:34] ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-23-09-01">2025-09-23</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-23 09:01:01.170567</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-23 09:01:03.827941</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:01:01] Fetching Scraper for: WRT                              handlers.py:23
+           Begin attempting to scrape: WRT                        handlers.py:27
+           Deleting existing data...                                 base.py:263
+[09:01:02] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:01:03] ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-22-08-52">2025-09-22</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-22 08:52:38.349855</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-22 08:52:41.886494</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:52:38] Fetching Scraper for: WRT                              handlers.py:23
+           Begin attempting to scrape: WRT                        handlers.py:27
+[08:52:39] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:52:40] ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+[08:52:41] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-21-08-31">2025-09-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-21 08:31:13.824484</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-21 08:31:16.415876</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:31:13] Fetching Scraper for: WRT                              handlers.py:23
+           Begin attempting to scrape: WRT                        handlers.py:27
+[08:31:14] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:31:15] ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+[08:31:16] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-20-08-20">2025-09-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-20 08:20:06.686984</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-20 08:20:09.458541</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:20:06] Fetching Scraper for: WRT                              handlers.py:23
+           Begin attempting to scrape: WRT                        handlers.py:27
+[08:20:07] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:20:08] ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+[08:20:09] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-19-09-03">2025-09-19</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-19 09:03:11.886802</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-19 09:03:13.995182</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[09:03:11] Fetching Scraper for: WRT                              handlers.py:23
+           Begin attempting to scrape: WRT                        handlers.py:27
+[09:03:12] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[09:03:13] ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-18-08-45">2025-09-18</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-18 08:45:28.924197</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-18 08:45:31.957311</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:45:28] Fetching Scraper for: WRT                              handlers.py:23
+           Begin attempting to scrape: WRT                        handlers.py:27
+[08:45:29] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:45:30] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+[08:45:31] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-17-08-40">2025-09-17</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-17 08:40:59.280320</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-17 08:41:01.884267</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:40:59] Fetching Scraper for: WRT                              handlers.py:23
+           Begin attempting to scrape: WRT                        handlers.py:27
+           Deleting existing data...                                 base.py:263
+[08:41:00] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:41:01] ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-16-08-23">2025-09-16</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-16 08:23:25.225899</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-16 08:23:27.927235</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:23:25] Fetching Scraper for: WRT                              handlers.py:23
+           Begin attempting to scrape: WRT                        handlers.py:27
+           Deleting existing data...                                 base.py:263
+[08:23:26] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:23:27] ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-15-08-17">2025-09-15</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-15 08:17:46.216786</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-15 08:17:49.035642</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:17:46] Fetching Scraper for: WRT                              handlers.py:23
+           Begin attempting to scrape: WRT                        handlers.py:27
+           Deleting existing data...                                 base.py:263
+[08:17:47] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:17:48] ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+[08:17:49] Finished attempting to scrape: WRT                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-14-08-43">2025-09-14</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>3 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-14 08:43:42.813824</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-14 08:43:45.828026</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:43:42] Fetching Scraper for: WRT                              handlers.py:23
+           Begin attempting to scrape: WRT                        handlers.py:27
+[08:43:43] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:43:44] ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+[08:43:45] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+           Finished attempting to scrape: WRT                        base.py:351
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-09-13-08-41">2025-09-13</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>2 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-09-13 08:41:47.163520</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-09-13 08:41:50.048078</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:41:47] Fetching Scraper for: WRT                              handlers.py:23
+           Begin attempting to scrape: WRT                        handlers.py:27
+           Deleting existing data...                                 base.py:263
+[08:41:48] Getting all files in Councillors...                       base.py:215
+           ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+[08:41:49] ...data deleted.                                          base.py:270
+           Scraping from https://www.warrington.gov.uk/councillors    base.py:52
+           Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+[08:41:50] Finished attempting to scrape: WRT                        base.py:351
 </pre>
   
 
