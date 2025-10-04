@@ -37,6 +37,72 @@
   
 
 
+  <h2 id="2025-10-03-08-32">2025-10-03</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>9 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-10-03 08:32:34.820310</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-10-03 08:32:44.209684</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
+    for councillor_html in self.get_councillors():
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
+    container = self.get_list_container()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
+    self.base_url_soup = self.get_page(self.base_url)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 148, in get_page
+    return BeautifulSoup(page, "html5lib")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/bs4/__init__.py", line 364, in __init__
+    raise FeatureNotFound(
+bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[08:32:34] Fetching Scraper for: IVC                              handlers.py:23
+           Begin attempting to scrape: IVC                        handlers.py:27
+[08:32:35] Deleting existing data...                                 base.py:263
+           Getting all files in Councillors...                       base.py:215
+[08:32:36] ...found 1 files in Councillors                           base.py:231
+           Deleting batch no. 1 consisting of 1 files                base.py:242
+           ...data deleted.                                          base.py:270
+           Scraping from                                              base.py:52
+           https://www.inverclyde.gov.uk/meetings/councillors                   
+[08:32:43] Couldn't find a tree builder with the features you     handlers.py:36
+           requested: html5lib. Do you need to install a parser                 
+           library?                                                             
+[08:32:44] Finished attempting to scrape: IVC                        base.py:351
+</pre>
+  
+
+  
+
+
   <h2 id="2025-10-02-08-23">2025-10-02</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1405,132 +1471,6 @@ httpx.ReadTimeout: The read operation timed out
            https://www.inverclyde.gov.uk/meetings/councillors                   
 [08:39:19] The read operation timed out                           handlers.py:36
 [08:39:20] Finished attempting to scrape: IVC                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-13-08-55">2025-09-13</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>12 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-13 08:55:44.555559</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-13 08:55:57.491817</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
-    yield
-  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
-    resp = self._pool.handle_request(req)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
-    raise exc from None
-  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
-    response = connection.handle_request(
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
-    return self._connection.handle_request(request)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
-    raise exc
-  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
-    ) = self._receive_response_headers(**kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
-    event = self._receive_event(timeout=timeout)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
-    data = self._network_stream.read(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
-    with map_exceptions(exc_map):
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
-    self.gen.throw(value)
-  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ReadTimeout: The read operation timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
-    for councillor_html in self.get_councillors():
-                           ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 167, in get_councillors
-    container = self.get_list_container()
-                ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 158, in get_list_container
-    self.base_url_soup = self.get_page(self.base_url)
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 147, in get_page
-    page = self.get(url, extra_headers=self.extra_headers).text
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/scrapers/base.py", line 57, in get
-    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/httpx/_client.py", line 1053, in get
-    return self.request(
-           ^^^^^^^^^^^^^
-  File "/opt/python/httpx/_client.py", line 825, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/httpx/_client.py", line 914, in send
-    response = self._send_handling_auth(
-               ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
-    response = self._send_handling_redirects(
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
-    response = self._send_single_request(request)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
-    response = transport.handle_request(request)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
-    with map_httpcore_exceptions():
-         ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
-    self.gen.throw(value)
-  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ReadTimeout: The read operation timed out
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:55:44] Fetching Scraper for: IVC                              handlers.py:23
-           Begin attempting to scrape: IVC                        handlers.py:27
-[08:55:45] Deleting existing data...                                 base.py:263
-           Getting all files in Councillors...                       base.py:215
-           ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[08:55:46] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://www.inverclyde.gov.uk/meetings/councillors                   
-[08:55:57] The read operation timed out                           handlers.py:36
-           Finished attempting to scrape: IVC                        base.py:351
 </pre>
   
 
