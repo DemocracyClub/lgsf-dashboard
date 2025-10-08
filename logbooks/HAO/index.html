@@ -37,6 +37,78 @@
   
 
 
+  <h2 id="2025-10-04-15-16">2025-10-04</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>10 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-10-04 15:16:42.419742</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-10-04 15:16:52.621133</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 130, in run
+    councillor = self.get_single_councillor(councillor_html)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 328, in get_single_councillor
+    party = self.get_party_name(list_page_html)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 314, in get_party_name
+    return list_page_html.find_all("img")[-1]["title"].replace("(logo)", "").strip()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/opt/python/bs4/element.py", line 2214, in __getitem__
+    return self.attrs[key]
+           ~~~~~~~~~~^^^^^
+KeyError: 'title'
+</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>[15:16:42] Fetching Scraper for: HAO                              handlers.py:23
+           Begin attempting to scrape: HAO                        handlers.py:27
+[15:16:43] Scraping from                                              base.py:52
+           https://cmis.harborough.gov.uk/cmis5/Councillors.aspx                
+           Scraping from                                              base.py:52
+           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
+           ctl/ViewCMIS_Person/mid/480/id/1427/ScreenMode/Ward/Defaul           
+           t.aspx                                                               
+[15:16:45] Scraping from                                              base.py:52
+           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
+           ctl/ViewCMIS_Person/mid/480/id/2186/ScreenMode/Ward/Defaul           
+           t.aspx                                                               
+[15:16:46] Scraping from                                              base.py:52
+           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
+           ctl/ViewCMIS_Person/mid/480/id/2054/ScreenMode/Ward/Defaul           
+           t.aspx                                                               
+[15:16:47] Scraping from                                              base.py:52
+           https://cmis.harborough.gov.uk/cmis5/Councillors/tabid/62/           
+           ctl/ViewCMIS_Person/mid/480/id/2196/ScreenMode/Ward/Defaul           
+           t.aspx                                                               
+[15:16:48] 'title'                                                handlers.py:36
+</pre>
+  
+
+  
+
+
   <h2 id="2025-10-04-08-33">2025-10-04</h2>
   <div class="ds-card">
   <div class="ds-card-body">
@@ -1177,66 +1249,6 @@ bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features y
            ...found 1 files in Councillors                           base.py:231
            Deleting batch no. 1 consisting of 1 files                base.py:242
 [08:38:16] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://cmis.harborough.gov.uk/cmis5/Councillors.aspx                
-           Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-           Finished attempting to scrape: HAO                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-15-08-58">2025-09-15</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>2 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-15 08:58:54.194412</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-15 08:58:56.650154</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 61, in run
-    for councillor_html in self.get_councillors():
-                           ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 285, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:58:54] Fetching Scraper for: HAO                              handlers.py:23
-           Begin attempting to scrape: HAO                        handlers.py:27
-           Deleting existing data...                                 base.py:263
-[08:58:55] Getting all files in Councillors...                       base.py:215
-           ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[08:58:56] ...data deleted.                                          base.py:270
            Scraping from                                              base.py:52
            https://cmis.harborough.gov.uk/cmis5/Councillors.aspx                
            Couldn't find a tree builder with the features you     handlers.py:36
