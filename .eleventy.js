@@ -6,18 +6,18 @@ const sass_options = {
     style: "expanded",
     sourceMap: true,
   },
-  defaultEleventyEnv: "development"
+  defaultEleventyEnv: "development",
 };
 
-
-
-module.exports = function(eleventyConfig) {
-
-
+module.exports = function (eleventyConfig) {
   eleventyConfig.setBrowserSyncConfig({
-    files: './_site/css/**/*.css'
+    files: "./_site/css/**/*.css",
   });
 
   eleventyConfig.addPlugin(eleventySass, sass_options);
 
+  // Copy CSV file to output directory for download
+  eleventyConfig.addPassthroughCopy({
+    "_data/services.csv": "data/services.csv",
+  });
 };
