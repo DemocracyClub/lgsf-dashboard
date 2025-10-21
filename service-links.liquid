@@ -11,6 +11,29 @@ permalink: /service-links/
   <a href="{{ '/data/services.csv' | url }}" class="ds-cta" download>Download CSV</a>
 </p>
 
+<h2>Summary by Service Name and CMS Type</h2>
+
+<table class="ds-table">
+  <thead>
+    <tr>
+      <th>Service Name</th>
+      <th>CMS Type</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for summary in servicesSummary %}
+      <tr>
+        <td>{{ summary.service_name }}</td>
+        <td>{{ summary.cms_type }}</td>
+        <td>{{ summary.count }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>All Services</h2>
+
 <table class="ds-table" id="services">
   <thead>
     <tr>
