@@ -54,14 +54,34 @@ jobs:
 
       - name: Rename downloaded CSV if needed
         run: |
+          # Debug: Show what was downloaded
+          echo "Contents of _data directory:"
+          ls -la _data/
+
           # Check if a CSV was downloaded with a different name and rename it
+          # The artifact might be in a subdirectory or have various names
           if [ -f "_data/cms-metadata.csv" ]; then
             mv _data/cms-metadata.csv _data/services.csv
             echo "Renamed cms-metadata.csv to services.csv"
+          elif [ -f "_data/cms-metadata/services.csv" ]; then
+            mv _data/cms-metadata/services.csv _data/services.csv
+            echo "Moved services.csv from cms-metadata subdirectory"
+          elif find _data -name "*.csv" -not -name "services.csv" | grep -q .; then
+            # Find any CSV file and use it
+            CSV_FILE=$(find _data -name "*.csv" -not -name "services.csv" | head -1)
+            echo "Found CSV at: $CSV_FILE"
+            mv "$CSV_FILE" _data/services.csv
+            echo "Moved $CSV_FILE to services.csv"
           elif [ -f "_data/services.csv" ]; then
             echo "services.csv already exists, no rename needed"
           else
             echo "No new CSV downloaded, using existing services.csv from repository"
+          fi
+
+          # Verify the CSV exists and show first few lines
+          if [ -f "_data/services.csv" ]; then
+            echo "Final services.csv (first 5 lines):"
+            head -5 _data/services.csv
           fi
 
       - name: Install JS deps & build
