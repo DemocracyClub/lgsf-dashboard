@@ -13,14 +13,39 @@
   font-style: normal;
   font-display: swap;
 }
+/*
+USE WITH CARE.
+
+"links go somewhere, buttons do something" should remain true,
+unless there is a very good reason to break this.
+
+We can use this when it's very obvious what will happen if it's
+pressed, and an `a` element can't be used.
+
+For example Django uses HTTP POST for 'log out' to avoid automated
+(e.g pre-fetch) GET requests from logging a user out. A link is
+reasonable from a user's point of view, but we use a button for
+technical reasons.
+
+This isn't exposed as a component, to avoid ad-hoc use. It is used by higher order
+components only.
+*/
+.ds-language > form button, .ds-language > form li {
+  border: 0;
+  background: none;
+  font-family: Montserrat, sans-serif;
+  cursor: pointer;
+}
+
 .ds-stack-larger > *,
 .ds-stack > *,
 .ds-filter > *,
 .ds-stack-smaller > *,
+.ds-footer > *,
+hgroup > *,
 .ds-card .ds-card-body > *,
 .ds-advanced-filters > *,
-.ds-stack-smallest > *,
-.ds-copyright > * {
+.ds-stack-smallest > * {
   margin: 0;
 }
 
@@ -32,15 +57,15 @@
   margin-top: 3.0517578125rem;
 }
 
-.ds-filter > * + *, .ds-stack-smaller > * + *, .ds-card .ds-card-body > * + * {
+.ds-filter > * + *, .ds-stack-smaller > * + *, .ds-footer > * + *, hgroup > * + *, .ds-card .ds-card-body > * + * {
   margin-top: 1.5625rem;
 }
 
-.ds-advanced-filters > * + *, .ds-stack-smallest > * + *, .ds-copyright > * + * {
+.ds-advanced-filters > * + *, .ds-stack-smallest > * + * {
   margin-top: 0.25rem;
 }
 
-.ds-filter-cluster > *, .ds-subnav > *, .ds-header nav > *, .ds-language > *, .ds-cluster > *,
+.ds-filter-cluster > *, .ds-subnav > *, .ds-header nav a:not(.ds-cta) > *, .ds-language > *, .ds-language > form > *, .ds-cluster > *,
 .ds-cluster-right > *,
 .ds-cluster-center > * {
   padding-left: 0;
@@ -52,13 +77,13 @@
   margin: calc(0.625rem * -1);
 }
 
-.ds-filter-cluster > * > *, .ds-subnav > * > *, .ds-header nav > * > *, .ds-language > * > *, .ds-cluster > * > *,
+.ds-filter-cluster > * > *, .ds-subnav > * > *, .ds-header nav a:not(.ds-cta) > * > *, .ds-language > * > *, .ds-language > form > * > *, .ds-cluster > * > *,
 .ds-cluster-right > * > *,
 .ds-cluster-center > * > * {
   margin: 0.625rem;
 }
 
-.ds-language > *, .ds-cluster-right > * {
+.ds-language > *, .ds-language > form > *, .ds-cluster-right > * {
   justify-content: flex-end;
 }
 
@@ -153,46 +178,77 @@
 .ds-card .ds-card-body {
   padding: 1.953125rem;
 }
+.ds-card .ds-card-body h1, .ds-card .ds-card-body h2, .ds-card .ds-card-body h3, .ds-card .ds-card-body h4 {
+  font-weight: 500;
+}
 
 .ds-footer {
-  padding: 4.768371582rem 1.25rem;
+  padding: 1.953125rem 1.25rem;
   border-top: 0.5rem solid #007CAD;
   margin-top: 4.768371582rem;
+  background-color: #403F41;
+  color: #fff;
+}
+
+.ds-footer form {
+  background-color: #403F41;
+}
+
+.ds-footer * {
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70ch;
+}
+
+.ds-footer-links > * {
+  --gridCellMin: 20ch;
+}
+.ds-footer-links nav {
+  margin-top: 1.25rem;
+}
+.ds-footer-links nav ul {
+  list-style: none;
+  padding: 0;
 }
 
 .ds-copyright {
-  max-width: none;
+  padding: 1.953125rem;
+  background-color: #403F41;
+  max-width: 100%;
 }
 
-.ds-copyright p {
-  margin: 0 !important;
-}
-
-.ds-copyright img {
-  max-width: 15rem;
-  margin-bottom: 0.5rem;
-}
-
-.ds-dark, .ds-language, .ds-footer, .ds-dark *, .ds-language *, .ds-footer * {
+.ds-dark {
   color: #fff;
   background-color: #403F41;
 }
 
-.ds-dark .ds-card, .ds-language .ds-card, .ds-footer .ds-card,
+.ds-dark * {
+  color: #fff;
+}
+
+.ds-dark .ds-card,
 .ds-dark form,
-.ds-language form,
-.ds-footer form,
-.ds-dark .ds-candidate,
-.ds-language .ds-candidate,
-.ds-footer .ds-candidate {
+.ds-dark .ds-candidate {
   border: 1px solid;
 }
 
-.ds-dark .ds-select::after, .ds-language .ds-select::after, .ds-footer .ds-select::after {
+.ds-dark code {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.ds-dark .ds-select::after {
   border-top-color: #fff;
 }
 
-.ds-dark [class*=ds-button]:not(:active), .ds-language [class*=ds-button]:not(:active), .ds-footer [class*=ds-button]:not(:active) {
+.ds-dark .ds-logo span {
+  font-weight: 300;
+  font-size: 1.5625rem;
+  text-decoration: none;
+  color: white;
+}
+
+.ds-dark [class*=ds-button]:not(:active) {
   border-bottom-color: #000;
 }
 
@@ -222,7 +278,7 @@
   text-align: left;
 }
 
-.ds-text-centered {
+.ds-text-centered, .ds-footer, .ds-footer-links {
   text-align: center;
 }
 
@@ -242,7 +298,7 @@
   max-width: 50ch;
 }
 
-.ds-width-full {
+.ds-width-full, .ds-switcher > *, .ds-footer-links > * {
   display: block;
   max-width: none;
   width: auto;
@@ -262,6 +318,18 @@
 
 .ds-width-third-text {
   max-width: 23ch;
+}
+
+.ds-dark .ds-header .ds-logo span {
+  color: #fff;
+}
+
+.ds-dark .ds-header .ds-logo span em {
+  color: #fff;
+}
+
+.ds-dark .ds-logo span em {
+  color: #fff;
 }
 
 :root {
@@ -290,6 +358,7 @@ select {
 
 * {
   margin: 0;
+  color: #403F41;
 }
 
 *:focus {
@@ -339,12 +408,12 @@ p, blockquote {
   color: #403F41;
 }
 
-p + p {
+:is(p, ul, ol) + :is(p, ul, ol) {
   margin-top: 1rem !important;
 }
 
 blockquote {
-  font-size: 1.5625rem;
+  font-size: 1.25rem;
   font-style: italic;
   border-left: 0.5rem solid #FFC037;
   padding-left: 1rem;
@@ -364,6 +433,8 @@ h2, .ds-h2,
 h3, .ds-h3 h4,
 .ds-h4 {
   word-break: break-word;
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
 }
 
 h1, .ds-h1 {
@@ -386,7 +457,7 @@ h4, .ds-h4 {
   font-size: clamp(1.25rem, 4vw, 1.953125rem);
 }
 
-h5, .ds-h5 {
+h5, .ds-h5, .ds-footer-links h2 {
   font-size: 1.5625rem;
   font-size: clamp(1rem, 3vw, 1.5625rem);
 }
@@ -397,17 +468,23 @@ h6, .ds-h6 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 500;
-  word-break: break-word;
-}
-
-h1, h2 {
   font-weight: 300;
+  word-break: break-word;
 }
 
 a {
   color: #E6007C;
   text-decoration: underline;
+}
+
+a * {
+  color: #E6007C;
+  text-decoration: underline;
+}
+
+a[role=button],
+a[role=button] * {
+  text-decoration: none;
 }
 
 ul, ol {
@@ -481,6 +558,7 @@ input[type=text],
 input[type=password],
 input[type=email],
 select {
+  color: #403F41;
   padding: 0.5rem;
   border: 2px solid;
   width: 100%;
@@ -506,6 +584,18 @@ select {
 
 .ds-error span[role=img] {
   filter: invert(1) grayscale(1) contrast(100);
+}
+
+.ds-dark form {
+  background-color: #403F41;
+}
+.ds-dark .ds-field-error {
+  color: #FF6347;
+  font-size: 1em;
+}
+
+.ds-stack > :is(h1, h2, h3, h4, h5, hgroup) + *:not(article) {
+  margin-top: 1rem;
 }
 
 /*dl.ds-descriptions > div {
@@ -725,6 +815,7 @@ details[open] summary::before {
 .ds-candidate-name {
   hyphens: auto;
   word-break: break-word;
+  font-weight: 500;
 }
 
 .ds-candidate-name a::after {
@@ -870,9 +961,22 @@ nav.ds-breadcrumbs li:not(:last-child)::after {
   border-bottom: 1px solid;
 }
 
-.ds-language {
+.ds-table code {
+  word-break: normal;
+}
+
+.ds-dark .ds-table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.ds-language, .ds-language > form {
   padding: 0.625rem;
   font-size: 1rem;
+  background-color: #403F41;
+}
+
+.ds-language * {
+  color: white;
 }
 
 .ds-language [aria-current] {
@@ -881,15 +985,30 @@ nav.ds-breadcrumbs li:not(:last-child)::after {
   color: #00B6FF;
 }
 
-.ds-language {
+.ds-dark .ds-language, .ds-dark .ds-language > form {
+  background-color: #0D1117;
+  border: none;
+}
+
+.ds-language, .ds-language > form {
   padding: 0.625rem;
   font-size: 1rem;
+  background-color: #403F41;
+}
+
+.ds-language * {
+  color: white;
 }
 
 .ds-language [aria-current] {
   text-decoration: underline;
   text-decoration-thickness: 0.125rem;
   color: #00B6FF;
+}
+
+.ds-dark .ds-language, .ds-dark .ds-language > form {
+  background-color: #0D1117;
+  border: none;
 }
 
 .ds-header {
@@ -898,6 +1017,8 @@ nav.ds-breadcrumbs li:not(:last-child)::after {
   justify-content: space-between;
   align-items: center;
   padding: 1.25rem;
+  margin-bottom: clamp(0.125rem, 2vw, 1.953125rem);
+  background-color: #fff;
 }
 
 .ds-header-home {
@@ -912,7 +1033,7 @@ nav.ds-breadcrumbs li:not(:last-child)::after {
   height: auto;
 }
 
-.ds-header nav {
+.ds-header nav a:not(.ds-cta) {
   margin: 1rem 0 1rem;
 }
 
@@ -944,6 +1065,23 @@ nav.ds-breadcrumbs li:not(:last-child)::after {
   border-bottom-color: #E6007C;
 }
 
+.ds-dark .ds-header {
+  background-color: #0D1117;
+  border-bottom: 1px solid #fff;
+}
+.ds-dark .ds-header li {
+  color: #fff;
+}
+.ds-dark .ds-header a {
+  border-bottom-color: transparent;
+}
+.ds-dark .ds-header a:hover {
+  border-bottom-color: #00B6FF;
+}
+.ds-dark .ds-header [aria-current] {
+  border-bottom-color: #E6007C;
+}
+
 .ds-subnav {
   color: #E6007C;
   font-size: clamp(1.25rem, 2.5vw, 1.5625rem);
@@ -972,6 +1110,18 @@ nav.ds-breadcrumbs li:not(:last-child)::after {
   border-bottom: 2px solid;
 }
 
+.ds-dark .ds-footer {
+  background-color: #0D1117;
+}
+.ds-dark .ds-footer .ds-copyright {
+  color: #fff;
+  background-color: #0D1117;
+}
+.ds-dark .ds-footer form {
+  background-color: #0D1117;
+  border: none;
+}
+
 .ds-field-radio {
   display: flex;
   align-items: center;
@@ -988,16 +1138,28 @@ nav.ds-breadcrumbs li:not(:last-child)::after {
   width: 1px;
 }
 
+.ds-field-radio > span {
+  order: 1px solid #dee0e2;
+  background-color: #dee0e2;
+  padding: 1em;
+  margin: 0.25rem;
+  display: inline-block;
+}
+
 .ds-field-radio > span::before {
   content: "";
   border-radius: 50%;
   display: inline-block;
-  width: 0.75em;
-  height: 0.75em;
+  width: 1.5em;
+  height: 1.5em;
   border: 2px solid #403F41;
-  margin-right: 0.375rem;
-  vertical-align: -0.125em;
+  margin-right: 0.5rem;
+  vertical-align: middle;
   background-color: #fff;
+}
+
+.ds-field-radio > input:checked + span {
+  background-color: white !important;
 }
 
 .ds-field-radio > input:checked + span::before {
@@ -1009,6 +1171,16 @@ nav.ds-breadcrumbs li:not(:last-child)::after {
   text-decoration: underline;
   text-decoration-color: #FFC037;
   text-decoration-thickness: 2px;
+  outline: solid #FFC037;
+}
+
+.ds-dark .ds-field-radio > span::before,
+.ds-dark .ds-field-radio > span {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.ds-dark .ds-field-radio > input:checked + span {
+  color: #403F41;
+  background-color: #fff;
 }
 
 .ds-field-checkbox {
@@ -1084,6 +1256,10 @@ nav.ds-breadcrumbs li:not(:last-child)::after {
     pointer-events: none;
   }
 }
+.ds-dark .ds-select select {
+  background-color: #403F41;
+}
+
 .ds-filter {
   background-color: #E4F4FB;
   padding: 1.25rem;
@@ -1126,6 +1302,10 @@ nav.ds-breadcrumbs li:not(:last-child)::after {
   font-size: 0.85em;
 }
 
+.ds-dark .ds-filter {
+  background-color: #403F41;
+}
+
 .ds-status ul {
   list-style: none;
 }
@@ -1143,6 +1323,10 @@ nav.ds-breadcrumbs li:not(:last-child)::after {
 
 .ds-status-message {
   background-color: #007CAD;
+}
+
+.ds-status-message a {
+  color: #fff;
 }
 
 .ds-status-success {
@@ -1196,18 +1380,21 @@ pre.ds-codeblock.ds-codeblock-scroll code {
   color: inherit;
 }
 
-.ds-logo:not(:last-child):not(:only-child) {
-  margin-right: 1.5625rem;
-}
-
 .ds-logo img {
   height: 4.5rem;
-  margin-right: 0.625rem;
+  margin-right: 0.375rem;
 }
 
 .ds-logo span {
   font-weight: 300;
   font-size: 1.5625rem;
+  text-decoration: none;
+  text-align: left;
+  color: #403F41;
+}
+
+.ds-header .ds-logo span em {
+  color: #403F41;
 }
 
 .ds-logo em {
@@ -1216,6 +1403,20 @@ pre.ds-codeblock.ds-codeblock-scroll code {
   font-weight: normal;
   font-style: normal;
   margin-top: 0.375rem;
+  color: #403F41;
+}
+
+.ds-switcher, .ds-footer-links {
+  --gridGap: 1.25rem;
+  --gridCellMin: 30ch;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gridGap);
+}
+
+.ds-switcher > *, .ds-footer-links > * {
+  flex-grow: 1;
+  flex-basis: var(--gridCellMin);
 }
 
 .ds-page {
