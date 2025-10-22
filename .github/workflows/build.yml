@@ -7,6 +7,8 @@ on:
   schedule:
     - cron: "0 8 * * *" # Runs every day at 08:00 UTC
   workflow_dispatch: # Allows manual runs
+  repository_dispatch:
+    types: [csv-updated] # Triggered when LGSF CSV is built
 
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
