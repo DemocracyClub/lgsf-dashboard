@@ -42,101 +42,56 @@
   
 
 
-  <h2 id="2025-10-04-15-45">2025-10-04</h2>
+  <h2 id=""></h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>4 seconds</dd>
+        <dd>0 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-10-04 15:45:01.220258</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-10-04 15:45:05.859548</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
         <dd></dd>
       </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[15:45:01] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-10-04-08-19">2025-10-04</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>6 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-10-04 08:19:59.895533</dd>
-      </div>
       <div>
         <dt>End</dt>
-        <dd>2025-10-04 08:20:06.607916</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>0</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
         <dd></dd>
       </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>Lambda.TooManyRequestsException</dd>
+      </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:19:59] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-[08:20:00] Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-</pre>
+  <pre></pre>
   
 
   
 
 
-  <h2 id="2025-10-03-08-49">2025-10-03</h2>
+  <h2 id="2025-10-22-23-19">2025-10-22</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>3 seconds</dd>
+        <dd>13.02179 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-10-03 08:49:25.050478</dd>
+        <dd>2025-10-22T23:19:34.981425+00:00</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-10-03 08:49:28.562393</dd>
+        <dd>2025-10-22T23:19:48.003215+00:00</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -144,1076 +99,87 @@
       </div>
       <div>
         <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
+        <dd>The read operation timed out</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre>[08:49:25] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-           Deleting existing data...                                 base.py:263
-[08:49:26] Getting all files in Councillors...                       base.py:215
-           ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[08:49:27] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:49:28] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-           Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
+  <pre>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
 
-  
+The above exception was the direct cause of the following exception:
 
-
-  <h2 id="2025-10-02-09-05">2025-10-02</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-10-02 09:05:44.454689</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-10-02 09:05:50.426940</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 290, in scraper_worker_handler
     scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
+  File "/var/task/lgsf/councillors/scrapers.py", line 168, in run
     wards = self.get_councillors()
             ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:05:44] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-           Deleting existing data...                                 base.py:263
-[09:05:45] Getting all files in Councillors...                       base.py:215
-           ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[09:05:46] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[09:05:50] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-           Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-10-01-08-54">2025-10-01</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>4 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-10-01 08:54:51.200742</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-10-01 08:54:55.237390</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:54:51] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-           Deleting existing data...                                 base.py:263
-[08:54:52] Getting all files in Councillors...                       base.py:215
-           ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[08:54:53] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:54:55] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-           Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-30-08-34">2025-09-30</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>3 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-30 08:34:34.103859</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-30 08:34:37.811670</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:34:34] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-           Deleting existing data...                                 base.py:263
-[08:34:35] Getting all files in Councillors...                       base.py:215
-           ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[08:34:36] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:34:37] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-           Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-29-09-05">2025-09-29</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>4 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-29 09:05:16.968226</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-29 09:05:21.457219</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:05:16] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-[09:05:17] Deleting existing data...                                 base.py:263
-           Getting all files in Councillors...                       base.py:215
-[09:05:18] ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-           ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[09:05:21] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-           Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-28-08-35">2025-09-28</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>4 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-28 08:35:44.541718</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-28 08:35:49.207217</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:35:44] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-[08:35:45] Deleting existing data...                                 base.py:263
-           Getting all files in Councillors...                       base.py:215
-           ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[08:35:46] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:35:48] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-[08:35:49] Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-27-08-51">2025-09-27</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>4 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-27 08:51:10.076078</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-27 08:51:14.108629</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:51:10] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-           Deleting existing data...                                 base.py:263
-           Getting all files in Councillors...                       base.py:215
-[08:51:11] ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[08:51:12] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:51:13] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-[08:51:14] Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-26-08-26">2025-09-26</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>4 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-26 08:26:14.744492</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-26 08:26:19.024814</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:26:14] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-[08:26:15] Deleting existing data...                                 base.py:263
-           Getting all files in Councillors...                       base.py:215
-           ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[08:26:16] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:26:18] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-[08:26:19] Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-25-08-26">2025-09-25</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>5 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-25 08:26:06.684470</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-25 08:26:12.629927</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:26:06] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-[08:26:07] Deleting existing data...                                 base.py:263
-           Getting all files in Councillors...                       base.py:215
-           ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[08:26:08] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:26:12] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-           Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-24-08-47">2025-09-24</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>3 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-24 08:47:09.823610</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-24 08:47:13.369909</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:47:09] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-[08:47:10] Deleting existing data...                                 base.py:263
-           Getting all files in Councillors...                       base.py:215
-[08:47:11] ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-           ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:47:13] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-           Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-23-08-43">2025-09-23</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>4 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-23 08:43:52.435771</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-23 08:43:56.558718</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:43:52] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-           Deleting existing data...                                 base.py:263
-[08:43:53] Getting all files in Councillors...                       base.py:215
-           ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[08:43:54] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:43:56] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-           Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-22-08-41">2025-09-22</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>3 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-22 08:41:26.942815</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-22 08:41:30.674078</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:41:26] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-[08:41:27] Deleting existing data...                                 base.py:263
-           Getting all files in Councillors...                       base.py:215
-[08:41:28] ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-           ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:41:30] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-           Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-21-09-09">2025-09-21</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>4 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-21 09:09:37.214210</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-21 09:09:42.097220</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[09:09:37] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-           Deleting existing data...                                 base.py:263
-[09:09:38] Getting all files in Councillors...                       base.py:215
-           ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[09:09:39] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[09:09:41] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-[09:09:42] Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-20-08-32">2025-09-20</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>4 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-20 08:32:36.680056</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-20 08:32:41.243319</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:32:36] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-[08:32:38] Deleting existing data...                                 base.py:263
-           Getting all files in Councillors...                       base.py:215
-           ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[08:32:39] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:32:41] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-           Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-19-08-58">2025-09-19</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>4 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-19 08:58:34.221764</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-19 08:58:38.376174</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:58:34] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-           Deleting existing data...                                 base.py:263
-[08:58:35] Getting all files in Councillors...                       base.py:215
-           ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[08:58:36] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:58:38] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-           Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-18-08-53">2025-09-18</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>3 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-18 08:53:57.502485</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-18 08:54:00.919164</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:53:57] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-[08:53:58] Deleting existing data...                                 base.py:263
-           Getting all files in Councillors...                       base.py:215
-           ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[08:53:59] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:54:00] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-           Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-17-08-40">2025-09-17</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>4 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-17 08:40:07.273757</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-17 08:40:12.082915</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:40:07] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-           Deleting existing data...                                 base.py:263
-[08:40:08] Getting all files in Councillors...                       base.py:215
-           ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[08:40:09] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:40:11] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-[08:40:12] Finished attempting to scrape: ABE                        base.py:351
-</pre>
-  
-
-  
-
-
-  <h2 id="2025-09-16-08-18">2025-09-16</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>6 seconds</dd>
-      </div>
-      <div>
-        <dt>Start</dt>
-        <dd>2025-09-16 08:18:23.459545</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>2025-09-16 08:18:29.616903</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>1</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>Traceback (most recent call last):
-  File "/var/task/lgsf/aws_lambda/handlers.py", line 32, in scraper_worker_handler
-    scraper.run(run_log)
-  File "/var/task/lgsf/councillors/scrapers.py", line 205, in run
-    wards = self.get_councillors()
-            ^^^^^^^^^^^^^^^^^^^^^^
-  File "/var/task/lgsf/councillors/scrapers.py", line 226, in get_councillors
-    soup = BeautifulSoup(req.text, "lxml")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/python/bs4/__init__.py", line 364, in __init__
-    raise FeatureNotFound(
-bs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>[08:18:23] Fetching Scraper for: ABE                              handlers.py:23
-           Begin attempting to scrape: ABE                        handlers.py:27
-           Deleting existing data...                                 base.py:263
-[08:18:24] Getting all files in Councillors...                       base.py:215
-           ...found 1 files in Councillors                           base.py:231
-           Deleting batch no. 1 consisting of 1 files                base.py:242
-[08:18:25] ...data deleted.                                          base.py:270
-           Scraping from                                              base.py:52
-           https://committees.aberdeencity.gov.uk/mgWebService.asmx/G           
-           etCouncillorsByWard                                                  
-[08:18:29] Couldn't find a tree builder with the features you     handlers.py:36
-           requested: lxml. Do you need to install a parser                     
-           library?                                                             
-           Finished attempting to scrape: ABE                        base.py:351
+  File "/var/task/lgsf/councillors/scrapers.py", line 186, in get_councillors
+    req = self.get(
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 65, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
 </pre>
   
 
