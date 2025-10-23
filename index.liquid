@@ -31,7 +31,8 @@ title: All logbooks
         </td>
         <td>
           <div class="run-graph">
-            {% for run in logbook.log_runs %}
+            {% assign sorted_runs = logbook.log_runs | sort: "start" %}
+            {% for run in sorted_runs %}
               <a href="{{ '/logbooks/' | url }}{{ logbook.council_id }}#{{ run.start | date:"%Y-%m-%d-%H-%M" }}" class="status-{{ run.status_code }}">
                 <div class="duration" style="height:{{ run.duration | divided_by: 300 | times: 100 | at_most: 100 }}%"></div>
               </a>
@@ -46,18 +47,14 @@ title: All logbooks
 
 <script>
     function filter_table(filter_checkbox) {
-
-      // var input, filter, table, tr, td, i, txtValue;
       table = document.getElementById("logbooks");
       tr = table.getElementsByTagName("tr");
 
       for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[1];
         if (td) {
-
           txtValue = td.textContent || td.innerText;
           txtValue = txtValue.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim()
-          console.log(txtValue)
           if (txtValue === "OK" && filter_checkbox.checked) {
             tr[i].style.display = "none";
           } else {
@@ -67,12 +64,27 @@ title: All logbooks
       }
     }
 
-
     failing_checkbox = document.getElementById("filter_failing");
 
+    // Check URL parameter on page load
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('failing') === '1') {
+      failing_checkbox.checked = true;
+    }
+
     failing_checkbox.addEventListener('change', function() {
+      // Update URL parameter
+      var params = new URLSearchParams(window.location.search);
+      if (this.checked) {
+        params.set('failing', '1');
+      } else {
+        params.delete('failing');
+      }
+      var newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+      window.history.replaceState({}, '', newUrl);
+
       filter_table(this);
     });
-    filter_table(failing_checkbox)
 
+    filter_table(failing_checkbox);
 </script>
