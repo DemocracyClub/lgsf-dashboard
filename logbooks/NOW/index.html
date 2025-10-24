@@ -42,21 +42,21 @@
   
 
 
-  <h2 id="2025-10-22-22-26">2025-10-22</h2>
+  <h2 id="2025-10-24-00-11">2025-10-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>13.602229 seconds</dd>
+        <dd>13.321045 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-10-22T22:26:18.322699+00:00</dd>
+        <dd>2025-10-24T00:11:28.240955+00:00</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-10-22T22:26:31.924928+00:00</dd>
+        <dd>2025-10-24T00:11:41.562000+00:00</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -93,21 +93,72 @@ KeyError: 'title'
   
 
 
-  <h2 id="2025-10-22-22-11">2025-10-22</h2>
+  <h2 id="2025-10-23-09-19">2025-10-23</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>13.113502 seconds</dd>
+        <dd>15.058977 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd>2025-10-22T22:11:08.379450+00:00</dd>
+        <dd>2025-10-23T09:19:02.470843+00:00</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd>2025-10-22T22:11:21.492952+00:00</dd>
+        <dd>2025-10-23T09:19:17.529820+00:00</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>'title'</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 290, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 59, in run
+    councillor = self.get_single_councillor(councillor_html)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 265, in get_single_councillor
+    party = self.get_party_name(list_page_html)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 251, in get_party_name
+    return list_page_html.find_all("img")[-1]["title"].replace("(logo)", "").strip()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/opt/python/bs4/element.py", line 2214, in __getitem__
+    return self.attrs[key]
+           ~~~~~~~~~~^^^^^
+KeyError: 'title'
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-10-22-22-26">2025-10-22</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>13.602229 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-10-22T22:26:18.322699+00:00</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-10-22T22:26:31.924928+00:00</dd>
       </div>
       <div>
         <dt>Status code</dt>

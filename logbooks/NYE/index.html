@@ -42,7 +42,110 @@
   
 
 
-  <h2 id=""></h2>
+  <h2 id="2025-10-23-22-01">2025-10-23</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>12.460954 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2025-10-23T22:01:22.237682+00:00</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2025-10-23T22:01:34.698636+00:00</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>timed out</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>Traceback (most recent call last):
+  File "/opt/python/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/python/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/python/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/python/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 290, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 168, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 186, in get_councillors
+    req = self.get(
+          ^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 65, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/python/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+</pre>
+  
+
+  
+
+
+  <h2 id="2025-10-23-08-42">2025-10-23</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
@@ -52,7 +155,7 @@
       </div>
       <div>
         <dt>Start</dt>
-        <dd></dd>
+        <dd>2025-10-23T08:42:37.871857+00:00</dd>
       </div>
       <div>
         <dt>End</dt>
@@ -60,11 +163,11 @@
       </div>
       <div>
         <dt>Status code</dt>
-        <dd>1</dd>
+        <dd>0</dd>
       </div>
       <div>
         <dt>Error</dt>
-        <dd>Lambda.TooManyRequestsException</dd>
+        <dd></dd>
       </div>
     </dl>
   </div>
