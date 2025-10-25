@@ -42,21 +42,21 @@
   
 
 
-  <h2 id=""></h2>
+  <h2 id="2025-10-24-20-59">2025-10-24</h2>
   <div class="ds-card">
   <div class="ds-card-body">
     <dl class="ds-descriptions">
       <div>
         <dt>Duration</dt>
-        <dd>0 seconds</dd>
+        <dd>63.240396 seconds</dd>
       </div>
       <div>
         <dt>Start</dt>
-        <dd></dd>
+        <dd>2025-10-24T20:59:35.457403+00:00</dd>
       </div>
       <div>
         <dt>End</dt>
-        <dd></dd>
+        <dd>2025-10-24T21:00:38.697799+00:00</dd>
       </div>
       <div>
         <dt>Status code</dt>
@@ -64,14 +64,27 @@
       </div>
       <div>
         <dt>Error</dt>
-        <dd>Sandbox.Timedout</dd>
+        <dd>'NoneType' object has no attribute 'parent'</dd>
       </div>
     </dl>
   </div>
   </div>
 
   <h3>Run log</h3>
-  <pre></pre>
+  <pre>Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 290, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 59, in run
+    councillor = self.get_single_councillor(councillor_html)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 265, in get_single_councillor
+    party = self.get_party_name(list_page_html)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/scrapers/FYL-fylde/councillors.py", line 15, in get_party_name
+    .parent.get_text(strip=True)
+     ^^^^^^
+AttributeError: 'NoneType' object has no attribute 'parent'
+</pre>
   
 
   
