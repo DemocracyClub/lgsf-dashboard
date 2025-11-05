@@ -19,7 +19,8 @@ title: All logbooks
   </thead>
   <tbody>
     {% for logbook in logbooks %}
-      {% assign last_run = logbook.log_runs|last %}
+    {% assign sorted_runs = logbook.log_runs | sort: "start" %}
+      {% assign last_run = sorted_runs|last %}
       <tr class="status-{{ last_run.status_code }}">
         <td><a href="{{ '/logbooks/' | url }}{{ logbook.council_id }}">{{ logbook.council_id }}</a></td>
         <td>
@@ -31,7 +32,7 @@ title: All logbooks
         </td>
         <td>
           <div class="run-graph">
-            {% assign sorted_runs = logbook.log_runs | sort: "start" %}
+
             {% for run in sorted_runs %}
               <a href="{{ '/logbooks/' | url }}{{ logbook.council_id }}#{{ run.start | date:"%Y-%m-%d-%H-%M" }}" class="status-{{ run.status_code }}">
                 <div class="duration" style="height:{{ run.duration | divided_by: 300 | times: 100 | at_most: 100 }}%"></div>
