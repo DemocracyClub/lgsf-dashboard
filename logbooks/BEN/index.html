@@ -1,0 +1,568 @@
+<!doctype html>
+<html>
+  <head>
+    <title>LGSF Dashboard</title>
+    <link rel="stylesheet"  href="/lgsf-dashboard/assets/css/styles.css">
+    <link rel="shortcut icon" href="https://democracyclub.org.uk/static/images/logo_icon.png">
+  </head>
+  <body>
+    <div class="ds-page">
+      <a class="ds-skip-link" href="#main">skip to content</a>
+
+      <header class="ds-header">
+        <a class="ds-skip-link" href="#main">skip to content</a>
+        <a class="ds-logo" href="/lgsf-dashboard/">
+          <img src="https://DemocracyClub.github.io/design-system/images/logo_icon.svg" alt="" />
+          <span>LGSF Logbooks</span>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="/lgsf-dashboard/">Logbooks</a></li>
+            <li><a href="/lgsf-dashboard/service-links/">Service Links</a></li>
+          </ul>
+        </nav>
+      </header>
+
+
+      <main id="main" tabindex="-1" class="ds-stack">
+
+        
+<style>
+
+    pre {
+        height:400px;
+        overflow-x: scroll;
+        width:100%
+    }
+</style>
+
+
+
+
+  
+
+
+  <h2 id="2026-10-23-20-24">2026-10-23</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>0 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2026-10-23T20:24:28.150467+00:00</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd></dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre></pre>
+  
+
+  
+
+
+  <h2 id="2026-10-23-20-23">2026-10-23</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>30.469685 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2026-10-23T20:23:57.414912+00:00</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2026-10-23T20:24:27.884597+00:00</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>HTTPSConnectionPool(host='democracy.brent.gov.uk', port=443): Read timed out. (read timeout=30)</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>Traceback (most recent call last):
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connectionpool.py", line 540, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connection.py", line 638, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/http/client.py", line 1478, in getresponse
+    response.begin()
+  File "/var/lang/lib/python3.12/http/client.py", line 343, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/http/client.py", line 304, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/ssl.py", line 1264, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/ssl.py", line 1116, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/lang/lib/python3.12/site-packages/requests/adapters.py", line 645, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/urllib3/util/retry.py", line 510, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connectionpool.py", line 542, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connectionpool.py", line 373, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='democracy.brent.gov.uk', port=443): Read timed out. (read timeout=30)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 333, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 171, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 189, in get_councillors
+    text = self.get_text(
+           ^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 387, in get_text
+    response = self.get(url, extra_headers=extra_headers)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 211, in get
+    response = self.with_retries(url, attempt)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 230, in with_retries
+    result = fn()
+             ^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 204, in attempt
+    response = self._send(url, extra_headers)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 304, in _send
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/sessions.py", line 605, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/sessions.py", line 727, in send
+    history = [resp for resp in gen]
+                                ^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/sessions.py", line 266, in resolve_redirects
+    resp = self.send(
+           ^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/adapters.py", line 691, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='democracy.brent.gov.uk', port=443): Read timed out. (read timeout=30)
+</pre>
+  
+
+  
+
+
+  <h2 id="2026-10-23-12-50">2026-10-23</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>0 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2026-10-23T12:50:35.777706+00:00</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd></dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre></pre>
+  
+
+  
+
+
+  <h2 id="2026-10-22-20-22">2026-10-22</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>30.467958 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2026-10-22T20:22:46.630124+00:00</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2026-10-22T20:23:17.098082+00:00</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>HTTPSConnectionPool(host='democracy.brent.gov.uk', port=443): Read timed out. (read timeout=30)</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>Traceback (most recent call last):
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connectionpool.py", line 540, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connection.py", line 638, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/http/client.py", line 1478, in getresponse
+    response.begin()
+  File "/var/lang/lib/python3.12/http/client.py", line 343, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/http/client.py", line 304, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/ssl.py", line 1264, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/ssl.py", line 1116, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/lang/lib/python3.12/site-packages/requests/adapters.py", line 645, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/urllib3/util/retry.py", line 510, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connectionpool.py", line 542, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connectionpool.py", line 373, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='democracy.brent.gov.uk', port=443): Read timed out. (read timeout=30)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 299, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 163, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 181, in get_councillors
+    text = self.get_text(
+           ^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 200, in get_text
+    response = self.get(url, extra_headers=extra_headers)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 134, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/sessions.py", line 605, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/sessions.py", line 727, in send
+    history = [resp for resp in gen]
+                                ^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/sessions.py", line 266, in resolve_redirects
+    resp = self.send(
+           ^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/adapters.py", line 691, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='democracy.brent.gov.uk', port=443): Read timed out. (read timeout=30)
+</pre>
+  
+
+  
+
+
+  <h2 id="2026-10-21-20-22">2026-10-21</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>30.448706 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2026-10-21T20:22:49.132078+00:00</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd>2026-10-21T20:23:19.580784+00:00</dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>1</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd>HTTPSConnectionPool(host='democracy.brent.gov.uk', port=443): Read timed out. (read timeout=30)</dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre>Traceback (most recent call last):
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connectionpool.py", line 540, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connection.py", line 638, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/http/client.py", line 1478, in getresponse
+    response.begin()
+  File "/var/lang/lib/python3.12/http/client.py", line 343, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/http/client.py", line 304, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/ssl.py", line 1264, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/ssl.py", line 1116, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/lang/lib/python3.12/site-packages/requests/adapters.py", line 645, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/urllib3/util/retry.py", line 510, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connectionpool.py", line 542, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/var/lang/lib/python3.12/site-packages/urllib3/connectionpool.py", line 373, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='democracy.brent.gov.uk', port=443): Read timed out. (read timeout=30)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/task/lgsf/aws_lambda/handlers.py", line 299, in scraper_worker_handler
+    scraper.run(run_log)
+  File "/var/task/lgsf/councillors/scrapers.py", line 163, in run
+    wards = self.get_councillors()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/councillors/scrapers.py", line 181, in get_councillors
+    text = self.get_text(
+           ^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 200, in get_text
+    response = self.get(url, extra_headers=extra_headers)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/task/lgsf/scrapers/base.py", line 134, in get
+    response = self.http_client.get(url, headers=headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/sessions.py", line 605, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/sessions.py", line 727, in send
+    history = [resp for resp in gen]
+                                ^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/sessions.py", line 266, in resolve_redirects
+    resp = self.send(
+           ^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lang/lib/python3.12/site-packages/requests/adapters.py", line 691, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='democracy.brent.gov.uk', port=443): Read timed out. (read timeout=30)
+</pre>
+  
+
+  
+
+
+  <h2 id="2026-10-20-20-22">2026-10-20</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>0 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2026-10-20T20:22:49.063275+00:00</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd></dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre></pre>
+  
+
+  
+
+
+  <h2 id="2026-10-19-20-22">2026-10-19</h2>
+  <div class="ds-card">
+  <div class="ds-card-body">
+    <dl class="ds-descriptions">
+      <div>
+        <dt>Duration</dt>
+        <dd>0 seconds</dd>
+      </div>
+      <div>
+        <dt>Start</dt>
+        <dd>2026-10-19T20:22:48.779045+00:00</dd>
+      </div>
+      <div>
+        <dt>End</dt>
+        <dd></dd>
+      </div>
+      <div>
+        <dt>Status code</dt>
+        <dd>0</dd>
+      </div>
+      <div>
+        <dt>Error</dt>
+        <dd></dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+
+  <h3>Run log</h3>
+  <pre></pre>
+  
+
+
+      </main>
+      <footer class="ds-footer">
+        <div class="ds-block-centered ds-text-centered ds-stack">
+          <div class="ds-cluster-center">
+            <ul>
+              <li><a href="/lgsf-dashboard/api/failing.json">Failing JSON</a></li>
+            </ul>
+          </div>
+          <div class="ds-copyright">
+            <a href="https://democracyclub.org.uk/">
+              <img src="https://DemocracyClub.github.io/design-system/images/logo_white_text.svg" alt="Democracy Club Home" />
+            </a>
+            <p>Copyright © 2021 Democracy Club</p>
+            <p>Community Interest Company</p>
+            <p>Company No: <a href="https://beta.companieshouse.gov.uk/company/09461226">09461226</a></p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
