@@ -38,10 +38,6 @@ jobs:
         run: |
           pip install boto3 requests
 
-      - name: Sync logbooks
-        run: |
-          python write-data.py
-
       - name: Fetch services CSV from artifact
         continue-on-error: true
         uses: dawidd6/action-download-artifact@v3
@@ -85,6 +81,11 @@ jobs:
             echo "Final services.csv (first 5 lines):"
             head -5 _data/services.csv
           fi
+
+      # After the CSV, which gives the councils' names and CMS types
+      - name: Sync logbooks
+        run: |
+          python write-data.py
 
       - name: Install JS deps & build
         run: |

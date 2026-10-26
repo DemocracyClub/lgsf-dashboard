@@ -1,91 +1,193 @@
 ---
 layout: base.liquid
-title: All logbooks
+title: Overview
+nav: overview
 ---
+{% assign latest = dashboard.latest_run %}
 <h1>All log runs</h1>
-<form>
-  <label class="ds-field-checkbox">
-    <input type="checkbox" name="filter-failing" id="filter_failing">
-    <span>Failing only</span>
-  </label>
-</form>
-<table class="ds-table" id="logbooks">
-  <thead>
-    <tr>
-      <th>Council ID</th>
-      <th>Status</th>
-      <th>Run times</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for logbook in logbooks %}
-    {% assign sorted_runs = logbook.log_runs | sort: "start" %}
-      {% assign last_run = sorted_runs|last %}
-      <tr class="status-{{ last_run.status_code }}">
-        <td><a href="{{ '/logbooks/' | url }}{{ logbook.council_id }}">{{ logbook.council_id }}</a></td>
-        <td>
-          {% if last_run.status_code == 0 %}
-            OK
-          {% else %}
-            ERROR
-          {% endif %}
-        </td>
-        <td>
-          <div class="run-graph">
 
-            {% for run in sorted_runs %}
-              <a href="{{ '/logbooks/' | url }}{{ logbook.council_id }}#{{ run.start | date:"%Y-%m-%d-%H-%M" }}" class="status-{{ run.status_code }}">
-                <div class="duration" style="height:{{ run.duration | divided_by: 300 | times: 100 | at_most: 100 }}%"></div>
-              </a>
-            {% endfor %}
-          </div>
-        </td>
-        {% comment %}<td>{{ last_run.errors }}</td>{% endcomment %}
+<div class="ds-status">
+  <ul style="padding: 0; margin: 0">
+    {% if latest.total_failed > 0 %}
+      <li class="ds-status-error">The last run ({{ latest.started }}, {{ latest.type_labels | downcase }}) had {{ latest.total_failed }} failing of {{ latest.total }}.</li>
+    {% else %}
+      <li class="ds-status-success">Everything in the last run ({{ latest.started }}, {{ latest.type_labels | downcase }}) passed.</li>
+    {% endif %}
+  </ul>
+</div>
+<p><a href="{{ '/runs/' | url }}{{ latest.id }}/">See the last run</a></p>
+
+<ul class="ds-grid" style="--gridCellMin: 13rem">
+  {% for type in dashboard.types %}
+    <li class="ds-card">
+      <div class="ds-card-body" style="padding: 1.25rem">
+        <h2 style="font-size: 1.5625rem; font-weight: 500"><a href="{{ '/types/' | url }}{{ type.key }}/" class="ds-card-link">{{ type.label }}</a></h2>
+        <p style="font-size: 0.8rem; margin-top: 0.4rem">{{ type.councils }} councils · last ran {{ type.last_ran }}</p>
+        <ul class="lgsf-key" style="margin-top: 0.75rem">
+          <li><span class="lgsf-dot status-ok"></span>{{ type.ok }} OK</li>
+          <li class="lgsf-state status-failed"><span class="lgsf-dot status-failed"></span>{{ type.failed }} failed</li>
+          <li><span class="lgsf-dot status-rate_limited"></span>{{ type.rate_limited }} rate limited</li>
+          <li><span class="lgsf-dot status-disabled"></span>{{ type.disabled }} disabled</li>
+        </ul>
+        <div class="lgsf-trend" role="img" aria-label="Failures in each of the last {{ dashboard.runs.size }} runs">
+          {% for point in type.trend %}
+            <span class="{% if point.ran == false %}not-run{% elsif point.failed > 0 %}has-failures{% endif %}" style="height: {{ point.height }}px" title="{{ point.title }}"></span>
+          {% endfor %}
+        </div>
+        <p style="font-size: 0.65rem; margin-top: 0.3rem; font-family: Montserrat, sans-serif">Failures per run, oldest first</p>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+
+<form class="ds-filter" aria-label="Filter councils" id="filters">
+  <div class="ds-filter-cluster">
+    <ul aria-label="Show">
+      <li class="ds-filter-label">Show</li>
+      <li><a href="?" data-failing="">All councils</a></li>
+      <li><a href="?failing=any" data-failing="any">Failing in any type</a></li>
+      {% for type in dashboard.types %}
+        <li><a href="?failing={{ type.key }}" data-failing="{{ type.key }}">Failing {{ type.label | downcase }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="ds-filter-cluster">
+    <ul aria-label="Types shown as columns">
+      <li class="ds-filter-label">Columns</li>
+      {% for type in dashboard.types %}
+        <li><button type="button" aria-pressed="true" data-column="{{ type.key }}">{{ type.label }}</button></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="ds-field">
+    <label for="council-search">Find a council</label>
+    <input type="text" id="council-search" placeholder="Code or name" style="max-width: 20rem" autocomplete="off">
+  </div>
+</form>
+
+<div class="ds-table">
+  <table class="lgsf-compact" id="logbooks">
+    <caption style="font-size: 1rem; font-weight: 500; border-bottom: 0" id="shown-count">{{ dashboard.councils.size }} councils</caption>
+    <thead>
+      <tr>
+        <th scope="col">Council</th>
+        {% for type in dashboard.types %}
+          <th scope="col" data-type="{{ type.key }}"><a href="{{ '/types/' | url }}{{ type.key }}/">{{ type.label }}</a></th>
+        {% endfor %}
       </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {% for council in dashboard.councils %}
+        <tr data-failing="{{ council.failing_types | join: ' ' }}" data-search="{{ council.search }}">
+          <th scope="row">
+            <a href="{{ '/logbooks/' | url }}{{ council.council_id }}/">{{ council.council_id }}</a> {{ council.name }}
+            {% if council.cms != "" %}<div style="font-size: 0.65rem; font-weight: 300; margin-top: 0.2rem">{{ council.cms }}</div>{% endif %}
+          </th>
+          {% for cell in council.cells %}
+            <td data-type="{{ cell.type }}">
+              {% if cell.none %}
+                <span style="font-size: 0.7rem">No scraper</span>
+              {% else %}
+                <div class="lgsf-strip" role="img" aria-label="{{ cell.label }}: last {{ cell.bars.size }} runs">
+                  {% for bar in cell.bars %}<span class="status-{{ bar.status }}" style="height: {{ bar.pct }}%" title="{{ bar.title }}"></span>{% endfor %}
+                </div>
+                <div class="lgsf-state status-{{ cell.status }}" style="font-size: 0.7rem; margin-top: 0.3rem"><span class="lgsf-dot status-{{ cell.status }}"></span>{{ cell.status_text }}</div>
+              {% endif %}
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<p id="no-matches" hidden>No councils match these filters.</p>
+
+<ul class="lgsf-key" aria-label="Key">
+  <li><span class="lgsf-dot status-ok"></span>OK</li>
+  <li><span class="lgsf-dot status-failed"></span>Failed</li>
+  <li><span class="lgsf-dot status-rate_limited"></span>Rate limited</li>
+  <li><span class="lgsf-dot status-disabled"></span>Disabled</li>
+  <li><span class="lgsf-dot"></span>Not in that run</li>
+  <li>Bar height is how long the run took</li>
+</ul>
 
 <script>
-    function filter_table(filter_checkbox) {
-      table = document.getElementById("logbooks");
-      tr = table.getElementsByTagName("tr");
-
-      for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
-        if (td) {
-          txtValue = td.textContent || td.innerText;
-          txtValue = txtValue.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim()
-          if (txtValue === "OK" && filter_checkbox.checked) {
-            tr[i].style.display = "none";
-          } else {
-            tr[i].style.display = "";
-          }
-        }
-      }
-    }
-
-    failing_checkbox = document.getElementById("filter_failing");
-
-    // Check URL parameter on page load
+  (function () {
     var params = new URLSearchParams(window.location.search);
-    if (params.get('failing') === '1') {
-      failing_checkbox.checked = true;
+    // ?failing=1 was the old "Failing only" checkbox
+    var failing = params.get("failing") === "1" ? "any" : params.get("failing") || "";
+    var hidden = (params.get("hide") || "").split(",").filter(Boolean);
+    var search = document.getElementById("council-search");
+    search.value = params.get("q") || "";
+
+    var filterLinks = document.querySelectorAll("#filters [data-failing]");
+    var columnButtons = document.querySelectorAll("#filters [data-column]");
+    var rows = document.querySelectorAll("#logbooks tbody tr");
+
+    function updateUrl() {
+      var next = new URLSearchParams();
+      if (failing) next.set("failing", failing);
+      if (hidden.length) next.set("hide", hidden.join(","));
+      if (search.value) next.set("q", search.value);
+      var query = next.toString();
+      window.history.replaceState({}, "", window.location.pathname + (query ? "?" + query : ""));
     }
 
-    failing_checkbox.addEventListener('change', function() {
-      // Update URL parameter
-      var params = new URLSearchParams(window.location.search);
-      if (this.checked) {
-        params.set('failing', '1');
-      } else {
-        params.delete('failing');
-      }
-      var newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
-      window.history.replaceState({}, '', newUrl);
+    function apply() {
+      filterLinks.forEach(function (link) {
+        if (link.dataset.failing === failing) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+      columnButtons.forEach(function (button) {
+        var shown = hidden.indexOf(button.dataset.column) < 0;
+        button.setAttribute("aria-pressed", shown ? "true" : "false");
+        document.querySelectorAll('#logbooks [data-type="' + button.dataset.column + '"]').forEach(function (cell) {
+          cell.hidden = !shown;
+        });
+      });
 
-      filter_table(this);
+      var query = search.value.trim().toLowerCase();
+      var visibleTypes = Array.prototype.map.call(columnButtons, function (b) { return b.dataset.column; })
+        .filter(function (t) { return hidden.indexOf(t) < 0; });
+      var shownCount = 0;
+      rows.forEach(function (row) {
+        var failingTypes = row.dataset.failing.split(" ").filter(Boolean);
+        var show = !query || row.dataset.search.indexOf(query) >= 0;
+        if (show && failing === "any") {
+          show = failingTypes.some(function (t) { return visibleTypes.indexOf(t) >= 0; });
+        } else if (show && failing) {
+          show = failingTypes.indexOf(failing) >= 0;
+        }
+        row.hidden = !show;
+        if (show) shownCount++;
+      });
+      document.getElementById("shown-count").textContent = "Showing " + shownCount + " of " + rows.length + " councils";
+      document.getElementById("no-matches").hidden = shownCount > 0;
+    }
+
+    filterLinks.forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        failing = link.dataset.failing;
+        updateUrl();
+        apply();
+      });
     });
+    columnButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var at = hidden.indexOf(button.dataset.column);
+        if (at >= 0) hidden.splice(at, 1);
+        else hidden.push(button.dataset.column);
+        updateUrl();
+        apply();
+      });
+    });
+    search.addEventListener("input", function () {
+      updateUrl();
+      apply();
+    });
+    document.getElementById("filters").addEventListener("submit", function (e) { e.preventDefault(); });
 
-    filter_table(failing_checkbox);
+    apply();
+  })();
 </script>

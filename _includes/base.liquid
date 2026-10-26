@@ -1,7 +1,9 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>LGSF Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if title %}{{ title }} | {% endif %}LGSF Dashboard</title>
     <link rel="stylesheet"  href="{{ '/assets/css/styles.css' | url }}">
     <link rel="shortcut icon" href="https://democracyclub.org.uk/static/images/logo_icon.png">
   </head>
@@ -10,21 +12,22 @@
       <a class="ds-skip-link" href="#main">skip to content</a>
 
       <header class="ds-header">
-        <a class="ds-skip-link" href="#main">skip to content</a>
         <a class="ds-logo" href="{{ "/" | url }}">
           <img src="https://DemocracyClub.github.io/design-system/images/logo_icon.svg" alt="" />
           <span>LGSF Logbooks</span>
         </a>
-        <nav>
+        <nav aria-label="Main">
           <ul>
-            <li><a href="{{ '/' | url }}">Logbooks</a></li>
-            <li><a href="{{ '/service-links/' | url }}">Service Links</a></li>
+            <li><a href="{{ '/' | url }}"{% if nav == "overview" %} aria-current="page"{% endif %}>Overview</a></li>
+            <li><a href="{{ '/types/' | url }}{{ dashboard.types[0].key }}/"{% if nav == "types" %} aria-current="page"{% endif %}>Types</a></li>
+            <li><a href="{{ '/runs/' | url }}{{ dashboard.latest_run.id }}/"{% if nav == "runs" %} aria-current="page"{% endif %}>Runs</a></li>
+            <li><a href="{{ '/service-links/' | url }}"{% if nav == "services" %} aria-current="page"{% endif %}>Service Links</a></li>
           </ul>
         </nav>
       </header>
 
 
-      <main id="main" tabindex="-1" class="ds-stack">
+      <main id="main" tabindex="-1" class="ds-stack-smaller">
 
         {{ content }}
       </main>
@@ -33,6 +36,10 @@
           <div class="ds-cluster-center">
             <ul>
               <li><a href="{{ '/api/failing.json' | url }}">Failing JSON</a></li>
+              {% for type in dashboard.types %}
+                <li><a href="{{ '/api/failing/' | url }}{{ type.key }}.json">Failing {{ type.label | downcase }} JSON</a></li>
+              {% endfor %}
+              <li><a href="https://github.com/DemocracyClub/LGSF">LGSF on GitHub</a></li>
             </ul>
           </div>
           <div class="ds-copyright">
@@ -47,3 +54,4 @@
       </footer>
     </div>
   </body>
+</html>
