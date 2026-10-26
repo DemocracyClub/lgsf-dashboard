@@ -1,0 +1,87 @@
+---
+layout: base.liquid
+nav: runs
+pagination:
+  data: dashboard.runs
+  size: 1
+  alias: run
+permalink: "runs/{{ run.id }}/"
+eleventyComputed:
+  title: "Run of {{ run.started }}"
+---
+<nav class="ds-breadcrumbs" aria-label="Breadcrumbs">
+  <ol style="padding: 0"><li><a href="{{ '/' | url }}">Overview</a></li><li>Run of {{ run.day }}</li></ol>
+</nav>
+<h1>Run of {{ run.started }}</h1>
+
+<div class="ds-with-sidebar">
+  <div>
+    <div class="ds-not-sidebar ds-stack-smaller">
+      <dl class="ds-descriptions">
+        <div><dt>Started</dt><dd>{{ run.started }}, finished {{ run.finished }}</dd></div>
+        <div><dt>Scraper runs</dt><dd>{{ run.total }} across {{ run.councils }} councils</dd></div>
+        <div><dt>Types</dt><dd>{{ run.type_labels }}</dd></div>
+        <div><dt>Execution</dt><dd><code>{{ run.execution_id }}</code></dd></div>
+      </dl>
+
+      <div class="ds-table">
+        <table class="lgsf-compact">
+          <thead>
+            <tr><th scope="col">Type</th><th scope="col" class="n">Ran</th><th scope="col" class="n">OK</th><th scope="col" class="n">Failed</th><th scope="col" class="n">Rate limited</th><th scope="col" class="n">Disabled</th><th scope="col" class="n">Committed</th></tr>
+          </thead>
+          <tbody>
+            {% for row in run.summary %}
+              <tr>
+                <th scope="row"><a href="{{ '/types/' | url }}{{ row.type }}/">{{ row.label }}</a></th>
+                <td class="n">{{ row.ran }}</td>
+                <td class="n">{{ row.ok }}</td>
+                <td class="n">{% if row.failed > 0 %}<span class="lgsf-state status-failed">{{ row.failed }}</span>{% else %}0{% endif %}</td>
+                <td class="n">{{ row.rate_limited }}</td>
+                <td class="n">{{ row.disabled }}</td>
+                <td class="n">{{ row.committed }}</td>
+              </tr>
+            {% endfor %}
+            {% for type in dashboard.types %}
+              {% unless run.types contains type.key %}
+                <tr><th scope="row" style="font-weight: 300">{{ type.label }}</th><td colspan="6">Not in this run</td></tr>
+              {% endunless %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <h2 style="font-size: 1.953125rem">Failures</h2>
+      {% if run.failures.size > 0 %}
+        <div class="ds-table">
+          <table class="lgsf-compact">
+            <thead><tr><th scope="col">Council</th><th scope="col">Type</th><th scope="col">Status</th><th scope="col">Error</th></tr></thead>
+            <tbody>
+              {% for failure in run.failures %}
+                <tr>
+                  <th scope="row">{% if failure.council_id == "unknown" %}Unknown{% else %}<a href="{{ '/logbooks/' | url }}{{ failure.council_id }}/#{{ failure.scraper_type }}-{{ run.id }}">{{ failure.council_id }}</a>{% endif %}</th>
+                  <td>{{ failure.label }}</td>
+                  <td><span class="lgsf-state status-{{ failure.status }}"><span class="lgsf-dot status-{{ failure.status }}"></span>{{ failure.status_text }}</span></td>
+                  <td><span class="lgsf-error">{{ failure.error }}</span></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p>Nothing failed.</p>
+      {% endif %}
+    </div>
+
+    <aside class="ds-sidebar" style="flex-basis: 18rem" aria-label="Recent runs">
+      <h2 style="font-size: 1.25rem; font-weight: 500; margin-bottom: 0.75rem">Recent runs</h2>
+      <ul class="lgsf-runs">
+        {% for other in dashboard.runs %}
+          <li{% if other.id == run.id %} class="lgsf-current"{% endif %}>
+            <a href="{{ '/runs/' | url }}{{ other.id }}/"{% if other.id == run.id %} aria-current="page"{% endif %}>{{ other.started }}</a>
+            <small>{{ other.type_labels }} · {{ other.total }} runs · {{ other.total_failed }} failing</small>
+          </li>
+        {% endfor %}
+      </ul>
+    </aside>
+  </div>
+</div>

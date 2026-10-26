@@ -1,56 +1,82 @@
 ---
 layout: base.liquid
+nav: overview
 pagination:
-  data: logbooks
+  data: dashboard.councils
   size: 1
-  alias: logbook
-permalink: "logbooks/{{ logbook.council_id | slug | upcase }}/"
+  alias: council
+permalink: "logbooks/{{ council.council_id | slug | upcase }}/"
+eleventyComputed:
+  title: "{{ council.council_id }} logbook"
 ---
+<nav class="ds-breadcrumbs" aria-label="Breadcrumbs">
+  <ol style="padding: 0"><li><a href="{{ '/' | url }}">Overview</a></li><li>{{ council.council_id }}</li></ol>
+</nav>
+<h1>{{ council.council_id }}{% if council.name != "" %}: {{ council.name }}{% endif %}</h1>
+<p>
+  {{ council.type_count }} scraper {% if council.type_count == 1 %}type{% else %}types{% endif %}{% if council.failing_types.size > 0 %}, {{ council.failing_types.size }} failing{% endif %}.
+  {% if council.repo_url %}<a href="{{ council.repo_url }}">Data repository</a>{% endif %}
+</p>
 
-<style>
+<nav class="ds-subnav" aria-label="Types for {{ council.council_id }}">
+  <ul>
+    {% for cell in council.cells %}
+      {% unless cell.none %}
+        <li><a href="#{{ cell.type }}">{{ cell.label }}</a></li>
+      {% endunless %}
+    {% endfor %}
+  </ul>
+</nav>
 
-    pre {
-        height:400px;
-        overflow-x: scroll;
-        width:100%
-    }
-</style>
+{% for cell in council.cells %}
+  {% if cell.none %}{% continue %}{% endif %}
+  {% assign latest = cell.runs | first %}
+  <section id="{{ cell.type }}" class="ds-card">
+    <div class="ds-card-body" style="padding: 1.5rem">
+      <h2 style="font-size: 1.953125rem">{{ cell.label }}</h2>
+      <dl class="ds-descriptions">
+        <div><dt>Status</dt><dd><span class="lgsf-state status-{{ cell.status }}"><span class="lgsf-dot status-{{ cell.status }}"></span>{{ cell.status_text }}</span></dd></div>
+        {% if cell.cms != "" %}<div><dt>CMS</dt><dd>{{ cell.cms }}{% if cell.base_url != "" %}, <a href="{{ cell.base_url }}">{{ cell.base_url }}</a>{% endif %}</dd></div>{% endif %}
+        <div><dt>Runs</dt><dd>
+          <div class="lgsf-strip lgsf-strip-large" role="img" aria-label="Last {{ cell.bars.size }} runs">
+            {% for bar in cell.bars %}<span class="status-{{ bar.status }}" style="height: {{ bar.pct }}%" title="{{ bar.title }}"></span>{% endfor %}
+          </div>
+        </dd></div>
+      </dl>
 
-{% assign log_runs = logbook.log_runs | sort: "start" | reverse %}
+      {% if cell.failing and latest.log_text != "" %}
+        <h3 style="font-size: 1.25rem; font-weight: 500">Run log, {{ latest.when }}</h3>
+        <pre class="lgsf-log">{{ latest.log_text }}</pre>
+      {% endif %}
 
-{% for run in log_runs %}
-  {% if run %}
-
-
-  <h2 id="{{ run.start | date:"%Y-%m-%d-%H-%M" }}">{{ run.start | date:"%Y-%m-%d" }}</h2>
-  <div class="ds-card">
-  <div class="ds-card-body">
-    <dl class="ds-descriptions">
-      <div>
-        <dt>Duration</dt>
-        <dd>{{ run.duration }} seconds</dd>
+      <div class="ds-table">
+        <table class="lgsf-compact">
+          <thead><tr><th scope="col">Run</th><th scope="col">Status</th><th scope="col">Duration</th><th scope="col">Result</th></tr></thead>
+          <tbody>
+            {% for run in cell.runs %}
+              <tr id="{{ run.anchor }}">
+                <th scope="row"><a href="{{ '/runs/' | url }}{{ run.run_id_slug }}/">{{ run.when }}</a></th>
+                <td><span class="lgsf-state status-{{ run.status }}">{{ run.status_label }}</span></td>
+                <td>{% if run.duration > 0 %}{{ run.duration }} seconds{% endif %}</td>
+                <td>
+                  {% if run.status == "ok" %}
+                    {% if run.commit %}
+                      Commit {% if run.commit_url %}<a href="{{ run.commit_url }}"><code>{{ run.commit | slice: 0, 7 }}</code></a>{% else %}<code>{{ run.commit | slice: 0, 7 }}</code>{% endif %}
+                    {% else %}
+                      No changes
+                    {% endif %}
+                  {% elsif run.status == "disabled" %}
+                    Scraper disabled
+                  {% else %}
+                    <span class="lgsf-error">{{ run.error }}</span>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
-      <div>
-        <dt>Start</dt>
-        <dd>{{ run.start }}</dd>
-      </div>
-      <div>
-        <dt>End</dt>
-        <dd>{{ run.end }}</dd>
-      </div>
-      <div>
-        <dt>Status code</dt>
-        <dd>{{ run.status_code }}</dd>
-      </div>
-      <div>
-        <dt>Error</dt>
-        <dd>{{ run.errors }}</dd>
-      </div>
-    </dl>
-  </div>
-  </div>
-
-  <h3>Run log</h3>
-  <pre>{{ run.log_text }}</pre>
-  {% endif %}
+      <p style="font-size: 0.8rem"><a href="{{ '/types/' | url }}{{ cell.type }}/">All councils’ {{ cell.label | downcase }}</a></p>
+    </div>
+  </section>
 {% endfor %}

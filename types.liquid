@@ -1,0 +1,109 @@
+---
+layout: base.liquid
+nav: types
+pagination:
+  data: dashboard.types
+  size: 1
+  alias: type
+permalink: "types/{{ type.key }}/"
+eleventyComputed:
+  title: "{{ type.label }}"
+---
+<nav class="ds-breadcrumbs" aria-label="Breadcrumbs">
+  <ol style="padding: 0"><li><a href="{{ '/' | url }}">Overview</a></li><li>{{ type.label }}</li></ol>
+</nav>
+<h1>{{ type.label }}</h1>
+
+<nav class="ds-subnav" aria-label="Scraper types">
+  <ul>
+    {% for other in dashboard.types %}
+      <li><a href="{{ '/types/' | url }}{{ other.key }}/"{% if other.key == type.key %} aria-current="page"{% endif %}>{{ other.label }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
+
+<div class="ds-with-sidebar">
+  <div>
+    <div class="ds-not-sidebar">
+      <div class="ds-card"><div class="ds-card-body" style="padding: 1.25rem">
+        <h2 style="font-size: 1.25rem; font-weight: 500">Each council's latest run</h2>
+        <dl class="ds-descriptions">
+          <div><dt>OK</dt><dd class="lgsf-state status-ok">{{ type.ok }}</dd></div>
+          <div><dt>Failed</dt><dd class="lgsf-state status-failed">{{ type.failed }}</dd></div>
+          <div><dt>Rate limited</dt><dd>{{ type.rate_limited }}</dd></div>
+          <div><dt>Disabled</dt><dd>{{ type.disabled }}</dd></div>
+        </dl>
+      </div></div>
+    </div>
+    <div class="ds-sidebar" style="flex-basis: 22rem">
+      <div class="ds-card"><div class="ds-card-body" style="padding: 1.25rem">
+        <h2 style="font-size: 1.25rem; font-weight: 500">By CMS</h2>
+        {% for row in type.by_cms %}
+          <div style="display: flex; flex-direction: column; gap: 0.3rem">
+            <div style="display: flex; justify-content: space-between; font-size: 0.8rem"><span>{{ row.cms }}</span><span>{{ row.failing }} of {{ row.total }} failing</span></div>
+            <div class="lgsf-cms-bar" role="img" aria-label="{{ row.cms }}: {{ row.failing }} of {{ row.total }} failing">
+              <span class="ok" style="width: {{ row.ok_pct }}%"></span><span class="failing" style="width: {{ row.failing_pct }}%"></span><span class="disabled" style="width: {{ row.disabled_pct }}%"></span>
+            </div>
+          </div>
+        {% endfor %}
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<h2 style="font-size: 1.953125rem">All {{ type.label | downcase }} scrapers</h2>
+<form>
+  <label class="ds-field-checkbox">
+    <input type="checkbox" name="filter-failing" id="filter_failing">
+    <span>Failing only</span>
+  </label>
+</form>
+<div class="ds-table">
+  <table class="lgsf-compact" id="logbooks">
+    <thead>
+      <tr><th scope="col">Council</th><th scope="col">CMS</th><th scope="col">Status</th><th scope="col">Run times</th><th scope="col">Latest error</th></tr>
+    </thead>
+    <tbody>
+      {% for council in dashboard.councils %}
+        {% assign cell = council.cells | where: "type", type.key | first %}
+        {% unless cell.none %}
+          <tr data-failing="{{ cell.failing }}">
+            <th scope="row"><a href="{{ '/logbooks/' | url }}{{ council.council_id }}/#{{ type.key }}">{{ council.council_id }}</a> {{ council.name }}</th>
+            <td>{{ cell.cms }}</td>
+            <td><span class="lgsf-state status-{{ cell.status }}"><span class="lgsf-dot status-{{ cell.status }}"></span>{{ cell.status_text }}</span></td>
+            <td>
+              <div class="lgsf-strip" role="img" aria-label="Last {{ cell.bars.size }} runs">
+                {% for bar in cell.bars %}<span class="status-{{ bar.status }}" style="height: {{ bar.pct }}%" title="{{ bar.title }}"></span>{% endfor %}
+              </div>
+            </td>
+            <td><span class="lgsf-error">{{ cell.error }}</span></td>
+          </tr>
+        {% endunless %}
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script>
+  (function () {
+    var checkbox = document.getElementById("filter_failing");
+    var params = new URLSearchParams(window.location.search);
+    checkbox.checked = params.get("failing") === "1";
+
+    function apply() {
+      document.querySelectorAll("#logbooks tbody tr").forEach(function (row) {
+        row.hidden = checkbox.checked && row.dataset.failing !== "true";
+      });
+    }
+
+    checkbox.addEventListener("change", function () {
+      var next = new URLSearchParams(window.location.search);
+      if (checkbox.checked) next.set("failing", "1");
+      else next.delete("failing");
+      var query = next.toString();
+      window.history.replaceState({}, "", window.location.pathname + (query ? "?" + query : ""));
+      apply();
+    });
+    apply();
+  })();
+</script>

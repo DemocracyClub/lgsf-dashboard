@@ -111,47 +111,180 @@ $scope: false;
     @include utilities;
 }
 
-$DarkGray: rgba(220, 220, 220, 1);
+// Dashboard
 
-table {
-    border-collapse: collapse;
-    width: 100%;
+// Wide enough for a column per scraper type
+.ds-page main {
+    max-width: 75rem;
 }
-tbody tr {
-    border-left: 8px solid $DarkGray;
-    &.status-200 {
-        border-left-color: $greenForWhite;
+
+// Earlier releases of the design system sized the footer logo; 0.9.0
+// leaves it at the SVG's full width
+.ds-copyright img {
+    max-width: 15rem;
+    margin-bottom: 0.5rem;
+}
+
+$statusColours: (
+    "ok": $greenForWhite,
+    "failed": $redForWhite,
+    "rate_limited": $amber,
+    "disabled": #C6C5C6,
+);
+$notRun: #EBEBEB;
+
+// A run's status as a dot, beside a label saying the same
+.lgsf-dot {
+    display: inline-block;
+    flex: none;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background-color: $notRun;
+    @each $status, $colour in $statusColours {
+        &.status-#{$status} { background-color: $colour; }
     }
-    &.status-404 {
-        border-left-color: red;
+}
+
+.lgsf-state {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: $familyMain;
+    &.status-ok { color: $greenForWhite; }
+    &.status-failed { color: $redForWhite; }
+    &.status-disabled { color: #6B6A6C; }
+}
+
+// One bar per run, oldest first; a bar's height is the run's duration
+.lgsf-strip {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 24px;
+    > * {
+        display: block;
+        flex: none;
+        width: 9px;
+        min-height: 4px;
+        background-color: $notRun;
+        @each $status, $colour in $statusColours {
+            &.status-#{$status} { background-color: $colour; }
+        }
+        &.status-none { min-height: 3px; height: 3px !important; }
+    }
+    &.lgsf-strip-large {
+        height: 44px;
+        gap: 4px;
+        > * { width: 22px; }
     }
 }
 
-.run-graph {
-    display: table;
-}
-.run-graph > a {
-    width: 15px;
-    height: 30px;
-    background-color: $DarkGray;
-    vertical-align: bottom;
-    padding: 0 1px;
-    display: table-cell;
+.lgsf-key {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    align-items: center;
+    padding: 0;
+    list-style: none;
+    font-size: 0.7rem;
+    > * { display: inline-flex; align-items: center; gap: 0.35rem; }
 }
 
-.run-graph a .duration {
-    border-bottom: 4px darkgray solid;
-    height: 15px;
+.lgsf-trend {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 28px;
+    margin-top: 0.75rem;
+    > * {
+        display: block;
+        flex: 1;
+        background-color: #ADD3A2;
+        &.has-failures { background-color: $redForWhite; }
+        &.not-run { background-color: $notRun; }
+    }
 }
-.run-graph a.status-1 .duration {
-    background-color: red;
-    border-bottom-color: red;
-    border-top: 1px solid #666;
+
+.lgsf-cms-bar {
+    display: flex;
+    height: 0.6rem;
+    overflow: hidden;
+    background-color: $notRun;
+    > * { display: block; }
+    .ok { background-color: $greenForWhite; }
+    .failing { background-color: $redForWhite; }
+    .disabled { background-color: #C6C5C6; }
 }
-.run-graph a.status-0 .duration {
-    background-color: $greenForWhite;
-    border-bottom-color: $greenForWhite;
-    border-top: 1px solid #666;
+
+.ds-table .lgsf-compact {
+    th, td {
+        padding: 0.6rem 0.75rem;
+        font-size: 0.8rem;
+        vertical-align: middle;
+    }
+    th[scope="row"] {
+        text-align: left;
+        font-weight: 500;
+    }
+    .n {
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+    }
+}
+
+.ds-filter ul button {
+    font-family: $familyMain;
+    font-size: inherit;
+    color: $black;
+    background-color: $white;
+    padding: $ss3 $s1;
+    border: 2px solid;
+    cursor: pointer;
+    &[aria-pressed="true"] {
+        color: $white;
+        background-color: $pinkForWhite;
+        border-color: $pinkForWhite;
+    }
+}
+
+.lgsf-runs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    li + li { border-top: 1px solid $blackOpacity; }
+    .lgsf-current {
+        background-color: $blueLight;
+        border-left: 4px solid $pinkForWhite;
+    }
+    small {
+        display: block;
+        font-weight: 300;
+        margin-top: 0.2rem;
+    }
+}
+
+.lgsf-error {
+    display: block;
+    color: $redForWhite;
+    font-size: 0.7rem;
+    max-width: 20rem;
+    word-break: break-word;
+}
+
+pre.lgsf-log {
+    max-height: 16rem;
+    overflow: auto;
+    background-color: $black;
+    color: $white;
+    padding: 1rem;
+    font-size: 0.65rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
 }
 
 pre {
