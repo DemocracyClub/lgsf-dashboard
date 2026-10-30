@@ -29,12 +29,12 @@ nav: overview
           <li><span class="lgsf-dot status-rate_limited"></span>{{ type.rate_limited }} rate limited</li>
           <li><span class="lgsf-dot status-disabled"></span>{{ type.disabled }} disabled</li>
         </ul>
-        <div class="lgsf-trend" role="img" aria-label="Failures in each of the last {{ dashboard.runs.size }} runs">
+        <div class="lgsf-trend" role="img" aria-label="Failures on each of the last {{ type.trend.size }} days">
           {% for point in type.trend %}
             <span class="{% if point.ran == false %}not-run{% elsif point.failed > 0 %}has-failures{% endif %}" style="height: {{ point.height }}px" title="{{ point.title }}"></span>
           {% endfor %}
         </div>
-        <p style="font-size: 0.65rem; margin-top: 0.3rem; font-family: Montserrat, sans-serif">Failures per run, oldest first</p>
+        <p style="font-size: 0.65rem; margin-top: 0.3rem; font-family: Montserrat, sans-serif">Failures per day, oldest first</p>
       </div>
     </li>
   {% endfor %}
@@ -88,7 +88,7 @@ nav: overview
               {% if cell.none %}
                 <span style="font-size: 0.7rem">No scraper</span>
               {% else %}
-                <div class="lgsf-strip" role="img" aria-label="{{ cell.label }}: last {{ cell.bars.size }} runs">
+                <div class="lgsf-strip" role="img" aria-label="{{ cell.label }}: last {{ cell.bars.size }} days">
                   {% for bar in cell.bars %}<span class="status-{{ bar.status }}" style="height: {{ bar.pct }}%" title="{{ bar.title }}"></span>{% endfor %}
                 </div>
                 <div class="lgsf-state status-{{ cell.status }}" style="font-size: 0.7rem; margin-top: 0.3rem"><span class="lgsf-dot status-{{ cell.status }}"></span>{{ cell.status_text }}</div>

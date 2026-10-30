@@ -4,7 +4,14 @@ Build the dashboard's data from LGSF's run reports.
 Each run of the LGSF state machine writes one report to S3, with an entry
 per council and scraper type it ran. A run can cover any mix of types: the
 scheduled run does every daily type, a run on request just the ones it
-names. LGSF keeps the last 10 reports.
+names. Runs of scrapers kept off AWS, on another machine, write the same
+kind of report. LGSF keeps the last 40.
+
+A council's history is by day (UTC), not by report: a day's bar is its
+last run of that day, whichever report it was in. Otherwise a run of a
+few councils, on request or off AWS, would take a bar of its own from
+every council and become everyone's latest run. Each run still has its
+own page.
 
 This writes:
 
@@ -31,8 +38,11 @@ S3_BUCKET = "lgsf-run-artifacts-dev"
 S3_RUN_REPORTS_PREFIX = "run-reports/"
 LOCAL_REPORTS_DIR = os.environ.get("LGSF_REPORTS_DIR")
 
-# How many reports to read. LGSF keeps 10.
-RUNS_TO_READ = 10
+# How many reports to read. LGSF keeps 40 (REPORTS_KEPT in lgsf/run_reports.py).
+RUNS_TO_READ = 40
+
+# How many days of history to show
+DAYS_SHOWN = 10
 
 # The GitHub account holding each council's data repository, named by its
 # council ID. Unset, the dashboard shows commits without linking them.
@@ -225,6 +235,7 @@ def build_run(source, key: str, report: dict) -> tuple[dict, list[dict]]:
         "started": format_time(started),
         "finished": timestamp.strftime("%H:%M") if timestamp else "",
         "day": format_day(started),
+        "date": started.date().isoformat() if started else "",
         "types": types,
         "type_labels": ", ".join(type_label(t) for t in types),
         "councils": len({e["council_id"] for e in entries}),
@@ -255,50 +266,78 @@ def build_run(source, key: str, report: dict) -> tuple[dict, list[dict]]:
     return run, entries
 
 
-def build_history(runs: list[dict], slots: list[Optional[dict]], scale: float) -> dict:
+def group_by_day(runs: list[dict], entries_by_run: list[list[dict]]) -> list[dict]:
     """
-    One council's history for one type: a slot per run, None where this
-    run didn't scrape it, oldest first.
+    The last DAYS_SHOWN days with runs, oldest first. Each has its runs, and
+    for each council and type the day's last run of it, as (run, entry).
+    runs must be oldest first.
+    """
+    days = {}
+    for run, entries in zip(runs, entries_by_run):
+        day = days.setdefault(
+            run["date"], {"date": run["date"], "day": run["day"], "runs": [], "last": {}}
+        )
+        day["runs"].append(run)
+        for e in entries:
+            # A later run of the same scraper that day replaces it
+            day["last"][(e["council_id"], e["scraper_type"])] = (run, e)
+    return sorted(days.values(), key=lambda d: d["date"])[-DAYS_SHOWN:]
+
+
+def history_entry(run: dict, entry: dict) -> dict:
+    """One run of a council's scraper, as its page lists it."""
+    return {
+        **entry,
+        "anchor": f"{entry['scraper_type']}-{run['id']}",
+        "run_id_slug": run["id"],
+        "day": run["day"],
+        "when": run["started"],
+        "duration": round(entry["duration"] or 0),
+        "status_label": STATUS_LABELS[entry["status"]],
+    }
+
+
+def build_history(
+    days: list[dict],
+    slots: list[Optional[tuple]],
+    every_run: list[tuple],
+    scale: float,
+) -> dict:
+    """
+    One council's history for one type: a bar per day, oldest first, for
+    that day's last run of it (None where it wasn't run that day), and its
+    status as of the latest. every_run is each (run, entry), oldest first,
+    for the council's page, which lists them all.
     """
     bars = []
-    history = []
-    for run, slot in zip(runs, slots):
+    daily = []
+    for day, slot in zip(days, slots):
         if slot is None:
-            bars.append({"status": "none", "pct": 0, "title": f"{run['day']}: not run"})
+            bars.append({"status": "none", "pct": 0, "title": f"{day['day']}: not run"})
             continue
-        duration = round(slot["duration"] or 0)
-        anchor = f"{slot['scraper_type']}-{run['id']}"
+        entry = history_entry(*slot)
+        duration = entry["duration"]
         bars.append(
             {
-                "status": slot["status"],
+                "status": entry["status"],
                 "pct": min(100, round(duration / scale * 100)) if duration else 0,
-                "title": f"{run['day']}: {STATUS_LABELS[slot['status']]}"
+                "title": f"{day['day']}: {STATUS_LABELS[entry['status']]}"
                 + (f", {duration}s" if duration else ""),
-                "anchor": anchor,
+                "anchor": entry["anchor"],
             }
         )
-        history.append(
-            {
-                **slot,
-                "anchor": anchor,
-                "run_id_slug": run["id"],
-                "day": run["day"],
-                "when": run["started"],
-                "duration": duration,
-                "status_label": STATUS_LABELS[slot["status"]],
-            }
-        )
+        daily.append(entry)
 
-    latest = history[-1]
+    latest = daily[-1]
     streak = 0
-    for past in reversed(history):
+    for past in reversed(daily):
         if past["status"] != latest["status"]:
             break
         streak += 1
 
     label = STATUS_LABELS[latest["status"]]
     if latest["status"] == "failed" and streak > 1:
-        label = f"Failed {streak} runs in a row"
+        label = f"Failed {streak} days in a row"
     if slots[-1] is None:
         label = f"{label}, last ran {latest['day']}"
 
@@ -309,8 +348,8 @@ def build_history(runs: list[dict], slots: list[Optional[dict]], scale: float) -
         "streak": streak,
         "error": latest["error"] if latest["status"] != "ok" else "",
         "bars": bars,
-        # Newest first, for the council page
-        "runs": list(reversed(history)),
+        # Every run, newest first, for the council page
+        "runs": [history_entry(run, e) for run, e in reversed(every_run)],
     }
 
 
@@ -356,6 +395,12 @@ def main():
     entries_by_run = [entries_by_run[i] for i in order]
     print(f"Found {len(runs)} run reports")
 
+    days = group_by_day(runs, entries_by_run)
+    shown = {run["id"] for day in days for run in day["runs"]}
+    entries_by_run = [e for run, e in zip(runs, entries_by_run) if run["id"] in shown]
+    runs = [run for run in runs if run["id"] in shown]
+    print(f"Showing {len(days)} days: {len(runs)} runs")
+
     services = load_services(DATA_DIR / "services.csv")
 
     types = ordered_types({t for run in runs for t in run["types"]})
@@ -381,10 +426,12 @@ def main():
         ]
         scales[scraper_type] = max([SCALE_FLOOR_SECONDS] + durations)
 
-    lookup = {}
-    for index, entries in enumerate(entries_by_run):
+    every_run = {}
+    for run, entries in zip(runs, entries_by_run):
         for e in entries:
-            lookup[(e["council_id"], e["scraper_type"], index)] = e
+            every_run.setdefault((e["council_id"], e["scraper_type"]), []).append(
+                (run, e)
+            )
 
     councils = []
     for council_id in council_ids:
@@ -392,13 +439,15 @@ def main():
         histories = {}
         cells = []
         for scraper_type in types:
-            slots = [lookup.get((council_id, scraper_type, i)) for i in range(len(runs))]
+            slots = [day["last"].get((council_id, scraper_type)) for day in days]
             if not any(slots):
                 histories[scraper_type] = None
                 cells.append({"type": scraper_type, "none": True})
                 continue
             service = services.get((council_id, scraper_type), councillors_service)
-            history = build_history(runs, slots, scales[scraper_type])
+            history = build_history(
+                days, slots, every_run[(council_id, scraper_type)], scales[scraper_type]
+            )
             for past in history["runs"]:
                 past["commit_url"] = (
                     f"https://github.com/{DATA_REPO_OWNER}/{council_id}/commit/{past['commit']}"
@@ -441,15 +490,18 @@ def main():
         last_run = type_runs[-1]
 
         trend = []
-        for run in runs:
-            summary = next((s for s in run["summary"] if s["type"] == scraper_type), None)
-            failed = (summary["failed"] + summary["rate_limited"]) if summary else 0
+        for day in days:
+            # Each council's last run of this type that day
+            statuses = [
+                e["status"] for (_, t), (_, e) in day["last"].items() if t == scraper_type
+            ]
+            failed = sum(1 for s in statuses if s in ("failed", "rate_limited"))
             trend.append(
                 {
-                    "ran": bool(summary),
+                    "ran": bool(statuses),
                     "failed": failed,
-                    "height": 4 + min(failed, 10) * 2.4 if summary else 2,
-                    "title": f"{run['day']}: {failed} failed" if summary else f"{run['day']}: not run",
+                    "height": 4 + min(failed, 10) * 2.4 if statuses else 2,
+                    "title": f"{day['day']}: {failed} failed" if statuses else f"{day['day']}: not run",
                 }
             )
 
